@@ -1,0 +1,51 @@
+{
+  "changes": [
+    {"id": "nerc2022dec-J", "field": "primary", "current": "bits-xor", "proposed": "graph-constructive",
+     "reason": "No Gaussian elimination: one linear congruence per biconnected block fixes S, then the core is constructing 'transfers' between spanning trees along DFS base cycles (tutorial).", "severity": "major"},
+    {"id": "nerc2022dec-J", "field": "secondary", "current": ["dfs-tree-bridges"], "proposed": ["dfs-tree-bridges", "gcd-modular"],
+     "reason": "Solving (k-1)S = T mod p per block is a linear congruence mod p.", "severity": "minor"},
+    {"id": "nerc2024-G", "field": "primary", "current": "hashing", "proposed": "simulation",
+     "reason": "Tutorial uses no hashing: merge collinear segments, rotate by 45/90/180, translate and compare sorted segment sets; it is a careful-implementation geometry problem.", "severity": "major"},
+    {"id": "nerc2022dec-B", "field": "primary", "current": "randomized", "proposed": "hashing",
+     "reason": "The solution itself is deterministic apart from the hash; the tool to know is set hashing (sum of random values via prefix sums). Randomness is a property of the input.", "severity": "major"},
+    {"id": "nerc2022dec-B", "field": "secondary", "current": ["hashing", "divide-conquer"], "proposed": ["randomized", "divide-conquer"],
+     "reason": "Follows the primary swap; the probabilistic root argument stays as secondary.", "severity": "minor"},
+    {"id": "nerc2022dec-E", "field": "primary", "current": "greedy-incremental", "proposed": "observation-invariant",
+     "reason": "No step-by-step greedy: the answer is the count of adjacent non-consecutive ranks (forced splits) plus n+s-1 combines, a pure counting observation.", "severity": "major"},
+    {"id": "nerc2022dec-E", "field": "secondary", "current": ["observation-invariant"], "proposed": [],
+     "reason": "Follows the primary swap.", "severity": "minor"},
+    {"id": "apac2024-E", "field": "primary", "current": "greedy-incremental", "proposed": "constructive",
+     "reason": "Textbook 'lower bound max(colorful rows, colorful cols) + construction that reaches it', which is exactly the constructive topic's description.", "severity": "major"},
+    {"id": "apac2024-E", "field": "secondary", "current": ["constructive"], "proposed": ["greedy-incremental"],
+     "reason": "Follows the primary swap.", "severity": "minor"},
+    {"id": "apac2025-G", "field": "primary", "current": "two-pointers", "proposed": "string-adhoc",
+     "reason": "The crux is the run-length characterization (runs shrink, a 0 can swallow 1-runs); the single pointer during greedy matching is incidental.", "severity": "major"},
+    {"id": "apac2025-G", "field": "secondary", "current": ["string-adhoc"], "proposed": ["two-pointers"],
+     "reason": "Follows the primary swap.", "severity": "minor"},
+    {"id": "nerc2019-B", "field": "secondary", "current": ["kmp-palindromes"], "proposed": [],
+     "reason": "The symmetric run check is a trivial loop over runs; no palindrome algorithm (Manacher/KMP) needed.", "severity": "minor"},
+    {"id": "nerc2019-J", "field": "secondary", "current": ["divisors-sieve"], "proposed": [],
+     "reason": "No divisors or sieve: the bound is just k*f_1 <= n (brute-force amortized bound already covers it).", "severity": "minor"},
+    {"id": "nerc2019-K", "field": "secondary", "current": ["permutation-cycles"], "proposed": [],
+     "reason": "Counts multiset orderings (factorial number system); no permutation cycles or functional graph involved.", "severity": "minor"},
+    {"id": "nerc2023-B", "field": "secondary", "current": ["exchange-argument"], "proposed": ["closed-form"],
+     "reason": "Balanced group sizes come from convexity of x(x-1)/2, not from ordering by a key; closed-form lists convexity.", "severity": "minor"},
+    {"id": "nerc2022apr-H", "field": "secondary", "current": ["convex-hull"], "proposed": ["convex-hull", "gcd-modular"],
+     "reason": "The hull of lattice points under y=floor(d*i/hp) is found with continued fractions (Euclid-like), a needed technique named in the key idea.", "severity": "minor"},
+    {"id": "nerc2022dec-F", "field": "key_idea", "current": "Casos: n=1 forçado; se a+b < n usar 1:0, 0:1 e 0:0; senão concentrar o excesso de gols numa partida 1:0/0:1 e o resto sem empate.",
+     "proposed": "Casos: n=1 forçado; se a+b < n usar 1:0, 0:1 e 0:0; senão reservar duas partidas x:0 e 0:y que absorvem o excesso de gols e fazer o resto 1:0 ou 0:1, sem empates.",
+     "reason": "Tutorial absorbs the excess in two matches (x:0 and 0:y), not one.", "severity": "minor"}
+  ],
+  "topic_notes": [
+    {"topic": "hashing", "note": "'canonical form' in includes pulls in problems that canonicalize and compare sorted sets without any hashing (nerc2024-G). Consider moving 'canonical form' out or saying 'forma canônica + hash' explicitly."},
+    {"topic": "bits-xor", "note": "'linear algebra mod p' attracted nerc2022dec-J, which needs only one linear congruence. Reserve it for real Gaussian elimination / basis / rank problems (apac2024-L fits)."},
+    {"topic": "closed-form", "note": "Becoming a catch-all for 'math with a formula': water-filling convex optimization (nerc2022apr-B), sign assignment of |x_i - x_j| (nerc2025-E), cycle recurrence with a free parameter (nerc2025-G), inequalities (nerc2025-A). Acceptable, but a 'convexity / convex optimization (marginal equalization, slope trick, convex hull of prefix sums)' topic would better serve nerc2022apr-B, nerc2022apr-H and nerc2023-B if other scopes show more of these."},
+    {"topic": "simulation", "note": "Pure implementation problems are scattered across parsing-brackets (nerc2021-A, nerc2024-E) and hashing (nerc2024-G). Renaming to 'Implementação/simulação cuidadosa' would give them a clear home and make the topic's stats more meaningful."},
+    {"topic": "dfs-tree-bridges", "note": "Cactus graphs recur almost every NERC (2019-C, 2021-C, 2022dec-C, 2023-C, 2024-C, 2025-C) plus apac2025-C; they are split between dfs-tree-bridges and graph-constructive by primary. Consider naming 'cactos' in the dashboard topic name so this recurring NERC theme shows up."},
+    {"topic": "randomized", "note": "Use for algorithms that randomize themselves (nerc2022dec-A, nerc2021-I). Random input with deterministic hashing (nerc2022dec-B) belongs under hashing."}
+  ],
+  "raw_notes": [
+    {"id": "nerc2024-G", "note": "candidate_tags list 'hashing', but the tutorial uses none: merge consecutive same-direction segments, rotate by 45/90/180, translate so the smallest endpoint matches, and compare sorted segment sets. Replace 'hashing' with 'implementation'."},
+    {"id": "nerc2022dec-J", "note": "candidate tag 'linear algebra mod p' overstates it: the algebra is one congruence (n_block-1)*S = T mod p per biconnected block. The rest is constructive transfers (+x on T1, -x on T2 = T1 - e1 + e2) along DFS base cycles, processed by decreasing depth."}
+  ]
+}

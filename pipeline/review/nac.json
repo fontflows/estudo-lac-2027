@@ -1,0 +1,29 @@
+{
+  "changes": [
+    {"id": "nac2026-B", "field": "primary", "current": "binary-search-answer", "proposed": "graph-coloring-2sat-euler",
+     "reason": "Official slides: the whole difficulty is modeling the timeline mod d as a multigraph where a valid parry plan = Eulerian trail (degree balance + connectivity); binary search on t is a routine wrapper (bonus solution even avoids it with online DSU). Greedy orders explicitly fail.", "severity": "major"},
+    {"id": "nac2026-B", "field": "secondary", "current": ["graph-coloring-2sat-euler"], "proposed": ["binary-search-answer"],
+     "reason": "Swap with primary.", "severity": "minor"},
+    {"id": "nac2024-C", "field": "primary", "current": "parsing-brackets", "proposed": "brute-force",
+     "reason": "Parsing to a truth table is a preliminary step; the solution hinges on bounding useful statements to 16k^2 and then brute-forcing all 4^k pairs (bitsets for the 8^k transitivity count), i.e. bounded enumeration.", "severity": "major"},
+    {"id": "nac2024-C", "field": "secondary", "current": ["brute-force"], "proposed": ["parsing-brackets", "bits-xor"],
+     "reason": "Parsing still required; bitset/popcount trick for transitivity is the other needed technique.", "severity": "minor"},
+    {"id": "nac2023-G", "field": "secondary", "current": ["two-pointers", "monotonic-stack"], "proposed": ["two-pointers"],
+     "reason": "The 'sorted stack' is just a LIFO of months with unpaid flights (pop most recent); no next-greater/monotone-value technique involved (editorial: a segtree or BST also works).", "severity": "minor"},
+    {"id": "nac2026-L", "field": "secondary", "current": ["permutation-cycles", "binary-search-answer"], "proposed": ["permutation-cycles"],
+     "reason": "Bisection over current cycles inside an interactive protocol is already covered by the 'interactive' topic (includes bisection); it is not binary search on the answer.", "severity": "minor"},
+    {"id": "nac2024-H", "field": "secondary", "current": ["sweep-line"], "proposed": [],
+     "reason": "Online insert/delete of intervals into a coverage segtree; there is no event sweep (editorial only notes it is the same DS used in union-of-rectangles).", "severity": "minor"}
+  ],
+  "topic_notes": [
+    {"topic": "binary-search-answer", "note": "Tends to be picked as primary whenever a solution starts with 'binary search on t'. Rule of thumb: primary only if the check is routine (greedy/count); if the check needs a real modeling idea (Eulerian trail in nac2026-B) that idea is primary and BS is secondary. Also avoid it as secondary for bisection inside interactive problems (already in 'interactive')."},
+    {"topic": "bipartite-matching", "note": "Name says 'bipartido' but includes blossom; nac2021-H (Special Cycle) is general matching via Edmonds. Consider naming 'Emparelhamento (bipartido e geral)' so the dashboard label matches."},
+    {"topic": "centroid-small-to-large", "note": "Lives in area 'trees' but nac2025-E uses the array version (fix the max via monotonic stack, iterate over the smaller side → O(n log n)). Add 'divide pelo máximo, iterar pelo lado menor (arrays)' to description/includes so array uses are not surprising."},
+    {"topic": "new", "note": "Bitset speedups recur in NAC without a natural home: nac2021-K (bitset + _Find_first over losing states), nac2024-C (popcount of row_y & ~row_x), nac2024-M (bitset reachability, iterate set bits). Not worth a new topic, but add 'bitset optimization' to includes of brute-force (or bits-xor) so classifiers have a target besides dp-linear."},
+    {"topic": "shortest-paths", "note": "Description covers Dijkstra variants but not Dijkstra on product/pair-of-states graphs (nac2022-K Transparency: Dijkstra over pairs of DFA states). Add 'product graph / pairs of states' to includes to separate it cleanly from graph-traversal-states (BFS)."}
+  ],
+  "raw_notes": [
+    {"id": "nac2022", "note": "All 13 NAC 2022 solution_ideas were spot-checked against the judges' accepted code in downloads/nac/vanb22 (A, D, E, H, I, K, L, M read in detail): consistent. solution_source 'editorial' is acceptable (official judge code) but there are no slides. nac2022-E: judges restrict values to squarefree products of small primes (MAXV 6400) rather than the '~2n' bound in the raw idea; both bounds are valid, the squarefree observation is the sharper one."},
+    {"id": "nac2025-M", "note": "Editorial does not mention Euclid; it says: for N=3 with stable order apply k rounds in closed form [a, b-ka, c-kb+k(k+1)/2·a], jumping ~min(b/a, c/b) rounds until order changes, then re-sort. 'Euclid-like' is a fair analogy (b-ka is a mod step) but not the official wording."}
+  ]
+}

@@ -1,0 +1,653 @@
+{
+  "source": "latam_regional_2024_2025",
+  "contests": [
+    {
+      "id": "latam_regional2024",
+      "family": "latam_regional",
+      "name": "2024-2025 ICPC Latin American Regional Programming Contest",
+      "short": "LATAM Regional 2024",
+      "year": 2024,
+      "date": "2024-11-09",
+      "links": {
+        "scoreboard": "https://scorelatam.naquadah.com.br/latam-2024/",
+        "statements": "https://scorelatam.naquadah.com.br/latam-2024/contest.pdf",
+        "editorial": "https://scorelatam.naquadah.com.br/latam-2024/icpcla24_solution_sketches.pdf",
+        "mirror": "https://codeforces.com/gym/105505",
+        "kattis": null
+      },
+      "notes": "Counts from the 'Global' sub-scoreboard (sitegroup 1) of the BOCA final scoreboard: 490 official teams over all Latin American sites; the 26 CCL guest teams (only in 'Global+CCL') excluded. B and C unsolved by official teams.",
+      "total_teams": 490
+    },
+    {
+      "id": "latam_regional2025",
+      "family": "latam_regional",
+      "name": "2025-2026 ICPC Latin American Regional Programming Contest",
+      "short": "LATAM Regional 2025",
+      "year": 2025,
+      "date": "2025-11-08",
+      "links": {
+        "scoreboard": "https://scorelatam.naquadah.com.br/latam-2025/",
+        "statements": "https://scorelatam.naquadah.com.br/latam-2025/contest.pdf",
+        "editorial": null,
+        "mirror": "https://codeforces.com/gym/106178",
+        "kattis": null
+      },
+      "notes": "Counts from the 'Global' sub-scoreboard (sitegroup 1): 558 official teams (matches the organizers' '558 official teams'); 'Global+CCL' has 593 rows: 34 CCL guests plus one team (teamcbpr003) not listed in Global, all excluded. D and G unsolved by official teams. No official editorial published (scorelatam link commented out/404), so solution ideas are own analysis (solution_source='own'), except F and I, checked against sketches in the CF gym thread (blog entry 148306, via web.archive.org). The scorelatam contest-packages.tar for this contest contains no jury solutions.",
+      "total_teams": 558
+    }
+  ],
+  "problems": [
+    {
+      "id": "latam_regional2024-A",
+      "contest": "latam_regional2024",
+      "letter": "A",
+      "title": "Append and Panic!",
+      "solved_teams": 474,
+      "attempted_teams": 483,
+      "first_solve_min": 2,
+      "links": {
+        "mirror": "https://codeforces.com/gym/105505/problem/A",
+        "kattis": null,
+        "statement": "https://scorelatam.naquadah.com.br/latam-2024/contest.pdf"
+      },
+      "statement_summary": "A string t was followed by its sorted, duplicate-free version; given the concatenation (|S|<=2000) recover |t|.",
+      "solution_idea": "The appended part has exactly one copy of each distinct letter, so |t| = |S| - (#distinct letters). O(|S|).",
+      "solution_source": "editorial",
+      "candidate_tags": [
+        "strings",
+        "counting",
+        "ad hoc"
+      ],
+      "cf_tags": [],
+      "cf_rating": null
+    },
+    {
+      "id": "latam_regional2024-B",
+      "contest": "latam_regional2024",
+      "letter": "B",
+      "title": "Biketopia's Cyclic Track",
+      "solved_teams": 0,
+      "attempted_teams": 9,
+      "first_solve_min": null,
+      "links": {
+        "mirror": "https://codeforces.com/gym/105505/problem/B",
+        "kattis": null,
+        "statement": "https://scorelatam.naquadah.com.br/latam-2024/contest.pdf"
+      },
+      "statement_summary": "Connected simple graph (N<=2e5, M<=3e5) with all degrees >= 3; find a cycle whose edges can be removed while keeping the graph connected.",
+      "solution_idea": "Always possible: build a DFS tree, choose the back edge xy maximizing min(depth) of its endpoints (x ancestor of y) and take it with the tree path x..y. Degree >= 3 guarantees every cycle vertex has another edge that leads (possibly down to a leaf and through a back edge) above x. O(N+M).",
+      "solution_source": "editorial",
+      "candidate_tags": [
+        "dfs tree",
+        "back edges",
+        "graph connectivity",
+        "constructive proof",
+        "cycles"
+      ],
+      "cf_tags": [],
+      "cf_rating": null
+    },
+    {
+      "id": "latam_regional2024-C",
+      "contest": "latam_regional2024",
+      "letter": "C",
+      "title": "Cindy's Christmas Challenge",
+      "solved_teams": 0,
+      "attempted_teams": 6,
+      "first_solve_min": null,
+      "links": {
+        "mirror": "https://codeforces.com/gym/105505/problem/C",
+        "kattis": null,
+        "statement": "https://scorelatam.naquadah.com.br/latam-2024/contest.pdf"
+      },
+      "statement_summary": "Given R, B and a string S over {R,B,G} (|S|<=5e5), answer W<=1e5 queries: edit distance between r^R b^B and substring S[L..U].",
+      "solution_idea": "Edit distance to a unary string has a closed form d(a^x,S)=max(|S|-x,0)+max(x-cnt_a(S),0); split S at m into an r-part and a b-part and minimize over m. Each of the four max-terms switches on/off monotonically in m, so binary search the switch points, and on each resulting segment minimize a fixed sum of linear prefix-count terms with one of 16 RMQ structures (sparse tables). O((|S|+W) log |S|).",
+      "solution_source": "editorial",
+      "candidate_tags": [
+        "edit distance closed form",
+        "prefix sums",
+        "range minimum query",
+        "sparse table",
+        "binary search on monotone terms"
+      ],
+      "cf_tags": [],
+      "cf_rating": null
+    },
+    {
+      "id": "latam_regional2024-D",
+      "contest": "latam_regional2024",
+      "letter": "D",
+      "title": "Diverse T-Shirts",
+      "solved_teams": 7,
+      "attempted_teams": 87,
+      "first_solve_min": 85,
+      "links": {
+        "mirror": "https://codeforces.com/gym/105505/problem/D",
+        "kattis": null,
+        "statement": "https://scorelatam.naquadah.com.br/latam-2024/contest.pdf"
+      },
+      "statement_summary": "Given the N x N \"shares a color\" adjacency matrix of N<=1000 T-shirt models (text color, background color), find the maximum number of models with pairwise distinct colors.",
+      "solution_idea": "The graph is the line graph of a bipartite graph (colors = nodes, models = edges); reconstruct it by greedily enumerating maximal cliques (line graphs of bipartite graphs are diamond-free, so each edge lies in one maximal clique), then the answer is a maximum bipartite matching. O(N^2) + matching.",
+      "solution_source": "editorial",
+      "candidate_tags": [
+        "line graph reconstruction",
+        "maximal cliques",
+        "bipartite matching",
+        "maximum independent set in line graph"
+      ],
+      "cf_tags": [],
+      "cf_rating": null
+    },
+    {
+      "id": "latam_regional2024-E",
+      "contest": "latam_regional2024",
+      "letter": "E",
+      "title": "Evereth Expedition",
+      "solved_teams": 11,
+      "attempted_teams": 110,
+      "first_solve_min": 108,
+      "links": {
+        "mirror": "https://codeforces.com/gym/105505/problem/E",
+        "kattis": null,
+        "statement": "https://scorelatam.naquadah.com.br/latam-2024/contest.pdf"
+      },
+      "statement_summary": "Complete a partially known permutation (zeros = unknown, N<=1e5) into a strictly increasing then strictly decreasing (mountain) permutation, or report impossible.",
+      "solution_idea": "In a mountain permutation value 1 is at an end, and removing it leaves a mountain; so place values 1,2,3,... greedily at the left or right end. When both ends are unknown, compare the nearest known values from each side and put the small value on the side with the smaller neighbor (tie: shorter gap); exchange argument. O(N). (Alternative: max flow over blocks of zeros.)",
+      "solution_source": "editorial",
+      "candidate_tags": [
+        "greedy",
+        "two pointers",
+        "permutations",
+        "exchange argument",
+        "constructive"
+      ],
+      "cf_tags": [],
+      "cf_rating": null
+    },
+    {
+      "id": "latam_regional2024-F",
+      "contest": "latam_regional2024",
+      "letter": "F",
+      "title": "Finding Privacy",
+      "solved_teams": 303,
+      "attempted_teams": 452,
+      "first_solve_min": 13,
+      "links": {
+        "mirror": "https://codeforces.com/gym/105505/problem/F",
+        "kattis": null,
+        "statement": "https://scorelatam.naquadah.com.br/latam-2024/contest.pdf"
+      },
+      "statement_summary": "K people choose toilets in a row of N so that nobody is adjacent to another and no additional person could fit; output a valid occupancy or *.",
+      "solution_idea": "This is a maximal independent set of size K in a path: possible iff ceil(N/3) <= K <= ceil(N/2). Build it from blocks \"X-\" (n2 = 3K-N) and \"-X-\" (n3 = N-2K), special case N = 2K-1 ending with \"X\". O(N).",
+      "solution_source": "editorial",
+      "candidate_tags": [
+        "constructive",
+        "math",
+        "maximal independent set",
+        "greedy"
+      ],
+      "cf_tags": [],
+      "cf_rating": null
+    },
+    {
+      "id": "latam_regional2024-G",
+      "contest": "latam_regional2024",
+      "letter": "G",
+      "title": "Grand Glory Race",
+      "solved_teams": 16,
+      "attempted_teams": 27,
+      "first_solve_min": 95,
+      "links": {
+        "mirror": "https://codeforces.com/gym/105505/problem/G",
+        "kattis": null,
+        "statement": "https://scorelatam.naquadah.com.br/latam-2024/contest.pdf"
+      },
+      "statement_summary": "Runners start at every leaf of a weighted tree (N,Q<=1e5) and run toward a finish vertex T; each vertex is claimed by the first runner to reach it (ties to smaller id). Queries (S,T): how many vertices leaf S claims.",
+      "solution_idea": "For a fixed root each vertex is claimed by the nearest leaf in its subtree; compute best and second-best leaf (from different children) per vertex and reroot the tree with DFS, updating only the two vertices whose claims change when the root moves to a neighbor, maintaining claimed counts per leaf and answering queries offline at their root. O(N+Q) (online: LCA + binary lifting).",
+      "solution_source": "editorial",
+      "candidate_tags": [
+        "tree rerooting",
+        "dfs",
+        "offline queries",
+        "nearest leaf",
+        "tree dp"
+      ],
+      "cf_tags": [],
+      "cf_rating": null
+    },
+    {
+      "id": "latam_regional2024-H",
+      "contest": "latam_regional2024",
+      "letter": "H",
+      "title": "Heraclosures",
+      "solved_teams": 1,
+      "attempted_teams": 13,
+      "first_solve_min": 210,
+      "links": {
+        "mirror": "https://codeforces.com/gym/105505/problem/H",
+        "kattis": null,
+        "statement": "https://scorelatam.naquadah.com.br/latam-2024/contest.pdf"
+      },
+      "statement_summary": "DAG of N<=8000 functions with M<=8000 calls; T(i) = B_i + sum of T over callees. Process E<=1e6 events: update B_i or query T(i).",
+      "solution_idea": "Sqrt decomposition over the event list: every k updates recompute all T in O(M) by topological order; a query is corrected by the pending updates using C(x,y) = number of call paths x->y (N x N matrix precomputed by DP in O(N M)). Choose k ~ sqrt(M). O(NM + E sqrt M).",
+      "solution_source": "editorial",
+      "candidate_tags": [
+        "sqrt decomposition on queries",
+        "dag path counting",
+        "topological order dp",
+        "batch rebuild"
+      ],
+      "cf_tags": [],
+      "cf_rating": null
+    },
+    {
+      "id": "latam_regional2024-I",
+      "contest": "latam_regional2024",
+      "letter": "I",
+      "title": "Inversion Insight",
+      "solved_teams": 2,
+      "attempted_teams": 7,
+      "first_solve_min": 171,
+      "links": {
+        "mirror": "https://codeforces.com/gym/105505/problem/I",
+        "kattis": null,
+        "statement": "https://scorelatam.naquadah.com.br/latam-2024/contest.pdf"
+      },
+      "statement_summary": "Permutations of 1..N (N<=2e5) are sorted by number of inversions, then lexicographically; output the K-th (K<=4e18).",
+      "solution_idea": "f(n,x) = #permutations of n with x inversions via prefix-sum DP, capped at K+1 to avoid overflow; since f grows very fast, x stays tiny (<15 for n>100). Find x, then build the permutation lexicographically by choosing each next element with counts f(n-1, x-i). O(n x).",
+      "solution_source": "editorial",
+      "candidate_tags": [
+        "combinatorics",
+        "counting dp",
+        "k-th lexicographic object",
+        "inversions",
+        "overflow capping"
+      ],
+      "cf_tags": [],
+      "cf_rating": null
+    },
+    {
+      "id": "latam_regional2024-J",
+      "contest": "latam_regional2024",
+      "letter": "J",
+      "title": "Jigsaw of Shadows",
+      "solved_teams": 243,
+      "attempted_teams": 358,
+      "first_solve_min": 16,
+      "links": {
+        "mirror": "https://codeforces.com/gym/105505/problem/J",
+        "kattis": null,
+        "statement": "https://scorelatam.naquadah.com.br/latam-2024/contest.pdf"
+      },
+      "statement_summary": "N people at positions X with heights H cast shadows of length H*cot(theta) to the east; compute the total length of road covered by shadows.",
+      "solution_idea": "Each shadow is the interval [X, X + H cot theta]; sort by X and compute the length of the union of intervals. O(N log N).",
+      "solution_source": "editorial",
+      "candidate_tags": [
+        "sorting",
+        "union of intervals",
+        "trigonometry",
+        "sweep line"
+      ],
+      "cf_tags": [],
+      "cf_rating": null
+    },
+    {
+      "id": "latam_regional2024-K",
+      "contest": "latam_regional2024",
+      "letter": "K",
+      "title": "Kool Strings",
+      "solved_teams": 202,
+      "attempted_teams": 388,
+      "first_solve_min": 20,
+      "links": {
+        "mirror": "https://codeforces.com/gym/105505/problem/K",
+        "kattis": null,
+        "statement": "https://scorelatam.naquadah.com.br/latam-2024/contest.pdf"
+      },
+      "statement_summary": "Flip the minimum number of bits of a binary string (|S|<=1e5) so that it has no K consecutive equal characters; output the string.",
+      "solution_idea": "Lower bound sum over runs of floor(len/K). For K>2 flip every K-th bit inside each run, shifting the last flip of runs whose length is divisible by K so run endpoints are never flipped (runs stay independent); for K=2 compare the two alternating strings. O(N).",
+      "solution_source": "editorial",
+      "candidate_tags": [
+        "greedy",
+        "strings",
+        "runs",
+        "constructive",
+        "corner cases"
+      ],
+      "cf_tags": [],
+      "cf_rating": null
+    },
+    {
+      "id": "latam_regional2024-L",
+      "contest": "latam_regional2024",
+      "letter": "L",
+      "title": "Latin Squares",
+      "solved_teams": 7,
+      "attempted_teams": 67,
+      "first_solve_min": 100,
+      "links": {
+        "mirror": "https://codeforces.com/gym/105505/problem/L",
+        "kattis": null,
+        "statement": "https://scorelatam.naquadah.com.br/latam-2024/contest.pdf"
+      },
+      "statement_summary": "Given T row/column swaps on an N x N matrix (N<=500), find a Latin square that is unchanged by the sequence, or report none exists.",
+      "solution_idea": "The swaps induce permutations r (rows) and c (columns); we need M[i][j] = M[r(i)][c(j)]. All cycles of r and c must have the same length S (otherwise a row repeats a value). Relabel so cycles are consecutive blocks and fill a \"Latin square of Latin squares\": S x S cyclic blocks, block (i,j) using symbols k*S+1..k*S+S with k = (i+j) mod (N/S). O(N^2 + T).",
+      "solution_source": "editorial",
+      "candidate_tags": [
+        "permutation cycles",
+        "constructive",
+        "latin squares",
+        "group action invariance"
+      ],
+      "cf_tags": [],
+      "cf_rating": null
+    },
+    {
+      "id": "latam_regional2025-A",
+      "contest": "latam_regional2025",
+      "letter": "A",
+      "title": "Apple Pie",
+      "solved_teams": 20,
+      "attempted_teams": 67,
+      "first_solve_min": 87,
+      "links": {
+        "mirror": "https://codeforces.com/gym/106178/problem/A",
+        "kattis": null,
+        "statement": "https://scorelatam.naquadah.com.br/latam-2025/contest.pdf"
+      },
+      "statement_summary": "A valid sequence lists 1..N (N<=1000) so that every unordered pair appears adjacent exactly once; given a known prefix and suffix (middle hidden), decide whether the full sequence could be valid.",
+      "solution_idea": "A valid sequence is an Eulerian trail of the complete graph K_N (exists only for N odd or N=2). Check the visible parts use no repeated pair and no equal neighbours, then the unused edges (K_N minus used, length limits included) must form a trail from the last prefix value to the first suffix value: degree-parity condition plus connectivity of the remaining edges (BFS on the complement, O(N^2)).",
+      "solution_source": "own",
+      "candidate_tags": [
+        "eulerian path",
+        "complete graph",
+        "degree parity",
+        "graph connectivity",
+        "case analysis"
+      ],
+      "cf_tags": [],
+      "cf_rating": null
+    },
+    {
+      "id": "latam_regional2025-B",
+      "contest": "latam_regional2025",
+      "letter": "B",
+      "title": "Balanced Balloons",
+      "solved_teams": 56,
+      "attempted_teams": 119,
+      "first_solve_min": 32,
+      "links": {
+        "mirror": "https://codeforces.com/gym/106178/problem/B",
+        "kattis": null,
+        "statement": "https://scorelatam.naquadah.com.br/latam-2025/contest.pdf"
+      },
+      "statement_summary": "Count sequences of N (<=1e9) contributions in [1,K] (K<=2000) such that each prefix sum is divisible by its length, mod 998244353.",
+      "solution_idea": "Write prefix sums as i*m_i (m_i = running average); then c_{i+1} = (i+1)m_{i+1} - i m_i must be in [1,K]. For i >= K the average can no longer change, so the sequence becomes constant. DP over (step, average) for the first min(N,K) steps, transitions are ranges of m (prefix sums, harmonic total work), then each state continues in exactly one way. O(K^2) or better.",
+      "solution_source": "own",
+      "candidate_tags": [
+        "dp",
+        "counting",
+        "prefix sums optimization",
+        "number theory observation"
+      ],
+      "cf_tags": [],
+      "cf_rating": null
+    },
+    {
+      "id": "latam_regional2025-C",
+      "contest": "latam_regional2025",
+      "letter": "C",
+      "title": "Clean Streets",
+      "solved_teams": 5,
+      "attempted_teams": 13,
+      "first_solve_min": 162,
+      "links": {
+        "mirror": "https://codeforces.com/gym/106178/problem/C",
+        "kattis": null,
+        "statement": "https://scorelatam.naquadah.com.br/latam-2025/contest.pdf"
+      },
+      "statement_summary": "Hire cleaners (time H_i per street, accepted pay per street in [L_i,U_i]) to clean S streets in at most K hours, with equal pay per hour p_i/H_i for all hired; minimize total payment (as a fraction).",
+      "solution_idea": "With common rate r, p_i = r H_i, so cleaner i is eligible iff r in [L_i/H_i, U_i/H_i] and the cost is r * sum s_i H_i. For fixed r, minimize hours by greedily filling the S streets with the fastest eligible cleaners (capacity floor(K/H_i)). Optimal r is some L_i/H_i: sweep r over these candidates with intervals entering/leaving and a Fenwick/segment tree indexed by H (descend to take the first S units). Compare fractions exactly (128-bit). O(N log N).",
+      "solution_source": "own",
+      "candidate_tags": [
+        "sweep over rational parameter",
+        "fenwick tree descent",
+        "greedy",
+        "fractions",
+        "event sorting"
+      ],
+      "cf_tags": [],
+      "cf_rating": null
+    },
+    {
+      "id": "latam_regional2025-D",
+      "contest": "latam_regional2025",
+      "letter": "D",
+      "title": "Displaying Decimals",
+      "solved_teams": 0,
+      "attempted_teams": 4,
+      "first_solve_min": null,
+      "links": {
+        "mirror": "https://codeforces.com/gym/106178/problem/D",
+        "kattis": null,
+        "statement": "https://scorelatam.naquadah.com.br/latam-2025/contest.pdf"
+      },
+      "statement_summary": "For N<=1e5 values A_i<=1e5, compute the expected number of digits to display A_i/A_j (integer part + pre-period + first period) for random i,j, mod 998244353.",
+      "solution_idea": "For a/b with reduced denominator b' = b/gcd(a,b): digits = digits(floor(a/b)) + max(v2(b'), v5(b')) + ord_{m}(10) where m is b' without factors 2 and 5. Count integer-part digits with frequency prefix sums over value ranges [b*10^k, ...); count pairs by reduced denominator via divisor enumeration and Mobius inversion over gcd; precompute multiplicative order of 10 for all m <= 1e5 from the factorization of phi(m). Then multiply by the modular inverse of N^2.",
+      "solution_source": "own",
+      "candidate_tags": [
+        "number theory",
+        "multiplicative order",
+        "mobius inversion",
+        "gcd counting",
+        "harmonic-sum enumeration",
+        "modular inverse"
+      ],
+      "cf_tags": [],
+      "cf_rating": null
+    },
+    {
+      "id": "latam_regional2025-E",
+      "contest": "latam_regional2025",
+      "letter": "E",
+      "title": "Emergency Rations",
+      "solved_teams": 73,
+      "attempted_teams": 250,
+      "first_solve_min": 44,
+      "links": {
+        "mirror": "https://codeforces.com/gym/106178/problem/E",
+        "kattis": null,
+        "statement": "https://scorelatam.naquadah.com.br/latam-2025/contest.pdf"
+      },
+      "statement_summary": "A multiset of box sizes changes by Q<=3e5 insertions/removals; after each change output the minimum days to empty all boxes if each day you either empty one box or remove one ration from every box.",
+      "solution_idea": "Optimal: empty the k largest boxes individually and decrement the rest: answer = min over k of (k + a_{k+1}) with a sorted decreasingly (a_{n+1} = 0). Offline coordinate-compress all values (one slot per occurrence) into a segment tree ordered decreasingly; each node stores count and min(rank-before + value), merged as min(left, right + left.count). O(Q log Q).",
+      "solution_source": "own",
+      "candidate_tags": [
+        "segment tree",
+        "offline coordinate compression",
+        "greedy",
+        "dynamic multiset"
+      ],
+      "cf_tags": [],
+      "cf_rating": null
+    },
+    {
+      "id": "latam_regional2025-F",
+      "contest": "latam_regional2025",
+      "letter": "F",
+      "title": "Fuzzy Factorization",
+      "solved_teams": 163,
+      "attempted_teams": 321,
+      "first_solve_min": 35,
+      "links": {
+        "mirror": "https://codeforces.com/gym/106178/problem/F",
+        "kattis": null,
+        "statement": "https://scorelatam.naquadah.com.br/latam-2025/contest.pdf"
+      },
+      "statement_summary": "Given X up to 10^1000, output the prime factorization of some Y with relative error |X-Y|/X <= 1e-9 and all primes <= 1e18.",
+      "solution_idea": "Only ~10 significant digits matter: keep the first 12-15 digits m of X and drop the rest, Y = m * 10^e = m * 2^e * 5^e (relative error < 1e-11); factor m by trial division up to sqrt(m) and add e to the exponents of 2 and 5 (CF gym thread). Alternative: Y = 2^e * p with p a prime near X/2^e around 1e17-1e18 found with Miller-Rabin (error ~ prime gap / p).",
+      "solution_source": "community",
+      "candidate_tags": [
+        "big number truncation",
+        "approximation",
+        "trial division factorization",
+        "miller-rabin primality",
+        "constructive"
+      ],
+      "cf_tags": [],
+      "cf_rating": null
+    },
+    {
+      "id": "latam_regional2025-G",
+      "contest": "latam_regional2025",
+      "letter": "G",
+      "title": "Gridoland Power Gauge",
+      "solved_teams": 0,
+      "attempted_teams": 6,
+      "first_solve_min": null,
+      "links": {
+        "mirror": "https://codeforces.com/gym/106178/problem/G",
+        "kattis": null,
+        "statement": "https://scorelatam.naquadah.com.br/latam-2025/contest.pdf"
+      },
+      "statement_summary": "N x M grid (<=300 x 300) with vertex capacities C+tR changing linearly in time and some cables between adjacent blocks; maximize over integer t in [0,K] the max flow from (1,1) to (N,M).",
+      "solution_idea": "Max flow = min vertex cut = min of linear functions of t, hence concave in t: ternary search over integer t. Each evaluation computes the min vertex cut of the planar grid graph as a shortest path in the dual (Dijkstra over blocks and missing-cable gaps from one boundary side to the other), O(NM log(NM)) per step; use 128-bit sums.",
+      "solution_source": "own",
+      "candidate_tags": [
+        "max flow min cut",
+        "planar duality",
+        "dijkstra",
+        "ternary search on concave function",
+        "parametric min cut"
+      ],
+      "cf_tags": [],
+      "cf_rating": null
+    },
+    {
+      "id": "latam_regional2025-H",
+      "contest": "latam_regional2025",
+      "letter": "H",
+      "title": "Harder Horizons",
+      "solved_teams": 533,
+      "attempted_teams": 547,
+      "first_solve_min": 2,
+      "links": {
+        "mirror": "https://codeforces.com/gym/106178/problem/H",
+        "kattis": null,
+        "statement": "https://scorelatam.naquadah.com.br/latam-2025/contest.pdf"
+      },
+      "statement_summary": "Split a list of N task difficulties into the maximum number of consecutive groups whose maxima are strictly increasing.",
+      "solution_idea": "Each group's maximum must exceed all earlier tasks, i.e. be a strict prefix maximum, and cutting right before every new prefix maximum is valid; answer = number of strict left-to-right maxima. O(N).",
+      "solution_source": "own",
+      "candidate_tags": [
+        "greedy",
+        "prefix maximum",
+        "ad hoc"
+      ],
+      "cf_tags": [],
+      "cf_rating": null
+    },
+    {
+      "id": "latam_regional2025-I",
+      "contest": "latam_regional2025",
+      "letter": "I",
+      "title": "Infiltration Route",
+      "solved_teams": 1,
+      "attempted_teams": 53,
+      "first_solve_min": 268,
+      "links": {
+        "mirror": "https://codeforces.com/gym/106178/problem/I",
+        "kattis": null,
+        "statement": "https://scorelatam.naquadah.com.br/latam-2025/contest.pdf"
+      },
+      "statement_summary": "DAG on floors 1..2N (codes S<T, N<=500, M<=1000); find a path 1 -> 2N that never uses both floors i and i+N.",
+      "solution_idea": "Route = increasing path in the lower half, exactly one crossing code (a -> b+N), increasing path in the upper half. Identifying floor i+N with i, we need two vertex-disjoint monotone paths (1->a in the lower-code DAG, b->N in the upper-code DAG) linked by a crossing code; if b>a they are automatically disjoint. Otherwise, for each crossing code, BFS over pairs (x, y) of path fronts (lower path at x, upper path at y, both moving forward) always advancing the lagging front and never landing on the other front: this rule guarantees the two paths never share a floor without storing visited sets. O(N^2 + N M) states/transitions per crossing code, with back-pointers for the route (CF gym thread sketch).",
+      "solution_source": "community",
+      "candidate_tags": [
+        "dag",
+        "two disjoint paths",
+        "pair-state bfs",
+        "lagging pointer rule",
+        "reconstruction"
+      ],
+      "cf_tags": [],
+      "cf_rating": null
+    },
+    {
+      "id": "latam_regional2025-J",
+      "contest": "latam_regional2025",
+      "letter": "J",
+      "title": "Judgmental Crowd",
+      "solved_teams": 546,
+      "attempted_teams": 551,
+      "first_solve_min": 3,
+      "links": {
+        "mirror": "https://codeforces.com/gym/106178/problem/J",
+        "kattis": null,
+        "statement": "https://scorelatam.naquadah.com.br/latam-2025/contest.pdf"
+      },
+      "statement_summary": "Given a string (|S|<=1000), add 1 per occurrence of \"ha\", 3 per \"bravo\" and subtract 1 per \"boooo\"; output the score.",
+      "solution_idea": "Count (possibly overlapping) occurrences of each pattern by scanning every position. O(|S|).",
+      "solution_source": "own",
+      "candidate_tags": [
+        "strings",
+        "implementation",
+        "substring counting"
+      ],
+      "cf_tags": [],
+      "cf_rating": null
+    },
+    {
+      "id": "latam_regional2025-K",
+      "contest": "latam_regional2025",
+      "letter": "K",
+      "title": "Kings Conquest",
+      "solved_teams": 85,
+      "attempted_teams": 309,
+      "first_solve_min": 39,
+      "links": {
+        "mirror": "https://codeforces.com/gym/106178/problem/K",
+        "kattis": null,
+        "statement": "https://scorelatam.naquadah.com.br/latam-2025/contest.pdf"
+      },
+      "statement_summary": "N<=1e5 chess kings on a grid; with K moves (king moves, no collisions) maximize the area of the bounding box.",
+      "solution_idea": "Moving one extreme king diagonally outward grows both width and height by 1 per move once it leaves the box, which dominates splitting moves. Try every king and each of the 8 directions with all K moves, computing the box of the remaining kings in O(1) from the top-2 extremes on each side; handle N=1 (area stays 1). O(N).",
+      "solution_source": "own",
+      "candidate_tags": [
+        "greedy",
+        "case analysis",
+        "geometry",
+        "top-2 extremes",
+        "brute force over candidates"
+      ],
+      "cf_tags": [],
+      "cf_rating": null
+    },
+    {
+      "id": "latam_regional2025-L",
+      "contest": "latam_regional2025",
+      "letter": "L",
+      "title": "Lonely Creatures",
+      "solved_teams": 4,
+      "attempted_teams": 53,
+      "first_solve_min": 223,
+      "links": {
+        "mirror": "https://codeforces.com/gym/106178/problem/L",
+        "kattis": null,
+        "statement": "https://scorelatam.naquadah.com.br/latam-2025/contest.pdf"
+      },
+      "statement_summary": "N<=1e5 lines y=Mx+C; count pairs whose intersection lies strictly inside the parabola region y > Ax^2+B.",
+      "solution_idea": "A line meets the region in an open chord between the roots x1<x2 of Ax^2 - Mx + (B-C) = 0 (lines with non-positive discriminant never enter). Two chords of a convex region intersect inside iff their endpoints interleave, so count crossing interval pairs (l_i<l_j<r_i<r_j) by sorting and a Fenwick tree. Endpoints are (M +- sqrt(D))/(2A): compare them exactly with integer arithmetic. O(N log N).",
+      "solution_source": "own",
+      "candidate_tags": [
+        "computational geometry",
+        "chord intersection interleaving",
+        "fenwick tree counting",
+        "exact arithmetic with square roots",
+        "sorting"
+      ],
+      "cf_tags": [],
+      "cf_rating": null
+    }
+  ]
+}

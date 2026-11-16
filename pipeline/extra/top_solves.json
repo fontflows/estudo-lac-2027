@@ -1,0 +1,1317 @@
+{
+ "k": 40,
+ "problems": {
+  "apac2024-A": {
+   "k_used": 40,
+   "solved_top": 0
+  },
+  "apac2024-B": {
+   "k_used": 40,
+   "solved_top": 4
+  },
+  "apac2024-C": {
+   "k_used": 40,
+   "solved_top": 40
+  },
+  "apac2024-D": {
+   "k_used": 40,
+   "solved_top": 2
+  },
+  "apac2024-E": {
+   "k_used": 40,
+   "solved_top": 40
+  },
+  "apac2024-F": {
+   "k_used": 40,
+   "solved_top": 26
+  },
+  "apac2024-G": {
+   "k_used": 40,
+   "solved_top": 38
+  },
+  "apac2024-H": {
+   "k_used": 40,
+   "solved_top": 40
+  },
+  "apac2024-I": {
+   "k_used": 40,
+   "solved_top": 0
+  },
+  "apac2024-J": {
+   "k_used": 40,
+   "solved_top": 40
+  },
+  "apac2024-K": {
+   "k_used": 40,
+   "solved_top": 23
+  },
+  "apac2024-L": {
+   "k_used": 40,
+   "solved_top": 6
+  },
+  "apac2024-M": {
+   "k_used": 40,
+   "solved_top": 0
+  },
+  "apac2025-A": {
+   "k_used": 40,
+   "solved_top": 40
+  },
+  "apac2025-B": {
+   "k_used": 40,
+   "solved_top": 0
+  },
+  "apac2025-C": {
+   "k_used": 40,
+   "solved_top": 4
+  },
+  "apac2025-D": {
+   "k_used": 40,
+   "solved_top": 31
+  },
+  "apac2025-E": {
+   "k_used": 40,
+   "solved_top": 2
+  },
+  "apac2025-F": {
+   "k_used": 40,
+   "solved_top": 7
+  },
+  "apac2025-G": {
+   "k_used": 40,
+   "solved_top": 40
+  },
+  "apac2025-H": {
+   "k_used": 40,
+   "solved_top": 31
+  },
+  "apac2025-I": {
+   "k_used": 40,
+   "solved_top": 13
+  },
+  "apac2025-J": {
+   "k_used": 40,
+   "solved_top": 40
+  },
+  "apac2025-K": {
+   "k_used": 40,
+   "solved_top": 6
+  },
+  "apac2025-L": {
+   "k_used": 40,
+   "solved_top": 40
+  },
+  "apac2025-M": {
+   "k_used": 40,
+   "solved_top": 0
+  },
+  "apac2026-A": {
+   "k_used": 40,
+   "solved_top": 1
+  },
+  "apac2026-B": {
+   "k_used": 40,
+   "solved_top": 32
+  },
+  "apac2026-C": {
+   "k_used": 40,
+   "solved_top": 40
+  },
+  "apac2026-D": {
+   "k_used": 40,
+   "solved_top": 18
+  },
+  "apac2026-E": {
+   "k_used": 40,
+   "solved_top": 39
+  },
+  "apac2026-F": {
+   "k_used": 40,
+   "solved_top": 38
+  },
+  "apac2026-G": {
+   "k_used": 40,
+   "solved_top": 1
+  },
+  "apac2026-H": {
+   "k_used": 40,
+   "solved_top": 40
+  },
+  "apac2026-I": {
+   "k_used": 40,
+   "solved_top": 10
+  },
+  "apac2026-J": {
+   "k_used": 40,
+   "solved_top": 40
+  },
+  "apac2026-K": {
+   "k_used": 40,
+   "solved_top": 40
+  },
+  "apac2026-L": {
+   "k_used": 40,
+   "solved_top": 1
+  },
+  "apac2026-M": {
+   "k_used": 40,
+   "solved_top": 1
+  },
+  "lac2024-A": {
+   "k_used": 40,
+   "solved_top": 3
+  },
+  "lac2024-B": {
+   "k_used": 40,
+   "solved_top": 1
+  },
+  "lac2024-C": {
+   "k_used": 40,
+   "solved_top": 5
+  },
+  "lac2024-D": {
+   "k_used": 40,
+   "solved_top": 29
+  },
+  "lac2024-E": {
+   "k_used": 40,
+   "solved_top": 26
+  },
+  "lac2024-F": {
+   "k_used": 40,
+   "solved_top": 16
+  },
+  "lac2024-G": {
+   "k_used": 40,
+   "solved_top": 4
+  },
+  "lac2024-H": {
+   "k_used": 40,
+   "solved_top": 2
+  },
+  "lac2024-I": {
+   "k_used": 40,
+   "solved_top": 1
+  },
+  "lac2024-J": {
+   "k_used": 40,
+   "solved_top": 3
+  },
+  "lac2024-K": {
+   "k_used": 40,
+   "solved_top": 34
+  },
+  "lac2024-L": {
+   "k_used": 40,
+   "solved_top": 40
+  },
+  "lac2025-A": {
+   "k_used": 40,
+   "solved_top": 11
+  },
+  "lac2025-B": {
+   "k_used": 40,
+   "solved_top": 9
+  },
+  "lac2025-C": {
+   "k_used": 40,
+   "solved_top": 40
+  },
+  "lac2025-D": {
+   "k_used": 40,
+   "solved_top": 26
+  },
+  "lac2025-E": {
+   "k_used": 40,
+   "solved_top": 0
+  },
+  "lac2025-F": {
+   "k_used": 40,
+   "solved_top": 3
+  },
+  "lac2025-G": {
+   "k_used": 40,
+   "solved_top": 26
+  },
+  "lac2025-H": {
+   "k_used": 40,
+   "solved_top": 0
+  },
+  "lac2025-I": {
+   "k_used": 40,
+   "solved_top": 2
+  },
+  "lac2025-J": {
+   "k_used": 40,
+   "solved_top": 0
+  },
+  "lac2025-K": {
+   "k_used": 40,
+   "solved_top": 13
+  },
+  "lac2025-L": {
+   "k_used": 40,
+   "solved_top": 40
+  },
+  "lac2026-A": {
+   "k_used": 40,
+   "solved_top": 11
+  },
+  "lac2026-B": {
+   "k_used": 40,
+   "solved_top": 39
+  },
+  "lac2026-C": {
+   "k_used": 40,
+   "solved_top": 0
+  },
+  "lac2026-D": {
+   "k_used": 40,
+   "solved_top": 0
+  },
+  "lac2026-E": {
+   "k_used": 40,
+   "solved_top": 39
+  },
+  "lac2026-F": {
+   "k_used": 40,
+   "solved_top": 37
+  },
+  "lac2026-G": {
+   "k_used": 40,
+   "solved_top": 10
+  },
+  "lac2026-H": {
+   "k_used": 40,
+   "solved_top": 0
+  },
+  "lac2026-I": {
+   "k_used": 40,
+   "solved_top": 14
+  },
+  "lac2026-J": {
+   "k_used": 40,
+   "solved_top": 39
+  },
+  "lac2026-K": {
+   "k_used": 40,
+   "solved_top": 3
+  },
+  "lac2026-L": {
+   "k_used": 40,
+   "solved_top": 2
+  },
+  "latam2019-A": {
+   "k_used": 40,
+   "solved_top": 0
+  },
+  "latam2019-B": {
+   "k_used": 40,
+   "solved_top": 0
+  },
+  "latam2019-C": {
+   "k_used": 40,
+   "solved_top": 6
+  },
+  "latam2019-D": {
+   "k_used": 40,
+   "solved_top": 16
+  },
+  "latam2019-E": {
+   "k_used": 40,
+   "solved_top": 40
+  },
+  "latam2019-F": {
+   "k_used": 40,
+   "solved_top": 12
+  },
+  "latam2019-G": {
+   "k_used": 40,
+   "solved_top": 36
+  },
+  "latam2019-H": {
+   "k_used": 40,
+   "solved_top": 1
+  },
+  "latam2019-I": {
+   "k_used": 40,
+   "solved_top": 40
+  },
+  "latam2019-J": {
+   "k_used": 40,
+   "solved_top": 0
+  },
+  "latam2019-K": {
+   "k_used": 40,
+   "solved_top": 37
+  },
+  "latam2019-L": {
+   "k_used": 40,
+   "solved_top": 40
+  },
+  "latam2019-M": {
+   "k_used": 40,
+   "solved_top": 40
+  },
+  "latam2021-A": {
+   "k_used": 40,
+   "solved_top": 1
+  },
+  "latam2021-B": {
+   "k_used": 40,
+   "solved_top": 17
+  },
+  "latam2021-C": {
+   "k_used": 40,
+   "solved_top": 39
+  },
+  "latam2021-D": {
+   "k_used": 40,
+   "solved_top": 40
+  },
+  "latam2021-E": {
+   "k_used": 40,
+   "solved_top": 38
+  },
+  "latam2021-F": {
+   "k_used": 40,
+   "solved_top": 5
+  },
+  "latam2021-G": {
+   "k_used": 40,
+   "solved_top": 1
+  },
+  "latam2021-H": {
+   "k_used": 40,
+   "solved_top": 37
+  },
+  "latam2021-I": {
+   "k_used": 40,
+   "solved_top": 1
+  },
+  "latam2021-J": {
+   "k_used": 40,
+   "solved_top": 26
+  },
+  "latam2021-K": {
+   "k_used": 40,
+   "solved_top": 40
+  },
+  "latam2021-L": {
+   "k_used": 40,
+   "solved_top": 40
+  },
+  "latam2021-M": {
+   "k_used": 40,
+   "solved_top": 1
+  },
+  "latam2021-N": {
+   "k_used": 40,
+   "solved_top": 40
+  },
+  "latam2022-A": {
+   "k_used": 40,
+   "solved_top": 0
+  },
+  "latam2022-B": {
+   "k_used": 40,
+   "solved_top": 2
+  },
+  "latam2022-C": {
+   "k_used": 40,
+   "solved_top": 1
+  },
+  "latam2022-D": {
+   "k_used": 40,
+   "solved_top": 1
+  },
+  "latam2022-E": {
+   "k_used": 40,
+   "solved_top": 0
+  },
+  "latam2022-F": {
+   "k_used": 40,
+   "solved_top": 40
+  },
+  "latam2022-G": {
+   "k_used": 40,
+   "solved_top": 0
+  },
+  "latam2022-H": {
+   "k_used": 40,
+   "solved_top": 31
+  },
+  "latam2022-I": {
+   "k_used": 40,
+   "solved_top": 38
+  },
+  "latam2022-J": {
+   "k_used": 40,
+   "solved_top": 40
+  },
+  "latam2022-K": {
+   "k_used": 40,
+   "solved_top": 40
+  },
+  "latam2022-L": {
+   "k_used": 40,
+   "solved_top": 1
+  },
+  "latam2022-M": {
+   "k_used": 40,
+   "solved_top": 33
+  },
+  "latam2023a-A": {
+   "k_used": 40,
+   "solved_top": 30
+  },
+  "latam2023a-B": {
+   "k_used": 40,
+   "solved_top": 10
+  },
+  "latam2023a-C": {
+   "k_used": 40,
+   "solved_top": 32
+  },
+  "latam2023a-D": {
+   "k_used": 40,
+   "solved_top": 40
+  },
+  "latam2023a-E": {
+   "k_used": 40,
+   "solved_top": 40
+  },
+  "latam2023a-F": {
+   "k_used": 40,
+   "solved_top": 4
+  },
+  "latam2023a-G": {
+   "k_used": 40,
+   "solved_top": 5
+  },
+  "latam2023a-H": {
+   "k_used": 40,
+   "solved_top": 20
+  },
+  "latam2023a-I": {
+   "k_used": 40,
+   "solved_top": 40
+  },
+  "latam2023a-J": {
+   "k_used": 40,
+   "solved_top": 0
+  },
+  "latam2023a-K": {
+   "k_used": 40,
+   "solved_top": 13
+  },
+  "latam2023a-L": {
+   "k_used": 40,
+   "solved_top": 13
+  },
+  "latam2023a-M": {
+   "k_used": 40,
+   "solved_top": 40
+  },
+  "latam2023b-A": {
+   "k_used": 40,
+   "solved_top": 1
+  },
+  "latam2023b-B": {
+   "k_used": 40,
+   "solved_top": 40
+  },
+  "latam2023b-C": {
+   "k_used": 40,
+   "solved_top": 22
+  },
+  "latam2023b-D": {
+   "k_used": 40,
+   "solved_top": 40
+  },
+  "latam2023b-E": {
+   "k_used": 40,
+   "solved_top": 0
+  },
+  "latam2023b-F": {
+   "k_used": 40,
+   "solved_top": 40
+  },
+  "latam2023b-G": {
+   "k_used": 40,
+   "solved_top": 19
+  },
+  "latam2023b-H": {
+   "k_used": 40,
+   "solved_top": 10
+  },
+  "latam2023b-I": {
+   "k_used": 40,
+   "solved_top": 40
+  },
+  "latam2023b-J": {
+   "k_used": 40,
+   "solved_top": 14
+  },
+  "latam2023b-K": {
+   "k_used": 40,
+   "solved_top": 3
+  },
+  "latam2023b-L": {
+   "k_used": 40,
+   "solved_top": 5
+  },
+  "latam2023b-M": {
+   "k_used": 40,
+   "solved_top": 40
+  },
+  "latam_regional2024-A": {
+   "k_used": 40,
+   "solved_top": 40
+  },
+  "latam_regional2024-B": {
+   "k_used": 40,
+   "solved_top": 0
+  },
+  "latam_regional2024-C": {
+   "k_used": 40,
+   "solved_top": 0
+  },
+  "latam_regional2024-D": {
+   "k_used": 40,
+   "solved_top": 7
+  },
+  "latam_regional2024-E": {
+   "k_used": 40,
+   "solved_top": 11
+  },
+  "latam_regional2024-F": {
+   "k_used": 40,
+   "solved_top": 40
+  },
+  "latam_regional2024-G": {
+   "k_used": 40,
+   "solved_top": 16
+  },
+  "latam_regional2024-H": {
+   "k_used": 40,
+   "solved_top": 1
+  },
+  "latam_regional2024-I": {
+   "k_used": 40,
+   "solved_top": 2
+  },
+  "latam_regional2024-J": {
+   "k_used": 40,
+   "solved_top": 40
+  },
+  "latam_regional2024-K": {
+   "k_used": 40,
+   "solved_top": 40
+  },
+  "latam_regional2024-L": {
+   "k_used": 40,
+   "solved_top": 7
+  },
+  "latam_regional2025-A": {
+   "k_used": 40,
+   "solved_top": 18
+  },
+  "latam_regional2025-B": {
+   "k_used": 40,
+   "solved_top": 38
+  },
+  "latam_regional2025-C": {
+   "k_used": 40,
+   "solved_top": 5
+  },
+  "latam_regional2025-D": {
+   "k_used": 40,
+   "solved_top": 0
+  },
+  "latam_regional2025-E": {
+   "k_used": 40,
+   "solved_top": 40
+  },
+  "latam_regional2025-F": {
+   "k_used": 40,
+   "solved_top": 40
+  },
+  "latam_regional2025-G": {
+   "k_used": 40,
+   "solved_top": 0
+  },
+  "latam_regional2025-H": {
+   "k_used": 40,
+   "solved_top": 40
+  },
+  "latam_regional2025-I": {
+   "k_used": 40,
+   "solved_top": 1
+  },
+  "latam_regional2025-J": {
+   "k_used": 40,
+   "solved_top": 40
+  },
+  "latam_regional2025-K": {
+   "k_used": 40,
+   "solved_top": 40
+  },
+  "latam_regional2025-L": {
+   "k_used": 40,
+   "solved_top": 2
+  },
+  "nac2021-A": {
+   "k_used": 40,
+   "solved_top": 2
+  },
+  "nac2021-B": {
+   "k_used": 40,
+   "solved_top": 1
+  },
+  "nac2021-C": {
+   "k_used": 40,
+   "solved_top": 33
+  },
+  "nac2021-D": {
+   "k_used": 40,
+   "solved_top": 40
+  },
+  "nac2021-E": {
+   "k_used": 40,
+   "solved_top": 2
+  },
+  "nac2021-F": {
+   "k_used": 40,
+   "solved_top": 40
+  },
+  "nac2021-G": {
+   "k_used": 40,
+   "solved_top": 2
+  },
+  "nac2021-H": {
+   "k_used": 40,
+   "solved_top": 0
+  },
+  "nac2021-I": {
+   "k_used": 40,
+   "solved_top": 1
+  },
+  "nac2021-J": {
+   "k_used": 40,
+   "solved_top": 40
+  },
+  "nac2021-K": {
+   "k_used": 40,
+   "solved_top": 2
+  },
+  "nac2021-L": {
+   "k_used": 40,
+   "solved_top": 32
+  },
+  "nac2021-M": {
+   "k_used": 40,
+   "solved_top": 40
+  },
+  "nac2022-A": {
+   "k_used": 40,
+   "solved_top": 40
+  },
+  "nac2022-B": {
+   "k_used": 40,
+   "solved_top": 3
+  },
+  "nac2022-C": {
+   "k_used": 40,
+   "solved_top": 6
+  },
+  "nac2022-D": {
+   "k_used": 40,
+   "solved_top": 1
+  },
+  "nac2022-E": {
+   "k_used": 40,
+   "solved_top": 31
+  },
+  "nac2022-F": {
+   "k_used": 40,
+   "solved_top": 14
+  },
+  "nac2022-G": {
+   "k_used": 40,
+   "solved_top": 22
+  },
+  "nac2022-H": {
+   "k_used": 40,
+   "solved_top": 1
+  },
+  "nac2022-I": {
+   "k_used": 40,
+   "solved_top": 5
+  },
+  "nac2022-J": {
+   "k_used": 40,
+   "solved_top": 40
+  },
+  "nac2022-K": {
+   "k_used": 40,
+   "solved_top": 3
+  },
+  "nac2022-L": {
+   "k_used": 40,
+   "solved_top": 10
+  },
+  "nac2022-M": {
+   "k_used": 40,
+   "solved_top": 39
+  },
+  "nac2023-A": {
+   "k_used": 40,
+   "solved_top": 34
+  },
+  "nac2023-B": {
+   "k_used": 40,
+   "solved_top": 16
+  },
+  "nac2023-C": {
+   "k_used": 40,
+   "solved_top": 31
+  },
+  "nac2023-D": {
+   "k_used": 40,
+   "solved_top": 0
+  },
+  "nac2023-E": {
+   "k_used": 40,
+   "solved_top": 3
+  },
+  "nac2023-F": {
+   "k_used": 40,
+   "solved_top": 40
+  },
+  "nac2023-G": {
+   "k_used": 40,
+   "solved_top": 40
+  },
+  "nac2023-H": {
+   "k_used": 40,
+   "solved_top": 0
+  },
+  "nac2023-I": {
+   "k_used": 40,
+   "solved_top": 40
+  },
+  "nac2023-J": {
+   "k_used": 40,
+   "solved_top": 10
+  },
+  "nac2023-K": {
+   "k_used": 40,
+   "solved_top": 40
+  },
+  "nac2023-L": {
+   "k_used": 40,
+   "solved_top": 17
+  },
+  "nac2023-M": {
+   "k_used": 40,
+   "solved_top": 1
+  },
+  "nac2024-A": {
+   "k_used": 40,
+   "solved_top": 40
+  },
+  "nac2024-B": {
+   "k_used": 40,
+   "solved_top": 3
+  },
+  "nac2024-C": {
+   "k_used": 40,
+   "solved_top": 7
+  },
+  "nac2024-D": {
+   "k_used": 40,
+   "solved_top": 40
+  },
+  "nac2024-E": {
+   "k_used": 40,
+   "solved_top": 0
+  },
+  "nac2024-F": {
+   "k_used": 40,
+   "solved_top": 3
+  },
+  "nac2024-G": {
+   "k_used": 40,
+   "solved_top": 40
+  },
+  "nac2024-H": {
+   "k_used": 40,
+   "solved_top": 33
+  },
+  "nac2024-I": {
+   "k_used": 40,
+   "solved_top": 30
+  },
+  "nac2024-J": {
+   "k_used": 40,
+   "solved_top": 40
+  },
+  "nac2024-K": {
+   "k_used": 40,
+   "solved_top": 0
+  },
+  "nac2024-L": {
+   "k_used": 40,
+   "solved_top": 0
+  },
+  "nac2024-M": {
+   "k_used": 40,
+   "solved_top": 28
+  },
+  "nac2025-A": {
+   "k_used": 40,
+   "solved_top": 38
+  },
+  "nac2025-B": {
+   "k_used": 40,
+   "solved_top": 36
+  },
+  "nac2025-C": {
+   "k_used": 40,
+   "solved_top": 4
+  },
+  "nac2025-D": {
+   "k_used": 40,
+   "solved_top": 35
+  },
+  "nac2025-E": {
+   "k_used": 40,
+   "solved_top": 15
+  },
+  "nac2025-F": {
+   "k_used": 40,
+   "solved_top": 29
+  },
+  "nac2025-G": {
+   "k_used": 40,
+   "solved_top": 0
+  },
+  "nac2025-H": {
+   "k_used": 40,
+   "solved_top": 37
+  },
+  "nac2025-I": {
+   "k_used": 40,
+   "solved_top": 3
+  },
+  "nac2025-J": {
+   "k_used": 40,
+   "solved_top": 3
+  },
+  "nac2025-K": {
+   "k_used": 40,
+   "solved_top": 40
+  },
+  "nac2025-L": {
+   "k_used": 40,
+   "solved_top": 29
+  },
+  "nac2025-M": {
+   "k_used": 40,
+   "solved_top": 3
+  },
+  "nac2026-A": {
+   "k_used": 40,
+   "solved_top": 19
+  },
+  "nac2026-B": {
+   "k_used": 40,
+   "solved_top": 0
+  },
+  "nac2026-C": {
+   "k_used": 40,
+   "solved_top": 9
+  },
+  "nac2026-D": {
+   "k_used": 40,
+   "solved_top": 14
+  },
+  "nac2026-E": {
+   "k_used": 40,
+   "solved_top": 40
+  },
+  "nac2026-F": {
+   "k_used": 40,
+   "solved_top": 39
+  },
+  "nac2026-G": {
+   "k_used": 40,
+   "solved_top": 0
+  },
+  "nac2026-H": {
+   "k_used": 40,
+   "solved_top": 37
+  },
+  "nac2026-I": {
+   "k_used": 40,
+   "solved_top": 40
+  },
+  "nac2026-J": {
+   "k_used": 40,
+   "solved_top": 13
+  },
+  "nac2026-K": {
+   "k_used": 40,
+   "solved_top": 29
+  },
+  "nac2026-L": {
+   "k_used": 40,
+   "solved_top": 2
+  },
+  "nac2026-M": {
+   "k_used": 40,
+   "solved_top": 25
+  },
+  "nerc2019-A": {
+   "k_used": 40,
+   "solved_top": 33
+  },
+  "nerc2019-B": {
+   "k_used": 40,
+   "solved_top": 40
+  },
+  "nerc2019-C": {
+   "k_used": 40,
+   "solved_top": 0
+  },
+  "nerc2019-D": {
+   "k_used": 40,
+   "solved_top": 16
+  },
+  "nerc2019-E": {
+   "k_used": 40,
+   "solved_top": 40
+  },
+  "nerc2019-F": {
+   "k_used": 40,
+   "solved_top": 15
+  },
+  "nerc2019-G": {
+   "k_used": 40,
+   "solved_top": 3
+  },
+  "nerc2019-H": {
+   "k_used": 40,
+   "solved_top": 0
+  },
+  "nerc2019-I": {
+   "k_used": 40,
+   "solved_top": 33
+  },
+  "nerc2019-J": {
+   "k_used": 40,
+   "solved_top": 40
+  },
+  "nerc2019-K": {
+   "k_used": 40,
+   "solved_top": 40
+  },
+  "nerc2019-L": {
+   "k_used": 40,
+   "solved_top": 40
+  },
+  "nerc2021-A": {
+   "k_used": 40,
+   "solved_top": 0
+  },
+  "nerc2021-B": {
+   "k_used": 40,
+   "solved_top": 17
+  },
+  "nerc2021-C": {
+   "k_used": 40,
+   "solved_top": 6
+  },
+  "nerc2021-D": {
+   "k_used": 40,
+   "solved_top": 40
+  },
+  "nerc2021-E": {
+   "k_used": 40,
+   "solved_top": 14
+  },
+  "nerc2021-F": {
+   "k_used": 40,
+   "solved_top": 0
+  },
+  "nerc2021-G": {
+   "k_used": 40,
+   "solved_top": 39
+  },
+  "nerc2021-H": {
+   "k_used": 40,
+   "solved_top": 0
+  },
+  "nerc2021-I": {
+   "k_used": 40,
+   "solved_top": 2
+  },
+  "nerc2021-J": {
+   "k_used": 40,
+   "solved_top": 24
+  },
+  "nerc2021-K": {
+   "k_used": 40,
+   "solved_top": 40
+  },
+  "nerc2022apr-A": {
+   "k_used": 40,
+   "solved_top": 2
+  },
+  "nerc2022apr-B": {
+   "k_used": 40,
+   "solved_top": 2
+  },
+  "nerc2022apr-C": {
+   "k_used": 40,
+   "solved_top": 40
+  },
+  "nerc2022apr-D": {
+   "k_used": 40,
+   "solved_top": 40
+  },
+  "nerc2022apr-E": {
+   "k_used": 40,
+   "solved_top": 29
+  },
+  "nerc2022apr-F": {
+   "k_used": 40,
+   "solved_top": 38
+  },
+  "nerc2022apr-G": {
+   "k_used": 40,
+   "solved_top": 5
+  },
+  "nerc2022apr-H": {
+   "k_used": 40,
+   "solved_top": 0
+  },
+  "nerc2022apr-I": {
+   "k_used": 40,
+   "solved_top": 40
+  },
+  "nerc2022apr-J": {
+   "k_used": 40,
+   "solved_top": 40
+  },
+  "nerc2022apr-K": {
+   "k_used": 40,
+   "solved_top": 0
+  },
+  "nerc2022apr-L": {
+   "k_used": 40,
+   "solved_top": 40
+  },
+  "nerc2022dec-A": {
+   "k_used": 40,
+   "solved_top": 40
+  },
+  "nerc2022dec-B": {
+   "k_used": 40,
+   "solved_top": 30
+  },
+  "nerc2022dec-C": {
+   "k_used": 40,
+   "solved_top": 3
+  },
+  "nerc2022dec-D": {
+   "k_used": 40,
+   "solved_top": 20
+  },
+  "nerc2022dec-E": {
+   "k_used": 40,
+   "solved_top": 40
+  },
+  "nerc2022dec-F": {
+   "k_used": 40,
+   "solved_top": 40
+  },
+  "nerc2022dec-G": {
+   "k_used": 40,
+   "solved_top": 6
+  },
+  "nerc2022dec-H": {
+   "k_used": 40,
+   "solved_top": 20
+  },
+  "nerc2022dec-I": {
+   "k_used": 40,
+   "solved_top": 7
+  },
+  "nerc2022dec-J": {
+   "k_used": 40,
+   "solved_top": 2
+  },
+  "nerc2022dec-K": {
+   "k_used": 40,
+   "solved_top": 40
+  },
+  "nerc2022dec-L": {
+   "k_used": 40,
+   "solved_top": 0
+  },
+  "nerc2023-A": {
+   "k_used": 40,
+   "solved_top": 40
+  },
+  "nerc2023-B": {
+   "k_used": 40,
+   "solved_top": 38
+  },
+  "nerc2023-C": {
+   "k_used": 40,
+   "solved_top": 2
+  },
+  "nerc2023-D": {
+   "k_used": 40,
+   "solved_top": 40
+  },
+  "nerc2023-E": {
+   "k_used": 40,
+   "solved_top": 39
+  },
+  "nerc2023-F": {
+   "k_used": 40,
+   "solved_top": 1
+  },
+  "nerc2023-G": {
+   "k_used": 40,
+   "solved_top": 18
+  },
+  "nerc2023-H": {
+   "k_used": 40,
+   "solved_top": 13
+  },
+  "nerc2023-I": {
+   "k_used": 40,
+   "solved_top": 1
+  },
+  "nerc2023-J": {
+   "k_used": 40,
+   "solved_top": 31
+  },
+  "nerc2023-K": {
+   "k_used": 40,
+   "solved_top": 40
+  },
+  "nerc2023-L": {
+   "k_used": 40,
+   "solved_top": 40
+  },
+  "nerc2024-A": {
+   "k_used": 40,
+   "solved_top": 40
+  },
+  "nerc2024-B": {
+   "k_used": 40,
+   "solved_top": 29
+  },
+  "nerc2024-C": {
+   "k_used": 40,
+   "solved_top": 0
+  },
+  "nerc2024-D": {
+   "k_used": 40,
+   "solved_top": 40
+  },
+  "nerc2024-E": {
+   "k_used": 40,
+   "solved_top": 40
+  },
+  "nerc2024-F": {
+   "k_used": 40,
+   "solved_top": 40
+  },
+  "nerc2024-G": {
+   "k_used": 40,
+   "solved_top": 11
+  },
+  "nerc2024-H": {
+   "k_used": 40,
+   "solved_top": 1
+  },
+  "nerc2024-I": {
+   "k_used": 40,
+   "solved_top": 8
+  },
+  "nerc2024-J": {
+   "k_used": 40,
+   "solved_top": 40
+  },
+  "nerc2024-K": {
+   "k_used": 40,
+   "solved_top": 1
+  },
+  "nerc2024-L": {
+   "k_used": 40,
+   "solved_top": 5
+  },
+  "nerc2024-M": {
+   "k_used": 40,
+   "solved_top": 25
+  },
+  "nerc2025-A": {
+   "k_used": 40,
+   "solved_top": 40
+  },
+  "nerc2025-B": {
+   "k_used": 40,
+   "solved_top": 40
+  },
+  "nerc2025-C": {
+   "k_used": 40,
+   "solved_top": 3
+  },
+  "nerc2025-D": {
+   "k_used": 40,
+   "solved_top": 40
+  },
+  "nerc2025-E": {
+   "k_used": 40,
+   "solved_top": 1
+  },
+  "nerc2025-F": {
+   "k_used": 40,
+   "solved_top": 40
+  },
+  "nerc2025-G": {
+   "k_used": 40,
+   "solved_top": 37
+  },
+  "nerc2025-H": {
+   "k_used": 40,
+   "solved_top": 40
+  },
+  "nerc2025-I": {
+   "k_used": 40,
+   "solved_top": 2
+  },
+  "nerc2025-J": {
+   "k_used": 40,
+   "solved_top": 30
+  },
+  "nerc2025-K": {
+   "k_used": 40,
+   "solved_top": 0
+  },
+  "nerc2025-L": {
+   "k_used": 40,
+   "solved_top": 3
+  },
+  "nerc2025-M": {
+   "k_used": 40,
+   "solved_top": 40
+  }
+ }
+}

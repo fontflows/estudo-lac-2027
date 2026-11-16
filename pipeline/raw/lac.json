@@ -1,0 +1,982 @@
+{
+  "source": "lac",
+  "contests": [
+    {
+      "id": "lac2024",
+      "family": "lac",
+      "name": "The 2024 ICPC Latin America Championship (Programadores de America 2024)",
+      "short": "LAC 2024",
+      "year": 2024,
+      "date": "2024-03-17",
+      "links": {
+        "scoreboard": "https://scorelatam.naquadah.com.br/pda24/",
+        "statements": "https://scorelatam.naquadah.com.br/pda24/contest.pdf",
+        "editorial": "https://scorelatam.naquadah.com.br/pda24/editorial.pdf",
+        "mirror": "https://codeforces.com/gym/105053",
+        "kattis": null
+      },
+      "notes": "Counts from the 'PdA' sub-scoreboard (sitegroup 1) of the BOCA final scoreboard: 40 official teams; 1 guest team of the parallel Chilean CCL contest excluded. Final (unfrozen) scoreboard; first_solve_min = minute shown in the scoreboard cell.",
+      "total_teams": 40
+    },
+    {
+      "id": "lac2025",
+      "family": "lac",
+      "name": "The 2025 ICPC Latin America Championship (Programadores de America 2025)",
+      "short": "LAC 2025",
+      "year": 2025,
+      "date": "2025-03-16",
+      "links": {
+        "scoreboard": "https://scorelatam.naquadah.com.br/pda25/",
+        "statements": "https://scorelatam.naquadah.com.br/pda25/contest.pdf",
+        "editorial": "https://scorelatam.naquadah.com.br/pda25/editorial.pdf",
+        "mirror": "https://codeforces.com/gym/105789",
+        "kattis": null
+      },
+      "notes": "Counts from the 'PdA' sub-scoreboard (sitegroup 1): 40 official teams; 9 CCL guest teams (teamccl*) excluded. E, H, J unsolved by official teams. Editorial is a slide deck (its per-problem stats include post-freeze data and differ slightly from the final board).",
+      "total_teams": 40
+    },
+    {
+      "id": "lac2026",
+      "family": "lac",
+      "name": "The 2026 ICPC Latin America Championship (Programadores de America 2026)",
+      "short": "LAC 2026",
+      "year": 2026,
+      "date": "2026-03-07",
+      "links": {
+        "scoreboard": "https://scorelatam.naquadah.com.br/pda26/",
+        "statements": "https://scorelatam.naquadah.com.br/pda26/contest.pdf",
+        "editorial": null,
+        "mirror": "https://codeforces.com/gym/106416",
+        "kattis": null
+      },
+      "notes": "Counts from the 'PdA' sub-scoreboard (sitegroup 1): 41 official teams; 11 CCL guest teams excluded. C, D, H unsolved by official teams. No official editorial found (scorelatam editorial link is 404; CF blog entry 151965 says it is 'in the works'; the CMU PDF is only a scoreboard printout). Solution ideas were checked against the jury reference solutions shipped in scorelatam's pda26/contest-packages.tar (solutions/ folder of each BOCA package) and the CF gym thread (blog entry 151965), hence solution_source='community'.",
+      "total_teams": 41
+    }
+  ],
+  "problems": [
+    {
+      "id": "lac2024-A",
+      "contest": "lac2024",
+      "letter": "A",
+      "title": "Almost Aligned",
+      "solved_teams": 3,
+      "attempted_teams": 13,
+      "first_solve_min": 147,
+      "links": {
+        "mirror": "https://codeforces.com/gym/105053/problem/A",
+        "kattis": null,
+        "statement": "https://scorelatam.naquadah.com.br/pda24/contest.pdf"
+      },
+      "statement_summary": "N (up to 1e6) points move linearly, (X+t*VX, Y+t*VY); find the minimum area of an axis-aligned rectangle containing all points at some time t >= 0.",
+      "solution_idea": "Width(t)=max(X+VX t)-min(X+VX t) and height(t) are convex piecewise-linear functions obtained as upper/lower envelopes of lines (convex hull trick). Their product is not convex, so ternary search fails; between consecutive breakpoints the area is a quadratic whose minimum is at an endpoint, so evaluate t=0 and every envelope breakpoint. O(N log N).",
+      "solution_source": "editorial",
+      "candidate_tags": [
+        "convex hull trick",
+        "upper/lower envelope of lines",
+        "piecewise linear functions",
+        "kinetic bounding box",
+        "candidate breakpoints"
+      ],
+      "cf_tags": [],
+      "cf_rating": null
+    },
+    {
+      "id": "lac2024-B",
+      "contest": "lac2024",
+      "letter": "B",
+      "title": "Beating the Record",
+      "solved_teams": 1,
+      "attempted_teams": 2,
+      "first_solve_min": 299,
+      "links": {
+        "mirror": "https://codeforces.com/gym/105053/problem/B",
+        "kattis": null,
+        "statement": "https://scorelatam.naquadah.com.br/pda24/contest.pdf"
+      },
+      "statement_summary": "A speedrun game has N<=4 levels, each with two risky strategies (success probability, good/bad times); the player may restart at any time. Minimize the expected total play time until beating the record T.",
+      "solution_idea": "Model a global strategy as a binary decision tree over level outcomes (choose strategy 1/2 and whether to restart on failure at every node); there are f(n)=2(f(n-1)^2+f(n-1)) ~ 2.1e7 trees for n=4, enumerate them by backtracking, computing success probability p and conditional expected times eg, eb; answer eg+(1/p-1)eb (care with precision). Alternative: binary search on the answer E and run a DP over (level, elapsed time) where a restart costs the guessed E (fixed-point monotone).",
+      "solution_source": "editorial",
+      "candidate_tags": [
+        "expected value",
+        "probability",
+        "exhaustive search over strategies",
+        "binary search on answer (fixed point)",
+        "dp over time"
+      ],
+      "cf_tags": [],
+      "cf_rating": null
+    },
+    {
+      "id": "lac2024-C",
+      "contest": "lac2024",
+      "letter": "C",
+      "title": "Clever Cell Choices",
+      "solved_teams": 5,
+      "attempted_teams": 12,
+      "first_solve_min": 124,
+      "links": {
+        "mirror": "https://codeforces.com/gym/105053/problem/C",
+        "kattis": null,
+        "statement": "https://scorelatam.naquadah.com.br/pda24/contest.pdf"
+      },
+      "statement_summary": "On an N x M grid (N,M<=50) with blocked cells, players alternately place stones each adjacent to the previous one; count starting cells from which the first player wins.",
+      "solution_idea": "Undirected vertex geography: the first player wins from v iff v is NOT covered by every maximum matching of the (bipartite) grid graph. Compute one max matching (Hopcroft-Karp/Dinic) and find vertices reachable by alternating paths from unmatched vertices of the same side (residual-graph reachability from source/sink); those are the winning cells. O(E sqrt V).",
+      "solution_source": "editorial",
+      "candidate_tags": [
+        "bipartite matching",
+        "game theory",
+        "undirected vertex geography",
+        "alternating paths",
+        "max flow residual graph"
+      ],
+      "cf_tags": [],
+      "cf_rating": null
+    },
+    {
+      "id": "lac2024-D",
+      "contest": "lac2024",
+      "letter": "D",
+      "title": "DiviDuelo",
+      "solved_teams": 29,
+      "attempted_teams": 38,
+      "first_solve_min": 11,
+      "links": {
+        "mirror": "https://codeforces.com/gym/105053/problem/D",
+        "kattis": null,
+        "statement": "https://scorelatam.naquadah.com.br/pda24/contest.pdf"
+      },
+      "statement_summary": "Players alternately pick divisors of N (N<=1e12) until all are taken; the first player wins if the gcd of his picks is not 1. Decide the winner.",
+      "solution_idea": "Case analysis on the factorization: if N=p^a the first player loses only if forced to take 1 (odd number of divisors); if N=p*q he wins by taking pq then p or q; otherwise (p^a q^b with a>=2 or >=3 primes) the second player pairs sets like {1,q},{p,p^2} to force gcd 1. First player wins iff N=p^a with a odd or N=p*q. Factor by trial division O(sqrt N).",
+      "solution_source": "editorial",
+      "candidate_tags": [
+        "game theory",
+        "number theory",
+        "prime factorization",
+        "case analysis",
+        "pairing strategy"
+      ],
+      "cf_tags": [],
+      "cf_rating": null
+    },
+    {
+      "id": "lac2024-E",
+      "contest": "lac2024",
+      "letter": "E",
+      "title": "Expanding STACKS!",
+      "solved_teams": 26,
+      "attempted_teams": 37,
+      "first_solve_min": 24,
+      "links": {
+        "mirror": "https://codeforces.com/gym/105053/problem/E",
+        "kattis": null,
+        "statement": "https://scorelatam.naquadah.com.br/pda24/contest.pdf"
+      },
+      "statement_summary": "Given 2N enter/leave events of N customers (N<=1000), assign each customer to one of two LIFO lines so every departure is from the back of its line, or report impossible.",
+      "solution_idea": "Two customers can share a stack unless their intervals cross (+a +b -a -b). Build the conflict graph of crossing intervals in O(N^2) and 2-color it (bipartiteness check); colors give the lines. (Linear-time alternative maintains a stack of pairs of item lists.)",
+      "solution_source": "editorial",
+      "candidate_tags": [
+        "bipartite graph check",
+        "graph coloring",
+        "interval crossing",
+        "two-stack sorting"
+      ],
+      "cf_tags": [],
+      "cf_rating": null
+    },
+    {
+      "id": "lac2024-F",
+      "contest": "lac2024",
+      "letter": "F",
+      "title": "Fair Distribution",
+      "solved_teams": 16,
+      "attempted_teams": 27,
+      "first_solve_min": 78,
+      "links": {
+        "mirror": "https://codeforces.com/gym/105053/problem/F",
+        "kattis": null,
+        "statement": "https://scorelatam.naquadah.com.br/pda24/contest.pdf"
+      },
+      "statement_summary": "N blueprints (ground height G, residential floor height R, >=1 residential floor each); decide if they can be split between two children so that some choice of floor counts makes total heights equal. N<=2e5, sum G<=2e5.",
+      "solution_idea": "By Bezout, the residential floors can compensate exactly the differences that are multiples of g=gcd of all R, so a fair split exists iff some achievable ground-floor difference sumG(A)-sumG(B) (both parts non-empty) is divisible by g. Enumerate achievable subset sums of G with a knapsack over O(sqrt S) distinct values (binary splitting / bitset). O(S sqrt S).",
+      "solution_source": "editorial",
+      "candidate_tags": [
+        "number theory",
+        "bezout identity",
+        "gcd",
+        "subset sum",
+        "bounded knapsack sqrt trick",
+        "bitset"
+      ],
+      "cf_tags": [],
+      "cf_rating": null
+    },
+    {
+      "id": "lac2024-G",
+      "contest": "lac2024",
+      "letter": "G",
+      "title": "Greek Casino",
+      "solved_teams": 4,
+      "attempted_teams": 10,
+      "first_solve_min": 95,
+      "links": {
+        "mirror": "https://codeforces.com/gym/105053/problem/G",
+        "kattis": null,
+        "statement": "https://scorelatam.naquadah.com.br/pda24/contest.pdf"
+      },
+      "statement_summary": "A token starts at slot 1 of N (N<=1e5); repeatedly a weighted random y is drawn and the token moves to lcm(x,y) if <=N (earning a coin), else the game ends. Compute the expected number of coins.",
+      "solution_idea": "Let E_a be the expected number of visits to a; then E = p (lcm-convolution) E + delta_1. The divisor-sum (zeta) transform T(A)_k = sum_{d|k} A_d turns lcm-convolution into pointwise products, so T(E) = 1/(1-T(p)) pointwise, then invert (Mobius over divisors); answer sum E_a - 1. O(N log N). Alternative: forward DP over multiples with divisor enumeration, O(N log^2 N).",
+      "solution_source": "editorial",
+      "candidate_tags": [
+        "expected value",
+        "lcm convolution",
+        "zeta/mobius transform over divisors",
+        "dp over divisors",
+        "harmonic sum complexity"
+      ],
+      "cf_tags": [],
+      "cf_rating": null
+    },
+    {
+      "id": "lac2024-H",
+      "contest": "lac2024",
+      "letter": "H",
+      "title": "Harmonic Operations",
+      "solved_teams": 2,
+      "attempted_teams": 7,
+      "first_solve_min": 129,
+      "links": {
+        "mirror": "https://codeforces.com/gym/105053/problem/H",
+        "kattis": null,
+        "statement": "https://scorelatam.naquadah.com.br/pda24/contest.pdf"
+      },
+      "statement_summary": "Given a string S and K operations (reverse, rotate right/left by D), count pairs (i,j) such that applying operations i..j to S yields S. |S|,K<=2e5.",
+      "solution_idea": "The operations form the dihedral group; keep prefix compositions P(i) as (reflected?, shift). Reduce S to its primitive root (period via KMP) so that at most two group elements fix S: the identity and possibly one reflection+rotation (found by matching reverse(S) inside S+S). Count pairs with P(i)^{-1}P(j) in that set using a hashmap of prefix elements. O(|S|+K).",
+      "solution_source": "editorial",
+      "candidate_tags": [
+        "dihedral group",
+        "prefix composition counting",
+        "kmp",
+        "string periodicity",
+        "hashmap pair counting"
+      ],
+      "cf_tags": [],
+      "cf_rating": null
+    },
+    {
+      "id": "lac2024-I",
+      "contest": "lac2024",
+      "letter": "I",
+      "title": "Insects, Mathematics, Accuracy, and Efficiency",
+      "solved_teams": 1,
+      "attempted_teams": 2,
+      "first_solve_min": 285,
+      "links": {
+        "mirror": "https://codeforces.com/gym/105053/problem/I",
+        "kattis": null,
+        "statement": "https://scorelatam.naquadah.com.br/pda24/contest.pdf"
+      },
+      "statement_summary": "N<=1e4 integer points lie inside a circle of radius R<=1e4 centered at the origin; add one point inside the circle to maximize the area of the convex hull.",
+      "solution_idea": "Take the convex hull (lattice points in a radius-1e4 disc give at most ~1600 hull vertices, O(R^{2/3})). The new point lies on the circle; for each pair of hull vertices (i,j) that remain neighbors of the new point, the area is the hull area minus the cut-off chain plus the triangle with apex at the circle point farthest from chord ij; maintain running areas for O(H^2) (or O(H log H) via angular critical segments). Watch precision.",
+      "solution_source": "editorial",
+      "candidate_tags": [
+        "convex hull",
+        "computational geometry",
+        "lattice convex hull bound",
+        "polygon area updates",
+        "circle geometry",
+        "floating point precision"
+      ],
+      "cf_tags": [],
+      "cf_rating": null
+    },
+    {
+      "id": "lac2024-J",
+      "contest": "lac2024",
+      "letter": "J",
+      "title": "Joys of Trading",
+      "solved_teams": 3,
+      "attempted_teams": 6,
+      "first_solve_min": 109,
+      "links": {
+        "mirror": "https://codeforces.com/gym/105053/problem/J",
+        "kattis": null,
+        "statement": "https://scorelatam.naquadah.com.br/pda24/contest.pdf"
+      },
+      "statement_summary": "Two villages produce N resources with per-unit costs A_i and B_i and fixed current outputs; re-allocate production (each village within its current person-hours) to produce the same totals with minimum total person-hours. N<=1e5.",
+      "solution_idea": "Exchange argument (comparative advantage): sort resources by B_i/A_i; some optimal solution has village A producing a prefix and B a suffix with at most one shared resource. Try every split resource with prefix/suffix sums and greedily split it given remaining capacities. O(N log N).",
+      "solution_source": "editorial",
+      "candidate_tags": [
+        "greedy",
+        "sort by ratio",
+        "exchange argument",
+        "comparative advantage",
+        "prefix sums"
+      ],
+      "cf_tags": [],
+      "cf_rating": null
+    },
+    {
+      "id": "lac2024-K",
+      "contest": "lac2024",
+      "letter": "K",
+      "title": "KMOP",
+      "solved_teams": 34,
+      "attempted_teams": 36,
+      "first_solve_min": 13,
+      "links": {
+        "mirror": "https://codeforces.com/gym/105053/problem/K",
+        "kattis": null,
+        "statement": "https://scorelatam.naquadah.com.br/pda24/contest.pdf"
+      },
+      "statement_summary": "Build the shortest acronym taking a 1-3 letter prefix of each of N words (total length 1e6) so that it never has three consecutive consonants, or report impossible.",
+      "solution_idea": "Shortest path / DP over states (word index, letters taken from current word 1..3, trailing consonant run 0..2) with two transitions (take next letter or move to next word); O(N). A greedy that fixes the first bad consonant triple also works.",
+      "solution_source": "editorial",
+      "candidate_tags": [
+        "dp",
+        "shortest path on dag",
+        "strings",
+        "greedy"
+      ],
+      "cf_tags": [],
+      "cf_rating": null
+    },
+    {
+      "id": "lac2024-L",
+      "contest": "lac2024",
+      "letter": "L",
+      "title": "LED Matrix",
+      "solved_teams": 40,
+      "attempted_teams": 40,
+      "first_solve_min": 6,
+      "links": {
+        "mirror": "https://codeforces.com/gym/105053/problem/L",
+        "kattis": null,
+        "statement": "https://scorelatam.naquadah.com.br/pda24/contest.pdf"
+      },
+      "statement_summary": "A R x C LED matrix with broken LEDs scrolls an R x K pattern from right to left; decide whether every required LED can be lit at every step.",
+      "solution_idea": "Every pattern column passes over every matrix column, so each row works iff its matrix row has no broken LED or its pattern row has no lit LED. O(R(C+K)).",
+      "solution_source": "editorial",
+      "candidate_tags": [
+        "ad hoc",
+        "implementation",
+        "observation"
+      ],
+      "cf_tags": [],
+      "cf_rating": null
+    },
+    {
+      "id": "lac2025-A",
+      "contest": "lac2025",
+      "letter": "A",
+      "title": "Ananna",
+      "solved_teams": 11,
+      "attempted_teams": 21,
+      "first_solve_min": 56,
+      "links": {
+        "mirror": "https://codeforces.com/gym/105789/problem/A",
+        "kattis": null,
+        "statement": "https://scorelatam.naquadah.com.br/pda25/contest.pdf"
+      },
+      "statement_summary": "Directed multigraph with N,M<=5000 and a letter on each edge; count ordered pairs (U,V), U!=V, with a walk from U to V whose letter sequence is a palindrome.",
+      "solution_idea": "BFS over pair states (u,v) = \"there is a palindromic walk u->v\": start from (u,u) (and single edges as odd centers), and from (u,v) extend to (u',v') for every edge u'->u and v->v' with the same letter. Total work sum indeg(u)*outdeg(v) = O(M^2).",
+      "solution_source": "editorial",
+      "candidate_tags": [
+        "bfs on pair states",
+        "palindromes",
+        "product graph",
+        "graph reachability"
+      ],
+      "cf_tags": [],
+      "cf_rating": null
+    },
+    {
+      "id": "lac2025-B",
+      "contest": "lac2025",
+      "letter": "B",
+      "title": "Brazilian FootXOR",
+      "solved_teams": 9,
+      "attempted_teams": 13,
+      "first_solve_min": 32,
+      "links": {
+        "mirror": "https://codeforces.com/gym/105789/problem/B",
+        "kattis": null,
+        "statement": "https://scorelatam.naquadah.com.br/pda25/contest.pdf"
+      },
+      "statement_summary": "Given N binary strings of length K (N,K<=1500), pick two disjoint non-empty teams of equal size with equal XOR, or report impossible.",
+      "solution_idea": "Equivalent to finding a non-empty even-size subset with XOR 0 (split it in halves). Append an extra bit 1 to every vector so that any XOR-zero subset has even size, then find a linear dependency with Gaussian elimination over GF(2) using bitsets, tracking combinations. O(N K^2/64).",
+      "solution_source": "editorial",
+      "candidate_tags": [
+        "linear algebra over gf(2)",
+        "gaussian elimination",
+        "xor basis",
+        "bitset",
+        "constructive"
+      ],
+      "cf_tags": [],
+      "cf_rating": null
+    },
+    {
+      "id": "lac2025-C",
+      "contest": "lac2025",
+      "letter": "C",
+      "title": "Coatless in Yakutsk",
+      "solved_teams": 40,
+      "attempted_teams": 40,
+      "first_solve_min": 5,
+      "links": {
+        "mirror": "https://codeforces.com/gym/105789/problem/C",
+        "kattis": null,
+        "statement": "https://scorelatam.naquadah.com.br/pda25/contest.pdf"
+      },
+      "statement_summary": "A coat can be worn at most C consecutive days before washing; given N daily temperatures, schedule washes to maximize the minimum temperature endured without the coat.",
+      "solution_idea": "Answer is the largest t such that no run of more than C consecutive days has temperature < t; temperatures are in [-50,50], so try every t with a linear scan (or binary search on t). O(101 N).",
+      "solution_source": "editorial",
+      "candidate_tags": [
+        "binary search on answer",
+        "brute force over values",
+        "greedy",
+        "sliding window"
+      ],
+      "cf_tags": [],
+      "cf_rating": null
+    },
+    {
+      "id": "lac2025-D",
+      "contest": "lac2025",
+      "letter": "D",
+      "title": "Dangerous City",
+      "solved_teams": 26,
+      "attempted_teams": 30,
+      "first_solve_min": 70,
+      "links": {
+        "mirror": "https://codeforces.com/gym/105789/problem/D",
+        "kattis": null,
+        "statement": "https://scorelatam.naquadah.com.br/pda25/contest.pdf"
+      },
+      "statement_summary": "Connected graph with N,M<=3e5 and danger D_i on vertices; f(u,v) = min over paths of the max vertex danger; output sum_v f(u,v) for every u.",
+      "solution_idea": "Minimax path costs live on the MST; build a Kruskal reconstruction tree (DSU, edges weighted by max endpoint danger, processed increasingly) whose internal node weight is the bottleneck. For a leaf, answer = sum over its root path of (leaves(v_i) - leaves(v_{i+1})) * w(v_i) + D_u, computed with one DFS. O(N log N). (Small-to-large merging also works.)",
+      "solution_source": "editorial",
+      "candidate_tags": [
+        "kruskal reconstruction tree",
+        "dsu",
+        "minimax bottleneck path",
+        "mst",
+        "tree dp"
+      ],
+      "cf_tags": [],
+      "cf_rating": null
+    },
+    {
+      "id": "lac2025-E",
+      "contest": "lac2025",
+      "letter": "E",
+      "title": "Exciting Business Opportunities",
+      "solved_teams": 0,
+      "attempted_teams": 2,
+      "first_solve_min": null,
+      "links": {
+        "mirror": "https://codeforces.com/gym/105789/problem/E",
+        "kattis": null,
+        "statement": "https://scorelatam.naquadah.com.br/pda25/contest.pdf"
+      },
+      "statement_summary": "Tree with N<=1e5 nodes and P<=1e5 proposals (sponsor node or business node); a contiguous range of proposals is valid if every business lies on a path between two sponsors of the range (or is sponsored). For every start i, output the longest valid range.",
+      "solution_idea": "For each business at node B, find the nearest sponsors to the left/right (in proposal order) lying in different subtrees around B (segment tree over proposals with Euler-tour subtree info); they define for which starts which ends become invalid. Sweep the start position and keep valid ends with a lazy segment tree (range add + min / first invalid). O((N+P) log). Alternative: divide and conquer.",
+      "solution_source": "editorial",
+      "candidate_tags": [
+        "segment tree",
+        "sweep line",
+        "euler tour",
+        "tree paths",
+        "lazy propagation"
+      ],
+      "cf_tags": [],
+      "cf_rating": null
+    },
+    {
+      "id": "lac2025-F",
+      "contest": "lac2025",
+      "letter": "F",
+      "title": "Festival Signs",
+      "solved_teams": 3,
+      "attempted_teams": 4,
+      "first_solve_min": 180,
+      "links": {
+        "mirror": "https://codeforces.com/gym/105789/problem/F",
+        "kattis": null,
+        "statement": "https://scorelatam.naquadah.com.br/pda25/contest.pdf"
+      },
+      "statement_summary": "Process N events: add or remove a rectangle [A,B] x [0,H) and query, for an interval [L,R], the lowest uncovered height (min over x in [L,R] of the max height covering x).",
+      "solution_idea": "Insertions plus queries are a segment tree with lazy range chmax and range min. Removals are handled offline with the \"offline dynamic connectivity\" trick: segment tree over time, each rectangle added to O(log N) time nodes, DFS with a rollback-able segment tree (stack of changes or persistence). O(N log^2 N).",
+      "solution_source": "editorial",
+      "candidate_tags": [
+        "offline deletion (segment tree over time)",
+        "rollback",
+        "segment tree lazy propagation",
+        "range chmax",
+        "divide and conquer on time"
+      ],
+      "cf_tags": [],
+      "cf_rating": null
+    },
+    {
+      "id": "lac2025-G",
+      "contest": "lac2025",
+      "letter": "G",
+      "title": "Game of Pieces",
+      "solved_teams": 26,
+      "attempted_teams": 38,
+      "first_solve_min": 63,
+      "links": {
+        "mirror": "https://codeforces.com/gym/105789/problem/G",
+        "kattis": null,
+        "statement": "https://scorelatam.naquadah.com.br/pda25/contest.pdf"
+      },
+      "statement_summary": "Simplified Tetris on an infinite board: N<=2e5 vertical (L x 1) or horizontal (1 x L) pieces dropped at columns up to 1e18; a piece that creates a hole is removed. Output safe/unsafe per piece.",
+      "solution_idea": "If the board is always hole-free it is described by column heights; a horizontal piece is unsafe iff the heights on its span are not all equal (vertical pieces are always safe). Maintain heights as a set of [l,r,h] intervals in an ordered map, or a sparse / coordinate-compressed segment tree with \"all equal\" query and range assign. O(N log N).",
+      "solution_source": "editorial",
+      "candidate_tags": [
+        "interval set (ordered map of ranges)",
+        "segment tree",
+        "coordinate compression",
+        "simulation"
+      ],
+      "cf_tags": [],
+      "cf_rating": null
+    },
+    {
+      "id": "lac2025-H",
+      "contest": "lac2025",
+      "letter": "H",
+      "title": "Horrible Restaurants",
+      "solved_teams": 0,
+      "attempted_teams": 2,
+      "first_solve_min": null,
+      "links": {
+        "mirror": "https://codeforces.com/gym/105789/problem/H",
+        "kattis": null,
+        "statement": "https://scorelatam.naquadah.com.br/pda25/contest.pdf"
+      },
+      "statement_summary": "N<=2e5 restaurants each get 0..3 stars with increasing costs C1<C2<C3; output the minimum cost to reach exactly k total stars for every k=1..3N.",
+      "solution_idea": "From an optimal solution for k stars, an optimal one for k+1 is reachable by a small exchange: +1 on one restaurant, +2/-1, +3/-2, +3/-1/-1 or +2/+2/-3. Maintain heaps/sets of candidate deltas for each restaurant state and apply the cheapest move each step. O(N log N).",
+      "solution_source": "editorial",
+      "candidate_tags": [
+        "greedy exchange",
+        "priority queue",
+        "incremental optimal solutions",
+        "knapsack with small items"
+      ],
+      "cf_tags": [],
+      "cf_rating": null
+    },
+    {
+      "id": "lac2025-I",
+      "contest": "lac2025",
+      "letter": "I",
+      "title": "Infinite Arrays",
+      "solved_teams": 2,
+      "attempted_teams": 2,
+      "first_solve_min": 180,
+      "links": {
+        "mirror": "https://codeforces.com/gym/105789/problem/I",
+        "kattis": null,
+        "statement": "https://scorelatam.naquadah.com.br/pda25/contest.pdf"
+      },
+      "statement_summary": "Maintain an array P of distinct values under insert-before and delete; answer queries: the longest common subarray between the infinite repetitions of P and of a query array A (or * if unbounded).",
+      "solution_idea": "A common subarray of the periodic sequences is a run of A (scanned over A concatenated twice) where each element is the cyclic successor of the previous one in P; maintain P as a doubly linked list keyed by value (hash/array next/prev, wrap from last to first). If A is one full consistent cycle of P the answer is infinite. O(1) per update, O(|A|) per query.",
+      "solution_source": "editorial",
+      "candidate_tags": [
+        "linked list",
+        "cyclic sequences",
+        "two pointers",
+        "implementation",
+        "hashing"
+      ],
+      "cf_tags": [],
+      "cf_rating": null
+    },
+    {
+      "id": "lac2025-J",
+      "contest": "lac2025",
+      "letter": "J",
+      "title": "Just Look Up",
+      "solved_teams": 0,
+      "attempted_teams": 1,
+      "first_solve_min": null,
+      "links": {
+        "mirror": "https://codeforces.com/gym/105789/problem/J",
+        "kattis": null,
+        "statement": "https://scorelatam.naquadah.com.br/pda25/contest.pdf"
+      },
+      "statement_summary": "N<=500 stars in 3D; find the largest half-angle of a cone with apex at the origin containing no star (90 if a half-space is empty).",
+      "solution_idea": "Project stars on the unit sphere; this is the largest empty spherical cap. Its circle passes through >=3 points (or 2 with a constrained center); candidates are circumcircles of faces of the 3D convex hull of the projected points (spherical Delaunay), or iterate pairs plus center direction in O(n^3). Check the empty-hemisphere case.",
+      "solution_source": "editorial",
+      "candidate_tags": [
+        "3d convex hull",
+        "spherical geometry",
+        "largest empty circle",
+        "delaunay/voronoi duality",
+        "computational geometry"
+      ],
+      "cf_tags": [],
+      "cf_rating": null
+    },
+    {
+      "id": "lac2025-K",
+      "contest": "lac2025",
+      "letter": "K",
+      "title": "Keep Fighting",
+      "solved_teams": 13,
+      "attempted_teams": 27,
+      "first_solve_min": 81,
+      "links": {
+        "mirror": "https://codeforces.com/gym/105789/problem/K",
+        "kattis": null,
+        "statement": "https://scorelatam.naquadah.com.br/pda25/contest.pdf"
+      },
+      "statement_summary": "Card game with N<=50 cards (multiply power, add power, attack); the deck is replayed in cycles, each card once per cycle in any order; find the minimum number of turns to deal H damage.",
+      "solution_idea": "If one cycle is not enough, play attacks first, then multipliers, then adders in every full cycle (power only grows), simulating O(sqrt H) cycles; for the final partial cycle brute force how many cards of each type to play, taking the best adders/multipliers sorted by value (handle x1 cards and zero power). O(N sqrt H).",
+      "solution_source": "editorial",
+      "candidate_tags": [
+        "greedy",
+        "brute force",
+        "simulation",
+        "case analysis",
+        "exchange argument"
+      ],
+      "cf_tags": [],
+      "cf_rating": null
+    },
+    {
+      "id": "lac2025-L",
+      "contest": "lac2025",
+      "letter": "L",
+      "title": "LED Counter",
+      "solved_teams": 40,
+      "attempted_teams": 40,
+      "first_solve_min": 10,
+      "links": {
+        "mirror": "https://codeforces.com/gym/105789/problem/L",
+        "kattis": null,
+        "statement": "https://scorelatam.naquadah.com.br/pda25/contest.pdf"
+      },
+      "statement_summary": "A seven-segment counter has stuck-on/stuck-off LEDs; for each of N positions output the intended digit or * if ambiguous.",
+      "solution_idea": "For each position try all 10 digits, ignoring stuck segments and matching the good ones. O(70 N).",
+      "solution_source": "editorial",
+      "candidate_tags": [
+        "brute force",
+        "implementation",
+        "ad hoc"
+      ],
+      "cf_tags": [],
+      "cf_rating": null
+    },
+    {
+      "id": "lac2026-A",
+      "contest": "lac2026",
+      "letter": "A",
+      "title": "Ants on a Ring",
+      "solved_teams": 11,
+      "attempted_teams": 30,
+      "first_solve_min": 75,
+      "links": {
+        "mirror": "https://codeforces.com/gym/106416/problem/A",
+        "kattis": null,
+        "statement": "https://scorelatam.naquadah.com.br/pda26/contest.pdf"
+      },
+      "statement_summary": "N<=1000 labeled ants on a ring of L<=1e9 spots must reach given target spots; ants move one spot per second and can never meet or pass each other. Find the minimum time or report impossible.",
+      "solution_idea": "Ants cannot overtake, so the cyclic order is preserved. Sort ants by start position and unwrap the ring: fix the unwrapped target of the first ant (only two candidates matter, its nearest target clockwise or counter-clockwise), then each next ant takes its own target at the first unwrapped position clockwise after the previous ant's; if this passes one full lap (first target + L) the order is broken and that candidate is impossible. Order-preserving moves on a line achieve makespan max_i |start_i - target_i|; answer = min over the two candidates, or *. O(N log N) (jury reference solution).",
+      "solution_source": "community",
+      "candidate_tags": [
+        "ad hoc",
+        "cyclic order invariant",
+        "unwrapping a circle",
+        "minimize max displacement",
+        "case analysis"
+      ],
+      "cf_tags": [],
+      "cf_rating": null
+    },
+    {
+      "id": "lac2026-B",
+      "contest": "lac2026",
+      "letter": "B",
+      "title": "Booksort",
+      "solved_teams": 39,
+      "attempted_teams": 41,
+      "first_solve_min": 22,
+      "links": {
+        "mirror": "https://codeforces.com/gym/106416/problem/B",
+        "kattis": null,
+        "statement": "https://scorelatam.naquadah.com.br/pda26/contest.pdf"
+      },
+      "statement_summary": "N<=5000 stacks with A_i<=1e5 books; a command (i,j) replaces A_i, A_j by floor/ceil of their average (floor at the first index). Output at most 1e5 commands that sort the stacks non-decreasingly.",
+      "solution_idea": "Constructive: repeatedly pair the k-th smallest stack with the k-th largest and average them; the value range roughly halves per round, so after O(log V) rounds (~N/2 commands each) all values are in {q,q+1}. Then a command on (i,j), i<j, with A_i=q+1, A_j=q swaps them; match leftmost q+1s with rightmost qs. About 1.4e4 commands for N=5000 (checked by simulation). Jury solutions do the same (repeatedly average the global min and max until the range is <= 1, then swap) or, even simpler, fix positions left to right: while A_i exceeds the minimum of the suffix, average i with that minimum (an ordered set gives the minimum).",
+      "solution_source": "community",
+      "candidate_tags": [
+        "constructive",
+        "averaging/balancing",
+        "greedy pairing",
+        "invariants"
+      ],
+      "cf_tags": [],
+      "cf_rating": null
+    },
+    {
+      "id": "lac2026-C",
+      "contest": "lac2026",
+      "letter": "C",
+      "title": "Crop Circles",
+      "solved_teams": 0,
+      "attempted_teams": 1,
+      "first_solve_min": null,
+      "links": {
+        "mirror": "https://codeforces.com/gym/106416/problem/C",
+        "kattis": null,
+        "statement": "https://scorelatam.naquadah.com.br/pda26/contest.pdf"
+      },
+      "statement_summary": "Given N<=40 sprinkler disks, find the largest circle whose whole perimeter lies inside the union of the disks (the inside may be dry).",
+      "solution_idea": "Candidates are each sprinkler circle itself plus every circle through three vertices of the union boundary, i.e. pairwise circle-circle intersection points that are not strictly inside any other disk (deduplicated). Verify each candidate by intersecting it with every sprinkler disk, turning the covered parts into angular intervals and checking that their union is the full 2*pi; keep the largest radius. O(V^3 * N log N) with V = boundary vertices; careful epsilons (jury reference solution).",
+      "solution_source": "community",
+      "candidate_tags": [
+        "computational geometry",
+        "union of disks",
+        "circle-circle intersection",
+        "angular interval coverage",
+        "candidate enumeration",
+        "circumcircle of three points"
+      ],
+      "cf_tags": [],
+      "cf_rating": null
+    },
+    {
+      "id": "lac2026-D",
+      "contest": "lac2026",
+      "letter": "D",
+      "title": "Dropshipping",
+      "solved_teams": 0,
+      "attempted_teams": 1,
+      "first_solve_min": null,
+      "links": {
+        "mirror": "https://codeforces.com/gym/106416/problem/D",
+        "kattis": null,
+        "statement": "https://scorelatam.naquadah.com.br/pda26/contest.pdf"
+      },
+      "statement_summary": "N<=2e5 requests with even prices A_i; every (X+1)-th purchase gets 50% off; request i must be bought within the first i+K purchases. Choose the purchase order maximizing total discount.",
+      "solution_idea": "Fill purchase slots from the last one backwards: slot t can hold any not-yet-placed request with index >= t-K, so going from t=N down to 1 the set of eligible requests is a window that only gains one request per step (request t-K-1). Keep it in a multiset; at a discounted slot (t multiple of X+1) take the most expensive eligible request (add half its price), otherwise discard the cheapest. Every slot is forced to take someone from the window, so this exchange-argument greedy is optimal. O(N log N) (jury reference solution; also explained in the CF gym thread).",
+      "solution_source": "community",
+      "candidate_tags": [
+        "greedy with multiset",
+        "scheduling with deadlines",
+        "backward sweep",
+        "exchange argument",
+        "sliding window"
+      ],
+      "cf_tags": [],
+      "cf_rating": null
+    },
+    {
+      "id": "lac2026-E",
+      "contest": "lac2026",
+      "letter": "E",
+      "title": "Eye Exam",
+      "solved_teams": 39,
+      "attempted_teams": 41,
+      "first_solve_min": 6,
+      "links": {
+        "mirror": "https://codeforces.com/gym/106416/problem/E",
+        "kattis": null,
+        "statement": "https://scorelatam.naquadah.com.br/pda26/contest.pdf"
+      },
+      "statement_summary": "Given N<=1000 answers \"A closer\", \"B closer\" or \"equal\" for lens pairs A<B, output the minimum and maximum integer prescription x consistent with all answers, or *.",
+      "solution_idea": "Each answer is a half-line on 2x: \"A\" means 2x < A+B, \"B\" means 2x > A+B, \"E\" means 2x = A+B. Intersect all constraints and output the integer range. O(N).",
+      "solution_source": "community",
+      "candidate_tags": [
+        "math",
+        "interval intersection",
+        "implementation"
+      ],
+      "cf_tags": [],
+      "cf_rating": null
+    },
+    {
+      "id": "lac2026-F",
+      "contest": "lac2026",
+      "letter": "F",
+      "title": "Fun with Balls",
+      "solved_teams": 37,
+      "attempted_teams": 38,
+      "first_solve_min": 70,
+      "links": {
+        "mirror": "https://codeforces.com/gym/106416/problem/F",
+        "kattis": null,
+        "statement": "https://scorelatam.naquadah.com.br/pda26/contest.pdf"
+      },
+      "statement_summary": "N<=150 colored balls are added one by one to a stable 2D pile, always at the highest available place; find the maximum size of a same-color connected cluster over all possible piles.",
+      "solution_idea": "The highest-place rule forces the pile to be a triangle grown by diagonals: while the pyramid is not full the next ball goes to the forced row; only when it is full can the ball go to the left or right end of the ground row. So a pile is determined by ~16 left/right choices: backtrack over all of them (jury reference), place the balls and compute same-color clusters with DFS on the triangular lattice (6 neighbours).",
+      "solution_source": "community",
+      "candidate_tags": [
+        "brute force",
+        "backtracking",
+        "simulation",
+        "flood fill",
+        "structural observation"
+      ],
+      "cf_tags": [],
+      "cf_rating": null
+    },
+    {
+      "id": "lac2026-G",
+      "contest": "lac2026",
+      "letter": "G",
+      "title": "GATA-CAT",
+      "solved_teams": 10,
+      "attempted_teams": 18,
+      "first_solve_min": 88,
+      "links": {
+        "mirror": "https://codeforces.com/gym/106416/problem/G",
+        "kattis": null,
+        "statement": "https://scorelatam.naquadah.com.br/pda26/contest.pdf"
+      },
+      "statement_summary": "For Q<=1000 queries (G, C <= 1e6) build a DNA string of length <= 500 whose number of GATA subsequences is G and number of CAT subsequences is C.",
+      "solution_idea": "Build the string as groups [G..G C..C] followed by \"AT\", repeated r times. A G followed by j remaining \"AT\" blocks completes C(j+1,3) GATA subsequences (tetrahedral number) and a C followed by j blocks completes j(j+1)/2 CAT subsequences (triangular number), with no cross-talk. So write G as a sum of tetrahedral numbers and C as a sum of triangular numbers (take the largest, then the remainder with a precomputed min-terms BFS/DP, or plain greedy) and put each letter before the right number of AT blocks; fits in 500 letters (jury reference solution).",
+      "solution_source": "community",
+      "candidate_tags": [
+        "constructive",
+        "subsequence counting",
+        "triangular/tetrahedral numbers",
+        "greedy decomposition",
+        "coin change"
+      ],
+      "cf_tags": [],
+      "cf_rating": null
+    },
+    {
+      "id": "lac2026-H",
+      "contest": "lac2026",
+      "letter": "H",
+      "title": "Holes and Tunnels",
+      "solved_teams": 0,
+      "attempted_teams": 2,
+      "first_solve_min": null,
+      "links": {
+        "mirror": "https://codeforces.com/gym/106416/problem/H",
+        "kattis": null,
+        "statement": "https://scorelatam.naquadah.com.br/pda26/contest.pdf"
+      },
+      "statement_summary": "In a tree with N<=2e5 vertices, for each k=1..N-1 count ordered pairs of paths sharing exactly k edges (mod 998244353).",
+      "solution_idea": "The intersection of two tree paths is a path u..v; the pair intersects exactly there iff both paths extend past u (and v) into different branches or stop there. With F(u->v) = S^2 - sum s_i^2 (S = vertices on u's side, s_i = sizes of branches at u away from v), answer_k = sum over paths u..v of length k of F(u->v) F(v->u). Compute this distance-indexed sum with centroid decomposition + NTT convolution of weighted depth polynomials (per centroid, sum over pairs of child polynomials via (sum P)^2 - sum P^2). O(N log^2 N) (matches the jury reference solution).",
+      "solution_source": "community",
+      "candidate_tags": [
+        "centroid decomposition",
+        "ntt/fft convolution",
+        "counting paths in trees",
+        "combinatorics",
+        "subtree sizes"
+      ],
+      "cf_tags": [],
+      "cf_rating": null
+    },
+    {
+      "id": "lac2026-I",
+      "contest": "lac2026",
+      "letter": "I",
+      "title": "Inversion Game",
+      "solved_teams": 14,
+      "attempted_teams": 17,
+      "first_solve_min": 150,
+      "links": {
+        "mirror": "https://codeforces.com/gym/106416/problem/I",
+        "kattis": null,
+        "statement": "https://scorelatam.naquadah.com.br/pda26/contest.pdf"
+      },
+      "statement_summary": "Two players alternately move elements of a multiset S (N<=1e5) to the end of an array; Evelyn wins if the final number of inversions is even. Decide among Evelyn/Todd/first/second player wins.",
+      "solution_idea": "Picking x adds (#remaining elements smaller than x) to the inversion count, and copying the opponent's value cancels contributions, so only values with odd multiplicity matter. With m = number of values of odd multiplicity: m<=1 -> E, m even >=2 -> F, m odd >=3 -> S (Todd never wins regardless of order); verified by brute force on small multisets and identical to the jury solutions. O(N).",
+      "solution_source": "community",
+      "candidate_tags": [
+        "game theory",
+        "parity argument",
+        "mirroring strategy",
+        "inversions"
+      ],
+      "cf_tags": [],
+      "cf_rating": null
+    },
+    {
+      "id": "lac2026-J",
+      "contest": "lac2026",
+      "letter": "J",
+      "title": "Jaime's Palace",
+      "solved_teams": 39,
+      "attempted_teams": 41,
+      "first_solve_min": 10,
+      "links": {
+        "mirror": "https://codeforces.com/gym/106416/problem/J",
+        "kattis": null,
+        "statement": "https://scorelatam.naquadah.com.br/pda26/contest.pdf"
+      },
+      "statement_summary": "P<=2000 plates in a stack; on day i the top K_i plates are used and returned on top in an adversarial order. Find the largest t such that some plate is surely used at least t times after D<=2000 days.",
+      "solution_idea": "Simulate the adversary greedily: after each day put the used plates back with the least-used ones on top (so heavily used plates sink and usage stays balanced); the answer is the final maximum count. Exchange argument; matches exhaustive search on small cases and the jury reference (increment the top K counts, re-sort them so the smallest is on top). O(D P log P), or counting sort.",
+      "solution_source": "community",
+      "candidate_tags": [
+        "greedy",
+        "simulation",
+        "adversarial argument",
+        "sorting"
+      ],
+      "cf_tags": [],
+      "cf_rating": null
+    },
+    {
+      "id": "lac2026-K",
+      "contest": "lac2026",
+      "letter": "K",
+      "title": "Kitten Greetings",
+      "solved_teams": 3,
+      "attempted_teams": 8,
+      "first_solve_min": 173,
+      "links": {
+        "mirror": "https://codeforces.com/gym/106416/problem/K",
+        "kattis": null,
+        "statement": "https://scorelatam.naquadah.com.br/pda26/contest.pdf"
+      },
+      "statement_summary": "N<=4000 cats with distinct x and distinct y coordinates; a circuit alternates horizontal/vertical segments, each segment having a distinct cat at its midpoint, and returns to the start facing the same way. Maximize total length.",
+      "solution_idea": "Each step is a point reflection through a cat; horizontal and vertical steps alternate, so for consecutive cats b,c,d: 2c.x = b.x + d.x when c is on a horizontal step (2c.y = b.y + d.y on a vertical one). Since coordinates are distinct, an ordered pair of consecutive cats determines the next cat uniquely (hash lookup), giving a permutation on O(N^2) pair states; walk its cycles, keep those with even length, no repeated cat, and return to the start, and take the max perimeter. O(N^2) with hashing; a bitset marks visited (direction, pair) states (same as the jury reference).",
+      "solution_source": "community",
+      "candidate_tags": [
+        "functional graph / permutation cycles",
+        "point reflection",
+        "hashing",
+        "geometry",
+        "brute force over pairs"
+      ],
+      "cf_tags": [],
+      "cf_rating": null
+    },
+    {
+      "id": "lac2026-L",
+      "contest": "lac2026",
+      "letter": "L",
+      "title": "Late and Disobedient",
+      "solved_teams": 2,
+      "attempted_teams": 3,
+      "first_solve_min": 254,
+      "links": {
+        "mirror": "https://codeforces.com/gym/106416/problem/L",
+        "kattis": null,
+        "statement": "https://scorelatam.naquadah.com.br/pda26/contest.pdf"
+      },
+      "statement_summary": "N<=1000 pedestrians move linearly on a line; for Q<=2e6 increasing times decide whether the crosswalk [0,L] has a free gap of width >= C between consecutive pedestrians/endpoints.",
+      "solution_idea": "Kinetic sorted order: pedestrians swap order at O(N^2) crossing times; maintain the sorted list (with the two crosswalk ends as fixed sentinels and entry/exit events) and for each adjacent pair schedule the times its gap crosses C. Process events in a priority queue while sweeping the sorted query times, keeping a count of adjacent pairs with gap >= C. All times are compared as exact fractions. O(N^2 log N + Q) (matches the jury reference solution).",
+      "solution_source": "community",
+      "candidate_tags": [
+        "kinetic data structure",
+        "event sweep",
+        "priority queue",
+        "offline queries",
+        "linear motion"
+      ],
+      "cf_tags": [],
+      "cf_rating": null
+    }
+  ]
+}

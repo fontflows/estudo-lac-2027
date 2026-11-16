@@ -1,0 +1,1091 @@
+{
+  "source": "apac",
+  "contests": [
+    {
+      "id": "apac2024",
+      "family": "apac",
+      "name": "The 2024 ICPC Asia Pacific Championship",
+      "short": "APAC 2024",
+      "year": 2024,
+      "date": "2024-03-02",
+      "total_teams": 65,
+      "links": {
+        "scoreboard": "https://storage.googleapis.com/files.icpc.jp/championship2024/standings.html",
+        "statements": "https://storage.googleapis.com/files.icpc.jp/championship2024/tasks.pdf",
+        "editorial": "https://storage.googleapis.com/files.icpc.jp/championship2024/analysis.pdf",
+        "mirror": "https://codeforces.com/contest/1938",
+        "kattis": null
+      },
+      "notes": "Held in Hanoi, Vietnam. Counts from the official DOMjudge final scoreboard archived by ICPC Japan (all 65 listed teams are official; no guest/mirror teams). Archived page header says 'preliminary results - not final' but it is the unfrozen post-contest board (no pending cells). Unsolved problems: A, I, M. Online mirror is a Codeforces main-site contest 1938 (rated difficulty available)."
+    },
+    {
+      "id": "apac2025",
+      "family": "apac",
+      "name": "The 2025 ICPC Asia Pacific Championship",
+      "short": "APAC 2025",
+      "year": 2025,
+      "date": "2025-03-01",
+      "total_teams": 65,
+      "links": {
+        "scoreboard": "https://storage.googleapis.com/files.icpc.jp/championship2025/standings.html",
+        "statements": "https://storage.googleapis.com/files.icpc.jp/championship2025/problemset.pdf",
+        "editorial": "https://storage.googleapis.com/files.icpc.jp/championship2025/problem-analysis.pdf",
+        "mirror": "https://codeforces.com/contest/2073",
+        "kattis": null
+      },
+      "notes": "Held in Singapore (NUS). Counts from the official DOMjudge final scoreboard archived by ICPC Japan (all 65 listed teams are official; no guest/mirror teams). Archived page header says 'preliminary results - not final' but it is the unfrozen post-contest board (no pending cells). Unsolved problems: B, M. Online mirror is a Codeforces main-site contest 2073 (rated difficulty available)."
+    },
+    {
+      "id": "apac2026",
+      "family": "apac",
+      "name": "The 2026 ICPC Asia Pacific Championship",
+      "short": "APAC 2026",
+      "year": 2026,
+      "date": "2026-03-08",
+      "total_teams": 70,
+      "links": {
+        "scoreboard": "https://storage.googleapis.com/files.icpc.jp/championship2026/standings.html",
+        "statements": "https://storage.googleapis.com/files.icpc.jp/championship2026/problemset.pdf",
+        "editorial": "https://storage.googleapis.com/files.icpc.jp/championship2026/problemset-analysis.pdf",
+        "mirror": "https://codeforces.com/contest/2206",
+        "kattis": null
+      },
+      "notes": "Held in Taoyuan, Taiwan. Counts from the official DOMjudge final scoreboard archived by ICPC Japan (all 70 listed teams are official; no guest/mirror teams). Unsolved problems: none. Online mirror is a Codeforces main-site contest 2206 (rated difficulty available)."
+    }
+  ],
+  "problems": [
+    {
+      "id": "apac2024-A",
+      "contest": "apac2024",
+      "letter": "A",
+      "title": "Antiparticle Antiphysics",
+      "solved_teams": 0,
+      "attempted_teams": 3,
+      "first_solve_min": null,
+      "links": {
+        "mirror": "https://codeforces.com/contest/1938/problem/A",
+        "kattis": null,
+        "statement": "https://storage.googleapis.com/files.icpc.jp/championship2024/tasks.pdf"
+      },
+      "statement_summary": "Strings over {A,P}; operations: replace P by APA, replace A by PAP, delete a block of exactly a consecutive A's or p consecutive P's (5<=a,p<=20). Decide whether S can be transformed into E (|S|,|E|<=50) and output a sequence of at most 35000 operations.",
+      "solution_idea": "Treat the operations as relations of a group presentation (A^a = P^p = 1, P = APA, A = PAP); derived moves give A^4 = P^4 = 1 so exponents reduce to gcd(a,4), gcd(p,4), and every word reduces to one of 8 normal forms (A..AAAA, P, AP, AAP, AAAP). The group is a quotient of the quaternion group Q8 (trivial, Z2, Z2xZ2 or Q8), so S->E is possible iff both map to the same group element. Construct the answer with a rewriting procedure (delete A^a, rewrite rightmost PA, leftmost PP, insert AAAA) to normal form, then reverse the procedure for E; step count ~8nk+24k^2.",
+      "solution_source": "editorial",
+      "candidate_tags": [
+        "group theory word problem",
+        "string rewriting normal form",
+        "quaternion group invariant",
+        "constructive output",
+        "gcd reduction"
+      ],
+      "cf_tags": [],
+      "cf_rating": 3500
+    },
+    {
+      "id": "apac2024-B",
+      "contest": "apac2024",
+      "letter": "B",
+      "title": "Attraction Score",
+      "solved_teams": 4,
+      "attempted_teams": 11,
+      "first_solve_min": 186,
+      "links": {
+        "mirror": "https://codeforces.com/contest/1938/problem/B",
+        "kattis": null,
+        "statement": "https://storage.googleapis.com/files.icpc.jp/championship2024/tasks.pdf"
+      },
+      "statement_summary": "Planar straight-line graph with n<=1e5 cities and m<=3e5 weighted highways; score of a vertex subset = sum of edge weights inside minus 1e6*(number of missing pairs)^2. Maximize over non-empty subsets.",
+      "solution_idea": "Penalty argument plus planarity (<=3v-6 edges) show the optimum is a clique (<=4 vertices, K5 is non-planar) or a clique missing one edge (<=5 vertices). Enumerate all O(n) cliques with a degeneracy order: repeatedly remove a min-degree vertex u (degree<=5) and brute-force subsets of its neighbourhood. For 'clique minus one edge' with the missing edge not at u, the extra vertex d forms a 4-clique with the three neighbours, so precomputed best clique extensions give it in O(1). O(n log n).",
+      "solution_source": "editorial",
+      "candidate_tags": [
+        "planar graph degeneracy",
+        "clique enumeration",
+        "bounded degree brute force",
+        "case analysis on penalty",
+        "graph"
+      ],
+      "cf_tags": [],
+      "cf_rating": 3000
+    },
+    {
+      "id": "apac2024-C",
+      "contest": "apac2024",
+      "letter": "C",
+      "title": "Bit Counting Sequence",
+      "solved_teams": 58,
+      "attempted_teams": 64,
+      "first_solve_min": 34,
+      "links": {
+        "mirror": "https://codeforces.com/contest/1938/problem/C",
+        "kattis": null,
+        "statement": "https://storage.googleapis.com/files.icpc.jp/championship2024/tasks.pdf"
+      },
+      "statement_summary": "Given a sequence a_1..a_n (n<=5e5, a_i<=60), find the smallest x>=0 with popcount(x+i-1)=a_i for all i, or -1.",
+      "solution_idea": "If p(y)-p(y+1)=t>=0 then y ends with exactly t+1 ones preceded by a 0. Take the first index k of the maximum value: the drop a_k-a_{k+1} fixes the low t+1 bits of x+k-1, and maximality forces the minimal completion to be (1^s 0 1^{t+1}) with s=a_k-(t+1) (or 2^{a_n}-1 when k=n). Compute x from that, then verify all popcounts in O(n); reject if s<0, x<0 or a mismatch.",
+      "solution_source": "editorial",
+      "candidate_tags": [
+        "bit manipulation",
+        "popcount",
+        "constructive minimal number",
+        "observation on carries"
+      ],
+      "cf_tags": [],
+      "cf_rating": 1900
+    },
+    {
+      "id": "apac2024-D",
+      "contest": "apac2024",
+      "letter": "D",
+      "title": "Bánh Bò",
+      "solved_teams": 2,
+      "attempted_teams": 4,
+      "first_solve_min": 250,
+      "links": {
+        "mirror": "https://codeforces.com/contest/1938/problem/D",
+        "kattis": null,
+        "statement": "https://storage.googleapis.com/files.icpc.jp/championship2024/tasks.pdf"
+      },
+      "statement_summary": "Count r x c binary grids (r multiple of 6 up to 66666, c multiple of 7 up to 77777) in which every 6x7 subgrid has the same number of ones, modulo 998244353.",
+      "solution_idea": "Equal window sums give the 'quadrangle equation' g[i][j]+g[i-6][j-7]=g[i-6][j]+g[i][j-7], so the grid is determined by the first 6 rows and 7 columns, and each residue cell (i,j) of the 6x7 lattice is constant, horizontally striped or vertically striped. Fix the stripe type per residue cell, count fillings with products of binomial sums (row/column sum constraints) and handle overlaps by inclusion-exclusion into 'strictly vertical' vs 'horizontal'. Summing over 2^42 type assignments is done with a DP with pruning or with generating functions per row raised to the 6th power via FFT/NTT.",
+      "solution_source": "editorial",
+      "candidate_tags": [
+        "combinatorics counting",
+        "inclusion-exclusion",
+        "generating functions",
+        "ntt polynomial power",
+        "grid periodicity structure"
+      ],
+      "cf_tags": [],
+      "cf_rating": 3300
+    },
+    {
+      "id": "apac2024-E",
+      "contest": "apac2024",
+      "letter": "E",
+      "title": "Duplicates",
+      "solved_teams": 60,
+      "attempted_teams": 63,
+      "first_solve_min": 45,
+      "links": {
+        "mirror": "https://codeforces.com/contest/1938/problem/E",
+        "kattis": null,
+        "statement": "https://storage.googleapis.com/files.icpc.jp/championship2024/tasks.pdf"
+      },
+      "statement_summary": "n x n matrix (n<=100) with values in 1..n; change the minimum number of entries so every row and every column contains a duplicate value, and output the changes.",
+      "solution_idea": "Call a row/column colorful if all values distinct; one change fixes at most one row and one column, so the answer is at least max(#colorful rows, #colorful columns). It is achievable greedily: while both a colorful row i and colorful column j exist, change (i,j) to any other value; when only colorful columns remain, change an entry in the first row of that column to a value that creates a duplicate in the column while keeping row 1 non-colorful (symmetric for rows). O(n^2)-O(n^3).",
+      "solution_source": "editorial",
+      "candidate_tags": [
+        "greedy",
+        "lower bound matching construction",
+        "constructive",
+        "matrix"
+      ],
+      "cf_tags": [],
+      "cf_rating": 2200
+    },
+    {
+      "id": "apac2024-F",
+      "contest": "apac2024",
+      "letter": "F",
+      "title": "Forming Groups",
+      "solved_teams": 27,
+      "attempted_teams": 45,
+      "first_solve_min": 76,
+      "links": {
+        "mirror": "https://codeforces.com/contest/1938/problem/F",
+        "kattis": null,
+        "statement": "https://storage.googleapis.com/files.icpc.jp/championship2024/tasks.pdf"
+      },
+      "statement_summary": "n students (n<=1e6) in a fixed line except student 1 who chooses where to stand; choose k>1 dividing n, assign positions round-robin into k groups; minimize max group sum / min group sum, output as reduced fraction.",
+      "solution_idea": "For fixed k, slide student 1 from the leftmost position to the right: each shift changes the sums of only two groups, so maintain group sums in a multiset to get max/min in O(log n) per shift. Merging pairs of groups never worsens the ratio, so k only needs to be prime divisors of n (<=7 of them). Compare fractions with cross multiplication; O(7 n log n).",
+      "solution_source": "editorial",
+      "candidate_tags": [
+        "sliding simulation",
+        "multiset max min",
+        "number theory prime divisors",
+        "fraction comparison",
+        "exchange argument"
+      ],
+      "cf_tags": [],
+      "cf_rating": 2400
+    },
+    {
+      "id": "apac2024-G",
+      "contest": "apac2024",
+      "letter": "G",
+      "title": "Personality Test",
+      "solved_teams": 46,
+      "attempted_teams": 53,
+      "first_solve_min": 36,
+      "links": {
+        "mirror": "https://codeforces.com/contest/1938/problem/G",
+        "kattis": null,
+        "statement": "https://storage.googleapis.com/files.icpc.jp/championship2024/tasks.pdf"
+      },
+      "statement_summary": "n<=5000 answer strings of length m<=3000 over A-Z or '.'; two students are similar if they share >=k (k<=5) identical answered questions. Find the similar pair with smallest b, then largest a, or -1.",
+      "solution_idea": "Process students b in order and increment a counter for every earlier i that matches b on each answered question (iterate only over earlier students with the same letter in that column via per-(column,letter) lists). Stop as soon as a counter reaches k: before that every pair counter is <k, so the total number of increments is bounded by (k-1)*C(n,2) (pigeonhole/amortization). O(nm*sigma + k n^2).",
+      "solution_source": "editorial",
+      "candidate_tags": [
+        "amortized counting",
+        "pigeonhole bound",
+        "brute force with early termination",
+        "strings"
+      ],
+      "cf_tags": [],
+      "cf_rating": 2300
+    },
+    {
+      "id": "apac2024-H",
+      "contest": "apac2024",
+      "letter": "H",
+      "title": "Pho Restaurant",
+      "solved_teams": 64,
+      "attempted_teams": 65,
+      "first_solve_min": 11,
+      "links": {
+        "mirror": "https://codeforces.com/contest/1938/problem/H",
+        "kattis": null,
+        "statement": "https://storage.googleapis.com/files.icpc.jp/championship2024/tasks.pdf"
+      },
+      "statement_summary": "n tables each with a binary string of orders; move the minimum number of people (no new tables) so that every table is monochromatic (or empty).",
+      "solution_idea": "Per table, moving the minority bits is optimal if minorities can be absorbed by existing tables whose majority has that type. If all tables have the same majority type, one table must be dedicated to the other type (paying its majority instead of minority); choose the best such table in one pass. Alternatively a DP over tables with a 4-bit mask (need table for 0/1, dedicated table for 0/1). O(total length).",
+      "solution_source": "editorial",
+      "candidate_tags": [
+        "greedy",
+        "case analysis",
+        "bitmask dp",
+        "counting"
+      ],
+      "cf_tags": [],
+      "cf_rating": 1600
+    },
+    {
+      "id": "apac2024-I",
+      "contest": "apac2024",
+      "letter": "I",
+      "title": "Symmetric Boundary",
+      "solved_teams": 0,
+      "attempted_teams": 2,
+      "first_solve_min": null,
+      "links": {
+        "mirror": "https://codeforces.com/contest/1938/problem/I",
+        "kattis": null,
+        "statement": "https://storage.googleapis.com/files.icpc.jp/championship2024/tasks.pdf"
+      },
+      "statement_summary": "Convex polygon with n<=30 vertices (integer coords <=1000); find the minimum-area convex point-symmetric region having all vertices on its boundary, or -1.",
+      "solution_idea": "For center X, the reflected points Q_i=2X-P_i together with P_i must all be on their convex hull. The n^2 lines through (P_a+P_b)/2 and (P_{a+1}+P_b)/2 partition the plane into cells where every orientation test is fixed, so validity is constant and the hull area is linear in X inside each cell; hence the minimum is attained at an arrangement vertex. Enumerate the O(n^4) pairwise line intersections, check validity and compute hull area for each: O(n^5 log n).",
+      "solution_source": "editorial",
+      "candidate_tags": [
+        "computational geometry",
+        "convex hull",
+        "line arrangement vertices",
+        "linear function minimum at vertex",
+        "point symmetry"
+      ],
+      "cf_tags": [],
+      "cf_rating": 2800
+    },
+    {
+      "id": "apac2024-J",
+      "contest": "apac2024",
+      "letter": "J",
+      "title": "There and Back Again",
+      "solved_teams": 61,
+      "attempted_teams": 63,
+      "first_solve_min": 27,
+      "links": {
+        "mirror": "https://codeforces.com/contest/1938/problem/J",
+        "kattis": null,
+        "statement": "https://storage.googleapis.com/files.icpc.jp/championship2024/tasks.pdf"
+      },
+      "statement_summary": "Undirected weighted graph (n<=1e5, m<=3e5); travel 1->n and back n->1 by walks whose sets of used roads differ; minimize total time or -1.",
+      "solution_idea": "One trip is a shortest path P (Dijkstra). The other must use some edge not in P (any walk inside a simple shortest path's edge set uses all of it), and walks may repeat edges, so its cost is min over edges (u,v) not on P of dist1[u]+w+distn[v] (both orientations). Answer = d(1,n) + that minimum. Two Dijkstras, O(m log n).",
+      "solution_source": "editorial",
+      "candidate_tags": [
+        "dijkstra",
+        "second shortest walk",
+        "shortest path from both ends",
+        "graph"
+      ],
+      "cf_tags": [],
+      "cf_rating": 2100
+    },
+    {
+      "id": "apac2024-K",
+      "contest": "apac2024",
+      "letter": "K",
+      "title": "Tree Quiz",
+      "solved_teams": 23,
+      "attempted_teams": 33,
+      "first_solve_min": 52,
+      "links": {
+        "mirror": "https://codeforces.com/contest/1938/problem/K",
+        "kattis": null,
+        "statement": "https://storage.googleapis.com/files.icpc.jp/championship2024/tasks.pdf"
+      },
+      "statement_summary": "Rooted tree n<=1e5; array L of all n^2 values (x-1)n^2+(LCA(x,y)-1)n+(y-1) sorted; answer q<=1e5 queries for the k-th element.",
+      "solution_idea": "x = ceil(k/n); within x, count pairs per LCA: ancestor a_i of x contributes |S(a_i) \\ S(a_{i-1})| values of y. A persistent segment tree indexed by node label storing these counts (moving x across an edge changes two entries) finds the LCA l by k-th-sum descent. Then find the m'-th smallest y in S(l)\\S(child) using persistent segment trees over subtree membership built by small-to-large (heavy child reuse), and descend on the difference of two trees. O((n+q) log^2 n).",
+      "solution_source": "editorial",
+      "candidate_tags": [
+        "persistent segment tree",
+        "kth order statistic",
+        "lca",
+        "small to large",
+        "tree"
+      ],
+      "cf_tags": [],
+      "cf_rating": 2400
+    },
+    {
+      "id": "apac2024-L",
+      "contest": "apac2024",
+      "letter": "L",
+      "title": "XOR Operations",
+      "solved_teams": 6,
+      "attempted_teams": 13,
+      "first_solve_min": 165,
+      "links": {
+        "mirror": "https://codeforces.com/contest/1938/problem/L",
+        "kattis": null,
+        "statement": "https://storage.googleapis.com/files.icpc.jp/championship2024/tasks.pdf"
+      },
+      "statement_summary": "Given a_1..a_n (n<=2e5, a_i<2^30), an operation picks i!=j and XORs a_i^a_j into both b_i and b_j (B starts at 0). Count reachable sequences B mod 998244353.",
+      "solution_idea": "View as vectors over GF(2): reachable set is the span of vectors v_ij with a_i+a_j in blocks i and j, so the answer is 2^rank. Replace a_i by 2a_i+1 (parity bit) and let s be the rank of these vectors (linear basis); the rank of the system is C(s,2)+(n-s)(s-1). Linear basis O(n*30), answer by fast power.",
+      "solution_source": "editorial",
+      "candidate_tags": [
+        "linear algebra gf2",
+        "xor basis",
+        "rank counting",
+        "math"
+      ],
+      "cf_tags": [],
+      "cf_rating": 2800
+    },
+    {
+      "id": "apac2024-M",
+      "contest": "apac2024",
+      "letter": "M",
+      "title": "Zig-zag",
+      "solved_teams": 0,
+      "attempted_teams": 1,
+      "first_solve_min": null,
+      "links": {
+        "mirror": "https://codeforces.com/contest/1938/problem/M",
+        "kattis": null,
+        "statement": "https://storage.googleapis.com/files.icpc.jp/championship2024/tasks.pdf"
+      },
+      "statement_summary": "Count compositions of n (n<=3e5, up to 3e5 queries) whose parts alternate up/down (a1<a2>a3<... or a1>a2<a3>...), mod 998244353.",
+      "solution_idea": "Count via inclusion-exclusion turning each '>' into 'no condition' minus '<=': weighted 'almost increasing' compositions a1<a2<=a3<a4... have length O(sqrt n), so their signed counts a(n) come from a DP over (sum, length) in O(N^1.5). Concatenations of blocks give C(x)=1/(1-A(x)), computed with one power-series inverse via NTT in O(N log N); the other parity/shape cases are handled the same way.",
+      "solution_source": "editorial",
+      "candidate_tags": [
+        "generating functions",
+        "inclusion-exclusion",
+        "power series inverse ntt",
+        "partition dp sqrt length",
+        "combinatorics"
+      ],
+      "cf_tags": [],
+      "cf_rating": 3500
+    },
+    {
+      "id": "apac2025-A",
+      "contest": "apac2025",
+      "letter": "A",
+      "title": "Control Towers",
+      "solved_teams": 64,
+      "attempted_teams": 64,
+      "first_solve_min": 15,
+      "links": {
+        "mirror": "https://codeforces.com/contest/2073/problem/A",
+        "kattis": null,
+        "statement": "https://storage.googleapis.com/files.icpc.jp/championship2025/problemset.pdf"
+      },
+      "statement_summary": "r x c grid (r,c<=2000) with blocked cells; count ordered placements of 4 towers in distinct empty cells such that consecutive towers share a row or column.",
+      "solution_idea": "DP over tower index: DP[k][cell] = ways with tower k at cell, transitions via precomputed row sums and column sums of DP[k-1] (excluding the same cell). This forbids only adjacent coincidences; remove the cases A=C or B=D with inclusion-exclusion (SUM4 - 2*SUM3 + SUM2) and A=D separately (A,B,C collinear in one row/column: subtract p(p-1)(p-2) per row/column with p empty cells). O(rc).",
+      "solution_source": "editorial",
+      "candidate_tags": [
+        "dp on grid",
+        "row column prefix sums",
+        "inclusion-exclusion",
+        "counting"
+      ],
+      "cf_tags": [],
+      "cf_rating": 1900
+    },
+    {
+      "id": "apac2025-B",
+      "contest": "apac2025",
+      "letter": "B",
+      "title": "Three-Dimensional Embedding",
+      "solved_teams": 0,
+      "attempted_teams": 1,
+      "first_solve_min": null,
+      "links": {
+        "mirror": "https://codeforces.com/contest/2073/problem/B",
+        "kattis": null,
+        "statement": "https://storage.googleapis.com/files.icpc.jp/championship2025/problemset.pdf"
+      },
+      "statement_summary": "Embed a graph with n<=1600 vertices, max degree 5, in the integer cube [0,400]^3: vertices at z=0, edges as axis-parallel polylines with <=30 nodes, no intersections.",
+      "solution_idea": "Constructive: each vertex gets a gadget fanning its <=5 edge ports. Greedy edge colouring partitions the edges into few matchings; each matching is routed on its own pair of z-layers without collisions. To fit the box, arrange gadgets in a sqrt(n)/3 x d grid, colour a contracted graph (columns of gadgets) into 10d-1 matchings, and route same-column edges in single layers; dimensions become about 9sqrt(n) x 3sqrt(n) x 7sqrt(n) <= 400. O(n sqrt n).",
+      "solution_source": "editorial",
+      "candidate_tags": [
+        "constructive",
+        "graph embedding",
+        "greedy edge coloring",
+        "matching decomposition",
+        "sqrt grid layout"
+      ],
+      "cf_tags": [],
+      "cf_rating": 3500
+    },
+    {
+      "id": "apac2025-C",
+      "contest": "apac2025",
+      "letter": "C",
+      "title": "Cactus Connectivity",
+      "solved_teams": 4,
+      "attempted_teams": 10,
+      "first_solve_min": 80,
+      "links": {
+        "mirror": "https://codeforces.com/contest/2073/problem/C",
+        "kattis": null,
+        "statement": "https://storage.googleapis.com/files.icpc.jp/championship2025/problemset.pdf"
+      },
+      "statement_summary": "Given a cactus (n<=1e5, m<=2e5), compute its connectivity value: smallest k such that every k-edge-connected supergraph stays connected after deleting the cactus edges.",
+      "solution_idea": "Prove connectivity value = max-cut + 1 (a max cut S|T can be padded with cliques to show mc is insufficient; any larger cut contradicts the max). Max-cut of a cactus: take a spanning tree, 2-colour it, count all tree edges plus non-tree edges whose endpoints differ, i.e. m minus the number of odd cycles. Answer = that + 1, O(n+m).",
+      "solution_source": "editorial",
+      "candidate_tags": [
+        "max cut",
+        "cactus graph",
+        "bipartite coloring",
+        "proof by cut argument",
+        "dfs spanning tree"
+      ],
+      "cf_tags": [],
+      "cf_rating": 2700
+    },
+    {
+      "id": "apac2025-D",
+      "contest": "apac2025",
+      "letter": "D",
+      "title": "Tower of Hanoi",
+      "solved_teams": 35,
+      "attempted_teams": 36,
+      "first_solve_min": 93,
+      "links": {
+        "mirror": "https://codeforces.com/contest/2073/problem/D",
+        "kattis": null,
+        "statement": "https://storage.googleapis.com/files.icpc.jp/championship2025/problemset.pdf"
+      },
+      "statement_summary": "Array p of rods (1..3) for disks 1..n; q<=1e5 operations: point update of p_x, or query the minimum number of Tower-of-Hanoi moves to gather disks l..r (initially on rods p_i) on rod 1, mod 998244353.",
+      "solution_idea": "Reverse view: from the largest disk down, if the current disk is not where it must go, all smaller disks must first go to the third rod, costing 2^x-1 for x smaller disks plus the move; the target rod for smaller disks is determined by the block. For a block of disks store, for each of 3 target rods, the number of moves and the rod required for the smaller disks above it; blocks compose associatively, so keep them in a segment tree (function composition) with point updates. O((n+q) log n).",
+      "solution_source": "editorial",
+      "candidate_tags": [
+        "segment tree",
+        "function composition",
+        "tower of hanoi recursion",
+        "powers of two modular",
+        "point update range query"
+      ],
+      "cf_tags": [],
+      "cf_rating": 2400
+    },
+    {
+      "id": "apac2025-E",
+      "contest": "apac2025",
+      "letter": "E",
+      "title": "Minus Operator",
+      "solved_teams": 2,
+      "attempted_teams": 5,
+      "first_solve_min": 223,
+      "links": {
+        "mirror": "https://codeforces.com/contest/2073/problem/E",
+        "kattis": null,
+        "statement": "https://storage.googleapis.com/files.icpc.jp/championship2025/problemset.pdf"
+      },
+      "statement_summary": "Interactive: hidden fully-parenthesized expression with n<=200 leaves using the binary operator a-b = a AND NOT b; query any assignment of bits to leaves (<=500 queries) and identify the expression.",
+      "solution_idea": "Determine the parenthesis pattern around each leaf from left to right. Knowing the prefix, set to 1 only the leaves that directly lie on the nesting chain of the current leaf (others 0), which reduces the expression to x-(x-(x-(...?x?...))). A small decision tree of queries distinguishes '(x', 'x', 'x)', 'x))', ... using 2 queries for open/plain and about r/2+2 for closing r parentheses; amortized total <= 2.5n queries.",
+      "solution_source": "editorial",
+      "candidate_tags": [
+        "interactive",
+        "expression parsing",
+        "adaptive queries",
+        "amortized query count",
+        "boolean logic"
+      ],
+      "cf_tags": [
+        "interactive"
+      ],
+      "cf_rating": 3300
+    },
+    {
+      "id": "apac2025-F",
+      "contest": "apac2025",
+      "letter": "F",
+      "title": "Hold the Star",
+      "solved_teams": 7,
+      "attempted_teams": 11,
+      "first_solve_min": 108,
+      "links": {
+        "mirror": "https://codeforces.com/contest/2073/problem/F",
+        "kattis": null,
+        "statement": "https://storage.googleapis.com/files.icpc.jp/championship2025/problemset.pdf"
+      },
+      "statement_summary": "n<=1e9 rooms on a line, m<=1e5 characters at r_i with movement cost s_i per step; the star must reach character m by relays (pick up, carry, drop). Answer q<=1e5 levels with different star start l_j: minimum total cost.",
+      "solution_idea": "Assume the star is right of character m (mirror the other side). Optimal strategy: one first carrier (possibly walking right to fetch, or left) and then a relay of characters at their own positions with strictly decreasing s (suffix-minimum chain between r_m and l_j). Sort levels by l_j, maintain the suffix-minimum chain with a monotonic stack and dp[x] = cost of relay starting from x; the fetch cost for each first carrier is linear in l_j, so query min over lines with a convex hull trick (plus suffix minima of dp for left-moving carriers). O((m+q) log).",
+      "solution_source": "editorial",
+      "candidate_tags": [
+        "greedy structure",
+        "monotonic stack",
+        "convex hull trick",
+        "offline sorting queries",
+        "dp"
+      ],
+      "cf_tags": [],
+      "cf_rating": 3500
+    },
+    {
+      "id": "apac2025-G",
+      "contest": "apac2025",
+      "letter": "G",
+      "title": "Corrupted File",
+      "solved_teams": 60,
+      "attempted_teams": 65,
+      "first_solve_min": 19,
+      "links": {
+        "mirror": "https://codeforces.com/contest/2073/problem/G",
+        "kattis": null,
+        "statement": "https://storage.googleapis.com/files.icpc.jp/championship2025/problemset.pdf"
+      },
+      "statement_summary": "Bit string B (n<=1e5) can repeatedly have two adjacent bits replaced by their AND; decide whether it can become C.",
+      "solution_idea": "Merging a contiguous block gives AND of the block, so run-length encode B: runs can be shortened to any positive length, and blocks containing a 0 merge several runs into one 0 (deleting 1-runs in between). Greedily match C's runs left to right with a pointer in B: a 0-run of length k consumes runs until k zeros are covered, a 1-run needs a later B run of ones with length >=k. Also B's first/last run being 0 forces C's to be 0. O(n+m).",
+      "solution_source": "editorial",
+      "candidate_tags": [
+        "greedy two pointers",
+        "run length encoding",
+        "string transformation",
+        "invariants"
+      ],
+      "cf_tags": [],
+      "cf_rating": 2200
+    },
+    {
+      "id": "apac2025-H",
+      "contest": "apac2025",
+      "letter": "H",
+      "title": "Secret Lilies and Roses",
+      "solved_teams": 32,
+      "attempted_teams": 49,
+      "first_solve_min": 80,
+      "links": {
+        "mirror": "https://codeforces.com/contest/2073/problem/H",
+        "kattis": null,
+        "statement": "https://storage.googleapis.com/files.icpc.jp/championship2025/problemset.pdf"
+      },
+      "statement_summary": "Interactive: n<=100 hidden flowers (lily/rose); queries: type of flower i, or l_j*r_j (lilies in prefix j times roses in suffix). With <=10 queries find k with l_k=r_k.",
+      "solution_idea": "Key insight: k = total number of roses always works. Binary search with type queries (dummy rose at 0, lily at n+1) for a position x with rose at x and lily at x+1, then use two multiply queries among x-1,x,x+1 (they give l_x(r_x+1), l_x r_x, (l_x+1) r_x) to solve for l_x and r_x, hence the number of roses. ceil(log2 n)+2 queries.",
+      "solution_source": "editorial",
+      "candidate_tags": [
+        "interactive",
+        "binary search",
+        "invariant observation",
+        "math equations"
+      ],
+      "cf_tags": [
+        "interactive"
+      ],
+      "cf_rating": 2700
+    },
+    {
+      "id": "apac2025-I",
+      "contest": "apac2025",
+      "letter": "I",
+      "title": "Squares on Grid Lines",
+      "solved_teams": 13,
+      "attempted_teams": 38,
+      "first_solve_min": 75,
+      "links": {
+        "mirror": "https://codeforces.com/contest/2073/problem/I",
+        "kattis": null,
+        "statement": "https://storage.googleapis.com/files.icpc.jp/championship2025/problemset.pdf"
+      },
+      "statement_summary": "n x n unit grid (n<=2000); for q<=1e5 real areas s, count squares (any orientation) whose 4 vertices lie on cell boundaries, or -1 if infinitely many.",
+      "solution_idea": "Classify: squares with all vertices on grid corners (not all on the border) give 'unlimited' areas; otherwise the vertices alternate horizontal/vertical edge points (or are border lattice points) and the square is centred at a lattice point or a cell centre. For a pivot centre, each unit grid segment in one quadrant yields an interval of areas 2d^2 for its vertex, weighted by the number of translations of the centre that keep the square inside; collect O(n^2) weighted intervals plus the set of unlimited areas, then sweep intervals against sorted queries. O((n^2+q) log n).",
+      "solution_source": "editorial",
+      "candidate_tags": [
+        "computational geometry",
+        "counting squares",
+        "sweep line over intervals",
+        "offline queries",
+        "case analysis"
+      ],
+      "cf_tags": [],
+      "cf_rating": 3100
+    },
+    {
+      "id": "apac2025-J",
+      "contest": "apac2025",
+      "letter": "J",
+      "title": "Gathering Sharks",
+      "solved_teams": 65,
+      "attempted_teams": 65,
+      "first_solve_min": 31,
+      "links": {
+        "mirror": "https://codeforces.com/contest/2073/problem/J",
+        "kattis": null,
+        "statement": "https://storage.googleapis.com/files.icpc.jp/championship2025/problemset.pdf"
+      },
+      "statement_summary": "n<=500 sharks on a line, group numbers a permutation; repeatedly the group b moves to the position of the next-smaller existing group number c and they merge (keeping number b). Minimize total travel time.",
+      "solution_idea": "Relabel by group number with positions pos[i]; a merge means element x erases its successor y in the current list at cost |pos[x]-pos[y]|, preserving relative order. Interval DP: dp[l][r] = min cost for l to absorb l+1..r; choose p, the last element absorbed directly by l: dp[l][r] = min_p dp[l][p-1] + dp[p][r] + |pos[l]-pos[p]|. O(n^3).",
+      "solution_source": "editorial",
+      "candidate_tags": [
+        "interval dp",
+        "merge order",
+        "dynamic programming"
+      ],
+      "cf_tags": [],
+      "cf_rating": 2000
+    },
+    {
+      "id": "apac2025-K",
+      "contest": "apac2025",
+      "letter": "K",
+      "title": "Book Sorting",
+      "solved_teams": 6,
+      "attempted_teams": 18,
+      "first_solve_min": 89,
+      "links": {
+        "mirror": "https://codeforces.com/contest/2073/problem/K",
+        "kattis": null,
+        "statement": "https://storage.googleapis.com/files.icpc.jp/championship2025/problemset.pdf"
+      },
+      "statement_summary": "Permutation of n<=5e5 books; operations: adjacent swap, move a book to the front, move a book to the back. Minimum number of operations to sort.",
+      "solution_idea": "Optimal: books with labels < l are moved to the front, > r to the back, labels l..r are sorted with adjacent swaps, costing (l-1)+(n-r)+inv(a_l..a_r) where a is the inverse permutation. Maximize f(l,r)=r-l-inv over intervals by sweeping r and maintaining the set S_r of 'record' left ends where f increases by exactly 1 each; a new element a_{r+1} with existing larger elements a_l removes the largest member of S that is <= l per inversion; std::set with amortized deletions gives O(n log n).",
+      "solution_source": "editorial",
+      "candidate_tags": [
+        "inversion count",
+        "sweep line",
+        "ordered set",
+        "amortized analysis",
+        "permutations"
+      ],
+      "cf_tags": [],
+      "cf_rating": 2900
+    },
+    {
+      "id": "apac2025-L",
+      "contest": "apac2025",
+      "letter": "L",
+      "title": "Boarding Queue",
+      "solved_teams": 65,
+      "attempted_teams": 65,
+      "first_solve_min": 12,
+      "links": {
+        "mirror": "https://codeforces.com/contest/2073/problem/L",
+        "kattis": null,
+        "statement": "https://storage.googleapis.com/files.icpc.jp/championship2025/problemset.pdf"
+      },
+      "statement_summary": "Snake-like queue of n travelers in an r x c grid (consecutive travelers adjacent); each step the front leaves and everyone moves into the previous traveler's cell. For traveler p, compute the fraction of other travelers that are ever adjacent to p before p boards.",
+      "solution_idea": "After p-i steps you occupy traveler i's initial cell and traveler j+(p-i) occupies traveler j's initial cell. So for each i<=p and each grid neighbour j of traveler i's cell, mark traveler j+(p-i) (if <=n and != p). Count distinct marks, output count/(n-1). O(rc).",
+      "solution_source": "editorial",
+      "candidate_tags": [
+        "simulation",
+        "grid",
+        "index shifting observation",
+        "counting"
+      ],
+      "cf_tags": [],
+      "cf_rating": 1300
+    },
+    {
+      "id": "apac2025-M",
+      "contest": "apac2025",
+      "letter": "M",
+      "title": "Can You Reach There?",
+      "solved_teams": 0,
+      "attempted_teams": 2,
+      "first_solve_min": null,
+      "links": {
+        "mirror": "https://codeforces.com/contest/2073/problem/M",
+        "kattis": null,
+        "statement": "https://storage.googleapis.com/files.icpc.jp/championship2025/problemset.pdf"
+      },
+      "statement_summary": "n<=1e5 marked points; from S choose marked P,Q, set T=P+(Q-S) and move anywhere on segment ST. For q<=1e5 queries decide whether (c,d) is reachable from (a,b).",
+      "solution_idea": "Case analysis: with one marked point you can reach exactly the segment from S to its reflection through P; with two points (or all points collinear) you can translate by integer multiples of the direction vectors between marked points and reach exactly the open strip between two lines parallel to the marked line (plus specific lattice points on the boundary lines; collinear corner cases); with three non-collinear points everything is reachable. Implement with cross products (side-of-line tests) and checks that boundary points differ from S by an integer multiple of the marked direction vector. O(n+q).",
+      "solution_source": "editorial",
+      "candidate_tags": [
+        "computational geometry",
+        "case analysis",
+        "reflection and translation",
+        "cross product",
+        "strip region reachability"
+      ],
+      "cf_tags": [],
+      "cf_rating": 3300
+    },
+    {
+      "id": "apac2026-A",
+      "contest": "apac2026",
+      "letter": "A",
+      "title": "Compare Suffixes",
+      "solved_teams": 1,
+      "attempted_teams": 8,
+      "first_solve_min": 266,
+      "links": {
+        "mirror": "https://codeforces.com/contest/2206/problem/A",
+        "kattis": null,
+        "statement": "https://storage.googleapis.com/files.icpc.jp/championship2026/problemset.pdf"
+      },
+      "statement_summary": "Interactive: hidden string of length n<=1000 over a-z; query compares suffixes S(i) and S(j). Output the suffix array using at most 6260 queries (~6n+25log n).",
+      "solution_idea": "Insert suffixes from the end (S(n) down to S(1)) into the sorted order. Adjacent sorted suffixes whose successor suffixes are out of order must start with different letters ('splitting positions'), at most 25 of them, which partition the order into <=26 letter blocks. Binary search the new suffix S(k) over block representatives (indices y with S(p_y+1) < S(k+1), known from the existing order), then one confirm query; only when a new splitting position appears (<=25 times) fall back to a full binary search. Total n(log2 26 + 1) + 25 log2 n queries.",
+      "solution_source": "editorial",
+      "candidate_tags": [
+        "interactive",
+        "suffix array",
+        "binary insertion",
+        "alphabet size bound",
+        "string comparisons"
+      ],
+      "cf_tags": [
+        "interactive"
+      ],
+      "cf_rating": 3500
+    },
+    {
+      "id": "apac2026-B",
+      "contest": "apac2026",
+      "letter": "B",
+      "title": "Subtree Removal Game",
+      "solved_teams": 36,
+      "attempted_teams": 48,
+      "first_solve_min": 70,
+      "links": {
+        "mirror": "https://codeforces.com/contest/2206/problem/B",
+        "kattis": null,
+        "statement": "https://storage.googleapis.com/files.icpc.jp/championship2026/problemset.pdf"
+      },
+      "statement_summary": "Rooted tree n<=5e5, leaves labelled by their index; players alternately delete a subtree as long as a labelled leaf remains; first player minimizes, second maximizes the final remaining leaf. Find the result.",
+      "solution_idea": "Binary search on the answer v: label leaves <=v as F (good for minimizer) and >v as S. For the binary game define D(leaf)=+1/-1 and D(x)=sign(sum of D over children); by induction D>0 means F wins regardless of who starts, D<0 means S wins, D=0 means the player to move wins. Evaluate D bottom-up in O(n) per check, O(n log n) total.",
+      "solution_source": "editorial",
+      "candidate_tags": [
+        "game theory",
+        "binary search on answer",
+        "tree dp",
+        "induction on game states"
+      ],
+      "cf_tags": [
+        "binary search",
+        "games",
+        "trees"
+      ],
+      "cf_rating": 2500
+    },
+    {
+      "id": "apac2026-C",
+      "contest": "apac2026",
+      "letter": "C",
+      "title": "Upside Down Dijkstra",
+      "solved_teams": 65,
+      "attempted_teams": 69,
+      "first_solve_min": 38,
+      "links": {
+        "mirror": "https://codeforces.com/contest/2206/problem/C",
+        "kattis": null,
+        "statement": "https://storage.googleapis.com/files.icpc.jp/championship2026/problemset.pdf"
+      },
+      "statement_summary": "Dijkstra implemented with a max-heap on a connected graph (n<=1e5, m<=2e5); given the visiting order S, assign weights in [1,1e9] so the buggy algorithm produces S, or report impossible.",
+      "solution_idea": "A max-heap Dijkstra always continues from the most recently reached vertex with the largest distance, so the visit order is exactly a DFS order: the next vertex must be adjacent to the deepest stack vertex that still has unvisited neighbours. Check S with a stack (pop while the top has no unvisited neighbour; next vertex must be a neighbour of the top), then assign weights from the stack/tree structure (tree edges large and increasing along the DFS, others small) so distances reproduce the order. O(n+m) with care when scanning adjacency.",
+      "solution_source": "editorial",
+      "candidate_tags": [
+        "dfs order validation",
+        "stack simulation",
+        "constructive weights",
+        "dijkstra",
+        "graph"
+      ],
+      "cf_tags": [
+        "dfs and similar"
+      ],
+      "cf_rating": 2200
+    },
+    {
+      "id": "apac2026-D",
+      "contest": "apac2026",
+      "letter": "D",
+      "title": "Christmas Tree Un-decoration",
+      "solved_teams": 18,
+      "attempted_teams": 26,
+      "first_solve_min": 77,
+      "links": {
+        "mirror": "https://codeforces.com/contest/2206/problem/D",
+        "kattis": null,
+        "statement": "https://storage.googleapis.com/files.icpc.jp/championship2026/problemset.pdf"
+      },
+      "statement_summary": "Rooted tree (n<=2e5) with a_i ornaments; one operation removes one ornament from every vertex on a root path. Answer min operations initially and after each of q<=2e5 point updates of a_u.",
+      "solution_idea": "Static DP: dp(u)=max(a_u, sum of dp over children). For updates use dynamic DP on heavy-light decomposition: with b_u = sum of dp of light children, dp(top of chain) = max over i of (a_{c_i} + b_{c_1}+...+b_{c_{i-1}}); maintain these prefix-sum terms per chain in a lazy segment tree (range add on b changes, range max), and propagate changes of chain tops to their parents' b. O(n log n + q log^2 n).",
+      "solution_source": "editorial",
+      "candidate_tags": [
+        "dynamic dp",
+        "heavy-light decomposition",
+        "lazy segment tree",
+        "tree dp",
+        "point updates"
+      ],
+      "cf_tags": [
+        "data structures",
+        "dp",
+        "trees"
+      ],
+      "cf_rating": 2600
+    },
+    {
+      "id": "apac2026-E",
+      "contest": "apac2026",
+      "letter": "E",
+      "title": "Parallel Sums",
+      "solved_teams": 47,
+      "attempted_teams": 57,
+      "first_solve_min": 35,
+      "links": {
+        "mirror": "https://codeforces.com/contest/2206/problem/E",
+        "kattis": null,
+        "statement": "https://storage.googleapis.com/files.icpc.jp/championship2026/problemset.pdf"
+      },
+      "statement_summary": "Given all window sums s_i of length m of an unknown integer array a_1..a_n (n<=2e5), answer q<=1e5 queries: minimal possible max(a_l..a_r), or unbounded.",
+      "solution_idea": "a_{i+m}-a_i = s_{i+1}-s_i, so a_i = base_{i mod m} + w_i with known offsets w and one constraint sum of bases = s_0. If r-l+1<m some residue is free -> unbounded; otherwise with y_j = max w over residue j inside [l,r], the answer is ceil((s_0 + sum y_j)/m). Sum of per-residue range maxima via sqrt decomposition: for m<=sqrt n use a sparse table per residue; for m>sqrt n each residue has <sqrt n elements, precompute prefix sums over residues of range maxima for every pair of element ranks. O((n+q) sqrt n).",
+      "solution_source": "editorial",
+      "candidate_tags": [
+        "sqrt decomposition",
+        "sparse table range max",
+        "telescoping difference equations",
+        "math",
+        "offline precomputation"
+      ],
+      "cf_tags": [
+        "data structures",
+        "geometry"
+      ],
+      "cf_rating": 2500
+    },
+    {
+      "id": "apac2026-F",
+      "contest": "apac2026",
+      "letter": "F",
+      "title": "Minesweeper String",
+      "solved_teams": 45,
+      "attempted_teams": 48,
+      "first_solve_min": 59,
+      "links": {
+        "mirror": "https://codeforces.com/contest/2206/problem/F",
+        "kattis": null,
+        "statement": "https://storage.googleapis.com/files.icpc.jp/championship2026/problemset.pdf"
+      },
+      "statement_summary": "Digit string of length n<=5e5 laid out in a grid of width w; non-zero digits are mines; f(w) = sum over zero cells of mines in 4-neighbours. Find the k-th largest f(w) over all widths.",
+      "solution_idea": "Start from 4*sum(digits) and subtract boundary losses: vertical neighbours at distance w (via one convolution of the digit array with the reversed non-zero indicator, FFT/NTT), first/last column membership (for each position update all divisors of p and p+1), first/last row (difference array over w intervals), and horizontal neighbours split across rows (divisors of p+1). Then nth_element for the k-th largest. O(n log n).",
+      "solution_source": "editorial",
+      "candidate_tags": [
+        "fft convolution",
+        "divisor enumeration",
+        "difference array",
+        "counting contributions",
+        "harmonic sum"
+      ],
+      "cf_tags": [
+        "fft",
+        "number theory"
+      ],
+      "cf_rating": 2400
+    },
+    {
+      "id": "apac2026-G",
+      "contest": "apac2026",
+      "letter": "G",
+      "title": "Extra Transition",
+      "solved_teams": 1,
+      "attempted_teams": 6,
+      "first_solve_min": 265,
+      "links": {
+        "mirror": "https://codeforces.com/contest/2206/problem/G",
+        "kattis": null,
+        "statement": "https://storage.googleapis.com/files.icpc.jp/championship2026/problemset.pdf"
+      },
+      "statement_summary": "Connected graph (n,m<=2e5) is 'well-designed' if every vertex lies on a simple 1-n path and no two inner vertices can appear in both orders on simple 1-n paths. Check it, and sum w_i w_j over non-adjacent pairs whose added edge keeps it well-designed.",
+      "solution_idea": "Well-designed is equivalent to being a two-terminal series-parallel graph with terminals 1 and n (proof via dominator tree of the induced DAG). Test by repeatedly applying series reductions (degree-2 vertices) and parallel reductions (merge multi-edges) with a queue. An added edge (u,v) keeps it series-parallel iff u and v lie on a common chain contracted by one (extended) series operation, so accumulate sum w_i w_j over pairs within each contracted path during the reduction (prefix sums of weights). O(m log n).",
+      "solution_source": "editorial",
+      "candidate_tags": [
+        "series-parallel graph",
+        "graph reduction",
+        "two terminal st paths",
+        "dominator tree proof",
+        "counting pairs"
+      ],
+      "cf_tags": [
+        "graphs"
+      ],
+      "cf_rating": 3100
+    },
+    {
+      "id": "apac2026-H",
+      "contest": "apac2026",
+      "letter": "H",
+      "title": "Reflect Sort",
+      "solved_teams": 65,
+      "attempted_teams": 68,
+      "first_solve_min": 14,
+      "links": {
+        "mirror": "https://codeforces.com/contest/2206/problem/H",
+        "kattis": null,
+        "statement": "https://storage.googleapis.com/files.icpc.jp/championship2026/problemset.pdf"
+      },
+      "statement_summary": "Array a (n<=1e5); operation reflects a prefix or suffix around a_i (a_j -> 2a_i - a_j). Make the array non-decreasing and positive while minimizing a_n.",
+      "solution_idea": "Reflections preserve all |a_i-a_{i+1}|, so the final array is a_1 + prefix sums of these absolute differences; minimize a_1. Two prefix reflections shift a_1 by 2(a_{x+1}-a_x) and suffix reflections flip signs freely, so a_1 can change by any multiple of g = gcd of 2|a_i-a_{i+1}|. Final a_1 = a_1 mod g (or g if 0), answer a_1' + sum |diff|. O(n log A).",
+      "solution_source": "editorial",
+      "candidate_tags": [
+        "invariant",
+        "gcd bezout",
+        "number theory",
+        "reflection operations"
+      ],
+      "cf_tags": [
+        "number theory"
+      ],
+      "cf_rating": 1800
+    },
+    {
+      "id": "apac2026-I",
+      "contest": "apac2026",
+      "letter": "I",
+      "title": "Growth Factor",
+      "solved_teams": 10,
+      "attempted_teams": 19,
+      "first_solve_min": 104,
+      "links": {
+        "mirror": "https://codeforces.com/contest/2206/problem/I",
+        "kattis": null,
+        "statement": "https://storage.googleapis.com/files.icpc.jp/championship2026/problemset.pdf"
+      },
+      "statement_summary": "Count sequences b_1..b_n with 1<=b_i<=a_i and b_i | b_{i+1} (n, a_i <= 2e5), mod 998244353.",
+      "solution_idea": "Replace a_i by suffix minima (b is non-decreasing). Values change at most log2(M)~18 times along a sequence (each proper divisor step at least doubles), so f_v(l) (prefixes of length l ending at v) is a polynomial in l written in the binomial basis C(l,k) with <=18 coefficients; transitions from proper divisors u|v use the hockey-stick identity sum_{j=L}^{l-1} C(j,k) = C(l,k+1)-C(L,k+1) with lower bound L(u,v) from first indices where a allows the values. Iterate u and its multiples (harmonic sum). O(n + M log^2 M).",
+      "solution_source": "editorial",
+      "candidate_tags": [
+        "divisor chain dp",
+        "harmonic sum over multiples",
+        "binomial basis polynomial",
+        "hockey-stick identity",
+        "combinatorics"
+      ],
+      "cf_tags": [
+        "combinatorics",
+        "dp",
+        "math",
+        "number theory"
+      ],
+      "cf_rating": 2900
+    },
+    {
+      "id": "apac2026-J",
+      "contest": "apac2026",
+      "letter": "J",
+      "title": "Worldwide Playlist",
+      "solved_teams": 69,
+      "attempted_teams": 69,
+      "first_solve_min": 21,
+      "links": {
+        "mirror": "https://codeforces.com/contest/2206/problem/J",
+        "kattis": null,
+        "statement": "https://storage.googleapis.com/files.icpc.jp/championship2026/problemset.pdf"
+      },
+      "statement_summary": "Cyclic playlist permutation a, desired listening order permutation b (n<=2e5); with d<=2e5 swap updates on a or b, report min skips to hear b_1..b_n in order each day.",
+      "solution_idea": "Total songs played = pos_a(b_n) + n*k where k = number of i with pos_a(b_{i+1}) < pos_a(b_i) (wrap-arounds); skips = that - n. Maintain pos array and k; a swap in a or b changes only O(1) adjacent comparisons, so update k in O(1). O(n+d).",
+      "solution_source": "editorial",
+      "candidate_tags": [
+        "permutations",
+        "counting descents",
+        "maintain under swaps",
+        "implementation"
+      ],
+      "cf_tags": [
+        "math"
+      ],
+      "cf_rating": 1700
+    },
+    {
+      "id": "apac2026-K",
+      "contest": "apac2026",
+      "letter": "K",
+      "title": "Time Display Stickers",
+      "solved_teams": 69,
+      "attempted_teams": 70,
+      "first_solve_min": 7,
+      "links": {
+        "mirror": "https://codeforces.com/contest/2206/problem/K",
+        "kattis": null,
+        "statement": "https://storage.googleapis.com/files.icpc.jp/championship2026/problemset.pdf"
+      },
+      "statement_summary": "Digit multiset (n<=1e6 total); each clock HH:MM with HH in 00..11 and MM in 00..59 uses 4 stickers; maximize the number of displays.",
+      "solution_idea": "Split displays into type A (hour 0x) and type B (hour 1x). For fixed counts (x,y) check feasibility greedily filling the most constrained positions first: x zeros, y ones for first H digit, y of {0,1} for second, x+y of {0..5} for first M digit, then 2x+y arbitrary digits. Enumerate x and binary search y (feasibility monotone in y). O(n log n) on digit counts.",
+      "solution_source": "editorial",
+      "candidate_tags": [
+        "greedy feasibility check",
+        "binary search",
+        "counting digits",
+        "enumeration"
+      ],
+      "cf_tags": [
+        "binary search"
+      ],
+      "cf_rating": 1300
+    },
+    {
+      "id": "apac2026-L",
+      "contest": "apac2026",
+      "letter": "L",
+      "title": "Onion",
+      "solved_teams": 1,
+      "attempted_teams": 6,
+      "first_solve_min": 270,
+      "links": {
+        "mirror": "https://codeforces.com/contest/2206/problem/L",
+        "kattis": null,
+        "statement": "https://storage.googleapis.com/files.icpc.jp/championship2026/problemset.pdf"
+      },
+      "statement_summary": "Points (x, (ax+b) mod n) for x=0..n-1 (n<=1e9); peel convex hull layers k<=300 times, output doubled area of each hull.",
+      "solution_idea": "Pigeonhole gives u<=ceil(sqrt n), |v|<sqrt n with v = a u (mod n); then the points split into O(sqrt n) groups of collinear consecutive points (arithmetic progressions with step (u,v) until wrap-around). Only group endpoints can be hull vertices, so each layer's hull is computed on O(sqrt n) candidates; peeling removes the top and bottom groups and boundary endpoints of other groups in O(1) each. O(k sqrt n log n).",
+      "solution_source": "editorial",
+      "candidate_tags": [
+        "convex hull",
+        "onion peeling",
+        "pigeonhole principle",
+        "modular arithmetic lattice",
+        "computational geometry"
+      ],
+      "cf_tags": [],
+      "cf_rating": 3500
+    },
+    {
+      "id": "apac2026-M",
+      "contest": "apac2026",
+      "letter": "M",
+      "title": "Deformed Balance",
+      "solved_teams": 1,
+      "attempted_teams": 8,
+      "first_solve_min": 271,
+      "links": {
+        "mirror": "https://codeforces.com/contest/2206/problem/M",
+        "kattis": null,
+        "statement": "https://storage.googleapis.com/files.icpc.jp/championship2026/problemset.pdf"
+      },
+      "statement_summary": "Parenthesis string S (n<=1e6 total); 'deformed' strings follow the grammar E ::= ')' | E ')' E | '(' E '('; find the minimum number of characters to prepend and append so the result is deformed and becomes balanced after adding ')'.",
+      "solution_idea": "Rewrite '(' as '{' or '}' depending on the parity of preceding ')', turning the grammar into tracking two counters: x = nesting of parentheses and y = nesting of the {} brackets; a valid string keeps x,y>=0 and ends at (1,0). For the original problem the useful prefixes X are only L^f, L^f R L^g, L^f R L^g R; the suffix length is a closed formula of the final state, so total cost is 4f + const and one scans f to find the minimum feasible. O(n).",
+      "solution_source": "editorial",
+      "candidate_tags": [
+        "grammar characterization",
+        "bracket sequences",
+        "prefix balance counters",
+        "greedy formula",
+        "strings"
+      ],
+      "cf_tags": [],
+      "cf_rating": 2900
+    }
+  ]
+}

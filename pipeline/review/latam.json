@@ -1,0 +1,497 @@
+{
+  "changes": [
+    {
+      "id": "lac2026-C",
+      "field": "key_idea",
+      "current": "O círculo ótimo é fixado por tangências e pontos de interseção da fronteira da união; enumerar candidatos (Apolônio, circuncírculos) e validar cobrindo o perímetro com intervalos angulares.",
+      "proposed": "Os candidatos são os próprios círculos dos aspersores e os circuncírculos de triplas de vértices da fronteira da união (interseções não cobertas por outro disco); cada um é validado cobrindo seu perímetro com intervalos angulares.",
+      "reason": "Jury reference: candidates are circumcircles of 3 union-boundary vertices + the sprinkler circles; no Apollonius tangency.",
+      "severity": "major"
+    },
+    {
+      "id": "lac2026-C",
+      "field": "secondary",
+      "current": [
+        "brute-force"
+      ],
+      "proposed": [
+        "brute-force",
+        "angular-sweep"
+      ],
+      "reason": "Validation is an angular-interval coverage of the candidate circle.",
+      "severity": "minor"
+    },
+    {
+      "id": "lac2026-D",
+      "field": "key_idea",
+      "current": "Escolher quais pedidos ocupam os slots com desconto: Hall dá limites inferior/superior de escolhidos por prefixo, e maximiza-se a soma com guloso + priority queue.",
+      "proposed": "Preenchendo as compras de trás para frente, os pedidos elegíveis para a posição t formam uma janela (índice ≥ t−K) que só cresce: num multiset, tirar o mais caro nas posições com desconto e o mais barato nas demais.",
+      "reason": "Jury reference + CF gym comment: backward sweep with a multiset window, no Hall/prefix-bound argument needed.",
+      "severity": "major"
+    },
+    {
+      "id": "lac2026-D",
+      "field": "secondary",
+      "current": [
+        "bipartite-matching"
+      ],
+      "proposed": [
+        "exchange-argument"
+      ],
+      "reason": "Hall theorem / matching is not used by the actual solution; the proof is a forced-choice exchange argument.",
+      "severity": "minor"
+    },
+    {
+      "id": "lac2026-G",
+      "field": "key_idea",
+      "current": "Usar blocos cujo número de subsequências GATA/CAT é produto dos tamanhos dos blocos e decompor cada alvo gulosamente como soma de poucos produtos dentro de 500 letras.",
+      "proposed": "Montar a string como grupos [G…G C…C] seguidos de 'AT' repetido: um G antes de j blocos 'AT' gera C(j+1,3) GATA e um C gera j(j+1)/2 CAT, então basta escrever G como soma de números tetraédricos e C como soma de triangulares.",
+      "reason": "Jury reference: tetrahedral/triangular decomposition; old key idea (products of block sizes) was vague/wrong.",
+      "severity": "major"
+    },
+    {
+      "id": "lac2026-G",
+      "field": "secondary",
+      "current": [
+        "greedy-incremental"
+      ],
+      "proposed": [
+        "binomial-counting"
+      ],
+      "reason": "The crux is counting subsequences as binomials C(j+1,3) and j(j+1)/2; not a position-by-position greedy.",
+      "severity": "minor"
+    },
+    {
+      "id": "lac2026-A",
+      "field": "key_idea",
+      "current": "Formigas não se ultrapassam, então a ordem cíclica se preserva (o alvo é uma rotação); desenrolando o anel, resposta = min sobre a volta w de max|d_i + wL|.",
+      "proposed": "Formigas não se ultrapassam: ordenando pelas posições iniciais e desenrolando o anel, testam-se só 2 alvos para a primeira formiga e cada seguinte pega seu alvo na primeira posição horária após o anterior; resposta = menor max|início − alvo|.",
+      "reason": "Sharpened to the jury reference (two candidates for the first ant, rest forced).",
+      "severity": "minor"
+    },
+    {
+      "id": "latam2022-B",
+      "field": "key_idea",
+      "current": "Pelo rearranjo, o ótimo pareia os a maiores com os a maiores e os k−a menores com os menores; o melhor a anda monotonamente em k (concavidade), resolvendo todos os k com um ponteiro.",
+      "proposed": "Pelo rearranjo pareia-se ordenado com ordenado: primeiro os pares alinhados de produto positivo (das duas pontas); se k passar disso, os pares restantes usam os elementos de menor módulo (o meio), e essas somas para todo k saem de uma convolução (FFT/NTT).",
+      "reason": "CF thread (Marckess): leftover pairs come from the middle (smallest |x|), not from the extremes; old \"a largest + k-a smallest\" structure is wrong when positive pairs run out.",
+      "severity": "major"
+    },
+    {
+      "id": "latam2022-B",
+      "field": "secondary",
+      "current": [
+        "dp-optimization"
+      ],
+      "proposed": [
+        "fft-ntt"
+      ],
+      "reason": "Community solution needs a convolution for all k; no DP optimization.",
+      "severity": "minor"
+    },
+    {
+      "id": "latam2022-D",
+      "field": "key_idea",
+      "current": "Com prefixos P, o início l vale até o primeiro r com P[r] < P[l−1] (próximo menor); somar X em i só muda inícios cujo bloqueio fica depois de i, avaliados offline com sparse table.",
+      "proposed": "Com prefixos P, o início l vale até o primeiro r com P[r] < P[l−1] (próximo menor); varrendo da direita para a esquerda a posição que recebe X, atualizam-se as contribuições dos inícios afetados com segtree lazy (ou treap) sobre os valores de prefixo.",
+      "reason": "CF thread: sweep over the modified position with lazy segtree/treap, not sparse table.",
+      "severity": "minor"
+    },
+    {
+      "id": "latam2022-D",
+      "field": "secondary",
+      "current": [
+        "sparse-sqrt",
+        "prefix-sums"
+      ],
+      "proposed": [
+        "segtree-lazy",
+        "prefix-sums"
+      ],
+      "reason": "Sparse table is not the tool used; the sweep needs a lazy segment tree.",
+      "severity": "minor"
+    },
+    {
+      "id": "latam2022-L",
+      "field": "key_idea",
+      "current": "Após os tranquilos, os pares cheios/meio/vazios seguem distribuição hipergeométrica: somar sobre os pares meio-cheios com probabilidades em forma fechada e resolver os outros grupos em O(1).",
+      "proposed": "Iterar sobre quantos tranquilos sentam ao lado de outro tranquilo: a probabilidade é contagem fechada com fatoriais e, fixado isso, as fases de extrovertidos e introvertidos são determinísticas (casos O(1)).",
+      "reason": "Aligned with the CF thread sketch (what is enumerated).",
+      "severity": "minor"
+    },
+    {
+      "id": "latam_regional2025-I",
+      "field": "primary",
+      "current": "dag-toposort",
+      "proposed": "graph-traversal-states",
+      "reason": "Solution is a BFS over pair states (two path fronts) with the lagging-pointer rule; DAG is only the setting.",
+      "severity": "major"
+    },
+    {
+      "id": "latam_regional2025-I",
+      "field": "secondary",
+      "current": [
+        "dp-linear"
+      ],
+      "proposed": [
+        "dag-toposort"
+      ],
+      "reason": "Keep DAG as secondary; no linear DP.",
+      "severity": "minor"
+    },
+    {
+      "id": "latam_regional2025-I",
+      "field": "key_idea",
+      "current": "Rota = caminho na metade baixa, um código de travessia e caminho na metade alta; identificando i com i+N vira dois caminhos disjuntos num DAG, resolvidos por DP sobre pares de frentes.",
+      "proposed": "Fixado o código de travessia, BFS sobre pares (frente do caminho baixo, frente do caminho alto) sempre avançando a frente atrasada e sem pisar na outra, o que garante caminhos disjuntos sem guardar os andares visitados.",
+      "reason": "CF gym thread sketch (DNR).",
+      "severity": "major"
+    },
+    {
+      "id": "latam_regional2025-F",
+      "field": "key_idea",
+      "current": "Escrever Y = 2^e·p com p primo perto de X/2^e na faixa de 1e17–1e18: o erro relativo é gap/p ≪ 1e-9; achar p com Miller-Rabin.",
+      "proposed": "Truncar X nos ~15 primeiros dígitos m: Y = m·10^e = m·2^e·5^e tem erro relativo ≪ 1e−9, e m se fatora por divisão até √m (alternativa: Y = 2^e·p com p primo achado por Miller-Rabin).",
+      "reason": "CF gym thread: simpler truncation approach is the common AC.",
+      "severity": "minor"
+    },
+    {
+      "id": "lac2025-H",
+      "field": "primary",
+      "current": "exchange-argument",
+      "proposed": "scheduling-heap",
+      "reason": "Solution is \"apply the cheapest of a few exchange moves kept in heaps\" each step, not a sort-by-key exchange proof.",
+      "severity": "major"
+    },
+    {
+      "id": "lac2025-H",
+      "field": "secondary",
+      "current": [
+        "stl-ordered"
+      ],
+      "proposed": [
+        "exchange-argument"
+      ],
+      "reason": "Exchange moves become secondary; stl-ordered redundant with heaps.",
+      "severity": "minor"
+    },
+    {
+      "id": "latam2021-K",
+      "field": "primary",
+      "current": "dp-linear",
+      "proposed": "dp-counting",
+      "reason": "Counts key sequences mod 1e9+7 with a prefix-sum-accelerated DP: exactly the dp-counting topic.",
+      "severity": "major"
+    },
+    {
+      "id": "latam2021-K",
+      "field": "secondary",
+      "current": [
+        "prefix-sums",
+        "binary-search-answer"
+      ],
+      "proposed": [
+        "prefix-sums"
+      ],
+      "reason": "binary-search-answer is wrong: the binary search finds range bounds in a sorted row, not the answer.",
+      "severity": "minor"
+    },
+    {
+      "id": "latam2023b-J",
+      "field": "secondary",
+      "current": [
+        "binary-search-answer"
+      ],
+      "proposed": [],
+      "reason": "Binary search inside per-centroid sorted lists is not binary search on the answer.",
+      "severity": "minor"
+    },
+    {
+      "id": "latam_regional2024-C",
+      "field": "secondary",
+      "current": [
+        "prefix-sums",
+        "binary-search-answer"
+      ],
+      "proposed": [
+        "prefix-sums",
+        "closed-form"
+      ],
+      "reason": "Crux is the closed form of edit distance to a unary string; binary search locates switch points, not the answer.",
+      "severity": "minor"
+    },
+    {
+      "id": "lac2025-A",
+      "field": "secondary",
+      "current": [
+        "kmp-palindromes"
+      ],
+      "proposed": [],
+      "reason": "Palindromic walks are handled purely by pair-state BFS; no KMP/Manacher/palindrome technique is used.",
+      "severity": "minor"
+    },
+    {
+      "id": "latam2019-H",
+      "field": "secondary",
+      "current": [
+        "games-minimax"
+      ],
+      "proposed": [
+        "games-minimax",
+        "binary-search-answer"
+      ],
+      "reason": "Jury breaks the cyclic dependency by binary searching the guessed win probability (fixed point).",
+      "severity": "minor"
+    },
+    {
+      "id": "lac2026-A",
+      "field": "confidence",
+      "current": "medium",
+      "proposed": "high",
+      "reason": "Solution verified (jury reference code or CF thread); solution_source now community.",
+      "severity": "minor"
+    },
+    {
+      "id": "lac2026-C",
+      "field": "confidence",
+      "current": "medium",
+      "proposed": "high",
+      "reason": "Solution verified (jury reference code or CF thread); solution_source now community.",
+      "severity": "minor"
+    },
+    {
+      "id": "lac2026-D",
+      "field": "confidence",
+      "current": "medium",
+      "proposed": "high",
+      "reason": "Solution verified (jury reference code or CF thread); solution_source now community.",
+      "severity": "minor"
+    },
+    {
+      "id": "lac2026-F",
+      "field": "confidence",
+      "current": "medium",
+      "proposed": "high",
+      "reason": "Solution verified (jury reference code or CF thread); solution_source now community.",
+      "severity": "minor"
+    },
+    {
+      "id": "lac2026-G",
+      "field": "confidence",
+      "current": "medium",
+      "proposed": "high",
+      "reason": "Solution verified (jury reference code or CF thread); solution_source now community.",
+      "severity": "minor"
+    },
+    {
+      "id": "lac2026-H",
+      "field": "confidence",
+      "current": "medium",
+      "proposed": "high",
+      "reason": "Solution verified (jury reference code or CF thread); solution_source now community.",
+      "severity": "minor"
+    },
+    {
+      "id": "lac2026-I",
+      "field": "confidence",
+      "current": "medium",
+      "proposed": "high",
+      "reason": "Solution verified (jury reference code or CF thread); solution_source now community.",
+      "severity": "minor"
+    },
+    {
+      "id": "lac2026-J",
+      "field": "confidence",
+      "current": "medium",
+      "proposed": "high",
+      "reason": "Solution verified (jury reference code or CF thread); solution_source now community.",
+      "severity": "minor"
+    },
+    {
+      "id": "lac2026-K",
+      "field": "confidence",
+      "current": "medium",
+      "proposed": "high",
+      "reason": "Solution verified (jury reference code or CF thread); solution_source now community.",
+      "severity": "minor"
+    },
+    {
+      "id": "lac2026-L",
+      "field": "confidence",
+      "current": "medium",
+      "proposed": "high",
+      "reason": "Solution verified (jury reference code or CF thread); solution_source now community.",
+      "severity": "minor"
+    },
+    {
+      "id": "latam2019-A",
+      "field": "confidence",
+      "current": "medium",
+      "proposed": "high",
+      "reason": "Solution verified (jury reference code or CF thread); solution_source now community.",
+      "severity": "minor"
+    },
+    {
+      "id": "latam2019-B",
+      "field": "confidence",
+      "current": "medium",
+      "proposed": "high",
+      "reason": "Solution verified (jury reference code or CF thread); solution_source now community.",
+      "severity": "minor"
+    },
+    {
+      "id": "latam2019-D",
+      "field": "confidence",
+      "current": "medium",
+      "proposed": "high",
+      "reason": "Solution verified (jury reference code or CF thread); solution_source now community.",
+      "severity": "minor"
+    },
+    {
+      "id": "latam2019-H",
+      "field": "confidence",
+      "current": "medium",
+      "proposed": "high",
+      "reason": "Solution verified (jury reference code or CF thread); solution_source now community.",
+      "severity": "minor"
+    },
+    {
+      "id": "latam2019-J",
+      "field": "confidence",
+      "current": "medium",
+      "proposed": "high",
+      "reason": "Solution verified (jury reference code or CF thread); solution_source now community.",
+      "severity": "minor"
+    },
+    {
+      "id": "latam2022-C",
+      "field": "confidence",
+      "current": "medium",
+      "proposed": "high",
+      "reason": "Solution verified (jury reference code or CF thread); solution_source now community.",
+      "severity": "minor"
+    },
+    {
+      "id": "latam2022-D",
+      "field": "confidence",
+      "current": "medium",
+      "proposed": "high",
+      "reason": "Solution verified (jury reference code or CF thread); solution_source now community.",
+      "severity": "minor"
+    },
+    {
+      "id": "latam2022-E",
+      "field": "confidence",
+      "current": "medium",
+      "proposed": "high",
+      "reason": "Solution verified (jury reference code or CF thread); solution_source now community.",
+      "severity": "minor"
+    },
+    {
+      "id": "latam2022-M",
+      "field": "confidence",
+      "current": "medium",
+      "proposed": "high",
+      "reason": "Solution verified (jury reference code or CF thread); solution_source now community.",
+      "severity": "minor"
+    },
+    {
+      "id": "latam_regional2025-I",
+      "field": "confidence",
+      "current": "medium",
+      "proposed": "high",
+      "reason": "Solution verified (jury reference code or CF thread); solution_source now community.",
+      "severity": "minor"
+    }
+  ],
+  "topic_notes": [
+    {
+      "topic": "dp-optimization",
+      "note": "In LATAM sets this topic is hit mostly by pure line-envelope / Li Chao problems with no DP at all (lac2024-A kinetic bounding box, latam2023a-B, latam2023b-A). Consider renaming to \"Envelope de retas (CHT/Li Chao) e otimização de DP\" so the topic page matches what students will meet."
+    },
+    {
+      "topic": "binary-search-answer",
+      "note": "Was used as a catch-all for any binary search (range bounds in sorted rows, per-centroid lists, switch points). Keep it for \"binary/ternary search on the answer / fixed point\"; I proposed removing it in latam2021-K, latam2023b-J, latam_regional2024-C."
+    },
+    {
+      "topic": "sweep-line",
+      "note": "Kinetic sorted order (adjacent swaps at O(N^2) crossing times, exact fractions) is a recurring LATAM theme: lac2026-L, latam2023a-J, and envelope-over-time in lac2024-A. Worth mentioning \"ordem cinética\" explicitly in the topic name/description and adding a ref."
+    },
+    {
+      "topic": "angular-sweep",
+      "note": "Angular interval coverage of a circle (\"do the arcs cover 2*pi?\") recurs: lac2026-C, latam2019-B, latam2023b-H, latam2019-D. The topic covers it; the description could name \"cobertura de círculo por arcos\" explicitly."
+    },
+    {
+      "topic": "scheduling-heap",
+      "note": "Description should also cover \"backward sweep with forced choice from a growing window (multiset)\" (lac2026-D) and \"incremental optimum via cheapest local exchange in heaps\" (lac2025-H); both are heap greedies but not deadline-EDF in the classic sense."
+    },
+    {
+      "topic": "exchange-argument",
+      "note": "Keep it for sort-by-key proofs (Smith ratio, comparative advantage, rearrangement); heap-driven incremental greedies (lac2025-H) fit scheduling-heap better."
+    },
+    {
+      "topic": "graph-traversal-states",
+      "note": "Pair-state BFS is a LATAM favourite (lac2025-A palindromic walks, latam_regional2025-I two disjoint paths with the lagging-pointer rule, latam2023a-M nut rotation). Description could mention \"BFS em pares de vértices/ponteiros\"."
+    }
+  ],
+  "solutions_updated": [
+    "lac2026-A",
+    "lac2026-B",
+    "lac2026-C",
+    "lac2026-D",
+    "lac2026-E",
+    "lac2026-F",
+    "lac2026-G",
+    "lac2026-H",
+    "lac2026-I",
+    "lac2026-J",
+    "lac2026-K",
+    "lac2026-L",
+    "latam_regional2025-F",
+    "latam_regional2025-I",
+    "latam2019-A",
+    "latam2019-B",
+    "latam2019-C",
+    "latam2019-D",
+    "latam2019-F",
+    "latam2019-G",
+    "latam2019-H",
+    "latam2019-I",
+    "latam2019-J",
+    "latam2019-K",
+    "latam2019-L",
+    "latam2022-B",
+    "latam2022-C",
+    "latam2022-D",
+    "latam2022-E",
+    "latam2022-F",
+    "latam2022-G",
+    "latam2022-H",
+    "latam2022-I",
+    "latam2022-J",
+    "latam2022-K",
+    "latam2022-L",
+    "latam2022-M"
+  ],
+  "solution_sources": {
+    "lac2026": "Jury reference solutions in https://scorelatam.naquadah.com.br/pda26/contest-packages.tar (solutions/ of each BOCA package; saved under pipeline/downloads/review_latam/pda26) + CF blog 151965.",
+    "latam_regional2025": "CF blog entry 148306 comments (via web.archive.org); latam-2025 contest-packages.tar has no solutions.",
+    "latam2019": "CF blog entry 71296 (jury outlines by mnaeraxr/karupayun) via web.archive.org.",
+    "latam2022": "CF blog entry 101550 via web.archive.org."
+  },
+  "still_own": [
+    "latam2019-E",
+    "latam2019-M",
+    "latam2022-A",
+    "latam_regional2025-A",
+    "latam_regional2025-B",
+    "latam_regional2025-C",
+    "latam_regional2025-D",
+    "latam_regional2025-E",
+    "latam_regional2025-G",
+    "latam_regional2025-H",
+    "latam_regional2025-J",
+    "latam_regional2025-K",
+    "latam_regional2025-L"
+  ]
+}

@@ -1,0 +1,3967 @@
+{
+ "areas": [
+  {
+   "id": "graphs",
+   "name": "Grafos",
+   "order": 1
+  },
+  {
+   "id": "trees",
+   "name": "Árvores",
+   "order": 2
+  },
+  {
+   "id": "dp",
+   "name": "Programação dinâmica",
+   "order": 3
+  },
+  {
+   "id": "ds",
+   "name": "Estruturas de dados",
+   "order": 4
+  },
+  {
+   "id": "math",
+   "name": "Matemática",
+   "order": 5
+  },
+  {
+   "id": "comb",
+   "name": "Combinatória e probabilidade",
+   "order": 6
+  },
+  {
+   "id": "games",
+   "name": "Teoria dos jogos",
+   "order": 7
+  },
+  {
+   "id": "strings",
+   "name": "Strings",
+   "order": 8
+  },
+  {
+   "id": "geometry",
+   "name": "Geometria",
+   "order": 9
+  },
+  {
+   "id": "greedy",
+   "name": "Guloso",
+   "order": 10
+  },
+  {
+   "id": "search",
+   "name": "Busca e técnicas",
+   "order": 11
+  },
+  {
+   "id": "adhoc",
+   "name": "Ad hoc, construtivos e interativos",
+   "order": 12
+  }
+ ],
+ "topics": [
+  {
+   "id": "graph-traversal-states",
+   "area": "graphs",
+   "name": "BFS/DFS em grafo de estados",
+   "description": "BFS/DFS em grid ou em estados compostos (pares de vértices/ponteiros, tempo, rotação), alcançabilidade e grafo reverso.",
+   "includes": [
+    "bfs",
+    "dfs",
+    "state graph",
+    "grid bfs",
+    "pair-state bfs",
+    "pair states",
+    "time-expanded graph",
+    "reverse graph",
+    "reachability"
+   ],
+   "refs": [
+    {
+     "label": "cp-algorithms — BFS",
+     "url": "https://cp-algorithms.com/graph/breadth-first-search.html"
+    },
+    {
+     "label": "USACO Guide — Flood fill",
+     "url": "https://usaco.guide/silver/flood-fill"
+    }
+   ]
+  },
+  {
+   "id": "shortest-paths",
+   "area": "graphs",
+   "name": "Dijkstra e DAG de caminhos mínimos",
+   "description": "Dijkstra (de duas pontas, sem um vértice, ou sobre pares de estados/grafo produto), DAG de caminhos mínimos, dual planar.",
+   "includes": [
+    "dijkstra",
+    "dijkstra on pair-of-states / product graph",
+    "shortest path dag",
+    "dist from both ends",
+    "0-1 bfs",
+    "planar dual shortest path"
+   ],
+   "refs": [
+    {
+     "label": "cp-algorithms — Dijkstra",
+     "url": "https://cp-algorithms.com/graph/dijkstra.html"
+    },
+    {
+     "label": "USACO Guide — Shortest paths",
+     "url": "https://usaco.guide/gold/shortest-paths"
+    }
+   ]
+  },
+  {
+   "id": "mst-dsu",
+   "area": "graphs",
+   "name": "MST, Kruskal e DSU",
+   "description": "Kruskal, DSU (inclusive offline por limiar), caminho minimax e Kruskal reconstruction tree.",
+   "includes": [
+    "kruskal",
+    "dsu",
+    "union find",
+    "minimax path",
+    "kruskal reconstruction tree",
+    "offline dsu by threshold"
+   ],
+   "refs": [
+    {
+     "label": "cp-algorithms — Kruskal com DSU",
+     "url": "https://cp-algorithms.com/graph/mst_kruskal_with_dsu.html"
+    },
+    {
+     "label": "USACO Guide — Kruskal reconstruction tree",
+     "url": "https://usaco.guide/plat/kruskal-tree"
+    }
+   ]
+  },
+  {
+   "id": "dag-toposort",
+   "area": "graphs",
+   "name": "DAG: ordem topológica e DP em DAG",
+   "description": "Ordenação topológica, contagem de caminhos e DP sobre DAG, detecção de ciclo via toposort.",
+   "includes": [
+    "topological sort",
+    "dag dp",
+    "path counting",
+    "cycle detection",
+    "precedence constraints"
+   ],
+   "refs": [
+    {
+     "label": "cp-algorithms — Ordenação topológica",
+     "url": "https://cp-algorithms.com/graph/topological-sort.html"
+    },
+    {
+     "label": "USACO Guide — Topological sort",
+     "url": "https://usaco.guide/gold/toposort"
+    }
+   ]
+  },
+  {
+   "id": "dfs-tree-bridges",
+   "area": "graphs",
+   "name": "Árvore DFS, pontes e cactos",
+   "description": "Back edges da árvore DFS, pontes/articulações, componentes biconexas, estrutura de cactos (tema recorrente da NERC) e redução série-paralelo.",
+   "includes": [
+    "dfs tree",
+    "back edges",
+    "bridges",
+    "articulation points",
+    "biconnected components",
+    "cactus",
+    "series-parallel reduction"
+   ],
+   "refs": [
+    {
+     "label": "cp-algorithms — Pontes",
+     "url": "https://cp-algorithms.com/graph/bridge-searching.html"
+    },
+    {
+     "label": "USACO Guide — BCC e 2CC",
+     "url": "https://usaco.guide/adv/BCC-2CC"
+    }
+   ]
+  },
+  {
+   "id": "graph-coloring-2sat-euler",
+   "area": "graphs",
+   "name": "Bipartição, 2-SAT e caminho euleriano",
+   "description": "Modelar como 2-coloração/bipartição, 2-SAT ou trilha euleriana (paridade de graus + conectividade).",
+   "includes": [
+    "bipartite check",
+    "2-coloring",
+    "2-sat",
+    "eulerian path",
+    "degree parity"
+   ],
+   "refs": [
+    {
+     "label": "cp-algorithms — 2-SAT",
+     "url": "https://cp-algorithms.com/graph/2SAT.html"
+    },
+    {
+     "label": "cp-algorithms — Caminho euleriano",
+     "url": "https://cp-algorithms.com/graph/euler_path.html"
+    }
+   ]
+  },
+  {
+   "id": "bipartite-matching",
+   "area": "graphs",
+   "name": "Emparelhamento (bipartido e geral)",
+   "description": "Matching bipartido (Kuhn/Hopcroft-Karp), caminhos alternantes, Dilworth/König/Hall e matching geral (blossom).",
+   "includes": [
+    "bipartite matching",
+    "kuhn",
+    "hopcroft-karp",
+    "alternating paths",
+    "dilworth",
+    "konig",
+    "hall theorem",
+    "blossom"
+   ],
+   "refs": [
+    {
+     "label": "cp-algorithms — Kuhn",
+     "url": "https://cp-algorithms.com/graph/kuhn_maximum_bipartite_matching.html"
+    },
+    {
+     "label": "cp-algorithms — Hopcroft-Karp/Dinic (fluxo)",
+     "url": "https://cp-algorithms.com/graph/dinic.html"
+    }
+   ]
+  },
+  {
+   "id": "flow-mincut",
+   "area": "graphs",
+   "name": "Fluxo máximo, corte mínimo e atribuição",
+   "description": "Dinic, corte mínimo como modelagem (vértices divididos, capacidades infinitas), Hungarian e custo mínimo.",
+   "includes": [
+    "max flow",
+    "dinic",
+    "min cut",
+    "node splitting",
+    "residual graph",
+    "hungarian",
+    "min cost flow"
+   ],
+   "refs": [
+    {
+     "label": "cp-algorithms — Dinic",
+     "url": "https://cp-algorithms.com/graph/dinic.html"
+    },
+    {
+     "label": "cp-algorithms — Hungarian",
+     "url": "https://cp-algorithms.com/graph/hungarian-algorithm.html"
+    }
+   ]
+  },
+  {
+   "id": "graph-constructive",
+   "area": "graphs",
+   "name": "Construtivo em grafos e cactos",
+   "description": "Construir grafo/cacto com sequência de graus, gadgets ou embedding; transformar via forma canônica; transferências entre árvores geradoras.",
+   "includes": [
+    "graph construction",
+    "degree sequence",
+    "induction",
+    "canonical form",
+    "edge coloring",
+    "gadgets"
+   ],
+   "refs": [
+    {
+     "label": "CSES — Competitive Programmer's Handbook (PDF)",
+     "url": "https://cses.fi/book/book.pdf"
+    }
+   ]
+  },
+  {
+   "id": "tree-dp",
+   "area": "trees",
+   "name": "DP em árvore e rerooting",
+   "description": "DP sobre subárvores, mochila em árvore (merge por tamanho), rerooting e isomorfismo por DP.",
+   "includes": [
+    "tree dp",
+    "rerooting",
+    "tree knapsack",
+    "subtree dp",
+    "subtree isomorphism"
+   ],
+   "refs": [
+    {
+     "label": "USACO Guide — DP em árvores",
+     "url": "https://usaco.guide/gold/dp-trees"
+    },
+    {
+     "label": "USACO Guide — Rerooting (all roots)",
+     "url": "https://usaco.guide/gold/all-roots"
+    }
+   ]
+  },
+  {
+   "id": "tree-greedy-structure",
+   "area": "trees",
+   "name": "Guloso e estrutura em árvores",
+   "description": "Propriedades de árvores: guloso em pós-ordem, matching em árvore, profundidade, Prüfer, cortes por tamanho.",
+   "includes": [
+    "tree greedy",
+    "post order",
+    "tree matching",
+    "prufer code",
+    "subtree sizes",
+    "depth"
+   ],
+   "refs": [
+    {
+     "label": "cp-algorithms — Código de Prüfer",
+     "url": "https://cp-algorithms.com/graph/pruefer_code.html"
+    },
+    {
+     "label": "CSES — Competitive Programmer's Handbook (PDF)",
+     "url": "https://cses.fi/book/book.pdf"
+    }
+   ]
+  },
+  {
+   "id": "lca-hld",
+   "area": "trees",
+   "name": "LCA, binary lifting e HLD",
+   "description": "LCA, binary lifting (também para compor funções), Euler tour de subárvore e heavy-light decomposition.",
+   "includes": [
+    "lca",
+    "binary lifting",
+    "euler tour",
+    "heavy-light decomposition",
+    "path queries"
+   ],
+   "refs": [
+    {
+     "label": "cp-algorithms — LCA com binary lifting",
+     "url": "https://cp-algorithms.com/graph/lca_binary_lifting.html"
+    },
+    {
+     "label": "cp-algorithms — HLD",
+     "url": "https://cp-algorithms.com/graph/hld.html"
+    }
+   ]
+  },
+  {
+   "id": "centroid-small-to-large",
+   "area": "trees",
+   "name": "Centroid decomposition e small-to-large",
+   "description": "Centroid para caminhos/distâncias em árvore e small-to-large (merge de conjuntos; em arrays: fixar o máximo e iterar pelo lado menor).",
+   "includes": [
+    "centroid decomposition",
+    "small to large",
+    "dsu on tree",
+    "iterate smaller side",
+    "divide by maximum (arrays)"
+   ],
+   "refs": [
+    {
+     "label": "USACO Guide — Centroid decomposition",
+     "url": "https://usaco.guide/plat/centroid"
+    },
+    {
+     "label": "USACO Guide — Small-to-large",
+     "url": "https://usaco.guide/plat/merging"
+    }
+   ]
+  },
+  {
+   "id": "dp-linear",
+   "area": "dp",
+   "name": "DP linear com estados",
+   "description": "DP sobre prefixo/posição com poucos estados extras (paridade, run atual, letra), em grid ou com bitset.",
+   "includes": [
+    "prefix dp",
+    "state dp",
+    "grid dp",
+    "bitset dp",
+    "automaton state"
+   ],
+   "refs": [
+    {
+     "label": "cp-algorithms — Introdução a DP",
+     "url": "https://cp-algorithms.com/dynamic_programming/intro-to-dp.html"
+    },
+    {
+     "label": "USACO Guide — Caminhos em grid",
+     "url": "https://usaco.guide/gold/paths-grids"
+    }
+   ]
+  },
+  {
+   "id": "knapsack",
+   "area": "dp",
+   "name": "Mochila e subset sum",
+   "description": "Mochila 0/1, subset sum com bitset ou √ valores distintos, mochila sobre resto/soma.",
+   "includes": [
+    "knapsack",
+    "subset sum",
+    "bitset",
+    "bounded knapsack",
+    "knapsack over remainders"
+   ],
+   "refs": [
+    {
+     "label": "cp-algorithms — Mochila",
+     "url": "https://cp-algorithms.com/dynamic_programming/knapsack.html"
+    },
+    {
+     "label": "USACO Guide — Knapsack",
+     "url": "https://usaco.guide/gold/knapsack"
+    }
+   ]
+  },
+  {
+   "id": "dp-intervals",
+   "area": "dp",
+   "name": "DP de intervalos",
+   "description": "dp[l][r] escolhendo raiz/ponto de corte (BST ótima, ordem de fusão, minimax), com otimização monotônica.",
+   "includes": [
+    "interval dp",
+    "optimal bst",
+    "merge order",
+    "minimax interval",
+    "knuth"
+   ],
+   "refs": [
+    {
+     "label": "USACO Guide — DP em intervalos",
+     "url": "https://usaco.guide/gold/dp-ranges"
+    },
+    {
+     "label": "cp-algorithms — Otimização de Knuth",
+     "url": "https://cp-algorithms.com/dynamic_programming/knuth-optimization.html"
+    }
+   ]
+  },
+  {
+   "id": "dp-bitmask",
+   "area": "dp",
+   "name": "DP com bitmask e SOS",
+   "description": "DP sobre subconjuntos, enumeração de submáscaras, SOS / máscaras ternárias.",
+   "includes": [
+    "bitmask dp",
+    "submask enumeration",
+    "sos dp",
+    "subset sum over masks"
+   ],
+   "refs": [
+    {
+     "label": "USACO Guide — DP com bitmask",
+     "url": "https://usaco.guide/gold/dp-bitmasks"
+    },
+    {
+     "label": "USACO Guide — SOS DP",
+     "url": "https://usaco.guide/plat/dp-sos"
+    }
+   ]
+  },
+  {
+   "id": "dp-optimization",
+   "area": "dp",
+   "name": "Envelope de retas (CHT/Li Chao) e otimização de DP",
+   "description": "Envelope superior/inferior de retas (CHT, Li Chao), com ou sem DP; D&C, ponto ótimo monótono e pilha monotônica para acelerar transições.",
+   "includes": [
+    "convex hull trick",
+    "li chao tree",
+    "upper envelope",
+    "divide and conquer optimization",
+    "monotone opt"
+   ],
+   "refs": [
+    {
+     "label": "cp-algorithms — Convex hull trick",
+     "url": "https://cp-algorithms.com/geometry/convex_hull_trick.html"
+    },
+    {
+     "label": "cp-algorithms — D&C DP",
+     "url": "https://cp-algorithms.com/dynamic_programming/divide-and-conquer-dp.html"
+    }
+   ]
+  },
+  {
+   "id": "segtree-custom",
+   "area": "ds",
+   "name": "Segment tree com nó customizado e descida",
+   "description": "Segtree com merge não trivial (composição de funções, (cont, min)), descida 'primeiro índice > v', merge-sort tree.",
+   "includes": [
+    "segment tree",
+    "custom merge",
+    "function composition",
+    "segment tree descent",
+    "merge sort tree"
+   ],
+   "refs": [
+    {
+     "label": "cp-algorithms — Segment tree",
+     "url": "https://cp-algorithms.com/data_structures/segment_tree.html"
+    },
+    {
+     "label": "USACO Guide — Point update range query",
+     "url": "https://usaco.guide/gold/PURS"
+    }
+   ]
+  },
+  {
+   "id": "segtree-lazy",
+   "area": "ds",
+   "name": "Segment tree com lazy propagation",
+   "description": "Range add/assign/chmax com consultas de min/soma, segtree de cobertura (comprimento coberto).",
+   "includes": [
+    "lazy propagation",
+    "range add",
+    "range assign",
+    "coverage count segment tree",
+    "union length"
+   ],
+   "refs": [
+    {
+     "label": "USACO Guide — Range update range query",
+     "url": "https://usaco.guide/plat/RURQ"
+    },
+    {
+     "label": "USACO Guide — Segtree extensions",
+     "url": "https://usaco.guide/plat/segtree-ext"
+    }
+   ]
+  },
+  {
+   "id": "fenwick-inversions",
+   "area": "ds",
+   "name": "BIT e contagem de inversões",
+   "description": "Fenwick para contagem offline, pares cruzados/intercalados, inversões e descida na BIT.",
+   "includes": [
+    "fenwick tree",
+    "bit",
+    "inversions",
+    "offline counting",
+    "interleaving pairs",
+    "bit descent"
+   ],
+   "refs": [
+    {
+     "label": "cp-algorithms — Fenwick",
+     "url": "https://cp-algorithms.com/data_structures/fenwick.html"
+    },
+    {
+     "label": "USACO Guide — Point update range query",
+     "url": "https://usaco.guide/gold/PURS"
+    }
+   ]
+  },
+  {
+   "id": "prefix-sums",
+   "area": "ds",
+   "name": "Soma de prefixos e array de diferenças",
+   "description": "Prefixos 1D/2D, array de diferenças, prefixos de frequência para contar em O(1).",
+   "includes": [
+    "prefix sums",
+    "2d prefix sums",
+    "difference array",
+    "prefix frequencies"
+   ],
+   "refs": [
+    {
+     "label": "USACO Guide — Prefix sums",
+     "url": "https://usaco.guide/silver/prefix-sums"
+    },
+    {
+     "label": "USACO Guide — Mais prefix sums",
+     "url": "https://usaco.guide/silver/more-prefix-sums"
+    }
+   ]
+  },
+  {
+   "id": "monotonic-stack",
+   "area": "ds",
+   "name": "Pilha monotônica",
+   "description": "Próximo maior/menor, maior retângulo no histograma, pilha que agrega dp por bloco de máximo.",
+   "includes": [
+    "monotonic stack",
+    "next greater element",
+    "histogram",
+    "nearest smaller"
+   ],
+   "refs": [
+    {
+     "label": "USACO Guide — Stacks",
+     "url": "https://usaco.guide/gold/stacks"
+    },
+    {
+     "label": "cp-algorithms — Pilha/fila com mínimo",
+     "url": "https://cp-algorithms.com/data_structures/stack_queue_modification.html"
+    }
+   ]
+  },
+  {
+   "id": "stl-ordered",
+   "area": "ds",
+   "name": "set/multiset, heap e mapa de intervalos",
+   "description": "Estruturas da STL como ferramenta principal: multiset de max/min, heap, map de intervalos [l,r,h], lista ligada.",
+   "includes": [
+    "multiset",
+    "priority queue",
+    "ordered map of intervals",
+    "linked list",
+    "std::set amortized"
+   ],
+   "refs": [
+    {
+     "label": "USACO Guide — Sorted sets",
+     "url": "https://usaco.guide/gold/intro-sorted-sets"
+    }
+   ]
+  },
+  {
+   "id": "sparse-sqrt",
+   "area": "ds",
+   "name": "Sparse table (RMQ) e sqrt decomposition",
+   "description": "RMQ estático com sparse table e divisão em blocos √ (sobre o array ou sobre as consultas).",
+   "includes": [
+    "sparse table",
+    "rmq",
+    "sqrt decomposition",
+    "query batching"
+   ],
+   "refs": [
+    {
+     "label": "cp-algorithms — Sparse table",
+     "url": "https://cp-algorithms.com/data_structures/sparse-table.html"
+    },
+    {
+     "label": "cp-algorithms — Sqrt decomposition",
+     "url": "https://cp-algorithms.com/data_structures/sqrt_decomposition.html"
+    }
+   ]
+  },
+  {
+   "id": "offline-persistent",
+   "area": "ds",
+   "name": "Técnicas offline, persistência e rollback",
+   "description": "Segtree sobre o tempo com rollback, estruturas persistentes, busca binária paralela, consultas offline.",
+   "includes": [
+    "offline deletion",
+    "segment tree over time",
+    "rollback",
+    "persistent segment tree",
+    "parallel binary search"
+   ],
+   "refs": [
+    {
+     "label": "cp-algorithms — Remoção offline em O(log n)",
+     "url": "https://cp-algorithms.com/data_structures/deleting_in_log_n.html"
+    },
+    {
+     "label": "USACO Guide — Persistência",
+     "url": "https://usaco.guide/adv/persistent"
+    }
+   ]
+  },
+  {
+   "id": "sweep-line",
+   "area": "ds",
+   "name": "Sweep line com eventos e ordem cinética",
+   "description": "Ordenar eventos e varrer mantendo estrutura; ordem cinética: objetos em movimento trocam de posição em O(N²) instantes de cruzamento (frações exatas).",
+   "includes": [
+    "sweep line",
+    "events",
+    "kinetic sorted order",
+    "adjacent swaps at crossing times",
+    "union of intervals",
+    "candidate sweep"
+   ],
+   "refs": [
+    {
+     "label": "USACO Guide — Sweep line",
+     "url": "https://usaco.guide/plat/sweep-line"
+    },
+    {
+     "label": "USACO Guide — Range queries com sweep",
+     "url": "https://usaco.guide/plat/range-sweep"
+    }
+   ]
+  },
+  {
+   "id": "divisors-sieve",
+   "area": "math",
+   "name": "Divisores, primos, crivo e Möbius",
+   "description": "Fatoração, enumeração de divisores, crivo, soma harmônica sobre múltiplos, Möbius/zeta sobre divisores, Miller-Rabin.",
+   "includes": [
+    "divisors",
+    "factorization",
+    "sieve",
+    "harmonic sum",
+    "mobius",
+    "zeta transform over divisors",
+    "miller-rabin"
+   ],
+   "refs": [
+    {
+     "label": "cp-algorithms — Crivo",
+     "url": "https://cp-algorithms.com/algebra/sieve-of-eratosthenes.html"
+    },
+    {
+     "label": "USACO Guide — Divisibilidade",
+     "url": "https://usaco.guide/gold/divisibility"
+    }
+   ]
+  },
+  {
+   "id": "gcd-modular",
+   "area": "math",
+   "name": "GCD, Bézout, CRT e aritmética modular",
+   "description": "gcd/Bézout como invariante, potências e ordem modular, CRT, equações diofantinas lineares.",
+   "includes": [
+    "gcd",
+    "bezout",
+    "modular arithmetic",
+    "multiplicative order",
+    "crt",
+    "diophantine"
+   ],
+   "refs": [
+    {
+     "label": "cp-algorithms — Euclides estendido",
+     "url": "https://cp-algorithms.com/algebra/extended-euclid-algorithm.html"
+    },
+    {
+     "label": "cp-algorithms — CRT",
+     "url": "https://cp-algorithms.com/algebra/chinese-remainder-theorem.html"
+    }
+   ]
+  },
+  {
+   "id": "bits-xor",
+   "area": "math",
+   "name": "Bits, XOR e álgebra linear",
+   "description": "Manipulação de bits/popcount, base XOR, eliminação gaussiana (GF(2) ou mod p) e posto.",
+   "includes": [
+    "bit manipulation",
+    "popcount",
+    "xor basis",
+    "gaussian elimination",
+    "matrix rank"
+   ],
+   "refs": [
+    {
+     "label": "USACO Guide — XOR basis",
+     "url": "https://usaco.guide/adv/xor-basis"
+    },
+    {
+     "label": "cp-algorithms — Eliminação de Gauss",
+     "url": "https://cp-algorithms.com/linear_algebra/linear-system-gauss.html"
+    }
+   ]
+  },
+  {
+   "id": "fft-ntt",
+   "area": "math",
+   "name": "FFT/NTT e funções geradoras",
+   "description": "Convolução com FFT/NTT, D&C de polinômios, inversa de série e funções geradoras.",
+   "includes": [
+    "fft",
+    "ntt",
+    "convolution",
+    "generating functions",
+    "power series inverse"
+   ],
+   "refs": [
+    {
+     "label": "cp-algorithms — FFT",
+     "url": "https://cp-algorithms.com/algebra/fft.html"
+    },
+    {
+     "label": "USACO Guide — FFT",
+     "url": "https://usaco.guide/adv/fft"
+    }
+   ]
+  },
+  {
+   "id": "closed-form",
+   "area": "math",
+   "name": "Contas, fórmulas fechadas e desigualdades",
+   "description": "Derivar fórmula/inequação direta (soma, teto, sinal, convexidade, igualar derivadas marginais) em vez de simular.",
+   "includes": [
+    "closed form",
+    "algebra",
+    "inequalities",
+    "ceil division",
+    "convexity",
+    "overflow care"
+   ],
+   "refs": [
+    {
+     "label": "CSES — Competitive Programmer's Handbook (PDF)",
+     "url": "https://cses.fi/book/book.pdf"
+    }
+   ]
+  },
+  {
+   "id": "binomial-counting",
+   "area": "comb",
+   "name": "Contagem com binomiais e inclusão-exclusão",
+   "description": "Binomiais/multinomiais mod p, inclusão-exclusão, estrelas e barras, contagem em forma fechada.",
+   "includes": [
+    "binomial coefficients",
+    "inclusion-exclusion",
+    "multinomial",
+    "stars and bars",
+    "modular inverses"
+   ],
+   "refs": [
+    {
+     "label": "cp-algorithms — Binomiais",
+     "url": "https://cp-algorithms.com/combinatorics/binomial-coefficients.html"
+    },
+    {
+     "label": "cp-algorithms — Inclusão-exclusão",
+     "url": "https://cp-algorithms.com/combinatorics/inclusion-exclusion.html"
+    }
+   ]
+  },
+  {
+   "id": "dp-counting",
+   "area": "comb",
+   "name": "DP de contagem",
+   "description": "Contar sequências/permutações/estruturas com DP (mod p), muitas vezes com prefixos para acelerar.",
+   "includes": [
+    "counting dp",
+    "permutation dp",
+    "insertion dp",
+    "modular counting"
+   ],
+   "refs": [
+    {
+     "label": "USACO Guide — Combinatória",
+     "url": "https://usaco.guide/gold/combo"
+    },
+    {
+     "label": "CSES — Competitive Programmer's Handbook (PDF)",
+     "url": "https://cses.fi/book/book.pdf"
+    }
+   ]
+  },
+  {
+   "id": "expected-value",
+   "area": "comb",
+   "name": "Probabilidade e valor esperado",
+   "description": "Linearidade da esperança, DP de probabilidade, ponto fixo/iteração, atualização bayesiana.",
+   "includes": [
+    "expected value",
+    "probability dp",
+    "linearity of expectation",
+    "fixed point iteration",
+    "bayesian update"
+   ],
+   "refs": [
+    {
+     "label": "CSES — Competitive Programmer's Handbook (PDF)",
+     "url": "https://cses.fi/book/book.pdf"
+    }
+   ]
+  },
+  {
+   "id": "permutation-cycles",
+   "area": "comb",
+   "name": "Permutações: ciclos e grafo funcional",
+   "description": "Decompor permutação/grafo funcional em ciclos, árvores penduradas, ordem de composição.",
+   "includes": [
+    "permutation cycles",
+    "functional graph",
+    "cycle decomposition",
+    "group action"
+   ],
+   "refs": [
+    {
+     "label": "USACO Guide — Grafos funcionais",
+     "url": "https://usaco.guide/silver/func-graphs"
+    },
+    {
+     "label": "cp-algorithms — Floyd (tartaruga e lebre)",
+     "url": "https://cp-algorithms.com/others/tortoise_and_hare.html"
+    }
+   ]
+  },
+  {
+   "id": "games-parity",
+   "area": "games",
+   "name": "Jogos: paridade, simetria e espelhamento",
+   "description": "Achar a regra de vitória por paridade/invariante, estratégia espelho ou pareamento (verificar com brute force).",
+   "includes": [
+    "parity argument",
+    "mirroring strategy",
+    "pairing strategy",
+    "nim variant",
+    "pattern from brute force"
+   ],
+   "refs": [
+    {
+     "label": "cp-algorithms — Sprague-Grundy",
+     "url": "https://cp-algorithms.com/game_theory/sprague-grundy-nim.html"
+    },
+    {
+     "label": "USACO Guide — Game theory",
+     "url": "https://usaco.guide/adv/game-theory"
+    }
+   ]
+  },
+  {
+   "id": "games-minimax",
+   "area": "games",
+   "name": "Jogos: minimax e DP sobre estados",
+   "description": "Calcular vitória/derrota por memo/retrograde sobre o espaço de estados ou busca binária + avaliação.",
+   "includes": [
+    "minimax",
+    "win/lose dp",
+    "retrograde analysis",
+    "memoization",
+    "game on graph"
+   ],
+   "refs": [
+    {
+     "label": "cp-algorithms — Jogos em grafos",
+     "url": "https://cp-algorithms.com/game_theory/games_on_graphs.html"
+    },
+    {
+     "label": "USACO Guide — Game theory",
+     "url": "https://usaco.guide/adv/game-theory"
+    }
+   ]
+  },
+  {
+   "id": "kmp-palindromes",
+   "area": "strings",
+   "name": "KMP, períodos e palíndromos",
+   "description": "Função prefixo/KMP, período mínimo, raiz primitiva, palíndromos (expansão de centro/Manacher).",
+   "includes": [
+    "kmp",
+    "prefix function",
+    "string period",
+    "palindromes",
+    "manacher",
+    "z-function"
+   ],
+   "refs": [
+    {
+     "label": "cp-algorithms — Função prefixo",
+     "url": "https://cp-algorithms.com/string/prefix-function.html"
+    },
+    {
+     "label": "cp-algorithms — Manacher",
+     "url": "https://cp-algorithms.com/string/manacher.html"
+    }
+   ]
+  },
+  {
+   "id": "suffix-structures",
+   "area": "strings",
+   "name": "Suffix array/automaton e LCP",
+   "description": "Suffix array + LCP, suffix automaton, tabela lcp[i][j] para pares de posições.",
+   "includes": [
+    "suffix array",
+    "lcp array",
+    "suffix automaton",
+    "lcp table"
+   ],
+   "refs": [
+    {
+     "label": "cp-algorithms — Suffix array",
+     "url": "https://cp-algorithms.com/string/suffix-array.html"
+    },
+    {
+     "label": "cp-algorithms — Suffix automaton",
+     "url": "https://cp-algorithms.com/string/suffix-automaton.html"
+    }
+   ]
+  },
+  {
+   "id": "hashing",
+   "area": "strings",
+   "name": "Hashing (strings, conjuntos, árvores)",
+   "description": "Hash polinomial, hash de conjunto/multiconjunto por soma de valores aleatórios, hash canônico de árvores.",
+   "includes": [
+    "polynomial hashing",
+    "set hashing",
+    "tree hashing",
+    "canonical form + hash",
+    "hashmap lookup"
+   ],
+   "refs": [
+    {
+     "label": "cp-algorithms — String hashing",
+     "url": "https://cp-algorithms.com/string/string-hashing.html"
+    },
+    {
+     "label": "USACO Guide — Hashing",
+     "url": "https://usaco.guide/gold/hashing"
+    }
+   ]
+  },
+  {
+   "id": "string-adhoc",
+   "area": "strings",
+   "name": "Strings: runs, contagem e guloso",
+   "description": "Run-length, contagem de letras/ocorrências, guloso em strings sem estrutura avançada.",
+   "includes": [
+    "run length encoding",
+    "letter counting",
+    "string greedy",
+    "occurrence counting"
+   ],
+   "refs": [
+    {
+     "label": "CSES — Competitive Programmer's Handbook (PDF)",
+     "url": "https://cses.fi/book/book.pdf"
+    }
+   ]
+  },
+  {
+   "id": "parsing-brackets",
+   "area": "strings",
+   "name": "Parsing, expressões e parênteses",
+   "description": "Recursive descent, avaliar expressões, sequências de parênteses/prefix balance e pilha.",
+   "includes": [
+    "recursive descent",
+    "expression parsing",
+    "balanced brackets",
+    "prefix balance",
+    "stack matching"
+   ],
+   "refs": [
+    {
+     "label": "cp-algorithms — Parsing de expressões",
+     "url": "https://cp-algorithms.com/string/expression_parsing.html"
+    },
+    {
+     "label": "cp-algorithms — Sequências de parênteses",
+     "url": "https://cp-algorithms.com/combinatorics/bracket_sequences.html"
+    }
+   ]
+  },
+  {
+   "id": "geo-vectors",
+   "area": "geometry",
+   "name": "Produto vetorial, orientação e interseção",
+   "description": "Primitivas: cross product, lado da reta, interseção de segmentos/retas, aritmética exata.",
+   "includes": [
+    "cross product",
+    "orientation",
+    "segment intersection",
+    "exact arithmetic",
+    "reflection"
+   ],
+   "refs": [
+    {
+     "label": "cp-algorithms — Geometria básica",
+     "url": "https://cp-algorithms.com/geometry/basic-geometry.html"
+    },
+    {
+     "label": "cp-algorithms — Interseção de segmentos",
+     "url": "https://cp-algorithms.com/geometry/segments-intersection.html"
+    }
+   ]
+  },
+  {
+   "id": "convex-hull",
+   "area": "geometry",
+   "name": "Fecho convexo e polígonos convexos",
+   "description": "Fecho convexo (2D/3D), soma de Minkowski, ponto em polígono convexo, tangentes, camadas.",
+   "includes": [
+    "convex hull",
+    "minkowski sum",
+    "point in convex polygon",
+    "tangents",
+    "onion peeling",
+    "3d hull"
+   ],
+   "refs": [
+    {
+     "label": "cp-algorithms — Fecho convexo",
+     "url": "https://cp-algorithms.com/geometry/convex-hull.html"
+    },
+    {
+     "label": "cp-algorithms — Soma de Minkowski",
+     "url": "https://cp-algorithms.com/geometry/minkowski.html"
+    }
+   ]
+  },
+  {
+   "id": "angular-sweep",
+   "area": "geometry",
+   "name": "Ordenação angular e varredura de ângulos",
+   "description": "Ordenar por ângulo (comparador exato), varrer direções/eventos angulares, cobertura do círculo por arcos (os arcos cobrem 2π?).",
+   "includes": [
+    "angular sort",
+    "rotating sweep",
+    "arc coverage",
+    "pivot sweep",
+    "polar angle"
+   ],
+   "refs": [
+    {
+     "label": "USACO Guide — Geometria (primitivas)",
+     "url": "https://usaco.guide/plat/geo-pri"
+    },
+    {
+     "label": "CSES — Competitive Programmer's Handbook (PDF)",
+     "url": "https://cses.fi/book/book.pdf"
+    }
+   ]
+  },
+  {
+   "id": "circles-areas",
+   "area": "geometry",
+   "name": "Círculos, áreas e ponto flutuante",
+   "description": "Círculos/arcos, áreas por integração ou Green, interseção de semiplanos, cuidado com precisão.",
+   "includes": [
+    "circle intersection",
+    "area integration",
+    "half-plane intersection",
+    "green theorem",
+    "floating point"
+   ],
+   "refs": [
+    {
+     "label": "cp-algorithms — Interseção de círculos",
+     "url": "https://cp-algorithms.com/geometry/circle-circle-intersection.html"
+    },
+    {
+     "label": "cp-algorithms — Interseção de semiplanos",
+     "url": "https://cp-algorithms.com/geometry/halfplane-intersection.html"
+    }
+   ]
+  },
+  {
+   "id": "manhattan",
+   "area": "geometry",
+   "name": "Distância Manhattan e rotação 45°",
+   "description": "Girar (x+y, x−y) para virar Manhattan em Chebyshev, medianas e caixas alinhadas.",
+   "includes": [
+    "manhattan distance",
+    "45 degree rotation",
+    "chebyshev",
+    "median"
+   ],
+   "refs": [
+    {
+     "label": "cp-algorithms — Distância Manhattan",
+     "url": "https://cp-algorithms.com/geometry/manhattan-distance.html"
+    }
+   ]
+  },
+  {
+   "id": "exchange-argument",
+   "area": "greedy",
+   "name": "Guloso por argumento de troca",
+   "description": "Provar por troca que a ordem ótima é por uma chave/razão (Smith, vantagem comparativa) e somar.",
+   "includes": [
+    "exchange argument",
+    "sort by ratio",
+    "smith rule",
+    "tree precedence scheduling",
+    "rearrangement inequality"
+   ],
+   "refs": [
+    {
+     "label": "USACO Guide — Greedy com ordenação",
+     "url": "https://usaco.guide/silver/greedy-sorting"
+    },
+    {
+     "label": "cp-algorithms — Scheduling (duração e conclusão)",
+     "url": "https://cp-algorithms.com/schedules/schedule-with-completion-duration.html"
+    }
+   ]
+  },
+  {
+   "id": "scheduling-heap",
+   "area": "greedy",
+   "name": "Guloso com heap e prazos",
+   "description": "Prazos (EDF, trocar o pior), varredura de trás para frente com janela crescente (multiset), ótimo incremental pela troca local mais barata mantida em heaps.",
+   "includes": [
+    "earliest deadline first",
+    "priority queue greedy",
+    "deadlines",
+    "regret greedy",
+    "backward sweep with growing window",
+    "incremental optimum via cheapest exchange"
+   ],
+   "refs": [
+    {
+     "label": "cp-algorithms — Scheduling em uma máquina",
+     "url": "https://cp-algorithms.com/schedules/schedule_one_machine.html"
+    }
+   ]
+  },
+  {
+   "id": "greedy-incremental",
+   "area": "greedy",
+   "name": "Guloso passo a passo",
+   "description": "Construir a resposta posição a posição (lexicográfico, extremos, mais recente) com prova local.",
+   "includes": [
+    "greedy",
+    "lexicographic construction",
+    "take extremes",
+    "local choice"
+   ],
+   "refs": [
+    {
+     "label": "USACO Guide — Greedy com ordenação",
+     "url": "https://usaco.guide/silver/greedy-sorting"
+    }
+   ]
+  },
+  {
+   "id": "binary-search-answer",
+   "area": "search",
+   "name": "Busca binária/ternária na resposta",
+   "description": "Busca binária na resposta ou num ponto fixo (checagem monótona, em geral gulosa); ternária em função unimodal/côncava. Não inclui buscas binárias de consulta.",
+   "includes": [
+    "binary search on answer",
+    "binary search on fixed point",
+    "ternary search",
+    "monotone predicate",
+    "feasibility check"
+   ],
+   "refs": [
+    {
+     "label": "USACO Guide — Binary search",
+     "url": "https://usaco.guide/silver/binary-search"
+    },
+    {
+     "label": "cp-algorithms — Busca ternária",
+     "url": "https://cp-algorithms.com/num_methods/ternary_search.html"
+    }
+   ]
+  },
+  {
+   "id": "two-pointers",
+   "area": "search",
+   "name": "Dois ponteiros e janela deslizante",
+   "description": "Dois ponteiros sobre arrays/polilinhas, janela deslizante, expansão monótona.",
+   "includes": [
+    "two pointers",
+    "sliding window",
+    "monotone expansion"
+   ],
+   "refs": [
+    {
+     "label": "USACO Guide — Two pointers",
+     "url": "https://usaco.guide/silver/two-pointers"
+    },
+    {
+     "label": "USACO Guide — Sliding window",
+     "url": "https://usaco.guide/gold/sliding-window"
+    }
+   ]
+  },
+  {
+   "id": "brute-force",
+   "area": "search",
+   "name": "Força bruta com limite esperto",
+   "description": "Enumerar candidatos depois de provar que são poucos (valores pequenos, soma harmônica, pigeonhole).",
+   "includes": [
+    "brute force",
+    "complete search",
+    "bounded enumeration",
+    "amortized bound",
+    "bitset optimization"
+   ],
+   "refs": [
+    {
+     "label": "USACO Guide — Complete search",
+     "url": "https://usaco.guide/bronze/intro-complete"
+    },
+    {
+     "label": "USACO Guide — Complete search com recursão",
+     "url": "https://usaco.guide/bronze/complete-rec"
+    }
+   ]
+  },
+  {
+   "id": "backtracking-mitm",
+   "area": "search",
+   "name": "Backtracking, poda e meet in the middle",
+   "description": "Busca exaustiva com poda/memo, IDDFS, deduplicação de estados e meet in the middle.",
+   "includes": [
+    "backtracking",
+    "pruning",
+    "iterative deepening",
+    "meet in the middle",
+    "state dedup"
+   ],
+   "refs": [
+    {
+     "label": "USACO Guide — Meet in the middle",
+     "url": "https://usaco.guide/gold/meet-in-the-middle"
+    },
+    {
+     "label": "USACO Guide — Complete search com recursão",
+     "url": "https://usaco.guide/bronze/complete-rec"
+    }
+   ]
+  },
+  {
+   "id": "randomized",
+   "area": "search",
+   "name": "Algoritmos randomizados",
+   "description": "Sortear até dar certo, testes probabilísticos, weighted majority.",
+   "includes": [
+    "randomization",
+    "random retries",
+    "weighted majority",
+    "probabilistic check"
+   ],
+   "refs": [
+    {
+     "label": "USACO Guide — Randomized",
+     "url": "https://usaco.guide/adv/random"
+    }
+   ]
+  },
+  {
+   "id": "divide-conquer",
+   "area": "search",
+   "name": "Divisão e conquista",
+   "description": "Dividir o problema (por bit, por metade, por reta separadora) e combinar recursivamente.",
+   "includes": [
+    "divide and conquer",
+    "recursion on bits",
+    "split and merge",
+    "cdq"
+   ],
+   "refs": [
+    {
+     "label": "USACO Guide — D&C (static range queries)",
+     "url": "https://usaco.guide/plat/DC-SRQ"
+    },
+    {
+     "label": "CSES — Competitive Programmer's Handbook (PDF)",
+     "url": "https://cses.fi/book/book.pdf"
+    }
+   ]
+  },
+  {
+   "id": "simulation",
+   "area": "adhoc",
+   "name": "Implementação e simulação cuidadosa",
+   "description": "Implementar o processo/especificação do enunciado com cuidado (às vezes pulando períodos), sem técnica pesada.",
+   "includes": [
+    "simulation",
+    "implementation",
+    "careful implementation",
+    "period skipping",
+    "canonicalize and compare"
+   ],
+   "refs": [
+    {
+     "label": "USACO Guide — Simulação",
+     "url": "https://usaco.guide/bronze/simulation"
+    }
+   ]
+  },
+  {
+   "id": "observation-invariant",
+   "area": "adhoc",
+   "name": "Observação ad hoc / invariante",
+   "description": "Uma observação ou invariante colapsa o problema em uma conta simples ou verificação linear.",
+   "includes": [
+    "observation",
+    "invariant",
+    "pigeonhole",
+    "key lemma"
+   ],
+   "refs": [
+    {
+     "label": "USACO Guide — Ad hoc",
+     "url": "https://usaco.guide/bronze/ad-hoc"
+    }
+   ]
+  },
+  {
+   "id": "casework",
+   "area": "adhoc",
+   "name": "Análise de casos",
+   "description": "Separar em casos (pequenos, degenerados, por paridade) e resolver cada um; bom com stress test.",
+   "includes": [
+    "case analysis",
+    "corner cases",
+    "small cases brute force",
+    "stress testing"
+   ],
+   "refs": [
+    {
+     "label": "USACO Guide — Ad hoc",
+     "url": "https://usaco.guide/bronze/ad-hoc"
+    }
+   ]
+  },
+  {
+   "id": "constructive",
+   "area": "adhoc",
+   "name": "Construtivo (sequências, grids, strings)",
+   "description": "Montar uma saída que satisfaz as restrições: cota inferior + construção que a atinge, gadgets, indução.",
+   "includes": [
+    "constructive",
+    "lower bound + construction",
+    "gadget",
+    "induction",
+    "blocks"
+   ],
+   "refs": [
+    {
+     "label": "CSES — Competitive Programmer's Handbook (PDF)",
+     "url": "https://cses.fi/book/book.pdf"
+    }
+   ]
+  },
+  {
+   "id": "interactive",
+   "area": "adhoc",
+   "name": "Interativos",
+   "description": "Estratégia de consultas: bisseção, decodificar com poucas perguntas, árvore de decisão.",
+   "includes": [
+    "interactive",
+    "query strategy",
+    "bisection",
+    "decision tree",
+    "adaptive queries"
+   ],
+   "refs": [
+    {
+     "label": "USACO Guide — Interativos",
+     "url": "https://usaco.guide/adv/interactive"
+    }
+   ]
+  }
+ ],
+ "assignments": {
+  "apac2024-A": {
+   "primary": "observation-invariant",
+   "secondary": [
+    "constructive"
+   ],
+   "key_idea": "As operações são relações de um grupo quociente de Q8: reduzir S e E a uma de 8 formas normais e comparar; construir levando S à forma normal e desfazendo o caminho de E.",
+   "confidence": "high"
+  },
+  "apac2024-B": {
+   "primary": "brute-force",
+   "secondary": [
+    "casework"
+   ],
+   "key_idea": "Penalidade + planaridade forçam o ótimo a ser clique (≤4) ou clique menos uma aresta (≤5): enumerar cliques removendo vértices de grau mínimo (≤5) e testando subconjuntos da vizinhança.",
+   "confidence": "high"
+  },
+  "apac2024-C": {
+   "primary": "bits-xor",
+   "secondary": [
+    "constructive"
+   ],
+   "key_idea": "Se popcount(y)−popcount(y+1) = t então y termina em 0 seguido de t+1 uns; o primeiro índice do máximo fixa os bits baixos de x, e verifica-se tudo em O(n).",
+   "confidence": "high"
+  },
+  "apac2024-D": {
+   "primary": "binomial-counting",
+   "secondary": [
+    "fft-ntt"
+   ],
+   "key_idea": "Janelas 6×7 com soma igual fazem cada célula-resíduo ser constante, listrada na horizontal ou na vertical; contar com produtos de somas binomiais e inclusão-exclusão, agregados via funções geradoras/NTT.",
+   "confidence": "high"
+  },
+  "apac2024-E": {
+   "primary": "constructive",
+   "secondary": [
+    "greedy-incremental"
+   ],
+   "key_idea": "A cota max(#linhas sem repetição, #colunas sem repetição) é atingível: mudar (i,j) cruzando linha e coluna 'coloridas' e tratar as sobras na primeira linha/coluna.",
+   "confidence": "high"
+  },
+  "apac2024-F": {
+   "primary": "stl-ordered",
+   "secondary": [
+    "divisors-sieve"
+   ],
+   "key_idea": "Juntar grupos nunca piora a razão, então só k primo divisor de n; deslizar o aluno 1 muda só duas somas, mantidas num multiset.",
+   "confidence": "high"
+  },
+  "apac2024-G": {
+   "primary": "brute-force",
+   "secondary": [
+    "string-adhoc"
+   ],
+   "key_idea": "Incrementar contadores de pares via listas por (coluna, letra) e parar quando algum chega a k: antes disso o total de incrementos é ≤ (k−1)·C(n,2).",
+   "confidence": "high"
+  },
+  "apac2024-H": {
+   "primary": "casework",
+   "secondary": [
+    "greedy-incremental"
+   ],
+   "key_idea": "Mover a minoria de cada mesa; se todas têm a mesma maioria, uma mesa precisa ser dedicada ao outro tipo — escolher a mais barata.",
+   "confidence": "high"
+  },
+  "apac2024-I": {
+   "primary": "convex-hull",
+   "secondary": [
+    "geo-vectors",
+    "brute-force"
+   ],
+   "key_idea": "Retas por pontos médios dividem o plano em células onde a validade é fixa e a área é linear no centro, então o ótimo está num vértice do arranjo: testar as O(n⁴) interseções.",
+   "confidence": "high"
+  },
+  "apac2024-J": {
+   "primary": "shortest-paths",
+   "secondary": [],
+   "key_idea": "Uma viagem é o caminho mínimo P; a outra precisa usar alguma aresta fora de P, custando min dist1[u]+w+distn[v] — dois Dijkstras.",
+   "confidence": "high"
+  },
+  "apac2024-K": {
+   "primary": "offline-persistent",
+   "secondary": [
+    "lca-hld",
+    "centroid-small-to-large"
+   ],
+   "key_idea": "x = ⌈k/n⌉; achar o LCA pelo k-ésimo descendo numa segtree persistente de contagens por ancestral, e o y com segtrees persistentes de subárvore construídas small-to-large.",
+   "confidence": "high"
+  },
+  "apac2024-L": {
+   "primary": "bits-xor",
+   "secondary": [
+    "closed-form"
+   ],
+   "key_idea": "O alcançável é um espaço em GF(2): trocar a_i por 2a_i+1, achar o posto s da base linear; o posto do sistema é C(s,2)+(n−s)(s−1) e a resposta 2^posto.",
+   "confidence": "high"
+  },
+  "apac2024-M": {
+   "primary": "fft-ntt",
+   "secondary": [
+    "binomial-counting"
+   ],
+   "key_idea": "Inclusão-exclusão troca cada '>' por 'livre' − '≤'; composições quase crescentes têm tamanho O(√n) (DP) e concatenar blocos é 1/(1−A(x)), inversa de série via NTT.",
+   "confidence": "high"
+  },
+  "apac2025-A": {
+   "primary": "dp-counting",
+   "secondary": [
+    "binomial-counting",
+    "prefix-sums"
+   ],
+   "key_idea": "DP por torre usando somas de linha/coluna da camada anterior, e remover as coincidências A=C, B=D e A=D por inclusão-exclusão.",
+   "confidence": "high"
+  },
+  "apac2025-B": {
+   "primary": "graph-constructive",
+   "secondary": [],
+   "key_idea": "Coloração gulosa de arestas em poucos emparelhamentos, cada um roteado num par de camadas z próprio, com gadgets dispostos em grade √n para caber em 400³.",
+   "confidence": "high"
+  },
+  "apac2025-C": {
+   "primary": "dfs-tree-bridges",
+   "secondary": [
+    "graph-coloring-2sat-euler"
+   ],
+   "key_idea": "Valor de conectividade = corte máximo + 1, e num cacto o corte máximo é m menos o número de ciclos ímpares (2-colorir uma árvore geradora).",
+   "confidence": "high"
+  },
+  "apac2025-D": {
+   "primary": "segtree-custom",
+   "secondary": [
+    "closed-form"
+   ],
+   "key_idea": "Do maior disco para o menor, cada bloco é uma função 'haste alvo → (movimentos, haste exigida para os menores)' que compõe associativamente numa segtree com update pontual.",
+   "confidence": "high"
+  },
+  "apac2025-E": {
+   "primary": "interactive",
+   "secondary": [
+    "parsing-brackets"
+   ],
+   "key_idea": "Descobrir os parênteses de cada folha da esquerda para a direita, ligando só as folhas da cadeia de aninhamento para reduzir a expressão a x−(x−(x−…)) e decidir com poucas consultas.",
+   "confidence": "high"
+  },
+  "apac2025-F": {
+   "primary": "dp-optimization",
+   "secondary": [
+    "monotonic-stack"
+   ],
+   "key_idea": "Ótimo = um primeiro carregador + revezamento com s decrescente (cadeia de mínimos de sufixo via pilha monotônica); o custo do primeiro é linear em l_j e é consultado com CHT offline.",
+   "confidence": "high"
+  },
+  "apac2025-G": {
+   "primary": "string-adhoc",
+   "secondary": [
+    "two-pointers"
+   ],
+   "key_idea": "Run-length: runs podem encolher e blocos com 0 fundem vários runs num 0; casar os runs de C com um ponteiro em B gulosamente.",
+   "confidence": "high"
+  },
+  "apac2025-H": {
+   "primary": "interactive",
+   "secondary": [],
+   "key_idea": "k = número total de rosas sempre serve: busca binária por uma rosa seguida de lírio e duas consultas de produto em volta para resolver l_x e r_x.",
+   "confidence": "high"
+  },
+  "apac2025-I": {
+   "primary": "sweep-line",
+   "secondary": [
+    "casework",
+    "geo-vectors"
+   ],
+   "key_idea": "Quadrados com vértices em cantos dão áreas infinitas; os demais têm centro em ponto da rede ou centro de célula e geram O(n²) intervalos ponderados de área, varridos contra as consultas ordenadas.",
+   "confidence": "high"
+  },
+  "apac2025-J": {
+   "primary": "dp-intervals",
+   "secondary": [],
+   "key_idea": "Reetiquetar por número do grupo (cada fusão apaga o sucessor): dp[l][r] = min_p dp[l][p−1] + dp[p][r] + |pos[l]−pos[p]|, com p o último absorvido diretamente por l.",
+   "confidence": "high"
+  },
+  "apac2025-K": {
+   "primary": "fenwick-inversions",
+   "secondary": [
+    "stl-ordered"
+   ],
+   "key_idea": "Livros < l vão para a frente, > r para trás e o meio se ordena por trocas: maximizar r−l−inv(l..r) varrendo r com um set de inícios 'recorde' removidos de forma amortizada.",
+   "confidence": "high"
+  },
+  "apac2025-L": {
+   "primary": "simulation",
+   "secondary": [
+    "observation-invariant"
+   ],
+   "key_idea": "Após p−i passos você está na célula inicial do viajante i e o viajante j+(p−i) na de j: marcar esses vizinhos e contar os distintos.",
+   "confidence": "high"
+  },
+  "apac2025-M": {
+   "primary": "geo-vectors",
+   "secondary": [
+    "casework"
+   ],
+   "key_idea": "Um ponto marcado dá só o segmento até a reflexão; dois (ou colineares) dão a faixa aberta entre retas paralelas mais pontos de rede na borda; três não colineares alcançam tudo.",
+   "confidence": "high"
+  },
+  "apac2026-A": {
+   "primary": "interactive",
+   "secondary": [
+    "suffix-structures"
+   ],
+   "key_idea": "Inserir sufixos de trás para frente: os ≤25 'pontos de divisão' particionam a ordem em blocos por letra, permitindo busca binária barata sobre representantes.",
+   "confidence": "high"
+  },
+  "apac2026-B": {
+   "primary": "games-minimax",
+   "secondary": [
+    "binary-search-answer",
+    "tree-dp"
+   ],
+   "key_idea": "Busca binária na resposta v rotulando folhas ±1; D(x) = sinal da soma dos filhos decide o vencedor (0 = quem joga vence).",
+   "confidence": "high"
+  },
+  "apac2026-C": {
+   "primary": "dfs-tree-bridges",
+   "secondary": [
+    "graph-constructive"
+   ],
+   "key_idea": "Dijkstra com max-heap visita em ordem de DFS: validar a ordem com uma pilha e dar pesos crescentes às arestas da árvore DFS.",
+   "confidence": "high"
+  },
+  "apac2026-D": {
+   "primary": "lca-hld",
+   "secondary": [
+    "tree-dp",
+    "segtree-lazy"
+   ],
+   "key_idea": "dp(u) = max(a_u, Σ dp dos filhos); com updates, DP dinâmica sobre HLD guardando os termos de prefixo de cada cadeia numa segtree lazy (range add, max).",
+   "confidence": "high"
+  },
+  "apac2026-E": {
+   "primary": "sparse-sqrt",
+   "secondary": [
+    "closed-form"
+   ],
+   "key_idea": "a_{i+m}−a_i é conhecido, então a_i = base_{i mod m} + w_i: resposta = ⌈(s_0 + Σ máximos de w por resíduo no intervalo)/m⌉, somados com sqrt decomposition.",
+   "confidence": "high"
+  },
+  "apac2026-F": {
+   "primary": "fft-ntt",
+   "secondary": [
+    "divisors-sieve"
+   ],
+   "key_idea": "Partir de 4·Σdígitos e subtrair perdas de borda: vizinhos verticais à distância w por uma convolução FFT, bordas de linha/coluna por divisores e array de diferenças.",
+   "confidence": "high"
+  },
+  "apac2026-G": {
+   "primary": "dfs-tree-bridges",
+   "secondary": [
+    "prefix-sums"
+   ],
+   "key_idea": "Bem projetado ⇔ série-paralelo com terminais 1 e n: reduzir por vértices de grau 2 e arestas paralelas, somando w_i·w_j dentro de cada cadeia contraída.",
+   "confidence": "high"
+  },
+  "apac2026-H": {
+   "primary": "gcd-modular",
+   "secondary": [
+    "observation-invariant"
+   ],
+   "key_idea": "Reflexões preservam |a_i−a_{i+1}| e a_1 muda por múltiplos de g = gcd(2|diferenças|): a_1' = a_1 mod g e resposta a_1' + Σ|dif|.",
+   "confidence": "high"
+  },
+  "apac2026-I": {
+   "primary": "dp-counting",
+   "secondary": [
+    "divisors-sieve",
+    "binomial-counting"
+   ],
+   "key_idea": "Os valores mudam ≤18 vezes (cada divisor próprio dobra), então f_v(l) é polinômio na base binomial C(l,k); transições por divisores com a identidade do taco de hóquei.",
+   "confidence": "high"
+  },
+  "apac2026-J": {
+   "primary": "observation-invariant",
+   "secondary": [],
+   "key_idea": "Músicas tocadas = pos_a(b_n) + n·k, com k = #i com pos_a(b_{i+1}) < pos_a(b_i); cada troca muda só O(1) comparações.",
+   "confidence": "high"
+  },
+  "apac2026-K": {
+   "primary": "binary-search-answer",
+   "secondary": [
+    "greedy-incremental"
+   ],
+   "key_idea": "Separar mostradores de hora 0x e 1x; para (x,y) checar viabilidade preenchendo gulosamente as posições mais restritas, enumerando x e buscando y binariamente.",
+   "confidence": "high"
+  },
+  "apac2026-L": {
+   "primary": "convex-hull",
+   "secondary": [
+    "gcd-modular"
+   ],
+   "key_idea": "Por pigeonhole existe passo curto (u,v) com v ≡ a·u (mod n), dividindo os pontos em O(√n) progressões colineares; só os extremos entram no fecho de cada camada.",
+   "confidence": "high"
+  },
+  "apac2026-M": {
+   "primary": "parsing-brackets",
+   "secondary": [
+    "closed-form"
+   ],
+   "key_idea": "Reescrever '(' conforme a paridade dos ')' anteriores vira a gramática em dois contadores; os prefixos úteis têm forma L^f R L^g…, e o custo é uma fórmula em f.",
+   "confidence": "high"
+  },
+  "lac2024-A": {
+   "primary": "dp-optimization",
+   "secondary": [
+    "closed-form"
+   ],
+   "key_idea": "Largura e altura no tempo t são envelopes de retas (CHT); entre breakpoints a área é quadrática com mínimo na ponta, então basta avaliar t=0 e cada breakpoint.",
+   "confidence": "high"
+  },
+  "lac2024-B": {
+   "primary": "expected-value",
+   "secondary": [
+    "backtracking-mitm",
+    "binary-search-answer"
+   ],
+   "key_idea": "Enumerar por backtracking as árvores de estratégia (~2e7) calculando p e tempos condicionais (resposta eg+(1/p−1)eb), ou busca binária no valor esperado com DP em que reiniciar custa o chute.",
+   "confidence": "high"
+  },
+  "lac2024-C": {
+   "primary": "bipartite-matching",
+   "secondary": [
+    "games-parity"
+   ],
+   "key_idea": "Geografia em vértices: o primeiro vence a partir de v sse v não está em todo emparelhamento máximo — achar um matching e marcar os vértices alcançáveis por caminhos alternantes a partir de não emparelhados.",
+   "confidence": "high"
+  },
+  "lac2024-D": {
+   "primary": "games-parity",
+   "secondary": [
+    "divisors-sieve"
+   ],
+   "key_idea": "Estratégia de pareamento de divisores: o primeiro vence sse N=p^a com a ímpar ou N=p·q; fatorar por divisão até √N.",
+   "confidence": "high"
+  },
+  "lac2024-E": {
+   "primary": "graph-coloring-2sat-euler",
+   "secondary": [],
+   "key_idea": "Dois clientes não podem dividir fila se seus intervalos se cruzam (+a +b −a −b); 2-colorir o grafo de conflitos.",
+   "confidence": "high"
+  },
+  "lac2024-F": {
+   "primary": "knapsack",
+   "secondary": [
+    "gcd-modular"
+   ],
+   "key_idea": "Por Bézout os andares residenciais compensam múltiplos de g=gcd(R); checar se alguma diferença de subset sum dos térreos é divisível por g, com mochila sobre O(√S) valores distintos/bitset.",
+   "confidence": "high"
+  },
+  "lac2024-G": {
+   "primary": "divisors-sieve",
+   "secondary": [
+    "expected-value"
+   ],
+   "key_idea": "A transformada de soma sobre divisores (zeta) vira a convolução-lcm em produto ponto a ponto: T(E)=1/(1−T(p)), depois inverter com Möbius.",
+   "confidence": "high"
+  },
+  "lac2024-H": {
+   "primary": "kmp-palindromes",
+   "secondary": [
+    "hashing"
+   ],
+   "key_idea": "As operações formam o grupo diedral: reduzir S à raiz primitiva (KMP) para que só a identidade e no máximo uma reflexão fixem S, e contar pares de prefixos compostos com hashmap.",
+   "confidence": "high"
+  },
+  "lac2024-I": {
+   "primary": "convex-hull",
+   "secondary": [
+    "circles-areas"
+   ],
+   "key_idea": "O fecho de pontos inteiros num disco tem poucos vértices (~R^{2/3}); o novo ponto fica no círculo, e para cada par de vértices do fecho somar o triângulo com o ponto do arco mais distante da corda.",
+   "confidence": "high"
+  },
+  "lac2024-J": {
+   "primary": "exchange-argument",
+   "secondary": [
+    "prefix-sums"
+   ],
+   "key_idea": "Vantagem comparativa: ordenar por B_i/A_i; A produz um prefixo e B um sufixo com no máximo um recurso dividido — testar cada ponto de divisão com somas de prefixo.",
+   "confidence": "high"
+  },
+  "lac2024-K": {
+   "primary": "dp-linear",
+   "secondary": [],
+   "key_idea": "DP/caminho mínimo sobre (palavra, letras tomadas 1..3, consoantes seguidas 0..2) com duas transições.",
+   "confidence": "high"
+  },
+  "lac2024-L": {
+   "primary": "observation-invariant",
+   "secondary": [],
+   "key_idea": "Toda coluna do padrão passa por toda coluna da matriz, então uma linha funciona sse não tem LED quebrado ou o padrão não acende nada nela.",
+   "confidence": "high"
+  },
+  "lac2025-A": {
+   "primary": "graph-traversal-states",
+   "secondary": [],
+   "key_idea": "BFS sobre pares (u,v) = 'existe passeio palíndromo u→v', começando de (u,u) e de arestas simples e estendendo pelas duas pontas com a mesma letra.",
+   "confidence": "high"
+  },
+  "lac2025-B": {
+   "primary": "bits-xor",
+   "secondary": [],
+   "key_idea": "Equivale a achar subconjunto de tamanho par com XOR 0: acrescentar um bit 1 a cada vetor e achar dependência linear por eliminação gaussiana em GF(2) com bitset.",
+   "confidence": "high"
+  },
+  "lac2025-C": {
+   "primary": "brute-force",
+   "secondary": [
+    "binary-search-answer"
+   ],
+   "key_idea": "Temperaturas estão em [−50,50]: testar cada limiar t e verificar se nenhuma sequência de dias abaixo de t passa de C.",
+   "confidence": "high"
+  },
+  "lac2025-D": {
+   "primary": "mst-dsu",
+   "secondary": [
+    "tree-dp"
+   ],
+   "key_idea": "Caminho minimax vive na MST: montar a Kruskal reconstruction tree e somar, subindo da folha, (folhas(v_i)−folhas(v_{i+1}))·w(v_i).",
+   "confidence": "high"
+  },
+  "lac2025-E": {
+   "primary": "segtree-lazy",
+   "secondary": [
+    "lca-hld",
+    "sweep-line"
+   ],
+   "key_idea": "Para cada negócio achar os patrocinadores mais próximos em subárvores distintas (Euler tour) e varrer o início com segtree lazy (range add + min) para achar o primeiro fim inválido.",
+   "confidence": "high"
+  },
+  "lac2025-F": {
+   "primary": "offline-persistent",
+   "secondary": [
+    "segtree-lazy"
+   ],
+   "key_idea": "Inserções+consultas são segtree com chmax lazy e min; as remoções viram 'segment tree sobre o tempo' com rollback (truque da conectividade dinâmica offline).",
+   "confidence": "high"
+  },
+  "lac2025-G": {
+   "primary": "stl-ordered",
+   "secondary": [
+    "segtree-custom"
+   ],
+   "key_idea": "Sem buracos o tabuleiro é só altura por coluna; peça horizontal é insegura sse as alturas no vão não são todas iguais — manter intervalos [l,r,h] num map (ou segtree esparsa com assign).",
+   "confidence": "high"
+  },
+  "lac2025-H": {
+   "primary": "scheduling-heap",
+   "secondary": [
+    "exchange-argument"
+   ],
+   "key_idea": "A solução ótima de k+1 estrelas sai da de k por uma troca pequena (+1, +2/−1, +3/−2, +3/−1/−1, +2/+2/−3); manter heaps dos deltas por estado e aplicar o mais barato.",
+   "confidence": "high"
+  },
+  "lac2025-I": {
+   "primary": "stl-ordered",
+   "secondary": [
+    "two-pointers"
+   ],
+   "key_idea": "Manter P como lista duplamente ligada indexada por valor; a resposta é a maior corrida em A (dobrado) em que cada elemento é o sucessor cíclico do anterior em P.",
+   "confidence": "high"
+  },
+  "lac2025-J": {
+   "primary": "convex-hull",
+   "secondary": [
+    "circles-areas"
+   ],
+   "key_idea": "Projetar as estrelas na esfera: é a maior calota vazia, cujos candidatos são os círculos das faces do fecho convexo 3D (Delaunay esférico), mais o caso de hemisfério vazio.",
+   "confidence": "high"
+  },
+  "lac2025-K": {
+   "primary": "simulation",
+   "secondary": [
+    "exchange-argument",
+    "brute-force"
+   ],
+   "key_idea": "Em ciclos completos jogar ataques, depois multiplicadores, depois somas; simular os O(√H) ciclos e fazer força bruta em quantas cartas de cada tipo usar no ciclo final.",
+   "confidence": "high"
+  },
+  "lac2025-L": {
+   "primary": "brute-force",
+   "secondary": [],
+   "key_idea": "Para cada posição testar os 10 dígitos ignorando os segmentos travados.",
+   "confidence": "high"
+  },
+  "lac2026-A": {
+   "primary": "observation-invariant",
+   "secondary": [],
+   "key_idea": "Formigas não se ultrapassam: ordenando pelas posições iniciais e desenrolando o anel, testam-se só 2 alvos para a primeira formiga e cada seguinte pega seu alvo na primeira posição horária após o anterior; resposta = menor max|início − alvo|.",
+   "confidence": "high"
+  },
+  "lac2026-B": {
+   "primary": "constructive",
+   "secondary": [
+    "greedy-incremental"
+   ],
+   "key_idea": "Emparelhar o k-ésimo menor com o k-ésimo maior (ou o mínimo com o máximo) e tirar a média reduz a amplitude pela metade; quando tudo está em {q,q+1}, cada comando vira uma troca.",
+   "confidence": "high"
+  },
+  "lac2026-C": {
+   "primary": "circles-areas",
+   "secondary": [
+    "brute-force",
+    "angular-sweep"
+   ],
+   "key_idea": "Os candidatos são os próprios círculos dos aspersores e os circuncírculos de triplas de vértices da fronteira da união (interseções não cobertas por outro disco); cada um é validado cobrindo seu perímetro com intervalos angulares.",
+   "confidence": "high"
+  },
+  "lac2026-D": {
+   "primary": "scheduling-heap",
+   "secondary": [
+    "exchange-argument"
+   ],
+   "key_idea": "Preenchendo as compras de trás para frente, os pedidos elegíveis para a posição t formam uma janela (índice ≥ t−K) que só cresce: num multiset, tirar o mais caro nas posições com desconto e o mais barato nas demais.",
+   "confidence": "high"
+  },
+  "lac2026-E": {
+   "primary": "closed-form",
+   "secondary": [],
+   "key_idea": "Cada resposta é uma semirreta em 2x (A: 2x < A+B, B: 2x > A+B, E: igualdade); intersectar todas e imprimir a faixa inteira.",
+   "confidence": "high"
+  },
+  "lac2026-F": {
+   "primary": "brute-force",
+   "secondary": [
+    "graph-traversal-states"
+   ],
+   "key_idea": "A regra do lugar mais alto força cada bola até a pirâmide ficar cheia; só então ela escolhe a ponta esquerda ou direita do chão, então há ~16 escolhas: backtracking sobre as 2^16 pilhas e clusters por DFS na rede triangular.",
+   "confidence": "high"
+  },
+  "lac2026-G": {
+   "primary": "constructive",
+   "secondary": [
+    "binomial-counting"
+   ],
+   "key_idea": "Montar a string como grupos [G…G C…C] seguidos de 'AT' repetido: um G antes de j blocos 'AT' gera C(j+1,3) GATA e um C gera j(j+1)/2 CAT, então basta escrever G como soma de números tetraédricos e C como soma de triangulares.",
+   "confidence": "high"
+  },
+  "lac2026-H": {
+   "primary": "centroid-small-to-large",
+   "secondary": [
+    "fft-ntt",
+    "binomial-counting"
+   ],
+   "key_idea": "A interseção de dois caminhos é um caminho u..v: resposta_k = Σ F(u→v)·F(v→u) sobre caminhos de comprimento k, somada com centroid decomposition + NTT.",
+   "confidence": "high"
+  },
+  "lac2026-I": {
+   "primary": "games-parity",
+   "secondary": [],
+   "key_idea": "Copiar o valor do oponente cancela contribuições, então só valores de multiplicidade ímpar importam: m≤1 → Evelyn, m par → primeiro, m ímpar ≥3 → segundo.",
+   "confidence": "high"
+  },
+  "lac2026-J": {
+   "primary": "greedy-incremental",
+   "secondary": [
+    "simulation"
+   ],
+   "key_idea": "Simular o adversário devolvendo os pratos menos usados no topo (equilibrando o uso); a resposta é o máximo final.",
+   "confidence": "high"
+  },
+  "lac2026-K": {
+   "primary": "permutation-cycles",
+   "secondary": [
+    "hashing"
+   ],
+   "key_idea": "Cada passo é reflexão por um gato e um par ordenado de gatos consecutivos determina o próximo (lookup em hash): é uma permutação em O(N²) estados, e os circuitos são seus ciclos.",
+   "confidence": "high"
+  },
+  "lac2026-L": {
+   "primary": "sweep-line",
+   "secondary": [
+    "stl-ordered"
+   ],
+   "key_idea": "Ordem cinética: pedestres trocam de posição em O(N²) instantes; manter a lista ordenada e agendar quando cada lacuna adjacente cruza C, processando eventos numa priority queue junto às consultas.",
+   "confidence": "high"
+  },
+  "latam2019-A": {
+   "primary": "bipartite-matching",
+   "secondary": [],
+   "key_idea": "A família de subconjuntos é fechada para baixo: maior anticadeia = |V| − emparelhamento máximo (Dilworth), com arestas para conjuntos com um elemento a menos, via Hopcroft-Karp.",
+   "confidence": "high"
+  },
+  "latam2019-B": {
+   "primary": "binary-search-answer",
+   "secondary": [
+    "angular-sweep"
+   ],
+   "key_idea": "Busca binária no meio-lado s; cada ponto proíbe um intervalo de ângulos de rotação, e checa-se se a união dos arcos cobre [0, π/2).",
+   "confidence": "high"
+  },
+  "latam2019-C": {
+   "primary": "segtree-custom",
+   "secondary": [
+    "lca-hld"
+   ],
+   "key_idea": "Compor funções clamp(x+c, lo, hi) mantém a mesma forma fechada: pré-computar composições (segtree/binary lifting) e compor O(log N) blocos por consulta.",
+   "confidence": "high"
+  },
+  "latam2019-D": {
+   "primary": "angular-sweep",
+   "secondary": [
+    "geo-vectors"
+   ],
+   "key_idea": "Todo par com brilhos diferentes impõe d·(S−T) ≥ 0, então os O(N²) vetores diferença precisam caber num semiplano: ordenar por ângulo e procurar um gap ≥ π.",
+   "confidence": "high"
+  },
+  "latam2019-E": {
+   "primary": "two-pointers",
+   "secondary": [
+    "prefix-sums"
+   ],
+   "key_idea": "Duplicar a string circular e, para cada início, achar a distância d até o próximo E; o início contribui max(0, S−d) fatias.",
+   "confidence": "high"
+  },
+  "latam2019-F": {
+   "primary": "dp-counting",
+   "secondary": [
+    "prefix-sums"
+   ],
+   "key_idea": "Base sem água é unimodal: tirar a camada de baixo deixa uma base unimodal num subintervalo, dp[s][b] = Σ (s−k+1)·dp[k][b−s], acelerado com prefixos de dp e k·dp.",
+   "confidence": "high"
+  },
+  "latam2019-G": {
+   "primary": "suffix-structures",
+   "secondary": [
+    "greedy-incremental"
+   ],
+   "key_idea": "Pegar sempre o maior prefixo restante que é substring de C é ótimo: andar no suffix automaton de C e reiniciar na raiz (nova peça) quando a transição falha.",
+   "confidence": "high"
+  },
+  "latam2019-H": {
+   "primary": "expected-value",
+   "secondary": [
+    "games-minimax",
+    "binary-search-answer"
+   ],
+   "key_idea": "Probabilidade de vitória P(c,h,t) tem ciclos entre turnos: processar placares em ordem decrescente de c+h e resolver o par P(c,h,0)/P(h,c,0) por ponto fixo (ou value iteration).",
+   "confidence": "high"
+  },
+  "latam2019-I": {
+   "primary": "dag-toposort",
+   "secondary": [
+    "graph-traversal-states"
+   ],
+   "key_idea": "Listas formam um DAG: contar caminhos de 1 até clientes por DP em ordem topológica (mod p) e contar clientes alcançáveis por DFS.",
+   "confidence": "high"
+  },
+  "latam2019-J": {
+   "primary": "segtree-custom",
+   "secondary": [
+    "observation-invariant"
+   ],
+   "key_idea": "O gafanhoto alterna lados com alturas crescentes, então só ML/MR importam: segtree de máximo com update pontual e descida 'primeiro índice com valor > v'.",
+   "confidence": "high"
+  },
+  "latam2019-K": {
+   "primary": "constructive",
+   "secondary": [
+    "closed-form"
+   ],
+   "key_idea": "Grau mínimo = número de trocas de sinal: pôr uma raiz ímpar entre vizinhos de sinais diferentes, escolher o sinal líder e expandir o produto.",
+   "confidence": "high"
+  },
+  "latam2019-L": {
+   "primary": "monotonic-stack",
+   "secondary": [
+    "dp-linear"
+   ],
+   "key_idea": "Como cada linha inverte inteira, o quadrado é viável sse cada segmento de linha é uniforme: com o run de iguais por célula, achar o maior quadrado sob o histograma de cada coluna com pilha monotônica.",
+   "confidence": "high"
+  },
+  "latam2019-M": {
+   "primary": "simulation",
+   "secondary": [],
+   "key_idea": "Varredura linear estendendo a sequência enquanto o degrau é ≤ X e reiniciando quando passa.",
+   "confidence": "high"
+  },
+  "latam2021-A": {
+   "primary": "backtracking-mitm",
+   "secondary": [
+    "observation-invariant"
+   ],
+   "key_idea": "1/H = 1/L + 1/R: no espaço dos inversos é soma de dois valores, então só 1/k é alcançável e o problema vira cadeia de adição mínima por IDDFS.",
+   "confidence": "high"
+  },
+  "latam2021-B": {
+   "primary": "divisors-sieve",
+   "secondary": [
+    "simulation"
+   ],
+   "key_idea": "Pares conhecidos estritamente crescentes/decrescentes proíbem tamanhos k cujos blocos terminam/começam ali; eliminar via crivo sobre divisores e checar os sobreviventes com um autômato (soma harmônica).",
+   "confidence": "high"
+  },
+  "latam2021-C": {
+   "primary": "prefix-sums",
+   "secondary": [],
+   "key_idea": "Subtraindo a média, o fluxo em cada aresta é x + prefixo_i ≥ 0; com x = −min prefixo o custo é Σ(prefixo_i − min), para cada sentido.",
+   "confidence": "high"
+  },
+  "latam2021-D": {
+   "primary": "bits-xor",
+   "secondary": [
+    "closed-form"
+   ],
+   "key_idea": "Somar os 2^Ai num contador binário com carry amortizado: a resposta é sim sse a soma tem dois bits ligados (ou um bit e N ≥ 2).",
+   "confidence": "high"
+  },
+  "latam2021-E": {
+   "primary": "monotonic-stack",
+   "secondary": [
+    "prefix-sums"
+   ],
+   "key_idea": "Para cada alvo j, com o mais alto mais próximo p de um lado, j vale a pena para i mais perto de j que o ponto médio (p+j)/2: somar +1 em intervalos com array de diferenças.",
+   "confidence": "high"
+  },
+  "latam2021-F": {
+   "primary": "dp-optimization",
+   "secondary": [
+    "monotonic-stack"
+   ],
+   "key_idea": "DP em camadas dp[k][i] = opt dp[k−1][j] + max(A[j+1..i]); uma pilha monotônica que guarda o melhor dp por bloco de máximo deixa cada camada O(N).",
+   "confidence": "high"
+  },
+  "latam2021-G": {
+   "primary": "expected-value",
+   "secondary": [
+    "exchange-argument"
+   ],
+   "key_idea": "Bob vence cada slot do maior para o menor com a menor carta que ganha; Alice põe as cartas em ordem crescente, e a esperança vira DP sobre a ordem decrescente das 2N cartas.",
+   "confidence": "high"
+  },
+  "latam2021-H": {
+   "primary": "flow-mincut",
+   "secondary": [],
+   "key_idea": "Instruções são nós, alvos finitos têm capacidade 1 e saltos infinitos capacidade 'infinita'; dividir o nó 1 em fonte/sumidouro: resposta = 1 + fluxo máximo, ou * se chega ao infinito.",
+   "confidence": "high"
+  },
+  "latam2021-I": {
+   "primary": "angular-sweep",
+   "secondary": [
+    "dp-counting",
+    "geo-vectors"
+   ],
+   "key_idea": "Visibilidade força os vértices em ordem angular em volta da casa: contar polígonos com DP sobre os dois últimos vértices, exigindo virada à esquerda e casa à esquerda de cada aresta.",
+   "confidence": "high"
+  },
+  "latam2021-J": {
+   "primary": "dp-bitmask",
+   "secondary": [
+    "hashing"
+   ],
+   "key_idea": "Ao conectar/desconectar somar ±1 em todos os vetores de contagem dominados (≤ 2^8 = 256), e cada consulta vira uma consulta de tabela.",
+   "confidence": "high"
+  },
+  "latam2021-K": {
+   "primary": "dp-counting",
+   "secondary": [
+    "prefix-sums"
+   ],
+   "key_idea": "DP por (posição, tecla); como cada linha de T é ordenada, as próximas teclas válidas formam um intervalo (duas buscas binárias), propagado com array de diferenças.",
+   "confidence": "high"
+  },
+  "latam2021-L": {
+   "primary": "brute-force",
+   "secondary": [
+    "simulation"
+   ],
+   "key_idea": "Marcar os minutos bloqueados e, para cada T em [0,480], contar bloqueios em T, T+X, … (dp[t] = bloq[t] + dp[t+X]).",
+   "confidence": "high"
+  },
+  "latam2021-M": {
+   "primary": "suffix-structures",
+   "secondary": [
+    "offline-persistent"
+   ],
+   "key_idea": "Ao acrescentar uma letra a resposta muda por L2 − L3 (maiores sufixos com ≥2 e ≥3 ocorrências); manter suffix automaton com rollback para desfazer as remoções.",
+   "confidence": "high"
+  },
+  "latam2021-N": {
+   "primary": "simulation",
+   "secondary": [],
+   "key_idea": "Somar só os centavos módulo 100 e contar os dias com resto não nulo.",
+   "confidence": "high"
+  },
+  "latam2022-A": {
+   "primary": "angular-sweep",
+   "secondary": [
+    "two-pointers"
+   ],
+   "key_idea": "Todo quadrilátero simples tem uma diagonal interna separando os outros dois vértices; para cada par contar pares de triângulos com soma ≥ 2S por dois ponteiros e descontar os convexos contados duas vezes.",
+   "confidence": "medium"
+  },
+  "latam2022-B": {
+   "primary": "exchange-argument",
+   "secondary": [
+    "fft-ntt"
+   ],
+   "key_idea": "Pelo rearranjo pareia-se ordenado com ordenado: primeiro os pares alinhados de produto positivo (das duas pontas); se k passar disso, os pares restantes usam os elementos de menor módulo (o meio), e essas somas para todo k saem de uma convolução (FFT/NTT).",
+   "confidence": "high"
+  },
+  "latam2022-C": {
+   "primary": "graph-traversal-states",
+   "secondary": [
+    "simulation"
+   ],
+   "key_idea": "BFS no grafo expandido no tempo (x,y,t): as nuvens saem da região em tempo limitado; rasterizar as nuvens e pré-calcular quais movimentos estão molhados em cada instante.",
+   "confidence": "high"
+  },
+  "latam2022-D": {
+   "primary": "monotonic-stack",
+   "secondary": [
+    "segtree-lazy",
+    "prefix-sums"
+   ],
+   "key_idea": "Com prefixos P, o início l vale até o primeiro r com P[r] < P[l−1] (próximo menor); varrendo da direita para a esquerda a posição que recebe X, atualizam-se as contribuições dos inícios afetados com segtree lazy (ou treap) sobre os valores de prefixo.",
+   "confidence": "high"
+  },
+  "latam2022-E": {
+   "primary": "dp-intervals",
+   "secondary": [
+    "dp-optimization",
+    "segtree-custom"
+   ],
+   "key_idea": "DP minimax sobre (intervalo de segmentos candidatos, lado do barco): o termo esquerdo cresce e o direito decresce com o ponto escolhido, então acha-se o cruzamento por busca binária e o mínimo de cada lado com segtree/BIT por l e por r.",
+   "confidence": "high"
+  },
+  "latam2022-F": {
+   "primary": "observation-invariant",
+   "secondary": [
+    "graph-traversal-states"
+   ],
+   "key_idea": "Peso 2^i: N fica com Ana e Bob precisa de N−1; a parte de Bob é exatamente a componente de N−1 no grafo sem N (uma BFS).",
+   "confidence": "high"
+  },
+  "latam2022-G": {
+   "primary": "hashing",
+   "secondary": [
+    "tree-greedy-structure",
+    "divisors-sieve"
+   ],
+   "key_idea": "Para cada divisor d, cortar toda aresta cuja subárvore tem tamanho múltiplo de d (corte único) e comparar os hashes canônicos das peças.",
+   "confidence": "high"
+  },
+  "latam2022-H": {
+   "primary": "flow-mincut",
+   "secondary": [],
+   "key_idea": "Posições pares são fixas: atribuir cidades ímpares a posições ímpares com custo L[c][p−1]+L[c][p+1] é um problema de atribuição (Hungarian).",
+   "confidence": "high"
+  },
+  "latam2022-I": {
+   "primary": "simulation",
+   "secondary": [
+    "gcd-modular"
+   ],
+   "key_idea": "Simular a cadeia de renovações de cada depósito (30 dias, adiando fim de semana) pulando períodos completos do padrão de dias da semana.",
+   "confidence": "high"
+  },
+  "latam2022-J": {
+   "primary": "parsing-brackets",
+   "secondary": [
+    "geo-vectors"
+   ],
+   "key_idea": "Pares com ponto interior nunca bloqueiam; mapear os pontos de borda para a posição no perímetro e checar com pilha que as cordas não se intercalam (parênteses balanceados).",
+   "confidence": "high"
+  },
+  "latam2022-K": {
+   "primary": "string-adhoc",
+   "secondary": [],
+   "key_idea": "Montar o conjunto das primeiras letras e checar se alguma palavra usa só essas letras.",
+   "confidence": "high"
+  },
+  "latam2022-L": {
+   "primary": "expected-value",
+   "secondary": [
+    "binomial-counting"
+   ],
+   "key_idea": "Iterar sobre quantos tranquilos sentam ao lado de outro tranquilo: a probabilidade é contagem fechada com fatoriais e, fixado isso, as fases de extrovertidos e introvertidos são determinísticas (casos O(1)).",
+   "confidence": "high"
+  },
+  "latam2022-M": {
+   "primary": "scheduling-heap",
+   "secondary": [
+    "greedy-incremental"
+   ],
+   "key_idea": "Viabilidade por EDF; montar a resposta posição a posição escolhendo o menor índice j cujo T_j não estoura a folga mínima dos jobs anteriores na ordem EDF.",
+   "confidence": "high"
+  },
+  "latam2023a-A": {
+   "primary": "graph-traversal-states",
+   "secondary": [],
+   "key_idea": "K perde sse alguém alcança K, X_K e Y_K: BFS no grafo reverso (sem X_K→K e Y_K→K) a partir dos três e procurar um nó comum.",
+   "confidence": "high"
+  },
+  "latam2023a-B": {
+   "primary": "offline-persistent",
+   "secondary": [
+    "dp-optimization"
+   ],
+   "key_idea": "Cada ficha vai ao primeiro jogador cujo envelope superior de retas passa acima dela (monótono): busca binária paralela inserindo retas numa Li Chao a cada rodada.",
+   "confidence": "high"
+  },
+  "latam2023a-C": {
+   "primary": "simulation",
+   "secondary": [
+    "bits-xor"
+   ],
+   "key_idea": "De trás para frente: altura na metade de baixo não muda e na de cima vem de SH+1−AH; com as alturas exigidas em cada fase, escolher cada dobra para frente.",
+   "confidence": "high"
+  },
+  "latam2023a-D": {
+   "primary": "simulation",
+   "secondary": [],
+   "key_idea": "Simular direto contando guarda-chuvas em casa e no trabalho.",
+   "confidence": "high"
+  },
+  "latam2023a-E": {
+   "primary": "casework",
+   "secondary": [
+    "brute-force"
+   ],
+   "key_idea": "Dois buracos A e B: se o tamanho difere de K cobre com a peça exata; buracos ≥5 sempre se cobrem, então só os casos pequenos precisam de força bruta.",
+   "confidence": "high"
+  },
+  "latam2023a-F": {
+   "primary": "tree-dp",
+   "secondary": [
+    "bipartite-matching"
+   ],
+   "key_idea": "DP sobre arestas dirigidas: a subárvore u cabe em v sse os filhos de u se emparelham injetivamente com filhos de v (matching de Kuhn), tentando todas as raízes.",
+   "confidence": "high"
+  },
+  "latam2023a-G": {
+   "primary": "convex-hull",
+   "secondary": [
+    "geo-vectors"
+   ],
+   "key_idea": "Locais válidos são a união de três convexos — (P1+P2)/2, 2P1−P2 e 2P2−P1 — montados por soma de Minkowski; testar cada ponto em O(log).",
+   "confidence": "high"
+  },
+  "latam2023a-H": {
+   "primary": "bipartite-matching",
+   "secondary": [
+    "greedy-incremental"
+   ],
+   "key_idea": "Cada corrida diz que todos ficaram em W ou pior e um deles é exatamente W: emparelhar cavalos → posições permitidas (ou guloso pelo pior vencedor).",
+   "confidence": "high"
+  },
+  "latam2023a-I": {
+   "primary": "graph-traversal-states",
+   "secondary": [
+    "brute-force"
+   ],
+   "key_idea": "Só é proibido ir de um prato a um vizinho menor: arestas para vizinhos maiores e BFS de cada célula contando os nós alcançáveis.",
+   "confidence": "high"
+  },
+  "latam2023a-J": {
+   "primary": "sweep-line",
+   "secondary": [
+    "segtree-lazy"
+   ],
+   "key_idea": "Varredura cinética mantendo corredores ordenados (trocas nos O(R²) cruzamentos) para descartar fotos; depois segtree sobre a ordem dos corredores hipotéticos recebendo +1 por foto restante.",
+   "confidence": "high"
+  },
+  "latam2023a-K": {
+   "primary": "constructive",
+   "secondary": [
+    "bits-xor"
+   ],
+   "key_idea": "⌈log2 K⌉ coberturas bastam: escrever 0..K−2 em células e dar a cobertura i às células com bit i ligado, mais um pente conexo com todas as coberturas.",
+   "confidence": "high"
+  },
+  "latam2023a-L": {
+   "primary": "kmp-palindromes",
+   "secondary": [
+    "greedy-incremental"
+   ],
+   "key_idea": "Um pedaço é válido sse tem período ≤ D, e substrings de válidos são válidas: guloso pegando o maior prefixo válido, com função prefixo parando quando o período passa de D.",
+   "confidence": "high"
+  },
+  "latam2023a-M": {
+   "primary": "graph-traversal-states",
+   "secondary": [],
+   "key_idea": "BFS em (linha, rotação) para a porca e para sua versão espelhada; estado válido sse todas as pontas caem em '0'.",
+   "confidence": "high"
+  },
+  "latam2023b-A": {
+   "primary": "dp-optimization",
+   "secondary": [
+    "sparse-sqrt"
+   ],
+   "key_idea": "Lucros dos clientes como funções do fornecedor se cruzam no máximo uma vez, então cabem numa Li Chao tree sobre os índices.",
+   "confidence": "high"
+  },
+  "latam2023b-B": {
+   "primary": "games-parity",
+   "secondary": [
+    "observation-invariant"
+   ],
+   "key_idea": "O Equalizador precisa sempre copiar o valor de Carlinhos; ele só vence quando toda frequência é múltipla de 3.",
+   "confidence": "high"
+  },
+  "latam2023b-C": {
+   "primary": "hashing",
+   "secondary": [
+    "prefix-sums"
+   ],
+   "key_idea": "Bloco válido sse a diferença dos vetores de frequência de prefixo é múltiplo de (1,…,1): normalizar subtraindo 1 quando todos ≥1 e achar o primeiro prefixo com o mesmo hash.",
+   "confidence": "high"
+  },
+  "latam2023b-D": {
+   "primary": "brute-force",
+   "secondary": [
+    "simulation"
+   ],
+   "key_idea": "Calcular o feedback de cada palavra contra a secreta e contar por padrão.",
+   "confidence": "high"
+  },
+  "latam2023b-E": {
+   "primary": "exchange-argument",
+   "secondary": [
+    "centroid-small-to-large"
+   ],
+   "key_idea": "Agendamento com precedência em árvore ('Color a Tree'): blocos ordenados por média, mesclando filhos small-to-large e juntando a raiz ao último bloco enquanto supera a média.",
+   "confidence": "high"
+  },
+  "latam2023b-F": {
+   "primary": "divisors-sieve",
+   "secondary": [
+    "brute-force"
+   ],
+   "key_idea": "Palíndromos com ≥3 dígitos exigem b ≤ √N (testar direto); com dois dígitos N = d(b+1), então enumerar divisores.",
+   "confidence": "high"
+  },
+  "latam2023b-G": {
+   "primary": "manhattan",
+   "secondary": [
+    "geo-vectors"
+   ],
+   "key_idea": "Girar 45° (u=x+y, v=y−x): cada círculo Manhattan vira a borda de um quadrado alinhado; intersectar segmento a segmento.",
+   "confidence": "high"
+  },
+  "latam2023b-H": {
+   "primary": "binary-search-answer",
+   "secondary": [
+    "circles-areas"
+   ],
+   "key_idea": "Busca binária no número de retas: o urso falha sse a interseção dos semiplanos com a origem é limitada e toda dentro do raio D (ou os arcos cortados cobrem o círculo).",
+   "confidence": "high"
+  },
+  "latam2023b-I": {
+   "primary": "closed-form",
+   "secondary": [
+    "binomial-counting"
+   ],
+   "key_idea": "inv(S^N) = N·inv(S) + C(N,2)·cross(S,S), com cross contado pelas frequências de letras.",
+   "confidence": "high"
+  },
+  "latam2023b-J": {
+   "primary": "centroid-small-to-large",
+   "secondary": [],
+   "key_idea": "Em cada centroide guardar os vértices por rótulo com mínimo de sufixo de (dist, rótulo); para i, buscar binariamente o melhor rótulo > i em cada centroide ancestral.",
+   "confidence": "high"
+  },
+  "latam2023b-K": {
+   "primary": "dp-bitmask",
+   "secondary": [
+    "greedy-incremental"
+   ],
+   "key_idea": "Para K ≥ 25 um guloso (pegar o valor cuja próxima ocorrência é mais tardia) sempre funciona por pigeonhole; para K ≤ 24, DP em bitmask do menor fim de embutir uma permutação do conjunto.",
+   "confidence": "high"
+  },
+  "latam2023b-L": {
+   "primary": "parsing-brackets",
+   "secondary": [
+    "divide-conquer"
+   ],
+   "key_idea": "Cortar nos pares de símbolos proibidos e contar substrings com parênteses balanceados e pontas válidas por divisão e conquista (ou prefixos de balanço + RMQ).",
+   "confidence": "high"
+  },
+  "latam2023b-M": {
+   "primary": "shortest-paths",
+   "secondary": [],
+   "key_idea": "Candidatos têm dist = 2·dist(G); G está em todo caminho mínimo sse rodar Dijkstra sem G aumenta a distância.",
+   "confidence": "high"
+  },
+  "latam_regional2024-A": {
+   "primary": "observation-invariant",
+   "secondary": [
+    "string-adhoc"
+   ],
+   "key_idea": "A parte acrescentada tem uma cópia de cada letra distinta, então |t| = |S| − #letras distintas.",
+   "confidence": "high"
+  },
+  "latam_regional2024-B": {
+   "primary": "dfs-tree-bridges",
+   "secondary": [
+    "constructive"
+   ],
+   "key_idea": "Na árvore DFS pegar a back edge xy cujo ancestral é o mais profundo e usar o ciclo com o caminho x..y; grau ≥3 garante que o resto continua conexo.",
+   "confidence": "high"
+  },
+  "latam_regional2024-C": {
+   "primary": "sparse-sqrt",
+   "secondary": [
+    "prefix-sums",
+    "closed-form"
+   ],
+   "key_idea": "Edição para string unária tem forma fechada; para cada ponto de corte r/b, achar por busca binária onde cada termo max liga e minimizar cada trecho linear com RMQ (sparse table).",
+   "confidence": "high"
+  },
+  "latam_regional2024-D": {
+   "primary": "bipartite-matching",
+   "secondary": [],
+   "key_idea": "O grafo é line graph de um bipartido (cores = vértices, modelos = arestas): reconstruí-lo pelos cliques maximais e responder com emparelhamento máximo.",
+   "confidence": "high"
+  },
+  "latam_regional2024-E": {
+   "primary": "greedy-incremental",
+   "secondary": [
+    "two-pointers"
+   ],
+   "key_idea": "Numa montanha o 1 está numa ponta e removê-lo deixa outra montanha: colocar 1,2,3,... gulosamente à esquerda ou à direita comparando o vizinho conhecido mais próximo.",
+   "confidence": "high"
+  },
+  "latam_regional2024-F": {
+   "primary": "constructive",
+   "secondary": [],
+   "key_idea": "É um conjunto independente maximal de tamanho K num caminho: possível sse ⌈N/3⌉ ≤ K ≤ ⌈N/2⌉, montado com blocos 'X-' e '-X-'.",
+   "confidence": "high"
+  },
+  "latam_regional2024-G": {
+   "primary": "tree-dp",
+   "secondary": [
+    "offline-persistent"
+   ],
+   "key_idea": "Com raiz fixa cada vértice é da folha mais próxima na subárvore: guardar melhor e segunda melhor folha e fazer rerooting, respondendo consultas offline pela raiz.",
+   "confidence": "high"
+  },
+  "latam_regional2024-H": {
+   "primary": "sparse-sqrt",
+   "secondary": [
+    "dag-toposort"
+   ],
+   "key_idea": "Sqrt decomposition sobre os eventos: recalcular T a cada k updates em ordem topológica e corrigir cada consulta com C(x,y) = #caminhos x→y pré-calculado.",
+   "confidence": "high"
+  },
+  "latam_regional2024-I": {
+   "primary": "dp-counting",
+   "secondary": [],
+   "key_idea": "f(n,x) = #permutações com x inversões (DP com prefixos, limitado a K+1); como f explode, x é minúsculo, e a permutação sai lexicograficamente.",
+   "confidence": "high"
+  },
+  "latam_regional2024-J": {
+   "primary": "sweep-line",
+   "secondary": [],
+   "key_idea": "Cada sombra é [X, X+H·cot θ]: ordenar e somar o comprimento da união de intervalos.",
+   "confidence": "high"
+  },
+  "latam_regional2024-K": {
+   "primary": "string-adhoc",
+   "secondary": [
+    "greedy-incremental"
+   ],
+   "key_idea": "Cota Σ⌊len/K⌋ por run: virar cada K-ésimo bit sem tocar as pontas do run; K=2 é comparar com as duas alternâncias.",
+   "confidence": "high"
+  },
+  "latam_regional2024-L": {
+   "primary": "permutation-cycles",
+   "secondary": [
+    "constructive"
+   ],
+   "key_idea": "As trocas induzem permutações r e c e é preciso M[i][j] = M[r(i)][c(j)]: todos os ciclos têm o mesmo tamanho S, e preenche-se com um 'quadrado latino de quadrados latinos' cíclicos.",
+   "confidence": "high"
+  },
+  "latam_regional2025-A": {
+   "primary": "graph-coloring-2sat-euler",
+   "secondary": [
+    "graph-traversal-states"
+   ],
+   "key_idea": "Sequência válida = trilha euleriana de K_N: checar paridade de graus e conectividade das arestas ainda não usadas entre o fim do prefixo e o início do sufixo.",
+   "confidence": "medium"
+  },
+  "latam_regional2025-B": {
+   "primary": "dp-counting",
+   "secondary": [
+    "prefix-sums"
+   ],
+   "key_idea": "Escrevendo os prefixos como i·m_i, a média só muda nos primeiros K passos: DP sobre (passo, média) com transições por intervalos (somas de prefixo) e o resto é constante.",
+   "confidence": "medium"
+  },
+  "latam_regional2025-C": {
+   "primary": "sweep-line",
+   "secondary": [
+    "fenwick-inversions"
+   ],
+   "key_idea": "Com taxa comum r o custo é r·Σ s_i H_i e o ótimo r é algum L_i/H_i: varrer esses candidatos com faxineiros entrando/saindo e descer numa BIT indexada por H para pegar os mais rápidos.",
+   "confidence": "medium"
+  },
+  "latam_regional2025-D": {
+   "primary": "divisors-sieve",
+   "secondary": [
+    "gcd-modular"
+   ],
+   "key_idea": "Dígitos de a/b = parte inteira + max(v2,v5) do denominador reduzido + ordem multiplicativa de 10; contar pares por denominador reduzido com Möbius sobre o gcd.",
+   "confidence": "medium"
+  },
+  "latam_regional2025-E": {
+   "primary": "segtree-custom",
+   "secondary": [],
+   "key_idea": "Resposta = min_k (k + a_{k+1}) com a em ordem decrescente: segtree offline comprimida com nó (contagem, min) mesclado como min(esq, dir + cont_esq).",
+   "confidence": "high"
+  },
+  "latam_regional2025-F": {
+   "primary": "divisors-sieve",
+   "secondary": [
+    "closed-form"
+   ],
+   "key_idea": "Truncar X nos ~15 primeiros dígitos m: Y = m·10^e = m·2^e·5^e tem erro relativo ≪ 1e−9, e m se fatora por divisão até √m (alternativa: Y = 2^e·p com p primo achado por Miller-Rabin).",
+   "confidence": "high"
+  },
+  "latam_regional2025-G": {
+   "primary": "flow-mincut",
+   "secondary": [
+    "shortest-paths",
+    "binary-search-answer"
+   ],
+   "key_idea": "Fluxo máximo = corte mínimo de vértices = mínimo de funções lineares em t (côncavo): busca ternária em t, e cada corte é um caminho mínimo no dual planar via Dijkstra.",
+   "confidence": "medium"
+  },
+  "latam_regional2025-H": {
+   "primary": "observation-invariant",
+   "secondary": [],
+   "key_idea": "Cada grupo deve terminar num novo máximo de prefixo estrito: a resposta é o número de máximos de prefixo estritos.",
+   "confidence": "high"
+  },
+  "latam_regional2025-I": {
+   "primary": "graph-traversal-states",
+   "secondary": [
+    "dag-toposort"
+   ],
+   "key_idea": "Fixado o código de travessia, BFS sobre pares (frente do caminho baixo, frente do caminho alto) sempre avançando a frente atrasada e sem pisar na outra, o que garante caminhos disjuntos sem guardar os andares visitados.",
+   "confidence": "high"
+  },
+  "latam_regional2025-J": {
+   "primary": "string-adhoc",
+   "secondary": [],
+   "key_idea": "Contar as ocorrências (com sobreposição) de 'ha', 'bravo' e 'boooo' testando cada posição.",
+   "confidence": "high"
+  },
+  "latam_regional2025-K": {
+   "primary": "casework",
+   "secondary": [
+    "brute-force"
+   ],
+   "key_idea": "Mover um único rei extremo na diagonal para fora domina: testar cada rei e as 8 direções com todos os K movimentos, calculando a caixa dos demais pelos top-2 extremos.",
+   "confidence": "medium"
+  },
+  "latam_regional2025-L": {
+   "primary": "fenwick-inversions",
+   "secondary": [
+    "geo-vectors"
+   ],
+   "key_idea": "Cada reta corta a região como uma corda; duas cordas de região convexa se cruzam sse os extremos se intercalam — contar pares intercalados com ordenação + BIT, comparando raízes de forma exata.",
+   "confidence": "medium"
+  },
+  "nac2021-A": {
+   "primary": "divide-conquer",
+   "secondary": [
+    "bits-xor"
+   ],
+   "key_idea": "Dividir por um bit em X (ligado) e Y; resolver recursivamente {x−2^i} e Y e reaproveitar o parceiro de x−2^i para x.",
+   "confidence": "high"
+  },
+  "nac2021-B": {
+   "primary": "circles-areas",
+   "secondary": [
+    "geo-vectors"
+   ],
+   "key_idea": "Diagrama de potência (Laguerre) via interseção de semiplanos: em cada célula a união é o próprio círculo, então área = Σ área(célula ∩ círculo ∩ retângulo).",
+   "confidence": "high"
+  },
+  "nac2021-C": {
+   "primary": "binary-search-answer",
+   "secondary": [
+    "prefix-sums",
+    "graph-traversal-states"
+   ],
+   "key_idea": "Busca binária no lado do robô: posições válidas por somas 2D, BFS entre posições e array de diferenças 2D para checar se cobrem tudo.",
+   "confidence": "high"
+  },
+  "nac2021-D": {
+   "primary": "dp-counting",
+   "secondary": [],
+   "key_idea": "Ordenar e fazer dp[i][j][c] com os dois últimos escolhidos i<j, estendendo com l quando d_l ≤ d_i + d_j.",
+   "confidence": "high"
+  },
+  "nac2021-E": {
+   "primary": "kmp-palindromes",
+   "secondary": [
+    "dp-counting"
+   ],
+   "key_idea": "Intercalar a string pelas duas pontas (s1, sn, s2, …): uma divisão Ketek vira decomposição de prefixo em palíndromos pares, contados por DP expandindo centros.",
+   "confidence": "high"
+  },
+  "nac2021-F": {
+   "primary": "two-pointers",
+   "secondary": [
+    "kmp-palindromes"
+   ],
+   "key_idea": "O candidato é centrado num pico: expandir de cada pico enquanto é estritamente monótono e simétrico; o total é limitado pelos runs.",
+   "confidence": "high"
+  },
+  "nac2021-G": {
+   "primary": "binomial-counting",
+   "secondary": [
+    "fenwick-inversions"
+   ],
+   "key_idea": "O comprimento expandido f(x,s) segue recorrência tipo Pascal (binomiais): descer a árvore de expansão usando f, e os níveis baixos viram contagem 2D offline com BIT.",
+   "confidence": "high"
+  },
+  "nac2021-H": {
+   "primary": "bipartite-matching",
+   "secondary": [
+    "graph-constructive"
+   ],
+   "key_idea": "Comprimir caminhos especiais e montar um grafo-gadget em que emparelhamento perfeito ↔ cobertura por ciclos disjuntos; resolver com Edmonds (blossom).",
+   "confidence": "high"
+  },
+  "nac2021-I": {
+   "primary": "mst-dsu",
+   "secondary": [
+    "bipartite-matching"
+   ],
+   "key_idea": "Kruskal guloso (justificado por matroide): aceitar a aresta se depois da fusão ainda existe matching dando um guarda distinto a cada componente.",
+   "confidence": "high"
+  },
+  "nac2021-J": {
+   "primary": "dp-linear",
+   "secondary": [
+    "kmp-palindromes"
+   ],
+   "key_idea": "O palíndromo é definido pela metade e cada passo a→b custa cost(ab)+cost(ba): DP de passeio de comprimento ⌈k/2⌉ no grafo das 26 letras e fechar o meio.",
+   "confidence": "high"
+  },
+  "nac2021-K": {
+   "primary": "games-minimax",
+   "secondary": [],
+   "key_idea": "Para cada (x1,x2,y1) existe exatamente um y2 perdedor: gerar os estados perdedores em ordem com bitsets e _Find_first.",
+   "confidence": "high"
+  },
+  "nac2021-L": {
+   "primary": "shortest-paths",
+   "secondary": [
+    "dag-toposort"
+   ],
+   "key_idea": "Ficar com o DAG de caminhos mínimos, remover arestas que pulam um tempo registrado e contar caminhos 1→n (limitado a 2).",
+   "confidence": "high"
+  },
+  "nac2021-M": {
+   "primary": "simulation",
+   "secondary": [],
+   "key_idea": "Validar: um único zero, cada rótulo exatamente 3 vezes e as 3 células formando um L dentro de um 2×2.",
+   "confidence": "high"
+  },
+  "nac2022-A": {
+   "primary": "simulation",
+   "secondary": [
+    "graph-traversal-states"
+   ],
+   "key_idea": "Simular para frente o conjunto de quem pode ter pego a doença em cada dia, respeitando quem já estaria em quarentena.",
+   "confidence": "high"
+  },
+  "nac2022-B": {
+   "primary": "angular-sweep",
+   "secondary": [
+    "two-pointers",
+    "circles-areas"
+   ],
+   "key_idea": "A reta ótima passa por duas gotas (ou uma gota como ponto médio de corda de canto): para cada pivô ordenar por ângulo e varrer com dois ponteiros, calculando a área cortada.",
+   "confidence": "high"
+  },
+  "nac2022-C": {
+   "primary": "suffix-structures",
+   "secondary": [
+    "dp-linear"
+   ],
+   "key_idea": "dp[i] com transições +1 (literal) e +3 pulando o maior fator anterior em i, obtido com suffix array + LCP olhando os vizinhos de início anterior.",
+   "confidence": "high"
+  },
+  "nac2022-D": {
+   "primary": "expected-value",
+   "secondary": [
+    "binomial-counting"
+   ],
+   "key_idea": "Descascar uma camada: subtrair 1 de cada gap; os positivos formam uma instância menor com probabilidade hipergeométrica, dando DP sobre (quantidade, alcance).",
+   "confidence": "high"
+  },
+  "nac2022-E": {
+   "primary": "tree-dp",
+   "secondary": [
+    "divisors-sieve"
+   ],
+   "key_idea": "dp[u][x] com x ≤ ~2n; para cada filho transformar o dp em 'melhor sobre múltiplos de d' por crivo e somar o mínimo sobre d | x.",
+   "confidence": "high"
+  },
+  "nac2022-F": {
+   "primary": "dp-bitmask",
+   "secondary": [
+    "expected-value"
+   ],
+   "key_idea": "No limite de infinitos times o placar é determinístico: DP sobre (tempo, máscara de problemas lidos) acumulando massa de times e frações resolvidas.",
+   "confidence": "high"
+  },
+  "nac2022-G": {
+   "primary": "permutation-cycles",
+   "secondary": [
+    "graph-traversal-states"
+   ],
+   "key_idea": "Células de rio formam grafo funcional: achar os ciclos e fazer DFS nas árvores reversas mantendo a contagem de pontos adjacentes (soma na entrada, remove na saída).",
+   "confidence": "high"
+  },
+  "nac2022-H": {
+   "primary": "casework",
+   "secondary": [
+    "brute-force",
+    "simulation"
+   ],
+   "key_idea": "Só importa pôr Z primeiro ou último: k=2 é uma desigualdade fechada e k=3 é força bruta em quantas cédulas de cada tipo recebem Z no topo, simulando o IRV.",
+   "confidence": "high"
+  },
+  "nac2022-I": {
+   "primary": "binary-search-answer",
+   "secondary": [
+    "greedy-incremental"
+   ],
+   "key_idea": "Busca binária em R resets: tarefas que somem com ≤R pesquisas só consomem segundos de pesquisa, e as demais precisam caber na tentativa final.",
+   "confidence": "high"
+  },
+  "nac2022-J": {
+   "primary": "games-minimax",
+   "secondary": [
+    "brute-force"
+   ],
+   "key_idea": "Enumerar toda a árvore do jogo com memo sobre os 3^9 tabuleiros, guardando vitórias de X e de O por estado.",
+   "confidence": "high"
+  },
+  "nac2022-K": {
+   "primary": "shortest-paths",
+   "secondary": [
+    "graph-traversal-states"
+   ],
+   "key_idea": "Fixar onde as strings divergem e rodar Dijkstra sobre pares de estados do DFA, com maiúsculas sincronizadas (custo 2) e minúsculas independentes (custo 1).",
+   "confidence": "high"
+  },
+  "nac2022-L": {
+   "primary": "observation-invariant",
+   "secondary": [
+    "segtree-custom"
+   ],
+   "key_idea": "Sequência sem triângulo cresce como Fibonacci: com ≥45 árvores no retângulo é sim; senão listar até 45 pontos com range tree e testar triplas consecutivas.",
+   "confidence": "high"
+  },
+  "nac2022-M": {
+   "primary": "constructive",
+   "secondary": [],
+   "key_idea": "Precisa de um caminho induzido no grafo de Hamming (snake-in-the-box): estender gulosamente com vizinhos não banidos e banir os vizinhos da palavra anterior.",
+   "confidence": "high"
+  },
+  "nac2023-A": {
+   "primary": "closed-form",
+   "secondary": [
+    "binomial-counting"
+   ],
+   "key_idea": "Por indução, k sítios e d dias distinguem (d+1)^k compostos: resposta é o menor k com (d+1)^k ≥ n, com cuidado de overflow.",
+   "confidence": "high"
+  },
+  "nac2023-B": {
+   "primary": "lca-hld",
+   "secondary": [
+    "casework"
+   ],
+   "key_idea": "Árvore + 2 arestas extras: enumerar as combinações de uso das extras como concatenações de caminhos na árvore e checar disjunção de vértices com LCA.",
+   "confidence": "high"
+  },
+  "nac2023-C": {
+   "primary": "mst-dsu",
+   "secondary": [
+    "tree-greedy-structure"
+   ],
+   "key_idea": "Kruskal desempatando a favor das arestas dadas dá a MST mais parecida; resposta = arestas dadas fora dela, trocadas pela propriedade de troca.",
+   "confidence": "high"
+  },
+  "nac2023-D": {
+   "primary": "exchange-argument",
+   "secondary": [
+    "mst-dsu",
+    "stl-ordered"
+   ],
+   "key_idea": "Sem dependências ordena-se por c/(1−p); com floresta de precedência, tirar a melhor unidade do heap e fundi-la no pai (DSU) se ele ainda não foi agendado.",
+   "confidence": "high"
+  },
+  "nac2023-E": {
+   "primary": "games-minimax",
+   "secondary": [
+    "games-parity"
+   ],
+   "key_idea": "Letras viram vértices e palavras arestas (geografia em ≤3 vértices); pares de laços e arestas opostas se cancelam por espelhamento, deixando um minimax pequeno com memo.",
+   "confidence": "high"
+  },
+  "nac2023-F": {
+   "primary": "brute-force",
+   "secondary": [
+    "casework"
+   ],
+   "key_idea": "A área total precisa ser quadrado perfeito e sempre há um corte reto que não atravessa retângulo: testar permutações e rotações dividindo recursivamente.",
+   "confidence": "high"
+  },
+  "nac2023-G": {
+   "primary": "greedy-incremental",
+   "secondary": [
+    "two-pointers"
+   ],
+   "key_idea": "Quando a janela que termina em i tem menos de k pagos, pagar os voos não pagos mais recentes (cobrem mais janelas futuras), com uma pilha de meses.",
+   "confidence": "high"
+  },
+  "nac2023-H": {
+   "primary": "dp-bitmask",
+   "secondary": [
+    "expected-value"
+   ],
+   "key_idea": "Só os ~k concorrentes logo abaixo do segundo colocado podem ser segundos: DP sobre (posição, bitmask desses k), com probabilidades calculadas por baldes inteiros.",
+   "confidence": "high"
+  },
+  "nac2023-I": {
+   "primary": "divisors-sieve",
+   "secondary": [],
+   "key_idea": "x precisa ser potência e-ésima com e = d(n) ≤ 60: para cada e tirar a raiz por busca binária e verificar se d(raiz) = e.",
+   "confidence": "high"
+  },
+  "nac2023-J": {
+   "primary": "suffix-structures",
+   "secondary": [
+    "prefix-sums"
+   ],
+   "key_idea": "Ou as duas partes são iguais (pares não sobrepostos via tabela lcp[i][j]) ou a maior é ABA e a menor B: enumerar B e contar com somas de prefixo.",
+   "confidence": "high"
+  },
+  "nac2023-K": {
+   "primary": "brute-force",
+   "secondary": [],
+   "key_idea": "Testar toda largura de tab de 1 a 1000 e checar se a indentação fica proporcional à profundidade.",
+   "confidence": "high"
+  },
+  "nac2023-L": {
+   "primary": "games-parity",
+   "secondary": [
+    "bits-xor"
+   ],
+   "key_idea": "Casos pequenos + espelhamento: com n par perde sse todas as pilhas são ímpares; com n ímpar, dividir pela maior potência de 2 comum e checar se todas ficam ímpares.",
+   "confidence": "high"
+  },
+  "nac2023-M": {
+   "primary": "flow-mincut",
+   "secondary": [
+    "geo-vectors",
+    "casework"
+   ],
+   "key_idea": "Atribuição de custo mínimo (Hungarian) vigia ↔ vigiado com custo 0/1; se n é ímpar e todos colineares é preciso mover exatamente um (força bruta em qual).",
+   "confidence": "high"
+  },
+  "nac2024-A": {
+   "primary": "knapsack",
+   "secondary": [],
+   "key_idea": "f(i,k) = menor tempo total do estagiário 2 quando o 1 soma exatamente k; resposta = min max(k, f(n,k)).",
+   "confidence": "high"
+  },
+  "nac2024-B": {
+   "primary": "brute-force",
+   "secondary": [
+    "casework"
+   ],
+   "key_idea": "Força bruta no número de dígitos e no alinhamento do primeiro número que toca o padrão; reduz a achar o menor x compatível com x e x+1.",
+   "confidence": "high"
+  },
+  "nac2024-C": {
+   "primary": "brute-force",
+   "secondary": [
+    "parsing-brackets",
+    "bits-xor"
+   ],
+   "key_idea": "Cada expressão vira tabela-verdade de 4 entradas e só 16k² comandos importam: avaliar todos os 4^k pares e contar violações de transitividade com bitsets.",
+   "confidence": "high"
+  },
+  "nac2024-D": {
+   "primary": "simulation",
+   "secondary": [],
+   "key_idea": "O primeiro valor fixa a posição no ciclo; checar as duas direções em O(m).",
+   "confidence": "high"
+  },
+  "nac2024-E": {
+   "primary": "exchange-argument",
+   "secondary": [
+    "parsing-brackets",
+    "dp-counting"
+   ],
+   "key_idea": "Por trocas, arcos não se cruzam nem cobrem casas livres: cada pessoa tem só duas casas candidatas (pilha tipo parênteses no círculo) e cada componente-caminho se resolve com prefixos.",
+   "confidence": "high"
+  },
+  "nac2024-F": {
+   "primary": "constructive",
+   "secondary": [
+    "permutation-cycles"
+   ],
+   "key_idea": "Um comutador (gira anel, gira centro, desfaz, desfaz) troca duas contas entre anéis; consertar conta por conta com ~6 movimentos.",
+   "confidence": "high"
+  },
+  "nac2024-G": {
+   "primary": "expected-value",
+   "secondary": [
+    "dp-linear"
+   ],
+   "key_idea": "DP a partir do destino: se a seta aponta para o melhor sucessor vá, senão compare ir ao pior com esperar o flip — E[min(T+a, b)] tem forma fechada.",
+   "confidence": "high"
+  },
+  "nac2024-H": {
+   "primary": "segtree-lazy",
+   "secondary": [],
+   "key_idea": "A resposta é constante × comprimento coberto pela união dos intervalos-base [x−y, x+y]: segtree de cobertura (contador + comprimento coberto) com insert/delete.",
+   "confidence": "high"
+  },
+  "nac2024-I": {
+   "primary": "backtracking-mitm",
+   "secondary": [
+    "dp-counting"
+   ],
+   "key_idea": "Backtracking com estado (#N, #NA, #NAC) memoizado, tentando N, A, C ou letra neutra em cada '?' e podando quando NAC passa de k.",
+   "confidence": "high"
+  },
+  "nac2024-J": {
+   "primary": "observation-invariant",
+   "secondary": [
+    "prefix-sums"
+   ],
+   "key_idea": "Antes da viagem k as páginas livres estão em ≤k blocos, então ela é segura sse (p − Σc_{<k})/k ≥ c_k; testar todo k em ordem (não é monótono).",
+   "confidence": "high"
+  },
+  "nac2024-K": {
+   "primary": "angular-sweep",
+   "secondary": [
+    "sweep-line"
+   ],
+   "key_idea": "Sombra conexa sse todo prefixo na ordem angular tem mais inícios que fins; a ordem de dois extremos só muda onde a reta por eles corta o eixo, dando O(n²) eventos.",
+   "confidence": "high"
+  },
+  "nac2024-L": {
+   "primary": "casework",
+   "secondary": [
+    "geo-vectors"
+   ],
+   "key_idea": "Enumerar exaustivamente os jeitos de cortar um quadrado em quatro triângulos e comparar com aritmética inteira nos comprimentos ao quadrado.",
+   "confidence": "medium"
+  },
+  "nac2024-M": {
+   "primary": "dp-linear",
+   "secondary": [],
+   "key_idea": "Estado (#resolvidos, incremento em s), já que s+t = início + resolvidos: guardar como bitsets e iterar só pelos bits ligados.",
+   "confidence": "high"
+  },
+  "nac2025-A": {
+   "primary": "divisors-sieve",
+   "secondary": [
+    "greedy-incremental"
+   ],
+   "key_idea": "Processar os primos em ordem decrescente: expoente par 2k em a põe p^(k+1) em m e p em n; ímpar multiplica b por (p−1) fatorado.",
+   "confidence": "high"
+  },
+  "nac2025-B": {
+   "primary": "tree-dp",
+   "secondary": [],
+   "key_idea": "dp[v][j] = formas com j∈{0,1} caminhos de folha subindo (dois no mesmo nó fariam ciclo), com produtos de prefixo/sufixo em vez de inverso.",
+   "confidence": "high"
+  },
+  "nac2025-C": {
+   "primary": "games-minimax",
+   "secondary": [
+    "interactive"
+   ],
+   "key_idea": "O espaço de estados é pequeno (máscaras de 9 bits): resolver o jogo inteiro com minimax memoizado e jogar pelo lado vencedor.",
+   "confidence": "high"
+  },
+  "nac2025-D": {
+   "primary": "two-pointers",
+   "secondary": [
+    "simulation"
+   ],
+   "key_idea": "Varrer x com dois ponteiros nas poligonais: o conjunto de y alcançáveis é um intervalo de paridade fixa, atualizado por [max(ymin−1, ylow), min(ymax+1, yhigh)].",
+   "confidence": "high"
+  },
+  "nac2025-E": {
+   "primary": "centroid-small-to-large",
+   "secondary": [
+    "fenwick-inversions",
+    "monotonic-stack"
+   ],
+   "key_idea": "O adversário sempre troca o maior h_i−a_i: fixar esse máximo (pilha monotônica), iterar pelo lado menor e contar o outro extremo com BIT offline/wavelet.",
+   "confidence": "high"
+  },
+  "nac2025-F": {
+   "primary": "constructive",
+   "secondary": [],
+   "key_idea": "Caminho em escada com N−1 U's e M−1 R's até o canto; regiões acima-esquerda com R/D e abaixo-direita com L/U, escolhendo a escada para os tamanhos baterem.",
+   "confidence": "high"
+  },
+  "nac2025-G": {
+   "primary": "dfs-tree-bridges",
+   "secondary": [],
+   "key_idea": "Redução série-paralelo: contrair vértices de grau 2 somando pesos e fundir arestas paralelas registrando a+b como ciclo candidato; o dual em árvore garante que tudo reduz.",
+   "confidence": "high"
+  },
+  "nac2025-H": {
+   "primary": "tree-greedy-structure",
+   "secondary": [
+    "exchange-argument"
+   ],
+   "key_idea": "Pôr o máximo possível nas folhas e subir em pós-ordem, cada nó pegando o máximo que sua restrição e as dos filhos permitem.",
+   "confidence": "high"
+  },
+  "nac2025-I": {
+   "primary": "observation-invariant",
+   "secondary": [
+    "geo-vectors"
+   ],
+   "key_idea": "Orientando o polígono, os cruzamentos com retas inteiras alternam de direção e somam a área tanto pelas verticais quanto pelas horizontais; igualar as duas expressões dá a partição.",
+   "confidence": "high"
+  },
+  "nac2025-J": {
+   "primary": "fft-ntt",
+   "secondary": [
+    "divide-conquer",
+    "expected-value"
+   ],
+   "key_idea": "n − E[X] com P(X ≥ k) = #subsequências não decrescentes de tamanho k / C(n,k): contar por divisão e conquista multiplicando polinômios por (cor inicial, cor final) com NTT.",
+   "confidence": "high"
+  },
+  "nac2025-K": {
+   "primary": "greedy-incremental",
+   "secondary": [
+    "constructive"
+   ],
+   "key_idea": "Construir de baixo para cima com x colunas que ainda retêm resina num só poço: se r < x divide o poço (+1 de largura), senão acrescenta r−x colunas.",
+   "confidence": "high"
+  },
+  "nac2025-L": {
+   "primary": "closed-form",
+   "secondary": [
+    "brute-force"
+   ],
+   "key_idea": "A relaxação real é unimodal com ótimo perto do quadrado inscrito; o ótimo inteiro está a O(√r) dali — buscar em volta com raiz inteira exata.",
+   "confidence": "high"
+  },
+  "nac2025-M": {
+   "primary": "simulation",
+   "secondary": [
+    "gcd-modular"
+   ],
+   "key_idea": "Elementos zeram rápido (metade por rodada em cada faixa de potência de 2); com N=3 a ordem estável dá fórmula fechada e pulam-se rodadas estilo Euclides.",
+   "confidence": "high"
+  },
+  "nac2026-A": {
+   "primary": "constructive",
+   "secondary": [
+    "tree-greedy-structure"
+   ],
+   "key_idea": "Construir para que, quando u rouba, todos os vizinhos tenham a mesma quantidade T_u: isso dá relações lineares propagadas por DFS, depois desloca-se tudo para [N, 2N−1].",
+   "confidence": "high"
+  },
+  "nac2026-B": {
+   "primary": "graph-coloring-2sat-euler",
+   "secondary": [
+    "binary-search-answer"
+   ],
+   "key_idea": "Busca binária no tempo final: a linha do tempo mod d vira um grafo de arestas de chefe (f_i→f_i+w) e de espera, e um plano válido é trilha euleriana (graus + conectividade).",
+   "confidence": "high"
+  },
+  "nac2026-C": {
+   "primary": "segtree-lazy",
+   "secondary": [
+    "lca-hld"
+   ],
+   "key_idea": "Achar o ciclo e as árvores penduradas; partes em árvore marcadas com HLD, e no ciclo testar remover cada aresta girando, com segtree lazy que soma pesos de arestas com cobertura positiva.",
+   "confidence": "high"
+  },
+  "nac2026-D": {
+   "primary": "expected-value",
+   "secondary": [
+    "dp-counting"
+   ],
+   "key_idea": "Se a soma é N−1 a resposta é 1/N (lema do ciclo); senão os 1s não importam e joga-se gulosamente, com DP sobre quantos 0s, 2s e 3s já foram puxados.",
+   "confidence": "high"
+  },
+  "nac2026-E": {
+   "primary": "fenwick-inversions",
+   "secondary": [
+    "observation-invariant"
+   ],
+   "key_idea": "Com A=1 e C/K=0 a contagem é o número de inversões e cada troca útil remove uma: resposta max(0, inv − M).",
+   "confidence": "high"
+  },
+  "nac2026-F": {
+   "primary": "manhattan",
+   "secondary": [
+    "binary-search-answer"
+   ],
+   "key_idea": "Girar para a=x+y, b=x−y (Manhattan vira Chebyshev) e buscar binariamente t: max(a_i − t·v_i) ≤ min(a_j + t·v_j) em cada eixo.",
+   "confidence": "high"
+  },
+  "nac2026-G": {
+   "primary": "circles-areas",
+   "secondary": [
+    "observation-invariant"
+   ],
+   "key_idea": "Cada leitura define um semicírculo e só as leituras conhecidas vizinhas importam: testar o ponto mais fundo do semicírculo e as interseções com os semicírculos conhecidos ao lado.",
+   "confidence": "high"
+  },
+  "nac2026-H": {
+   "primary": "interactive",
+   "secondary": [],
+   "key_idea": "A base n/n+1 mantém a resposta ≤ n; consultar d_i=1 e d_i=2N decodifica h_i ou o restringe a {n, n+1}, refinado depois com erro ≤ 1.",
+   "confidence": "high"
+  },
+  "nac2026-I": {
+   "primary": "greedy-incremental",
+   "secondary": [
+    "gcd-modular"
+   ],
+   "key_idea": "Só o preço mod 5 importa: restos 0, 1, 2 sozinhos, parear 3 com 4, sobras em 3+3 e 4+4+4.",
+   "confidence": "high"
+  },
+  "nac2026-J": {
+   "primary": "dp-optimization",
+   "secondary": [
+    "exchange-argument"
+   ],
+   "key_idea": "Em cada segmento fundido as peças de largura e altura máximas ficam nas pontas, então a transição é dp_j + w_i·h_j (ou w_j·h_i), otimizada com Li Chao; no círculo testar duas rotações.",
+   "confidence": "high"
+  },
+  "nac2026-K": {
+   "primary": "divide-conquer",
+   "secondary": [
+    "geo-vectors"
+   ],
+   "key_idea": "A resposta é sempre N−1 ou impossível: achar recursivamente uma reta por dois vértices que separa sem cortar retângulos, com contagens pré-calculadas por par.",
+   "confidence": "high"
+  },
+  "nac2026-L": {
+   "primary": "interactive",
+   "secondary": [
+    "permutation-cycles"
+   ],
+   "key_idea": "Compor com uma transposição muda #ciclos em ±1 conforme os elementos estão no mesmo ciclo: inserir elementos um a um com busca binária sobre os ciclos atuais.",
+   "confidence": "high"
+  },
+  "nac2026-M": {
+   "primary": "binary-search-answer",
+   "secondary": [
+    "greedy-incremental"
+   ],
+   "key_idea": "Para r rotações cada prato é só-Alice, só-Bob, compartilhado ou inalcançável; a viabilidade é monótona em r (busca binária) e o custo mínimo sai gulosamente por preço.",
+   "confidence": "high"
+  },
+  "nerc2019-A": {
+   "primary": "scheduling-heap",
+   "secondary": [
+    "sweep-line",
+    "stl-ordered"
+   ],
+   "key_idea": "Sempre começar a espada que termina mais cedo; a escolha só muda em O(n) eventos de abertura/fechamento, e entre eventos produz-se em lote com o mestre mais rápido (multiset).",
+   "confidence": "high"
+  },
+  "nerc2019-B": {
+   "primary": "string-adhoc",
+   "secondary": [],
+   "key_idea": "Comprimir em runs: precisa de número ímpar de runs, run do meio ≥ 2 e runs simétricos com mesma cor e soma ≥ 3; resposta = tamanho do meio + 1.",
+   "confidence": "high"
+  },
+  "nerc2019-C": {
+   "primary": "graph-constructive",
+   "secondary": [
+    "dfs-tree-bridges"
+   ],
+   "key_idea": "Ciclos c = m − (n−1); com graus pares colar triângulos em vértices de grau ≥4, com ímpares as pontes são forçadas (b ≥ max(o/2, folhas)) — parear ímpares, contrair e resolver o caso par.",
+   "confidence": "high"
+  },
+  "nerc2019-D": {
+   "primary": "graph-constructive",
+   "secondary": [
+    "casework"
+   ],
+   "key_idea": "Adicionar aresta s1→s2 quando s1 já distribui exatamente o conjunto de s2; senão cobrir com duas arestas (no máximo 3 vezes), dando ≤ n+2 arestas.",
+   "confidence": "high"
+  },
+  "nerc2019-E": {
+   "primary": "brute-force",
+   "secondary": [
+    "greedy-incremental"
+   ],
+   "key_idea": "Fixar o rival j, ordenar os postos pela diferença votos_n − votos_j e cancelar os maiores até a soma ficar ≤ 0.",
+   "confidence": "high"
+  },
+  "nerc2019-F": {
+   "primary": "tree-greedy-structure",
+   "secondary": [
+    "stl-ordered"
+   ],
+   "key_idea": "No Prüfer de uma árvore de K_{n,m} há m−1 entradas da esquerda e n−1 da direita, e quaisquer duas sequências intercalam numa árvore: completar e reconstruir com priority queue.",
+   "confidence": "high"
+  },
+  "nerc2019-G": {
+   "primary": "expected-value",
+   "secondary": [
+    "knapsack"
+   ],
+   "key_idea": "Comprar direto equivale a comprar relíquia aleatória não possuída; com b faltando somando S o passo custa min(S/b, (n/b+1)·x/2), ponderado por mochila que conta subconjuntos por (tamanho, soma).",
+   "confidence": "high"
+  },
+  "nerc2019-H": {
+   "primary": "divide-conquer",
+   "secondary": [
+    "constructive"
+   ],
+   "key_idea": "Agrupar em trios, marcar o primeiro ativado de cada trio, resolver os marcados recursivamente e colorir os demais com 3 cores novas: 3 cores por nível, 24 bastam.",
+   "confidence": "high"
+  },
+  "nerc2019-I": {
+   "primary": "interactive",
+   "secondary": [],
+   "key_idea": "Com n+1 jogadores em dois grupos, achar o mínimo de cada grupo só com comparações internas e descartar o menor; os sobreviventes nunca foram comparados entre grupos.",
+   "confidence": "high"
+  },
+  "nerc2019-J": {
+   "primary": "brute-force",
+   "secondary": [],
+   "key_idea": "Testar todo s até f_1+1: cada categoria precisa de ⌈f/s⌉ telas e é viável sse ⌈f/s⌉·(s−1) ≤ f; o trabalho total é O(n).",
+   "confidence": "high"
+  },
+  "nerc2019-K": {
+   "primary": "binomial-counting",
+   "secondary": [],
+   "key_idea": "A chave é determinada pela ordem dos restos (sistema fatorial): contar ordens válidas colocando restos em ordem decrescente, dividir por multiplicidades e descontar as que terminam em zero.",
+   "confidence": "high"
+  },
+  "nerc2019-L": {
+   "primary": "greedy-incremental",
+   "secondary": [
+    "string-adhoc"
+   ],
+   "key_idea": "Letra a letra, manter a primeira palavra t que compartilha o prefixo com a k-ésima: dar a menor letra a t..k ou, se faltar, a c palavras e avançar t.",
+   "confidence": "high"
+  },
+  "nerc2021-A": {
+   "primary": "parsing-brackets",
+   "secondary": [
+    "simulation"
+   ],
+   "key_idea": "Recursive descent na regex para uma árvore e renderizar cada nó numa caixa retangular, compondo caixas (alternância vertical, concatenação horizontal, laços).",
+   "confidence": "high"
+  },
+  "nerc2021-B": {
+   "primary": "bipartite-matching",
+   "secondary": [
+    "dp-bitmask"
+   ],
+   "key_idea": "DAG de inclusão entre subconjuntos: cobertura por cadeias custando |último|+1 vira matching com peso nos vértices, resolvido rodando Kuhn em ordem decrescente de tamanho.",
+   "confidence": "high"
+  },
+  "nerc2021-C": {
+   "primary": "dfs-tree-bridges",
+   "secondary": [
+    "tree-greedy-structure"
+   ],
+   "key_idea": "Cacto é forte sse, sem as arestas de ciclo, cada componente de pontes tem ≤1 aresta: mínimo de caminhos aresta-disjuntos em cada árvore de pontes por guloso bottom-up.",
+   "confidence": "high"
+  },
+  "nerc2021-D": {
+   "primary": "knapsack",
+   "secondary": [
+    "gcd-modular"
+   ],
+   "key_idea": "DP sobre os itens com estado = último dígito do produto, maximizando a soma dos logaritmos.",
+   "confidence": "high"
+  },
+  "nerc2021-E": {
+   "primary": "backtracking-mitm",
+   "secondary": [
+    "hashing"
+   ],
+   "key_idea": "Representar a sequência por (área, x·m, 3y·m) inteiros e gerar pela gramática S→(S)S deduplicando triplas iguais (~1.4e6), ou meet in the middle com hash.",
+   "confidence": "high"
+  },
+  "nerc2021-F": {
+   "primary": "circles-areas",
+   "secondary": [
+    "two-pointers"
+   ],
+   "key_idea": "A fronteira é feita de arcos de elipse com focos nos vértices de tangência: avançar os dois vértices de suporte com dois ponteiros e somar áreas por Green.",
+   "confidence": "high"
+  },
+  "nerc2021-G": {
+   "primary": "tree-greedy-structure",
+   "secondary": [],
+   "key_idea": "Visitar k e voltar custa 2(k−1) e não voltar economiza a profundidade do fim: pegar o vértice mais fundo com profundidade ≤ k−1 e completar com desvios.",
+   "confidence": "high"
+  },
+  "nerc2021-H": {
+   "primary": "tree-dp",
+   "secondary": [
+    "knapsack"
+   ],
+   "key_idea": "Floresta de contenção dos segmentos laminares e DP em árvore com (fim em L, início em R, quantos subsegmentos nos buracos), mesclando filhos como mochila por tamanho em O(n²).",
+   "confidence": "high"
+  },
+  "nerc2021-I": {
+   "primary": "randomized",
+   "secondary": [
+    "interactive"
+   ],
+   "key_idea": "Weighted majority randomizado: peso β^(erros − mínimo) por participante e prever 1 com a fração ponderada; β ≈ 0.75 passa.",
+   "confidence": "high"
+  },
+  "nerc2021-J": {
+   "primary": "constructive",
+   "secondary": [
+    "casework"
+   ],
+   "key_idea": "Máscara = blocos à esquerda menos os k primeiros de cada bloco: testar só k ≤ 3, estender os blocos e preencher buracos com blocos de 1 ou 2 que somem da máscara.",
+   "confidence": "high"
+  },
+  "nerc2021-K": {
+   "primary": "simulation",
+   "secondary": [
+    "permutation-cycles"
+   ],
+   "key_idea": "As duas operações são involuções, então alternam: simular a partir de cada uma até max(2n, 4) passos.",
+   "confidence": "high"
+  },
+  "nerc2022apr-A": {
+   "primary": "hashing",
+   "secondary": [
+    "divisors-sieve"
+   ],
+   "key_idea": "Toda substring que não é RLRL… define a largura pelo primeiro 'U'; checar linha a linha em O(1) com hash polinomial de indicadores deslocados, agrupando por (largura, l mod largura).",
+   "confidence": "high"
+  },
+  "nerc2022apr-B": {
+   "primary": "closed-form",
+   "secondary": [],
+   "key_idea": "Cada tópico é convexo e decrescente no dinheiro extra: combinar igualando derivadas marginais (water filling) — peças a/(x−b) somam em (Σ√a)²/x — e responder por busca binária.",
+   "confidence": "high"
+  },
+  "nerc2022apr-C": {
+   "primary": "manhattan",
+   "secondary": [],
+   "key_idea": "O ponto (x mediano, y mediano) é ponto de Steiner ótimo: ligar os três pontos a ele com caminhos em L.",
+   "confidence": "high"
+  },
+  "nerc2022apr-D": {
+   "primary": "string-adhoc",
+   "secondary": [],
+   "key_idea": "Só as contagens importam: apagar as primeiras cnt_s−cnt_t ocorrências de cada letra e comparar o resto com t.",
+   "confidence": "high"
+  },
+  "nerc2022apr-E": {
+   "primary": "binary-search-answer",
+   "secondary": [
+    "greedy-incremental"
+   ],
+   "key_idea": "Buscas binárias separadas no menor máximo e no maior mínimo (checagens gulosas); ambos são atingíveis juntos, reconstruindo os cortes de trás para frente.",
+   "confidence": "high"
+  },
+  "nerc2022apr-F": {
+   "primary": "dp-counting",
+   "secondary": [],
+   "key_idea": "Processar blocos em ordem decrescente com f[i][j] (j grandes já postos): grande vai em posição forçada e pequeno multiplica pelos slots livres entre grandes.",
+   "confidence": "high"
+  },
+  "nerc2022apr-G": {
+   "primary": "mst-dsu",
+   "secondary": [
+    "sweep-line"
+   ],
+   "key_idea": "Baixar o nível da água offline adicionando vértices por altura decrescente com DSU; a área acima do nível de cada triângulo é quadrática por partes, somando coeficientes por componente.",
+   "confidence": "high"
+  },
+  "nerc2022apr-H": {
+   "primary": "exchange-argument",
+   "secondary": [
+    "convex-hull",
+    "gcd-modular"
+   ],
+   "key_idea": "Dividir a sequência de cada grupo em blocos pelo fecho superior das somas de prefixo (médias decrescentes) e intercalar blocos por média (regra de Smith); o fecho sai por frações contínuas.",
+   "confidence": "high"
+  },
+  "nerc2022apr-I": {
+   "primary": "interactive",
+   "secondary": [
+    "manhattan"
+   ],
+   "key_idea": "SCAN nos cantos dá x1+x2 e y1+y2, scans no ponto médio dão |x2−x1| e |y2−y1|; um DIG decide entre os dois pareamentos possíveis.",
+   "confidence": "high"
+  },
+  "nerc2022apr-J": {
+   "primary": "dp-intervals",
+   "secondary": [
+    "prefix-sums"
+   ],
+   "key_idea": "BST ótima por DP de intervalo: a[i][j] = min_k a[i][k−1] + a[k+1][j] + custo das arestas aos filhos, pago pelos pares com um só extremo no lado (prefixos 2D).",
+   "confidence": "high"
+  },
+  "nerc2022apr-K": {
+   "primary": "flow-mincut",
+   "secondary": [],
+   "key_idea": "Dobrar cada vértice (v1, v2) e cada aresta em u1−v2, u2−v1: os estados ST/TS/SS do corte codificam A/B/C com o custo pedido; forçar a e b e rodar Dinic.",
+   "confidence": "high"
+  },
+  "nerc2022apr-L": {
+   "primary": "dfs-tree-bridges",
+   "secondary": [
+    "graph-traversal-states"
+   ],
+   "key_idea": "DFS de s rotulando cada vértice pela subárvore-filha de s; um vértice com aresta vinda de outra subárvore dá os dois caminhos internamente disjuntos.",
+   "confidence": "high"
+  },
+  "nerc2022dec-A": {
+   "primary": "randomized",
+   "secondary": [
+    "brute-force"
+   ],
+   "key_idea": "Para n ≤ 4 força bruta; senão sortear q, calcular p forçado e repetir até p não ter ponto fixo (probabilidade constante por tentativa).",
+   "confidence": "high"
+  },
+  "nerc2022dec-B": {
+   "primary": "hashing",
+   "secondary": [
+    "randomized",
+    "divide-conquer"
+   ],
+   "key_idea": "A raiz é o único nó cujo conjunto de nós anteriores assume só 2 valores entre as travessias: comparar conjuntos por hash de soma e recursar nas duas subárvores.",
+   "confidence": "high"
+  },
+  "nerc2022dec-C": {
+   "primary": "dfs-tree-bridges",
+   "secondary": [
+    "casework"
+   ],
+   "key_idea": "Casos por classes de homotopia: ou todos os ciclos compartilham um ponto, ou um ciclo cruza todos, ou os ciclos se ordenam ligados por pontes (caminho dominando os vértices especiais).",
+   "confidence": "high"
+  },
+  "nerc2022dec-D": {
+   "primary": "bipartite-matching",
+   "secondary": [
+    "graph-traversal-states"
+   ],
+   "key_idea": "Duas células da mesma cor sempre quebram (C(n1,2)+C(n2,2)); para cores opostas, há tiling sse existe caminho alternante entre os parceiros no matching fixo.",
+   "confidence": "high"
+  },
+  "nerc2022dec-E": {
+   "primary": "observation-invariant",
+   "secondary": [],
+   "key_idea": "Splits são necessários exatamente onde blocos consecutivos não têm ranks consecutivos; combines = n + s − 1.",
+   "confidence": "high"
+  },
+  "nerc2022dec-F": {
+   "primary": "constructive",
+   "secondary": [
+    "casework"
+   ],
+   "key_idea": "Casos: n=1 forçado; se a+b < n usar 1:0, 0:1 e 0:0; senão reservar duas partidas x:0 e 0:y que absorvem o excesso de gols e fazer o resto 1:0 ou 0:1, sem empates.",
+   "confidence": "high"
+  },
+  "nerc2022dec-G": {
+   "primary": "dp-bitmask",
+   "secondary": [
+    "expected-value"
+   ],
+   "key_idea": "f(t) = média de f(t & a_i) sobre as perguntas que dividem t; agrupar por submáscara com tabela ternária de curingas (3^m).",
+   "confidence": "high"
+  },
+  "nerc2022dec-H": {
+   "primary": "interactive",
+   "secondary": [],
+   "key_idea": "Descobrir a palavra de 'mais perto' em poucos movimentos e fazer bisseção 2D: centro, um passo à direita e um para cima revelam a metade em cada eixo.",
+   "confidence": "high"
+  },
+  "nerc2022dec-I": {
+   "primary": "interactive",
+   "secondary": [],
+   "key_idea": "Pré-calcular todos os fatoriais com big integer e montar uma árvore de decisão escolhendo o dígito que melhor divide os candidatos restantes.",
+   "confidence": "high"
+  },
+  "nerc2022dec-J": {
+   "primary": "graph-constructive",
+   "secondary": [
+    "dfs-tree-bridges",
+    "gcd-modular"
+   ],
+   "key_idea": "Em cada bloco biconexo toda árvore geradora tem k−1 arestas ali, o que fixa S mod p; depois transferir valores ao longo de ciclos (T2 = T1 − e1 + e2) de baixo para cima na árvore DFS.",
+   "confidence": "high"
+  },
+  "nerc2022dec-K": {
+   "primary": "graph-constructive",
+   "secondary": [],
+   "key_idea": "Indução mantendo um vértice universal e folhas: se k+1 < n anexa folha ao universal; se k+1 = n parte de G(n−2, k−2) e acrescenta universal + folha.",
+   "confidence": "high"
+  },
+  "nerc2022dec-L": {
+   "primary": "dp-linear",
+   "secondary": [
+    "greedy-incremental"
+   ],
+   "key_idea": "Valores trocados podem ir para os extremos (0 ou 100000): DP linear com o estado do verificador (direção, run monótono, run de iguais), guardando só o melhor por (escolha, direção).",
+   "confidence": "high"
+  },
+  "nerc2023-A": {
+   "primary": "scheduling-heap",
+   "secondary": [
+    "prefix-sums"
+   ],
+   "key_idea": "Cortar cada lista em blocos que terminam ao ficar positivos (ganho, prefixo mínimo exigido) e aplicar sempre o bloco disponível menos exigente via priority queue.",
+   "confidence": "high"
+  },
+  "nerc2023-B": {
+   "primary": "binomial-counting",
+   "secondary": [
+    "closed-form"
+   ],
+   "key_idea": "Por convexidade todos os 2k meios-grupos têm tamanho ⌊n/2k⌋ ou ⌈n/2k⌉: enumerar os 4 casos das janelas e contar arranjos dos grupos do meio com multinomiais.",
+   "confidence": "high"
+  },
+  "nerc2023-C": {
+   "primary": "graph-constructive",
+   "secondary": [
+    "dfs-tree-bridges"
+   ],
+   "key_idea": "Levar os dois cactos a uma forma canônica 'estrela' (triângulos e pontes no vértice 1) e concatenar a primeira sequência com o inverso da segunda.",
+   "confidence": "high"
+  },
+  "nerc2023-D": {
+   "primary": "gcd-modular",
+   "secondary": [],
+   "key_idea": "As três regras valem quando b^k ≡ 0, 1 ou −1 (mod n): iterar k até achar ou ciclar.",
+   "confidence": "high"
+  },
+  "nerc2023-E": {
+   "primary": "constructive",
+   "secondary": [
+    "string-adhoc"
+   ],
+   "key_idea": "O gadget 'X+X−0' vale 2X de frente e 0 de trás: resposta f(p/2) + rev(f(q/2)), acertando a paridade com '12+' e '+x'.",
+   "confidence": "high"
+  },
+  "nerc2023-F": {
+   "primary": "expected-value",
+   "secondary": [
+    "games-minimax"
+   ],
+   "key_idea": "O jogo reduz a estados com o policial numa folha; o equilíbrio de Nash dá um sistema sobre os valores das folhas, resolvido por iteração de ponto fixo.",
+   "confidence": "high"
+  },
+  "nerc2023-G": {
+   "primary": "segtree-lazy",
+   "secondary": [
+    "segtree-custom"
+   ],
+   "key_idea": "Água = Σ min(prefmax, sufmax) − Σa; um +1 em intervalo vira um +1 contíguo no prefmax e no sufmax (achados por descida), e uma segtree sobre p−q conta onde cada um é o mínimo.",
+   "confidence": "high"
+  },
+  "nerc2023-H": {
+   "primary": "dag-toposort",
+   "secondary": [
+    "graph-traversal-states"
+   ],
+   "key_idea": "Por componente fracamente conexa: se acíclica, k−1 lançamentos em ordem topológica; senão k num ciclo começando num v cuja remoção das saídas deixa a componente acíclica.",
+   "confidence": "high"
+  },
+  "nerc2023-I": {
+   "primary": "circles-areas",
+   "secondary": [
+    "two-pointers"
+   ],
+   "key_idea": "A integral do mínimo da projeção é −perímetro; para a média dos vértices submersos achar com dois ponteiros os ângulos em que o conjunto muda e integrar sen/cos analiticamente.",
+   "confidence": "high"
+  },
+  "nerc2023-J": {
+   "primary": "gcd-modular",
+   "secondary": [
+    "closed-form"
+   ],
+   "key_idea": "Contar soluções de Σc_i·l_i = t iterando resíduos módulo um coeficiente e somando o resto como progressão aritmética fechada.",
+   "confidence": "high"
+  },
+  "nerc2023-K": {
+   "primary": "dp-counting",
+   "secondary": [],
+   "key_idea": "Só paridades importam: DP com estado (paridade do último, do penúltimo), aceitando a_i se a soma dos três é par.",
+   "confidence": "high"
+  },
+  "nerc2023-L": {
+   "primary": "brute-force",
+   "secondary": [],
+   "key_idea": "Testar todo ponto de corte comparando as contagens de L e O.",
+   "confidence": "high"
+  },
+  "nerc2024-A": {
+   "primary": "constructive",
+   "secondary": [
+    "fenwick-inversions"
+   ],
+   "key_idea": "Cota n(n−1) − inv (pares invertidos ultrapassam uma vez, os outros duas); construir do último ao primeiro: cada carro ultrapassa todos à frente e é reultrapassado pelos que terminam antes.",
+   "confidence": "high"
+  },
+  "nerc2024-B": {
+   "primary": "constructive",
+   "secondary": [
+    "bits-xor"
+   ],
+   "key_idea": "Código auto-modificável: cada instrução copia o próximo bit da entrada no próprio alvo de salto, ramificando entre o bloco 'ainda igual' e 'retorna falso'.",
+   "confidence": "high"
+  },
+  "nerc2024-C": {
+   "primary": "graph-constructive",
+   "secondary": [
+    "dfs-tree-bridges"
+   ],
+   "key_idea": "Por paridade o número de ciclos ímpares precisa ser par; construir por indução nos ciclos escolhendo diferenças ±1/±2 entre arestas consecutivas e deslocando os rótulos das subcomponentes.",
+   "confidence": "high"
+  },
+  "nerc2024-D": {
+   "primary": "dag-toposort",
+   "secondary": [
+    "casework"
+   ],
+   "key_idea": "O registrador tem fases falso/verdadeiro/falso: acrescentar arcos set-true → set-false → unset-true ao DAG e tirar uma ordem topológica.",
+   "confidence": "high"
+  },
+  "nerc2024-E": {
+   "primary": "parsing-brackets",
+   "secondary": [
+    "brute-force"
+   ],
+   "key_idea": "Força bruta em todo (origem, destino) de um dígito, reparseando e avaliando com 64 bits e rejeitando zeros à esquerda e números longos.",
+   "confidence": "high"
+  },
+  "nerc2024-F": {
+   "primary": "greedy-incremental",
+   "secondary": [
+    "casework"
+   ],
+   "key_idea": "Da esquerda para a direita: coluna com uma célula vazia força dominó horizontal; duas colunas totalmente vazias seguidas dão duas formas (Múltiplo).",
+   "confidence": "high"
+  },
+  "nerc2024-G": {
+   "primary": "simulation",
+   "secondary": [
+    "geo-vectors"
+   ],
+   "key_idea": "Normalizar o desenho fundindo segmentos colineares por direção e testar rotações de 45/90/180 comparando os conjuntos canônicos transladados.",
+   "confidence": "high"
+  },
+  "nerc2024-H": {
+   "primary": "interactive",
+   "secondary": [
+    "expected-value"
+   ],
+   "key_idea": "Manter segmentos candidatos de mesmo tamanho com probabilidades a posteriori (Bayes) e bloquear pontos médios em ordem de probabilidade até bater.",
+   "confidence": "high"
+  },
+  "nerc2024-I": {
+   "primary": "shortest-paths",
+   "secondary": [
+    "games-minimax"
+   ],
+   "key_idea": "Dijkstra a partir do destino dá o DAG de caminhos mínimos; os níveis de vértices saem por análise retrógrada (contando arestas boas restantes), iterando k.",
+   "confidence": "high"
+  },
+  "nerc2024-J": {
+   "primary": "scheduling-heap",
+   "secondary": [
+    "prefix-sums"
+   ],
+   "key_idea": "Ordenar por prazo e calcular o início mais tardio de cada tarefa; para t, as de início tardio ≥ t ficam para depois e sobra um bloco livre, medido por busca binária nos prefixos de episódios.",
+   "confidence": "high"
+  },
+  "nerc2024-K": {
+   "primary": "flow-mincut",
+   "secondary": [
+    "bipartite-matching"
+   ],
+   "key_idea": "Blocos de desconhecidos viram nós com capacidade; um aluno é Y/N forçado conforme sua aresta está em todo/nenhum fluxo máximo, testado por ciclos no residual.",
+   "confidence": "high"
+  },
+  "nerc2024-L": {
+   "primary": "gcd-modular",
+   "secondary": [
+    "simulation"
+   ],
+   "key_idea": "Separar eixos: cada um é periódico; o par (i,j) ocorre sse i ≡ j (mod gcd) e todos com a mesma frequência (CRT), então somar contagens por resíduo.",
+   "confidence": "high"
+  },
+  "nerc2024-M": {
+   "primary": "tree-greedy-structure",
+   "secondary": [
+    "permutation-cycles"
+   ],
+   "key_idea": "Resposta = emparelhamento máximo da árvore; ligar os serviços nas pontas de cada aresta do matching dá caminhos/ciclos resolvidos com c−1 trocas.",
+   "confidence": "high"
+  },
+  "nerc2025-A": {
+   "primary": "closed-form",
+   "secondary": [],
+   "key_idea": "Por letra, r·(sum[j] − cnt_l[j]) ≥ cnt_l[j], então r = max ⌈cnt_l/(sum − cnt_l)⌉ e a resposta é m − r.",
+   "confidence": "high"
+  },
+  "nerc2025-B": {
+   "primary": "simulation",
+   "secondary": [
+    "stl-ordered"
+   ],
+   "key_idea": "Atacar sempre com o seu máximo no máximo do oponente é ótimo (dominação); simular com dois max-heaps, que encolhem geometricamente.",
+   "confidence": "high"
+  },
+  "nerc2025-C": {
+   "primary": "interactive",
+   "secondary": [
+    "dfs-tree-bridges"
+   ],
+   "key_idea": "Remover duas arestas do mesmo ciclo desconecta o cacto: distribuir arestas em baldes por posição no ciclo e achar o balde de cada aresta por busca binária com consultas de conectividade.",
+   "confidence": "high"
+  },
+  "nerc2025-D": {
+   "primary": "sweep-line",
+   "secondary": [
+    "stl-ordered"
+   ],
+   "key_idea": "Uma abertura basta: começar com as portas à direita, movê-las à esquerda em ordem de R e manter um multiset dos L restantes para a borda direita.",
+   "confidence": "high"
+  },
+  "nerc2025-E": {
+   "primary": "closed-form",
+   "secondary": [
+    "casework"
+   ],
+   "key_idea": "Tempo = Σ|x_{i+1}−x_i|: dar sinais + à metade maior e − à menor; enumerar o andar final e somar com prefixos ordenados, tratando o caso de todas as origens abaixo dos destinos.",
+   "confidence": "high"
+  },
+  "nerc2025-F": {
+   "primary": "games-parity",
+   "secondary": [],
+   "key_idea": "Entregar pilha com >1 pedra perde, então joga-se pilhas de 1 enquanto existirem; resposta pela paridade de (#uns + [max > 1]).",
+   "confidence": "high"
+  },
+  "nerc2025-G": {
+   "primary": "closed-form",
+   "secondary": [
+    "casework"
+   ],
+   "key_idea": "a_i = b_i + b_{i−1}: com b conhecido, rodadas = max(max b, ⌈Σb/(n−1)⌉); n ímpar fixa b e n par tem um parâmetro livre δ escolhido no ponto de equilíbrio.",
+   "confidence": "high"
+  },
+  "nerc2025-H": {
+   "primary": "gcd-modular",
+   "secondary": [],
+   "key_idea": "Guloso com gcd: wp = gcd(n, w), hp = gcd(n/wp, h), dp = gcd(resto, d); existe sse sobra 1.",
+   "confidence": "high"
+  },
+  "nerc2025-I": {
+   "primary": "convex-hull",
+   "secondary": [
+    "angular-sweep"
+   ],
+   "key_idea": "Fecho de um conjunto e classificar os pontos do outro; se todos estão fora, pq cruza o fecho sse p e q não se 'veem' — tangentes viram arcos angulares e procuram-se dois arcos disjuntos.",
+   "confidence": "high"
+  },
+  "nerc2025-J": {
+   "primary": "expected-value",
+   "secondary": [
+    "dp-linear"
+   ],
+   "key_idea": "Atualização bayesiana p(a,b) por vitórias/derrotas; o valor é linear no dinheiro, então aposta-se tudo ou nada com DP C[a][b] = max(continuar, apostar tudo).",
+   "confidence": "high"
+  },
+  "nerc2025-K": {
+   "primary": "graph-coloring-2sat-euler",
+   "secondary": [
+    "constructive"
+   ],
+   "key_idea": "Rotular células pela paridade de ciclos que as envolvem: tudo é determinado pela primeira linha via XOR e cada restrição 2×2 vira cláusula em ≤2 variáveis — 2-SAT.",
+   "confidence": "high"
+  },
+  "nerc2025-L": {
+   "primary": "suffix-structures",
+   "secondary": [
+    "mst-dsu",
+    "centroid-small-to-large"
+   ],
+   "key_idea": "Perda = Σ|N_ctx| log|N_ctx| − Σ cnt log cnt: com suffix array + LCP, diminuir k unindo grupos adjacentes por DSU e mantendo contagens de próximos tokens small-to-large.",
+   "confidence": "high"
+  },
+  "nerc2025-M": {
+   "primary": "dp-linear",
+   "secondary": [],
+   "key_idea": "DP por posição com estado = paridade atual do prefixo, pagando as trocas em x e em y.",
+   "confidence": "high"
+  }
+ }
+}

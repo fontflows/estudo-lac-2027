@@ -1,0 +1,2562 @@
+{
+  "source": "nerc",
+  "contests": [
+    {
+      "id": "nerc2019",
+      "family": "nerc",
+      "name": "ICPC 2019-2020 NERC - Northern Eurasia Finals",
+      "short": "NERC 2019-2020",
+      "year": 2019,
+      "date": "2019-12-01",
+      "total_teams": 301,
+      "links": {
+        "scoreboard": "https://nerc.itmo.ru/archive/2019/standings.html",
+        "statements": "https://nerc.itmo.ru/archive/2019/nerc-2019-statement.pdf",
+        "editorial": "https://nerc.itmo.ru/archive/2019/nerc-2019-tutorial.pdf",
+        "mirror": "https://codeforces.com/contest/1267",
+        "kattis": null
+      },
+      "notes": "Held simultaneously in St. Petersburg, Barnaul, Tbilisi and Almaty; combined official standings used. total_teams counts all ranked official teams in the final standings (including teams with 0 solved)."
+    },
+    {
+      "id": "nerc2021",
+      "family": "nerc",
+      "name": "ICPC 2020-2021 NERC - Northern Eurasia Finals",
+      "short": "NERC 2020-2021 Onsite",
+      "year": 2021,
+      "date": "2021-04-04",
+      "total_teams": 50,
+      "links": {
+        "scoreboard": "https://nerc.itmo.ru/archive/2020/standings.html",
+        "statements": "https://nerc.itmo.ru/archive/2020/nerc-2020-offline-statement.pdf",
+        "editorial": "https://nerc.itmo.ru/archive/2020/nerc-2020-offline-tutorial.pdf",
+        "mirror": "https://codeforces.com/contest/1510",
+        "kattis": null
+      },
+      "notes": "2020-2021 season onsite final (St. Petersburg, Minsk, Tbilisi, Riga), held April 2021 after the Dec 2020 online NERC round (15 problems, ~300 teams) which is NOT included here. Only ~50 top teams from the online round took part. total_teams counts all ranked official teams in the final standings (including teams with 0 solved)."
+    },
+    {
+      "id": "nerc2022apr",
+      "family": "nerc",
+      "name": "ICPC 2021-2022 NERC - Northern Eurasia Finals",
+      "short": "NERC 2021-2022",
+      "year": 2022,
+      "date": "2022-04-13",
+      "total_teams": 253,
+      "links": {
+        "scoreboard": "https://nerc.itmo.ru/archive/2021/standings.html",
+        "statements": "https://nerc.itmo.ru/archive/2021/nerc-2021-statement.pdf",
+        "editorial": "https://nerc.itmo.ru/archive/2021/nerc-2021-tutorial.pdf",
+        "mirror": "https://codeforces.com/contest/1666",
+        "kattis": null
+      },
+      "notes": "2021-2022 season final, postponed to April 2022 (St. Petersburg, Almaty, Barnaul, Minsk, Yerevan). Second NERC held in calendar year 2022, hence the suffix. total_teams counts all ranked official teams in the final standings (including teams with 0 solved)."
+    },
+    {
+      "id": "nerc2022dec",
+      "family": "nerc",
+      "name": "ICPC 2022-2023 NERC - Northern Eurasia Finals",
+      "short": "NERC 2022-2023",
+      "year": 2022,
+      "date": "2022-12-07",
+      "total_teams": 279,
+      "links": {
+        "scoreboard": "https://nerc.itmo.ru/archive/2022/standings.html",
+        "statements": "https://nerc.itmo.ru/archive/2022/nef-2022-statement.pdf",
+        "editorial": "https://nerc.itmo.ru/archive/2022/nef-2022-tutorial.pdf",
+        "mirror": "https://codeforces.com/contest/1773",
+        "kattis": null
+      },
+      "notes": "Sites: St. Petersburg, Barnaul, Kutaisi, Almaty. Two teams marked '*' in the standings (incomplete/out-of-competition) excluded from counts. total_teams counts all ranked official teams in the final standings (including teams with 0 solved)."
+    },
+    {
+      "id": "nerc2023",
+      "family": "nerc",
+      "name": "ICPC 2023-2024 NERC - Northern Eurasia Finals",
+      "short": "NERC 2023-2024",
+      "year": 2023,
+      "date": "2023-12-13",
+      "total_teams": 276,
+      "links": {
+        "scoreboard": "https://nerc.itmo.ru/archive/2023/standings.html",
+        "statements": "https://nerc.itmo.ru/archive/2023/nef-2023-statement.pdf",
+        "editorial": "https://nerc.itmo.ru/archive/2023/nef-2023-tutorial.pdf",
+        "mirror": "https://codeforces.com/contest/1912",
+        "kattis": null
+      },
+      "notes": "Sites: St. Petersburg, Novosibirsk, Astana, Kutaisi; combined official standings used. total_teams counts all ranked official teams in the final standings (including teams with 0 solved)."
+    },
+    {
+      "id": "nerc2024",
+      "family": "nerc",
+      "name": "ICPC 2024-2025 NERC - Northern Eurasia Finals",
+      "short": "NERC 2024-2025",
+      "year": 2024,
+      "date": "2024-12-15",
+      "total_teams": 306,
+      "links": {
+        "scoreboard": "https://nerc.itmo.ru/archive/2024/standings.html",
+        "statements": "https://nerc.itmo.ru/archive/2024/nef-2024-statement.pdf",
+        "editorial": "https://nerc.itmo.ru/archive/2024/nef-2024-tutorial.pdf",
+        "mirror": "https://codeforces.com/contest/2052",
+        "kattis": null
+      },
+      "notes": "Sites: St. Petersburg, Novosibirsk, Astana, Tbilisi; combined official standings used. total_teams counts all ranked official teams in the final standings (including teams with 0 solved)."
+    },
+    {
+      "id": "nerc2025",
+      "family": "nerc",
+      "name": "ICPC 2025-2026 NERC - Northern Eurasia Finals",
+      "short": "NERC 2025-2026",
+      "year": 2025,
+      "date": "2025-12-17",
+      "total_teams": 316,
+      "links": {
+        "scoreboard": "https://nerc.itmo.ru/archive/2025/standings.html",
+        "statements": "https://nerc.itmo.ru/archive/2025/nef-2025-statement.pdf",
+        "editorial": "https://nerc.itmo.ru/archive/2025/nef-2025-tutorial.pdf",
+        "mirror": "https://codeforces.com/contest/2181",
+        "kattis": null
+      },
+      "notes": "Sites: St. Petersburg, Novosibirsk, Almaty, Tbilisi. One team marked '*' excluded. Problem B statement had a defect (jury accepted the 'attack opponent's maximum' variant). total_teams counts all ranked official teams in the final standings (including teams with 0 solved)."
+    }
+  ],
+  "problems": [
+    {
+      "id": "nerc2019-A",
+      "contest": "nerc2019",
+      "letter": "A",
+      "title": "Apprentice Learning Trajectory",
+      "solved_teams": 44,
+      "attempted_teams": 82,
+      "first_solve_min": 55,
+      "links": {
+        "mirror": "https://codeforces.com/contest/1267/problem/A",
+        "kattis": null,
+        "statement": "https://nerc.itmo.ru/archive/2019/nerc-2019-statement.pdf"
+      },
+      "statement_summary": "n masters each work during [a_i, b_i] and need t_i consecutive minutes per sword; the apprentice works at one forge at a time. Maximize the number of swords produced (n <= 2e5, times up to 1e18).",
+      "solution_idea": "Greedy: always start the sword that will finish earliest among currently available masters. The chosen master only changes at O(n) events (a master opening/closing), so sweep over sorted event times keeping active masters in a multiset ordered by t_i and, between events, bulk-produce swords with the fastest available master (division instead of simulation). O(n log n).",
+      "solution_source": "editorial",
+      "candidate_tags": [
+        "greedy earliest finish",
+        "sweep line events",
+        "multiset",
+        "simulation with jumps"
+      ],
+      "cf_tags": [],
+      "cf_rating": 2400
+    },
+    {
+      "id": "nerc2019-B",
+      "contest": "nerc2019",
+      "letter": "B",
+      "title": "Balls of Buma",
+      "solved_teams": 273,
+      "attempted_teams": 289,
+      "first_solve_min": 8,
+      "links": {
+        "mirror": "https://codeforces.com/contest/1267/problem/B",
+        "kattis": null,
+        "statement": "https://nerc.itmo.ru/archive/2019/nerc-2019-statement.pdf"
+      },
+      "statement_summary": "A Zuma-like row of colored balls (length <= 3e5): count the (color, position) choices for inserting one ball so that the chain of eliminations of elongated segments of length >= 3 removes all balls.",
+      "solution_idea": "Compress into runs. Elimination must start in the middle run and propagate symmetrically: the number of runs must be odd, the middle run must have length >= 2, and each pair of runs symmetric around the middle must have the same color and total length >= 3. If so the answer is (middle run length + 1), else 0. O(n).",
+      "solution_source": "editorial",
+      "candidate_tags": [
+        "run-length encoding",
+        "palindrome symmetry check",
+        "strings",
+        "case analysis"
+      ],
+      "cf_tags": [],
+      "cf_rating": 900
+    },
+    {
+      "id": "nerc2019-C",
+      "contest": "nerc2019",
+      "letter": "C",
+      "title": "Cactus Revenge",
+      "solved_teams": 0,
+      "attempted_teams": 4,
+      "first_solve_min": null,
+      "links": {
+        "mirror": "https://codeforces.com/contest/1267/problem/C",
+        "kattis": null,
+        "statement": "https://nerc.itmo.ru/archive/2019/nerc-2019-statement.pdf"
+      },
+      "statement_summary": "Construct a cactus (connected graph where each edge is in at most one simple cycle) with n <= 2000 vertices and given degree sequence d_i, or report impossible; output as edge-disjoint paths.",
+      "solution_idea": "m = sum(d)/2 must be integer and >= n-1; number of cycles c = m-(n-1). Trees are built inductively (attach a leaf to the max-degree vertex). With all even degrees, c <= (n-1)/2 is sufficient: build by repeatedly gluing a triangle of two degree-2 vertices to a degree>=4 vertex. With odd degrees, bridges are forced: b >= max(o/2, l) (o odd-degree vertices, l leaves), giving c <= (n-1-max(o/2,l))/2; construct by pairing odd vertices, contracting the pairing edges, solving the even case, and expanding carefully.",
+      "solution_source": "editorial",
+      "candidate_tags": [
+        "constructive",
+        "cactus graph",
+        "degree sequence",
+        "induction",
+        "edge contraction"
+      ],
+      "cf_tags": [
+        "constructive algorithms"
+      ],
+      "cf_rating": 3500
+    },
+    {
+      "id": "nerc2019-D",
+      "contest": "nerc2019",
+      "letter": "D",
+      "title": "DevOps Best Practices",
+      "solved_teams": 18,
+      "attempted_teams": 31,
+      "first_solve_min": 97,
+      "links": {
+        "mirror": "https://codeforces.com/contest/1267/problem/D",
+        "kattis": null,
+        "statement": "https://nerc.itmo.ru/archive/2019/nerc-2019-statement.pdf"
+      },
+      "statement_summary": "Three features must be deployed to n servers according to a required subset per server; configure Continuous Deployment edges and Continuous Testing flags (tests fail on some servers) so exactly the required features reach each server using at most n+2 edges.",
+      "solution_idea": "Each server's outgoing CD edges distribute a fixed feature set. Greedy process: repeatedly add an edge s1->s2 when s1 already distributes exactly the set s2 needs (and turn CT on at s2); if impossible, cover a server needing two features with two edges from servers distributing each feature (CT off there); stop when stuck. Two-edge covers happen at most 3 times (once per feature pair), so at most n+2 edges; any server left uncovered means impossible.",
+      "solution_source": "editorial",
+      "candidate_tags": [
+        "constructive",
+        "greedy",
+        "graph construction",
+        "bfs propagation",
+        "case analysis on subsets"
+      ],
+      "cf_tags": [
+        "constructive algorithms"
+      ],
+      "cf_rating": 2800
+    },
+    {
+      "id": "nerc2019-E",
+      "contest": "nerc2019",
+      "letter": "E",
+      "title": "Elections",
+      "solved_teams": 197,
+      "attempted_teams": 256,
+      "first_solve_min": 8,
+      "links": {
+        "mirror": "https://codeforces.com/contest/1267/problem/E",
+        "kattis": null,
+        "statement": "https://nerc.itmo.ru/archive/2019/nerc-2019-statement.pdf"
+      },
+      "statement_summary": "n <= 100 candidates, m <= 100 polling stations with vote counts; cancel the minimum number of stations so the opposition candidate n does not get strictly more votes than every other candidate.",
+      "solution_idea": "Fix the candidate j who should beat the opposition; only the per-station difference (votes_n - votes_j) matters. Sort stations by that difference descending and cancel the largest ones until the sum becomes <= 0. Take the minimum over all j. O(n m log m).",
+      "solution_source": "editorial",
+      "candidate_tags": [
+        "greedy",
+        "sorting",
+        "enumerate the rival",
+        "brute force"
+      ],
+      "cf_tags": [
+        "greedy"
+      ],
+      "cf_rating": 1700
+    },
+    {
+      "id": "nerc2019-F",
+      "contest": "nerc2019",
+      "letter": "F",
+      "title": "Foolprüf Security",
+      "solved_teams": 15,
+      "attempted_teams": 22,
+      "first_solve_min": 105,
+      "links": {
+        "mirror": "https://codeforces.com/contest/1267/problem/F",
+        "kattis": null,
+        "statement": "https://nerc.itmo.ru/archive/2019/nerc-2019-statement.pdf"
+      },
+      "statement_summary": "A tree on a complete bipartite vertex set (n security units, m labs, n,m <= 1e5); given two subsequences of its Prufer code (one with left-part labels, one with right-part labels), restore any tree consistent with both or report impossible.",
+      "solution_idea": "In the Prufer code of a spanning tree of K_{n,m}, exactly m-1 entries come from the left part and n-1 from the right part, and any two such sequences interleave uniquely into a valid tree. Answer exists iff ka <= m-1 and kb <= n-1; pad the sequences arbitrarily and reconstruct by repeatedly removing the smallest label not occurring in the remaining sequences (priority queue), connecting it to the head of the opposite sequence. O((n+m) log).",
+      "solution_source": "editorial",
+      "candidate_tags": [
+        "prufer code",
+        "trees",
+        "bipartite graph",
+        "priority queue",
+        "constructive"
+      ],
+      "cf_tags": [
+        "graphs"
+      ],
+      "cf_rating": 2600
+    },
+    {
+      "id": "nerc2019-G",
+      "contest": "nerc2019",
+      "letter": "G",
+      "title": "Game Relics",
+      "solved_teams": 3,
+      "attempted_teams": 15,
+      "first_solve_min": 66,
+      "links": {
+        "mirror": "https://codeforces.com/contest/1267/problem/G",
+        "kattis": null,
+        "statement": "https://nerc.itmo.ru/archive/2019/nerc-2019-statement.pdf"
+      },
+      "statement_summary": "n <= 100 relics with prices c_i; you can buy a specific relic for c_i or pay x for a uniformly random relic (duplicates refund x/2). Minimize the expected total cost of collecting all relics.",
+      "solution_idea": "Once you buy a relic directly, never gamble again, so direct purchases can be modeled as buying a random unowned relic; then each k-subset of owned relics is equally likely. With b relics missing summing to S, the expected cost of the next step is min(S/b, (n/b + 1)*x/2) (coupon-collector style). Count subsets by size and sum with a knapsack DP f[k][s] and sum f[k][s]/C(n,k) * min(...). O(n^2 * sum c).",
+      "solution_source": "editorial",
+      "candidate_tags": [
+        "probability",
+        "expected value",
+        "knapsack dp",
+        "coupon collector",
+        "exchange argument"
+      ],
+      "cf_tags": [
+        "math",
+        "probabilities"
+      ],
+      "cf_rating": 3000
+    },
+    {
+      "id": "nerc2019-H",
+      "contest": "nerc2019",
+      "letter": "H",
+      "title": "Help BerLine",
+      "solved_teams": 0,
+      "attempted_teams": 5,
+      "first_solve_min": null,
+      "links": {
+        "mirror": "https://codeforces.com/contest/1267/problem/H",
+        "kattis": null,
+        "statement": "https://nerc.itmo.ru/archive/2019/nerc-2019-statement.pdf"
+      },
+      "statement_summary": "n stations on a line are turned on in a given order; assign frequencies 1..24 so that at every moment every nonempty contiguous segment of turned-on stations contains a frequency unique within it (n up to ~8748).",
+      "solution_idea": "Constructive recursion: with 3 colors any instance of size <= 4 works. Split stations into consecutive triples, mark in each triple the earliest-activated station, solve recursively on the marked stations, and color unmarked stations with 3 new colors: between two consecutive active marked stations there are at most 4 active unmarked ones, so the small case applies. Each level divides n by 3 and uses 3 colors: 24 colors suffice for n <= 4*3^7.",
+      "solution_source": "editorial",
+      "candidate_tags": [
+        "constructive",
+        "recursion",
+        "divide and conquer",
+        "unique color on segments",
+        "online coloring"
+      ],
+      "cf_tags": [
+        "constructive algorithms"
+      ],
+      "cf_rating": 3200
+    },
+    {
+      "id": "nerc2019-I",
+      "contest": "nerc2019",
+      "letter": "I",
+      "title": "Intriguing Selection",
+      "solved_teams": 36,
+      "attempted_teams": 102,
+      "first_solve_min": 97,
+      "links": {
+        "mirror": "https://codeforces.com/contest/1267/problem/I",
+        "kattis": null,
+        "statement": "https://nerc.itmo.ru/archive/2019/nerc-2019-statement.pdf"
+      },
+      "statement_summary": "Interactive: 2n players with distinct hidden strengths (n <= 100); using pairwise comparisons, identify the top n uniquely while leaving their internal order ambiguous (at least two consistent orderings); total comparisons ~ 4n^2.",
+      "solution_idea": "Take n+1 players, split into two groups of size >= 2; find each group's minimum using only intra-group comparisons, compare the two minima and discard the smaller (it can't be in the top n). Add a new player to a group and repeat until all 2n considered (n discards). The survivors were never compared across the two groups, so their order is ambiguous. O(n^2) queries.",
+      "solution_source": "editorial",
+      "candidate_tags": [
+        "interactive",
+        "tournament elimination",
+        "comparison sorting",
+        "constructive",
+        "partial order"
+      ],
+      "cf_tags": [
+        "brute force",
+        "constructive algorithms",
+        "implementation",
+        "interactive",
+        "sortings"
+      ],
+      "cf_rating": 2600
+    },
+    {
+      "id": "nerc2019-J",
+      "contest": "nerc2019",
+      "letter": "J",
+      "title": "Just Arrange the Icons",
+      "solved_teams": 159,
+      "attempted_teams": 216,
+      "first_solve_min": 9,
+      "links": {
+        "mirror": "https://codeforces.com/contest/1267/problem/J",
+        "kattis": null,
+        "statement": "https://nerc.itmo.ru/archive/2019/nerc-2019-statement.pdf"
+      },
+      "statement_summary": "n icons (sum n <= 2e6) with categories; choose screen size s and arrange so each screen holds icons of one category and has s or s-1 icons; minimize the number of screens.",
+      "solution_idea": "Only category counts f_1 <= ... <= f_k matter. Try every s from 1 to f_1+1: for each count f, q = ceil(f/s) screens and it is feasible iff q*(s-1) <= f. Sum q over categories and take the minimum. Since s <= f_1+1 and k*f_1 <= n, total work is O(n).",
+      "solution_source": "editorial",
+      "candidate_tags": [
+        "brute force",
+        "math",
+        "harmonic complexity",
+        "counting",
+        "greedy"
+      ],
+      "cf_tags": [
+        "greedy",
+        "implementation",
+        "math"
+      ],
+      "cf_rating": 1800
+    },
+    {
+      "id": "nerc2019-K",
+      "contest": "nerc2019",
+      "letter": "K",
+      "title": "Key Storage",
+      "solved_teams": 105,
+      "attempted_teams": 126,
+      "first_solve_min": 36,
+      "links": {
+        "mirror": "https://codeforces.com/contest/1267/problem/K",
+        "kattis": null,
+        "statement": "https://nerc.itmo.ru/archive/2019/nerc-2019-statement.pdf"
+      },
+      "statement_summary": "A key's fingerprint is the multiset of remainders when repeatedly dividing by 2,3,4,... until zero; for t <= 5e4 keys up to 1e18, count other keys with the same fingerprint.",
+      "solution_idea": "A key is determined by the order of remainders (factorial number system), so count valid orderings: remainder at position i (divisor i+1) must be < i+1 and the last one nonzero. Place remainders in decreasing order: value v has n - max(0, v-1) - (already placed) valid positions; divide by multiplicities of equal values. Subtract the orderings ending with zero (same count for the multiset with one zero removed), minus 1 for the key itself.",
+      "solution_source": "editorial",
+      "candidate_tags": [
+        "combinatorics",
+        "factorial number system",
+        "counting permutations with multiset",
+        "math"
+      ],
+      "cf_tags": [
+        "combinatorics",
+        "math"
+      ],
+      "cf_rating": 2100
+    },
+    {
+      "id": "nerc2019-L",
+      "contest": "nerc2019",
+      "letter": "L",
+      "title": "Lexicography",
+      "solved_teams": 190,
+      "attempted_teams": 245,
+      "first_solve_min": 11,
+      "links": {
+        "mirror": "https://codeforces.com/contest/1267/problem/L",
+        "kattis": null,
+        "statement": "https://nerc.itmo.ru/archive/2019/nerc-2019-statement.pdf"
+      },
+      "statement_summary": "Arrange n*l given letters into n words of length l (n, l <= 1000) sorted lexicographically so that the k-th word is lexicographically minimal.",
+      "solution_idea": "Greedy letter by letter maintaining t = first word sharing the current prefix with word k: take the smallest available letter with count c; if c > k-t, give it to all words t..k; otherwise give it to c words starting at t and advance t. After the k-th word is complete, fill remaining positions of all words with remaining letters in sorted order. O(n l + alphabet).",
+      "solution_source": "editorial",
+      "candidate_tags": [
+        "greedy",
+        "strings",
+        "lexicographic order",
+        "constructive",
+        "counting sort"
+      ],
+      "cf_tags": [
+        "constructive algorithms",
+        "strings"
+      ],
+      "cf_rating": 1800
+    },
+    {
+      "id": "nerc2021-A",
+      "contest": "nerc2021",
+      "letter": "A",
+      "title": "ASCII Automata Art",
+      "solved_teams": 0,
+      "attempted_teams": 1,
+      "first_solve_min": null,
+      "links": {
+        "mirror": "https://codeforces.com/contest/1510/problem/A",
+        "kattis": null,
+        "statement": "https://nerc.itmo.ru/archive/2020/nerc-2020-offline-statement.pdf"
+      },
+      "statement_summary": "Given a regular expression over A-Z with |, +, ?, * and parentheses, render its automaton as an ASCII-art drawing following a long, precise recursive layout specification.",
+      "solution_idea": "Pure implementation: parse the grammar with recursive descent (expr = terms joined by '|', term = concatenation of atoms, postfix operators), build an expression tree, then recursively render each node to a rectangular character box and compose boxes (vertical stacking for alternation, horizontal concatenation, loops/bypass arrows for + ? *). The tricky part is grouping consecutive plain letters into a single box, which needs the tree or a lookahead.",
+      "solution_source": "editorial",
+      "candidate_tags": [
+        "implementation",
+        "recursive descent parsing",
+        "ascii art rendering",
+        "regular expressions"
+      ],
+      "cf_tags": [],
+      "cf_rating": 3100
+    },
+    {
+      "id": "nerc2021-B",
+      "contest": "nerc2021",
+      "letter": "B",
+      "title": "Button Lock",
+      "solved_teams": 17,
+      "attempted_teams": 31,
+      "first_solve_min": 57,
+      "links": {
+        "mirror": "https://codeforces.com/contest/1510/problem/B",
+        "kattis": null,
+        "statement": "https://nerc.itmo.ru/archive/2020/nerc-2020-offline-statement.pdf"
+      },
+      "statement_summary": "A lock with d <= 10 push buttons (stay pressed until RESET); given n target subsets, find the shortest sequence of presses/resets so that every target subset appears as the set of pressed buttons at some moment.",
+      "solution_idea": "Build the DAG of subset inclusion A -> B (A subset of B). The answer is a cover of the vertices by vertex-disjoint chains where a chain costs |last set| + 1 (reset). Minimum-cost path cover via bipartite matching: the uncovered left vertices are chain ends, so maximize the total weight of matched left vertices; this weighted matching is solved greedily by running Kuhn's augmenting paths from left vertices in decreasing order of set size. Reconstruct chains from the matching. Graph has 2^d vertices, 3^d edges.",
+      "solution_source": "editorial",
+      "candidate_tags": [
+        "bipartite matching",
+        "minimum path cover",
+        "kuhn algorithm",
+        "greedy weighted matching",
+        "bitmasks"
+      ],
+      "cf_tags": [
+        "flows",
+        "graph matchings",
+        "graphs"
+      ],
+      "cf_rating": 2600
+    },
+    {
+      "id": "nerc2021-C",
+      "contest": "nerc2021",
+      "letter": "C",
+      "title": "Cactus Not Enough",
+      "solved_teams": 6,
+      "attempted_teams": 12,
+      "first_solve_min": 124,
+      "links": {
+        "mirror": "https://codeforces.com/contest/1510/problem/C",
+        "kattis": null,
+        "statement": "https://nerc.itmo.ru/archive/2020/nerc-2020-offline-statement.pdf"
+      },
+      "statement_summary": "Given a cactus (multiple test graphs), add the minimum number of edges so that it remains a cactus and becomes 'strong' (no further edge can be added keeping it a cactus); output the edges.",
+      "solution_idea": "A cactus is strong iff after removing all cycle edges every remaining component (a forest of bridges) has at most one edge. Added edges correspond to edge-disjoint paths in those bridge trees, so each tree is independent: find the minimum number of edge-disjoint paths whose removal leaves a matching. Equivalent to choosing a matching minimizing odd-degree vertices, then #paths = odd/2; greedy bottom-up DFS joining path ends (or a tree DP) gives the optimum, and the path endpoints define the new edges.",
+      "solution_source": "editorial",
+      "candidate_tags": [
+        "cactus graph",
+        "biconnected components",
+        "tree greedy",
+        "path cover on tree",
+        "dfs"
+      ],
+      "cf_tags": [
+        "dfs and similar",
+        "graph matchings",
+        "graphs"
+      ],
+      "cf_rating": 2900
+    },
+    {
+      "id": "nerc2021-D",
+      "contest": "nerc2021",
+      "letter": "D",
+      "title": "Digits",
+      "solved_teams": 45,
+      "attempted_teams": 48,
+      "first_solve_min": 12,
+      "links": {
+        "mirror": "https://codeforces.com/contest/1510/problem/D",
+        "kattis": null,
+        "statement": "https://nerc.itmo.ru/archive/2020/nerc-2020-offline-statement.pdf"
+      },
+      "statement_summary": "n <= 1e5 cards with values 1..1000; choose a nonempty subset whose product is maximal among those whose last decimal digit is d.",
+      "solution_idea": "Discard even numbers if d is odd and multiples of 5 if d is not 0/5. Maximize the product via logarithms: DP over items with state = last digit of the product (10 states), maximizing sum of log(a_i) (equivalently minimizing the removed product); reconstruct the subset. O(10 n).",
+      "solution_source": "editorial",
+      "candidate_tags": [
+        "dp",
+        "logarithms",
+        "modular arithmetic",
+        "knapsack over remainders",
+        "number theory"
+      ],
+      "cf_tags": [
+        "dp",
+        "math",
+        "number theory"
+      ],
+      "cf_rating": 2100
+    },
+    {
+      "id": "nerc2021-E",
+      "contest": "nerc2021",
+      "letter": "E",
+      "title": "Equilibrium Point /\\/\\",
+      "solved_teams": 14,
+      "attempted_teams": 23,
+      "first_solve_min": 103,
+      "links": {
+        "mirror": "https://codeforces.com/contest/1510/problem/E",
+        "kattis": null,
+        "statement": "https://nerc.itmo.ru/archive/2020/nerc-2020-offline-statement.pdf"
+      },
+      "statement_summary": "Given even n <= 36 and a point (x, y), find a balanced bracket sequence of length n whose mountain polyline region has center of mass exactly at (x, y).",
+      "solution_idea": "Represent a sequence by integer triple (area m, x*m, 3*y*m). Generate sequences with the grammar S -> (S)S, combining triples with closed-form formulas, and deduplicate states with equal triples (only ~1.4e6 distinct for n=36), so enumeration becomes polynomial; alternatively meet-in-the-middle over the two halves with a hash map lookup of the needed right-half moments.",
+      "solution_source": "editorial",
+      "candidate_tags": [
+        "meet in the middle",
+        "state deduplication",
+        "center of mass",
+        "bracket sequences",
+        "hashing"
+      ],
+      "cf_tags": [],
+      "cf_rating": 2700
+    },
+    {
+      "id": "nerc2021-F",
+      "contest": "nerc2021",
+      "letter": "F",
+      "title": "Fiber Shape",
+      "solved_teams": 0,
+      "attempted_teams": 0,
+      "first_solve_min": null,
+      "links": {
+        "mirror": "https://codeforces.com/contest/1510/problem/F",
+        "kattis": null,
+        "statement": "https://nerc.itmo.ru/archive/2020/nerc-2020-offline-statement.pdf"
+      },
+      "statement_summary": "Convex polygon with n <= 1e4 vertices and string length l: compute the area of the set of points t such that the perimeter of convex hull(S + t) <= l (the 'gardener's ellipse' shape).",
+      "solution_idea": "The boundary is made of elliptic arcs: for each direction, the two tangent support vertices A_i, A_j act as foci and the sum of distances is constant (l minus the polygon chain from A_j to A_i). Walk around with two pointers advancing the support vertices when P becomes collinear with an edge (ray-ellipse intersection), giving O(n) arcs; sum their areas with Green's theorem using a closed-form integral of the parametrized ellipse arc.",
+      "solution_source": "editorial",
+      "candidate_tags": [
+        "computational geometry",
+        "ellipses",
+        "two pointers",
+        "green's theorem",
+        "numerical integration"
+      ],
+      "cf_tags": [],
+      "cf_rating": 2800
+    },
+    {
+      "id": "nerc2021-G",
+      "contest": "nerc2021",
+      "letter": "G",
+      "title": "Guide",
+      "solved_teams": 46,
+      "attempted_teams": 48,
+      "first_solve_min": 37,
+      "links": {
+        "mirror": "https://codeforces.com/contest/1510/problem/G",
+        "kattis": null,
+        "statement": "https://nerc.itmo.ru/archive/2020/nerc-2020-offline-statement.pdf"
+      },
+      "statement_summary": "Rooted tree with n <= 100 vertices: find the shortest walk starting at the root that visits k distinct vertices, and output it.",
+      "solution_idea": "Visiting k vertices and returning costs 2(k-1); not returning saves the depth of the end vertex. So pick the deepest vertex v with depth <= k-1, take the root-v path, and add other vertices by DFS detours from path vertices until k are visited, ending at v. Length 2(k-1) - depth(v).",
+      "solution_source": "editorial",
+      "candidate_tags": [
+        "trees",
+        "dfs",
+        "greedy",
+        "constructive path"
+      ],
+      "cf_tags": [],
+      "cf_rating": 2100
+    },
+    {
+      "id": "nerc2021-H",
+      "contest": "nerc2021",
+      "letter": "H",
+      "title": "Hard Optimization",
+      "solved_teams": 0,
+      "attempted_teams": 4,
+      "first_solve_min": null,
+      "links": {
+        "mirror": "https://codeforces.com/contest/1510/problem/H",
+        "kattis": null,
+        "statement": "https://nerc.itmo.ru/archive/2020/nerc-2020-offline-statement.pdf"
+      },
+      "statement_summary": "n <= 2000 laminar segments (any two nested or disjoint); choose a subsegment inside each so that chosen subsegments do not overlap (may touch), maximizing total length; output them.",
+      "solution_idea": "Build the containment forest with sorting + stack. Tree DP: state (segment i, whether a subsegment ends at L_i, whether one starts at R_i, k = number of subsegments that must be placed in the subtree's free gaps), transitions via an inner DP over children deciding which gaps (before/between/after children) host a subsegment and how many pass into each child subtree. k is bounded by subtree size, so merging is the subtree-size knapsack trick: O(n^2).",
+      "solution_source": "editorial",
+      "candidate_tags": [
+        "tree dp",
+        "laminar family",
+        "knapsack merging on tree",
+        "stack",
+        "intervals"
+      ],
+      "cf_tags": [
+        "dp"
+      ],
+      "cf_rating": 3200
+    },
+    {
+      "id": "nerc2021-I",
+      "contest": "nerc2021",
+      "letter": "I",
+      "title": "Is It Rated?",
+      "solved_teams": 2,
+      "attempted_teams": 12,
+      "first_solve_min": 291,
+      "links": {
+        "mirror": "https://codeforces.com/contest/1510/problem/I",
+        "kattis": null,
+        "statement": "https://nerc.itmo.ru/archive/2020/nerc-2020-offline-statement.pdf"
+      },
+      "statement_summary": "Interactive: in each of m wagers, n other participants predict 0/1 before Izzy; after the outcome is revealed, Izzy must end with at most 1.3*b + 100 mistakes, where b is the best participant's mistake count.",
+      "solution_idea": "Randomized weighted majority algorithm: give each participant weight beta^(mistakes - min mistakes) and predict 1 with probability equal to the weighted fraction voting 1. Expected mistakes are bounded by ~ (b ln(1/beta) + ln n)/(1-beta); beta around 0.75 passes. Deterministic majority fails on adversarial splits.",
+      "solution_source": "editorial",
+      "candidate_tags": [
+        "interactive",
+        "randomized algorithm",
+        "weighted majority",
+        "online learning",
+        "probability"
+      ],
+      "cf_tags": [
+        "greedy",
+        "interactive",
+        "math",
+        "probabilities"
+      ],
+      "cf_rating": 2700
+    },
+    {
+      "id": "nerc2021-J",
+      "contest": "nerc2021",
+      "letter": "J",
+      "title": "Japanese Game",
+      "solved_teams": 24,
+      "attempted_teams": 36,
+      "first_solve_min": 85,
+      "links": {
+        "mirror": "https://codeforces.com/contest/1510/problem/J",
+        "kattis": null,
+        "statement": "https://nerc.itmo.ru/archive/2020/nerc-2020-offline-statement.pdf"
+      },
+      "statement_summary": "1D nonogram: the mask of a profile p is the set of cells filled in every solution of length n; given a mask, find any profile whose mask equals it (n up to 1e5).",
+      "solution_idea": "Mask of p = place blocks leftmost, let k be the leftover cells; remove the first k cells of every block. Iterate over the shift k (bounded by gaps of the mask), extend every mask block left by k, cut the last k cells, and fill the remaining gaps with extra blocks of size 1 or 2 (size 2 only if k >= 2) so they vanish from the mask; check feasibility of each gap. Only k <= 3 needs checking (k >= 4 reduces to k-2), giving O(n).",
+      "solution_source": "editorial",
+      "candidate_tags": [
+        "constructive",
+        "nonogram",
+        "case analysis",
+        "greedy",
+        "strings"
+      ],
+      "cf_tags": [
+        "constructive algorithms",
+        "math"
+      ],
+      "cf_rating": 2700
+    },
+    {
+      "id": "nerc2021-K",
+      "contest": "nerc2021",
+      "letter": "K",
+      "title": "King's Task",
+      "solved_teams": 48,
+      "attempted_teams": 48,
+      "first_solve_min": 10,
+      "links": {
+        "mirror": "https://codeforces.com/contest/1510/problem/K",
+        "kattis": null,
+        "statement": "https://nerc.itmo.ru/archive/2020/nerc-2020-offline-statement.pdf"
+      },
+      "statement_summary": "Permutation of 2n elements (n <= 1000) with two operations: swap adjacent pairs, or swap the two halves elementwise; find the minimum number of operations to sort, or -1.",
+      "solution_idea": "Both operations are involutions, so an optimal sequence alternates types. Try both starting operations and simulate up to max(2n, 4) steps (the composition has order 4 for even n and 2n for odd n), checking sortedness each step. O(n^2).",
+      "solution_source": "editorial",
+      "candidate_tags": [
+        "simulation",
+        "permutations",
+        "group cycle order",
+        "brute force"
+      ],
+      "cf_tags": [
+        "brute force",
+        "graphs",
+        "implementation"
+      ],
+      "cf_rating": 1200
+    },
+    {
+      "id": "nerc2022apr-A",
+      "contest": "nerc2022apr",
+      "letter": "A",
+      "title": "Admissible Map",
+      "solved_teams": 2,
+      "attempted_teams": 15,
+      "first_solve_min": 291,
+      "links": {
+        "mirror": "https://codeforces.com/contest/1666/problem/A",
+        "kattis": null,
+        "statement": "https://nerc.itmo.ru/archive/2021/nerc-2021-statement.pdf"
+      },
+      "statement_summary": "Given a string over {U,L,D,R}, count substrings that can be the row-major description of some n x m 'admissible map' (every cell's arrow stays inside the grid and the functional graph is a union of cycles, i.e. every cell has in-degree 1).",
+      "solution_idea": "Lemma: every substring not of the form RLRL...RL determines its width uniquely from the position of the first 'U' (or the D/L run before it), computable for each start l in linear time. Then iterate r = l + t*width and check each row (top/middle/bottom) in O(1): arrows must not leave the grid and in-degree 1 is verified with polynomial hashing of shifted indicator arrays and prefix sums. Group starts with same width and l mod width to get O(s sqrt s); trivial RL strings added separately.",
+      "solution_source": "editorial",
+      "candidate_tags": [
+        "strings",
+        "hashing",
+        "functional graph",
+        "harmonic enumeration",
+        "prefix sums"
+      ],
+      "cf_tags": [],
+      "cf_rating": 3300
+    },
+    {
+      "id": "nerc2022apr-B",
+      "contest": "nerc2022apr",
+      "letter": "B",
+      "title": "Budget Distribution",
+      "solved_teams": 2,
+      "attempted_teams": 4,
+      "first_solve_min": 238,
+      "links": {
+        "mirror": "https://codeforces.com/contest/1666/problem/B",
+        "kattis": null,
+        "statement": "https://nerc.itmo.ru/archive/2021/nerc-2021-statement.pdf"
+      },
+      "statement_summary": "t <= 5e4 topics with 2..5 items each, pre-assigned money and target ratios; for q <= 3e5 amounts of extra money x (distributed arbitrarily as reals), minimize the total sum over topics of |actual ratio - target ratio|.",
+      "solution_idea": "Each topic's non-optimality as a function of the extra money it receives is a convex, piecewise linear-fractional (hyperbola-shaped) decreasing function. Combine topics by the marginal-derivative equalization (water-filling) principle: sweep over derivative values, the active topics' pieces of form a_i/(x-b_i) combine into (sum sqrt a_i)^2 / x, shifted to stay continuous. This yields the total optimal function as O(t) pieces; answer queries by binary search.",
+      "solution_source": "editorial",
+      "candidate_tags": [
+        "convex optimization",
+        "water filling",
+        "derivative sweep",
+        "piecewise functions",
+        "binary search queries"
+      ],
+      "cf_tags": [],
+      "cf_rating": 3300
+    },
+    {
+      "id": "nerc2022apr-C",
+      "contest": "nerc2022apr",
+      "letter": "C",
+      "title": "Connect the Points",
+      "solved_teams": 159,
+      "attempted_teams": 216,
+      "first_solve_min": 11,
+      "links": {
+        "mirror": "https://codeforces.com/contest/1666/problem/C",
+        "kattis": null,
+        "statement": "https://nerc.itmo.ru/archive/2021/nerc-2021-statement.pdf"
+      },
+      "statement_summary": "Connect three given points in the plane with axis-parallel segments of minimum total length (rectilinear Steiner tree for 3 points); output the segments.",
+      "solution_idea": "Take the median x and median y: the point M=(x_med, y_med) is an optimal Steiner point; connect each point to M with an L-shaped path (or use a vertical segment at x_med from y_min to y_max plus horizontal segments). Alternatively brute-force subsets of the 18 segments of the 3x3 grid.",
+      "solution_source": "editorial",
+      "candidate_tags": [
+        "geometry",
+        "manhattan distance",
+        "rectilinear steiner tree",
+        "median",
+        "constructive"
+      ],
+      "cf_tags": [
+        "brute force",
+        "constructive algorithms",
+        "geometry"
+      ],
+      "cf_rating": 1800
+    },
+    {
+      "id": "nerc2022apr-D",
+      "contest": "nerc2022apr",
+      "letter": "D",
+      "title": "Deletive Editing",
+      "solved_teams": 213,
+      "attempted_teams": 223,
+      "first_solve_min": 8,
+      "links": {
+        "mirror": "https://codeforces.com/contest/1666/problem/D",
+        "kattis": null,
+        "statement": "https://nerc.itmo.ru/archive/2021/nerc-2021-statement.pdf"
+      },
+      "statement_summary": "Repeatedly deleting the first occurrence of a called letter, can word s be turned into word t? (several test cases, short words).",
+      "solution_idea": "Order of calls doesn't matter, only counts: letter a must be called cnt_s(a)-cnt_t(a) times (negative => NO). Greedily delete the first cnt_s(a)-cnt_t(a) occurrences of each letter from s and compare the remainder with t. O(|s|).",
+      "solution_source": "editorial",
+      "candidate_tags": [
+        "greedy",
+        "strings",
+        "counting",
+        "simulation"
+      ],
+      "cf_tags": [
+        "greedy"
+      ],
+      "cf_rating": 900
+    },
+    {
+      "id": "nerc2022apr-E",
+      "contest": "nerc2022apr",
+      "letter": "E",
+      "title": "Even Split",
+      "solved_teams": 31,
+      "attempted_teams": 51,
+      "first_solve_min": 92,
+      "links": {
+        "mirror": "https://codeforces.com/contest/1666/problem/E",
+        "kattis": null,
+        "statement": "https://nerc.itmo.ru/archive/2021/nerc-2021-statement.pdf"
+      },
+      "statement_summary": "Segment [0, l] (l <= 1e9) with n <= 1e5 houses; split it into n integer-endpoint segments, each containing exactly one house, minimizing (longest - shortest) length.",
+      "solution_idea": "Binary search the minimal possible maximum length (greedy left-to-right placement checking coverage) and, independently, the maximal possible minimum length (greedy leftmost packing). Both bounds are simultaneously achievable: compute for each cut point an interval [c_i, d_i] of feasible positions forward, then pick actual cuts backward within [min, max] distance. O(n log l).",
+      "solution_source": "editorial",
+      "candidate_tags": [
+        "binary search on answer",
+        "greedy",
+        "intervals",
+        "constructive reconstruction"
+      ],
+      "cf_tags": [
+        "binary search",
+        "constructive algorithms",
+        "greedy",
+        "math"
+      ],
+      "cf_rating": 2500
+    },
+    {
+      "id": "nerc2022apr-F",
+      "contest": "nerc2022apr",
+      "letter": "F",
+      "title": "Fancy Stack",
+      "solved_teams": 42,
+      "attempted_teams": 50,
+      "first_solve_min": 64,
+      "links": {
+        "mirror": "https://codeforces.com/contest/1666/problem/F",
+        "kattis": null,
+        "statement": "https://nerc.itmo.ru/archive/2021/nerc-2021-statement.pdf"
+      },
+      "statement_summary": "Count permutations b of n (even, <= 5000) given block sizes with b1 < b2 > b3 < b4 ... and even-position elements strictly increasing, modulo 998244353.",
+      "solution_idea": "Process blocks in decreasing size; DP f[i][j] = ways to place the i largest blocks with j of them 'big' (even positions). A big block's position is forced (next even slot from the bottom). A small block can go into any of max(j-1,0)+[j=n/2] slots between placed big blocks minus already used ones, and these slots remain valid for all later smaller blocks, so multiply by the number of free slots. Equal sizes: only the last block of each equal group may be big. O(n^2).",
+      "solution_source": "editorial",
+      "candidate_tags": [
+        "combinatorics",
+        "dp",
+        "counting permutations",
+        "insertion dp",
+        "modular arithmetic"
+      ],
+      "cf_tags": [
+        "combinatorics",
+        "dp",
+        "implementation"
+      ],
+      "cf_rating": 2200
+    },
+    {
+      "id": "nerc2022apr-G",
+      "contest": "nerc2022apr",
+      "letter": "G",
+      "title": "Global Warming",
+      "solved_teams": 5,
+      "attempted_teams": 11,
+      "first_solve_min": 260,
+      "links": {
+        "mirror": "https://codeforces.com/contest/1666/problem/G",
+        "kattis": null,
+        "statement": "https://nerc.itmo.ru/archive/2021/nerc-2021-statement.pdf"
+      },
+      "statement_summary": "A terrain given as a planar triangulation with heights (n, m, q <= 1e5); for each query (water level h, point p) output the surface area of the connected part of the terrain strictly above water containing p, or -1 if flooded.",
+      "solution_idea": "Offline sweep the water plane from top to bottom, adding vertices in decreasing height and uniting with higher neighbors via DSU. Each triangle's area above level s is a piecewise quadratic function of s (cross-section length is linear between vertex heights), so each component maintains the sum of quadratic coefficients; update a face's contribution whenever one of its vertices is passed. Answer queries sorted by height by evaluating the component's polynomial.",
+      "solution_source": "editorial",
+      "candidate_tags": [
+        "offline queries",
+        "dsu",
+        "sweep plane",
+        "piecewise polynomial",
+        "3d geometry"
+      ],
+      "cf_tags": [
+        "geometry",
+        "math"
+      ],
+      "cf_rating": 3100
+    },
+    {
+      "id": "nerc2022apr-H",
+      "contest": "nerc2022apr",
+      "letter": "H",
+      "title": "Heroes of Might",
+      "solved_teams": 0,
+      "attempted_teams": 3,
+      "first_solve_min": null,
+      "links": {
+        "mirror": "https://codeforces.com/contest/1666/problem/H",
+        "kattis": null,
+        "statement": "https://nerc.itmo.ru/archive/2021/nerc-2021-statement.pdf"
+      },
+      "statement_summary": "A dragon with damage d fights n groups of peasants (each peasant hp health); each round the dragon hits one group, then every alive peasant deals 1 damage. Find the minimal dragon health to win with optimal targeting (huge values, t <= 1000 tests).",
+      "solution_idea": "For each group, the sequence of peasants killed per hit; merging the groups' sequences to minimize damage = maximize sum of prefix sums. Split each sequence into blocks along the upper convex hull of its prefix-sum points (decreasing averages); blocks stay contiguous in the optimal merge and are ordered by average (exchange argument, like scheduling with Smith's rule). The hull has O(log) segments and is found via continued fractions (lattice points under the line y = floor(d*i/hp)).",
+      "solution_source": "editorial",
+      "candidate_tags": [
+        "convex hull",
+        "continued fractions",
+        "exchange argument",
+        "greedy scheduling",
+        "math"
+      ],
+      "cf_tags": [
+        "math"
+      ],
+      "cf_rating": 3500
+    },
+    {
+      "id": "nerc2022apr-I",
+      "contest": "nerc2022apr",
+      "letter": "I",
+      "title": "Interactive Treasure Hunt",
+      "solved_teams": 85,
+      "attempted_teams": 124,
+      "first_solve_min": 21,
+      "links": {
+        "mirror": "https://codeforces.com/contest/1666/problem/I",
+        "kattis": null,
+        "statement": "https://nerc.itmo.ru/archive/2021/nerc-2021-statement.pdf"
+      },
+      "statement_summary": "Interactive: two treasures in an n x m grid; SCAN(r,c) returns the sum of Manhattan distances to both treasures, DIG(r,c) checks a cell. Find both using at most 7 operations total.",
+      "solution_idea": "SCAN(1,1) and SCAN(1,m) give x1+x2 and y1+y2. SCAN(floor(Sx/2),1) and SCAN(1,floor(Sy/2)) give |x2-x1| and |y2-y1|. Solve for the coordinates; the two candidate pairings {(x1,y1),(x2,y2)} and {(x1,y2),(x2,y1)} are indistinguishable by scans, so DIG one cell to decide: 4 scans + up to 3 digs.",
+      "solution_source": "editorial",
+      "candidate_tags": [
+        "interactive",
+        "manhattan distance",
+        "system of equations",
+        "math",
+        "constructive"
+      ],
+      "cf_tags": [
+        "brute force",
+        "constructive algorithms",
+        "geometry",
+        "interactive",
+        "math"
+      ],
+      "cf_rating": 2200
+    },
+    {
+      "id": "nerc2022apr-J",
+      "contest": "nerc2022apr",
+      "letter": "J",
+      "title": "Job Lookup",
+      "solved_teams": 66,
+      "attempted_teams": 78,
+      "first_solve_min": 49,
+      "links": {
+        "mirror": "https://codeforces.com/contest/1666/problem/J",
+        "kattis": null,
+        "statement": "https://nerc.itmo.ru/archive/2021/nerc-2021-statement.pdf"
+      },
+      "statement_summary": "Build a binary search tree on keys 1..n (n <= 200) minimizing sum over pairs c_ij * dist(i,j) for a given symmetric communication matrix c; output parent array.",
+      "solution_idea": "Interval DP (optimal BST style): a[i][j] = min over root k of a[i][k-1] + a[k+1][j] + cost of the edges to the children, where the edge from k to the subtree [i,k-1] is paid by every pair with exactly one endpoint in [i,k-1], i.e. sum of c over [i,k-1] x (outside), computable in O(1) with 2D prefix sums. O(n^3).",
+      "solution_source": "editorial",
+      "candidate_tags": [
+        "interval dp",
+        "optimal binary search tree",
+        "2d prefix sums",
+        "trees"
+      ],
+      "cf_tags": [
+        "constructive algorithms",
+        "dp",
+        "shortest paths",
+        "trees"
+      ],
+      "cf_rating": 2100
+    },
+    {
+      "id": "nerc2022apr-K",
+      "contest": "nerc2022apr",
+      "letter": "K",
+      "title": "Kingdom Partition",
+      "solved_teams": 0,
+      "attempted_teams": 4,
+      "first_solve_min": null,
+      "links": {
+        "mirror": "https://codeforces.com/contest/1666/problem/K",
+        "kattis": null,
+        "statement": "https://nerc.itmo.ru/archive/2021/nerc-2021-statement.pdf"
+      },
+      "statement_summary": "Partition the towns of a weighted graph into districts A (contains a), B (contains b), C so that the cost is minimized, where edges inside A or inside B cost 2l, edges A-C or B-C cost l, and A-B or C-C edges cost 0; output the partition.",
+      "solution_idea": "Min cut with a skew-symmetric (doubled) graph: split each vertex v into v1, v2 and each edge uv into u1-v2 and u2-v1 with capacity l. The cut coefficient matrix over vertex states ST/TS/SS/TT contains the desired A/B/C cost matrix, with A=ST, B=TS, C=SS (TT can be converted to SS without increasing cost by submodularity). Force a in ST and b in TS with infinite edges from source/sink and run Dinic.",
+      "solution_source": "editorial",
+      "candidate_tags": [
+        "min cut",
+        "max flow",
+        "graph doubling",
+        "submodularity",
+        "dinic"
+      ],
+      "cf_tags": [
+        "flows"
+      ],
+      "cf_rating": 3200
+    },
+    {
+      "id": "nerc2022apr-L",
+      "contest": "nerc2022apr",
+      "letter": "L",
+      "title": "Labyrinth",
+      "solved_teams": 137,
+      "attempted_teams": 173,
+      "first_solve_min": 25,
+      "links": {
+        "mirror": "https://codeforces.com/contest/1666/problem/L",
+        "kattis": null,
+        "statement": "https://nerc.itmo.ru/archive/2021/nerc-2021-statement.pdf"
+      },
+      "statement_summary": "Directed graph (n <= 2e5): find a vertex t != s and two paths from s to t that are internally vertex-disjoint, or report impossible.",
+      "solution_idea": "Run DFS from s and label each vertex by the child subtree of s it belongs to. If some vertex t has an incoming edge from a vertex in a different root-subtree than t (or directly from s while t's tree parent is not s), the tree path to t and the tree path to that vertex plus the edge form the answer. Choosing t at minimal distance proves that such a pair of penultimate vertices in different subtrees always exists when an answer exists. O(n+m).",
+      "solution_source": "editorial",
+      "candidate_tags": [
+        "dfs tree",
+        "graphs",
+        "vertex-disjoint paths",
+        "constructive"
+      ],
+      "cf_tags": [
+        "dfs and similar",
+        "graphs"
+      ],
+      "cf_rating": 1800
+    },
+    {
+      "id": "nerc2022dec-A",
+      "contest": "nerc2022dec",
+      "letter": "A",
+      "title": "Amazing Trick",
+      "solved_teams": 108,
+      "attempted_teams": 205,
+      "first_solve_min": 25,
+      "links": {
+        "mirror": "https://codeforces.com/contest/1773/problem/A",
+        "kattis": null,
+        "statement": "https://nerc.itmo.ru/archive/2022/nef-2022-statement.pdf"
+      },
+      "statement_summary": "Given a permutation a of size n (sum n <= 1e5), find two derangements p and q (no fixed points) such that a[p[q[i]]] = i for all i, or report impossible.",
+      "solution_idea": "Small n (<= 4): brute force all options. Otherwise randomized: pick a random derangement q (or random permutation), compute p forced by the equation, and retry until p also has no fixed points; each try succeeds with roughly constant probability (~1/e behaviour of random permutations), so few retries are needed. O(n) per attempt.",
+      "solution_source": "editorial",
+      "candidate_tags": [
+        "randomized algorithm",
+        "permutations",
+        "derangements",
+        "constructive",
+        "brute force small cases"
+      ],
+      "cf_tags": [
+        "constructive algorithms",
+        "graph matchings",
+        "math",
+        "probabilities"
+      ],
+      "cf_rating": 1900
+    },
+    {
+      "id": "nerc2022dec-B",
+      "contest": "nerc2022dec",
+      "letter": "B",
+      "title": "BinCoin",
+      "solved_teams": 34,
+      "attempted_teams": 51,
+      "first_solve_min": 121,
+      "links": {
+        "mirror": "https://codeforces.com/contest/1773/problem/B",
+        "kattis": null,
+        "statement": "https://nerc.itmo.ru/archive/2022/nef-2022-statement.pdf"
+      },
+      "statement_summary": "A hidden full binary tree on n employees; given k >= 50 random in-order-like traversals (each node randomly chooses which child to visit first, signing between children), reconstruct the tree.",
+      "solution_idea": "Find the root: for the true root the set of nodes appearing before it in a traversal takes only 2 distinct values (left subtree or right subtree), while any other node yields at least 4 with high probability. Compare sets via hashing (random value per vertex, set hash = sum over a subarray via prefix sums). Then split into the two child subtrees and recurse. O(n^2) with negligible failure probability.",
+      "solution_source": "editorial",
+      "candidate_tags": [
+        "randomization",
+        "hashing sets",
+        "divide and conquer",
+        "trees",
+        "prefix sums"
+      ],
+      "cf_tags": [
+        "binary search",
+        "divide and conquer",
+        "hashing",
+        "implementation",
+        "probabilities",
+        "trees"
+      ],
+      "cf_rating": 2200
+    },
+    {
+      "id": "nerc2022dec-C",
+      "contest": "nerc2022dec",
+      "letter": "C",
+      "title": "Cactus Meets Torus",
+      "solved_teams": 3,
+      "attempted_teams": 6,
+      "first_solve_min": 223,
+      "links": {
+        "mirror": "https://codeforces.com/contest/1773/problem/C",
+        "kattis": null,
+        "statement": "https://nerc.itmo.ru/archive/2022/nef-2022-statement.pdf"
+      },
+      "statement_summary": "Decide whether a given cactus graph can be embedded on a torus so that no single cycle of the cactus separates the torus into two pieces (each cycle must be non-contractible).",
+      "solution_idea": "Topological case analysis on homotopy classes of cycles: with >= 2 classes, either all cycles share a common point or one class is a single cycle intersecting all others (check via per-vertex cycle counts: a cycle with sum of c_v = #cycles + |cycle| - 1). With one class, cycles must be orderable so consecutive ones are joined by paths of bridge edges: replace each cycle by a special vertex adjacent to its vertices and check (by DFS) for a simple path dominating all special vertices within distance 1.",
+      "solution_source": "editorial",
+      "candidate_tags": [
+        "cactus graph",
+        "topology",
+        "graph embedding",
+        "dfs",
+        "case analysis"
+      ],
+      "cf_tags": [],
+      "cf_rating": 3500
+    },
+    {
+      "id": "nerc2022dec-D",
+      "contest": "nerc2022dec",
+      "letter": "D",
+      "title": "Dominoes",
+      "solved_teams": 20,
+      "attempted_teams": 29,
+      "first_solve_min": 51,
+      "links": {
+        "mirror": "https://codeforces.com/contest/1773/problem/D",
+        "kattis": null,
+        "statement": "https://nerc.itmo.ru/archive/2022/nef-2022-statement.pdf"
+      },
+      "statement_summary": "Grid up to 1000x1000 with some blocked cells admits a domino tiling; count pairs of free cells whose blocking makes tiling impossible, output min(count, 1e6).",
+      "solution_idea": "Chessboard bipartite graph; tiling = perfect matching. Two cells of the same color always break it: X = C(n1,2)+C(n2,2); if X >= 1e6 output 1e6. Otherwise there are <= ~2000 cells. For a pair (u black, v white), take a fixed perfect matching M; removing u,v leaves their partners u', v' unmatched and a perfect matching exists iff there is an alternating path from v' to u' (or uv in M). Precompute alternating-path reachability from every vertex with DFS: O(nm + n^2).",
+      "solution_source": "editorial",
+      "candidate_tags": [
+        "bipartite matching",
+        "domino tiling",
+        "alternating paths",
+        "counting with cap",
+        "dfs reachability"
+      ],
+      "cf_tags": [
+        "combinatorics",
+        "flows",
+        "graph matchings",
+        "greedy"
+      ],
+      "cf_rating": 2600
+    },
+    {
+      "id": "nerc2022dec-E",
+      "contest": "nerc2022dec",
+      "letter": "E",
+      "title": "Easy Assembly",
+      "solved_teams": 236,
+      "attempted_teams": 260,
+      "first_solve_min": 8,
+      "links": {
+        "mirror": "https://codeforces.com/contest/1773/problem/E",
+        "kattis": null,
+        "statement": "https://nerc.itmo.ru/archive/2022/nef-2022-statement.pdf"
+      },
+      "statement_summary": "Towers of numbered blocks; operations split a tower (take top part) or combine two towers. Find the minimal number of splits and combines to get one sorted tower.",
+      "solution_idea": "Relabel blocks by rank. Splits are required exactly at positions where consecutive blocks in a tower are not consecutive ranks (x followed by y with y != x+1): s = count of such places. Then c = n + s - 1 combines. O(total blocks log).",
+      "solution_source": "editorial",
+      "candidate_tags": [
+        "greedy",
+        "sorting",
+        "counting adjacent pairs",
+        "implementation"
+      ],
+      "cf_tags": [
+        "greedy",
+        "sortings"
+      ],
+      "cf_rating": 1400
+    },
+    {
+      "id": "nerc2022dec-F",
+      "contest": "nerc2022dec",
+      "letter": "F",
+      "title": "Football",
+      "solved_teams": 267,
+      "attempted_teams": 276,
+      "first_solve_min": 5,
+      "links": {
+        "mirror": "https://codeforces.com/contest/1773/problem/F",
+        "kattis": null,
+        "statement": "https://nerc.itmo.ru/archive/2022/nef-2022-statement.pdf"
+      },
+      "statement_summary": "Given n matches with total goals scored a and conceded b, construct scores minimizing the number of draws.",
+      "solution_idea": "Case analysis: n = 1 forced; if a + b < n, use a matches 1:0, b matches 0:1, rest 0:0; if one of a,b is zero, spread goals as x:0 (or 0:x) with x > 0 when possible; otherwise make two matches 1:0 and 0:1 absorbing excess goals, and the rest 1:0 / 0:1. Zero draws whenever feasible.",
+      "solution_source": "editorial",
+      "candidate_tags": [
+        "constructive",
+        "case analysis",
+        "greedy",
+        "math"
+      ],
+      "cf_tags": [
+        "constructive algorithms"
+      ],
+      "cf_rating": 800
+    },
+    {
+      "id": "nerc2022dec-G",
+      "contest": "nerc2022dec",
+      "letter": "G",
+      "title": "Game of Questions",
+      "solved_teams": 6,
+      "attempted_teams": 19,
+      "first_solve_min": 109,
+      "links": {
+        "mirror": "https://codeforces.com/contest/1773/problem/G",
+        "kattis": null,
+        "statement": "https://nerc.itmo.ru/archive/2022/nef-2022-statement.pdf"
+      },
+      "statement_summary": "n <= 2e5 questions in random order, m <= 17 participants with known correct/incorrect answers; a question eliminates wrong answerers unless all remaining agree. Find the probability that participant 1 survives to the end.",
+      "solution_idea": "State = bitmask t of remaining players; only the first question that splits t matters and all splitting questions are equally likely to be first. f(t) = average over splitting questions of f(t & a_i). Group questions by (t & a_i): iterate over submasks s of t and count questions with t & a_i = s using a wildcard-mask counting table g over 3^m ternary masks (g(..?..) = g(..0..) + g(..1..)). O(nm + 3^m).",
+      "solution_source": "editorial",
+      "candidate_tags": [
+        "bitmask dp",
+        "probability",
+        "submask enumeration",
+        "sos dp ternary",
+        "expected value"
+      ],
+      "cf_tags": [
+        "bitmasks",
+        "combinatorics",
+        "dp",
+        "fft",
+        "math",
+        "probabilities"
+      ],
+      "cf_rating": 2800
+    },
+    {
+      "id": "nerc2022dec-H",
+      "contest": "nerc2022dec",
+      "letter": "H",
+      "title": "Hot and Cold",
+      "solved_teams": 21,
+      "attempted_teams": 70,
+      "first_solve_min": 65,
+      "links": {
+        "mirror": "https://codeforces.com/contest/1773/problem/H",
+        "kattis": null,
+        "statement": "https://nerc.itmo.ru/archive/2022/nef-2022-statement.pdf"
+      },
+      "statement_summary": "Interactive: a treasure at an unknown integer point in [0,1e6]^2; each visited point returns 'closer', 'further' or 'same' (in an unknown language) relative to the previous one; find it with <= 64 visits.",
+      "solution_idea": "First identify the 'Closer' phrase in a few moves (visit (0,0),(1,1),(1e6,1e6),(1e6-1,1e6-1) and compare; handle corner cases). Then binary search in 2D: visit the center of the candidate rectangle, step one unit right (tells which horizontal half via closer/further) and one unit up (which vertical half), halving both dimensions every 3 queries; finish with the remaining small rectangle.",
+      "solution_source": "editorial",
+      "candidate_tags": [
+        "interactive",
+        "binary search",
+        "2d bisection",
+        "case analysis"
+      ],
+      "cf_tags": [
+        "binary search",
+        "interactive"
+      ],
+      "cf_rating": 2600
+    },
+    {
+      "id": "nerc2022dec-I",
+      "contest": "nerc2022dec",
+      "letter": "I",
+      "title": "Interactive Factorial Guessing",
+      "solved_teams": 8,
+      "attempted_teams": 30,
+      "first_solve_min": 69,
+      "links": {
+        "mirror": "https://codeforces.com/contest/1773/problem/I",
+        "kattis": null,
+        "statement": "https://nerc.itmo.ru/archive/2022/nef-2022-statement.pdf"
+      },
+      "statement_summary": "Interactive: guess n (1 <= n <= 5982) using at most 10 queries, each revealing the k-th decimal digit of n!.",
+      "solution_idea": "Precompute all factorials with a custom decimal big integer (base 1e9). Build a decision tree: at each step choose the digit position whose answer best splits the set of still-consistent candidates (minimize the largest group); restrict candidate positions (e.g. last ~2000 digits, near first nonzero digits since trailing zeros carry little information) and precompute the first queries to make it fast.",
+      "solution_source": "editorial",
+      "candidate_tags": [
+        "interactive",
+        "big integers",
+        "decision tree",
+        "greedy information split",
+        "precomputation"
+      ],
+      "cf_tags": [
+        "brute force",
+        "games",
+        "implementation",
+        "interactive"
+      ],
+      "cf_rating": 2500
+    },
+    {
+      "id": "nerc2022dec-J",
+      "contest": "nerc2022dec",
+      "letter": "J",
+      "title": "Jumbled Trees",
+      "solved_teams": 2,
+      "attempted_teams": 5,
+      "first_solve_min": 248,
+      "links": {
+        "mirror": "https://codeforces.com/contest/1773/problem/J",
+        "kattis": null,
+        "statement": "https://nerc.itmo.ru/archive/2022/nef-2022-statement.pdf"
+      },
+      "statement_summary": "Connected multigraph (n <= 500, m <= 1000) and prime p; using operations 'add v to all edges of a spanning tree', reach target edge values mod p with at most 2m operations, or report impossible.",
+      "solution_idea": "Within each biconnected block every spanning tree contains exactly (block size - 1) edges, so with S = total added, T_block = (k-1)S mod p; solve these congruences for S (none/unique/any). Apply one tree with value S, then each block's sum is zero, and use 'transfers' (+x on T1, -x on T2 where T2 = T1 - e1 + e2) to move values along cycles: process edges deepest-first in a DFS tree, moving each value to a higher edge on a base cycle. At most 2m-1 trees, O(nm).",
+      "solution_source": "editorial",
+      "candidate_tags": [
+        "linear algebra mod p",
+        "spanning trees",
+        "biconnected components",
+        "constructive",
+        "dfs tree"
+      ],
+      "cf_tags": [
+        "constructive algorithms",
+        "math"
+      ],
+      "cf_rating": 2900
+    },
+    {
+      "id": "nerc2022dec-K",
+      "contest": "nerc2022dec",
+      "letter": "K",
+      "title": "King's Puzzle",
+      "solved_teams": 179,
+      "attempted_teams": 225,
+      "first_solve_min": 32,
+      "links": {
+        "mirror": "https://codeforces.com/contest/1773/problem/K",
+        "kattis": null,
+        "statement": "https://nerc.itmo.ru/archive/2022/nef-2022-statement.pdf"
+      },
+      "statement_summary": "Construct a connected simple graph on n <= 500 vertices whose degree set has exactly k distinct values, or say impossible.",
+      "solution_idea": "k = n > 1 is impossible (degrees 0 and n-1 cannot coexist); n=k=1 trivial; k=1: a cycle (or K2). Otherwise induct keeping one vertex of degree n-1 and some leaves: if k+1 < n, take G(n-1,k) and attach a new leaf to the universal vertex; if k+1 = n, take G(n-2,k-2) and add vertex u connected to everything plus new leaf v, shifting degrees by one. Small bases n=3,4 by hand.",
+      "solution_source": "editorial",
+      "candidate_tags": [
+        "constructive",
+        "graph construction",
+        "degree sequence",
+        "induction"
+      ],
+      "cf_tags": [
+        "constructive algorithms"
+      ],
+      "cf_rating": 1900
+    },
+    {
+      "id": "nerc2022dec-L",
+      "contest": "nerc2022dec",
+      "letter": "L",
+      "title": "Lisa's Sequences",
+      "solved_teams": 0,
+      "attempted_teams": 7,
+      "first_solve_min": null,
+      "links": {
+        "mirror": "https://codeforces.com/contest/1773/problem/L",
+        "kattis": null,
+        "statement": "https://nerc.itmo.ru/archive/2022/nef-2022-statement.pdf"
+      },
+      "statement_summary": "Sequence of n <= 1e6 values; change the minimum number of elements so that no non-strictly monotone (non-decreasing or non-increasing) contiguous run has length k; output the new sequence.",
+      "solution_idea": "Lemma: changed elements can always be set to an extreme value (+inf=100000 or -inf=0). Scan left to right with a checker state (direction d, current monotone run length t, length s of the trailing equal run), and DP over choices (keep / set high / set low) per element. Keep only the best (m, t, s) lexicographically per (last choice, direction) pair, i.e. O(1) states per position, giving O(n) with reconstruction.",
+      "solution_source": "editorial",
+      "candidate_tags": [
+        "dp",
+        "greedy state pruning",
+        "monotone runs",
+        "constructive",
+        "linear scan"
+      ],
+      "cf_tags": [
+        "dp"
+      ],
+      "cf_rating": 3500
+    },
+    {
+      "id": "nerc2023-A",
+      "contest": "nerc2023",
+      "letter": "A",
+      "title": "Accumulator Apex",
+      "solved_teams": 196,
+      "attempted_teams": 260,
+      "first_solve_min": 8,
+      "links": {
+        "mirror": "https://codeforces.com/contest/1912/problem/A",
+        "kattis": null,
+        "statement": "https://nerc.itmo.ru/archive/2023/nef-2023-statement.pdf"
+      },
+      "statement_summary": "Accumulator x >= 0 and k lists (total size 1e5); repeatedly take the leftmost element of any list and add it if x stays non-negative. Maximize the final x.",
+      "solution_idea": "Cut each list greedily into blocks ending as soon as the running sum becomes positive, recording each block's gain and its required minimum prefix (most negative prefix sum). Blocks that never become positive are useless. Then greedy with a priority queue: always apply the available block (head of some list) with the least demanding minimum prefix while x can afford it, pushing that list's next block. O(N log N).",
+      "solution_source": "editorial",
+      "candidate_tags": [
+        "greedy",
+        "priority queue",
+        "prefix sums",
+        "block decomposition"
+      ],
+      "cf_tags": [
+        "data structures",
+        "implementation",
+        "sortings"
+      ],
+      "cf_rating": 1900
+    },
+    {
+      "id": "nerc2023-B",
+      "contest": "nerc2023",
+      "letter": "B",
+      "title": "Blueprint for Seating",
+      "solved_teams": 87,
+      "attempted_teams": 129,
+      "first_solve_min": 26,
+      "links": {
+        "mirror": "https://codeforces.com/contest/1912/problem/B",
+        "kattis": null,
+        "statement": "https://nerc.itmo.ru/archive/2023/nef-2023-statement.pdf"
+      },
+      "statement_summary": "A seat row of n <= 1e9 seats with k aisles (t tests, sum k <= 1e6): find the minimum total distance of seats to the nearest aisle over all layouts and count optimal layouts mod 998244353.",
+      "solution_idea": "Each window group contributes s(t) and each middle group s(t1)+s(t2) with s(x)=x(x-1)/2; by convexity (exchange argument) all 2k half-groups must have sizes floor(n/2k) or ceil. Enumerate the 4 choices for window group sizes, then count arrangements of the k-1 middle groups of sizes 2t, 2t+1, 2t+2 by iterating over the number g of odd-sized groups and multiplying binomial/multinomial coefficients (with factorials and linear-time inverses). O(k) per test.",
+      "solution_source": "editorial",
+      "candidate_tags": [
+        "combinatorics",
+        "convexity exchange argument",
+        "binomial coefficients",
+        "math",
+        "modular inverses"
+      ],
+      "cf_tags": [
+        "combinatorics",
+        "divide and conquer",
+        "math"
+      ],
+      "cf_rating": 2100
+    },
+    {
+      "id": "nerc2023-C",
+      "contest": "nerc2023",
+      "letter": "C",
+      "title": "Cactus Transformation",
+      "solved_teams": 2,
+      "attempted_teams": 15,
+      "first_solve_min": 179,
+      "links": {
+        "mirror": "https://codeforces.com/contest/1912/problem/C",
+        "kattis": null,
+        "statement": "https://nerc.itmo.ru/archive/2023/nef-2023-statement.pdf"
+      },
+      "statement_summary": "Transform one cactus into another with the same n and m using at most 15000 operations, each removing an edge then adding a new edge so the graph is again a cactus; or report impossible.",
+      "solution_idea": "Impossible only if graphs differ and the cactus consists solely of triangles with no bridges. Otherwise transform both cacti to a canonical 'star cactus' (triangles and bridges all through vertex 1) and concatenate the first sequence with the reverse of the second: shorten cycles of length > 3 by re-chording, move bridges to vertex 1, re-hang triangles at vertex 1 with 2-3 local operations, then fix vertex labels with swap gadgets. ~5000 operations.",
+      "solution_source": "editorial",
+      "candidate_tags": [
+        "constructive",
+        "cactus graph",
+        "canonical form",
+        "reversible operations"
+      ],
+      "cf_tags": [
+        "constructive algorithms"
+      ],
+      "cf_rating": 3300
+    },
+    {
+      "id": "nerc2023-D",
+      "contest": "nerc2023",
+      "letter": "D",
+      "title": "Divisibility Test",
+      "solved_teams": 138,
+      "attempted_teams": 172,
+      "first_solve_min": 13,
+      "links": {
+        "mirror": "https://codeforces.com/contest/1912/problem/D",
+        "kattis": null,
+        "statement": "https://nerc.itmo.ru/archive/2023/nef-2023-statement.pdf"
+      },
+      "statement_summary": "Given base b and modulus n (sum of b, n <= 1e6), find the smallest k such that n has a divisibility rule in base b of kind: last k digits, sum of k-digit groups, or alternating sum of k-digit groups.",
+      "solution_idea": "The three rules hold exactly when b^k = 0, 1, or -1 (mod n) respectively. Iterate k = 1, 2, ... computing b^k mod n and stop at the first hit; if the remainder sequence cycles without reaching 0, 1, n-1, answer 0. O(n) per test.",
+      "solution_source": "editorial",
+      "candidate_tags": [
+        "number theory",
+        "modular arithmetic",
+        "powers modulo n",
+        "cycle detection"
+      ],
+      "cf_tags": [
+        "math"
+      ],
+      "cf_rating": 1900
+    },
+    {
+      "id": "nerc2023-E",
+      "contest": "nerc2023",
+      "letter": "E",
+      "title": "Evaluate It and Back Again",
+      "solved_teams": 105,
+      "attempted_teams": 123,
+      "first_solve_min": 28,
+      "links": {
+        "mirror": "https://codeforces.com/contest/1912/problem/E",
+        "kattis": null,
+        "statement": "https://nerc.itmo.ru/archive/2023/nef-2023-statement.pdf"
+      },
+      "statement_summary": "Given p, q with |p|,|q| <= 1e18, output an expression with digits, +, -, * (<= 1000 chars) that evaluates to p read left-to-right and to q read right-to-left.",
+      "solution_idea": "Gadget f(X) = 'X+X-0' evaluates to 2X forwards and to '0-rev(X)+rev(X)' = 0 backwards. If p, q are both even, answer f(p/2) + rev(f(q/2)). Fix parity first by prefixing '12+' (adds 12 forward, 21 backward) and appending '+x' with suitable x; choose x to avoid trailing zeros (numbers whose reverse would have leading zeros).",
+      "solution_source": "editorial",
+      "candidate_tags": [
+        "constructive",
+        "strings",
+        "math",
+        "palindromic gadget"
+      ],
+      "cf_tags": [
+        "constructive algorithms",
+        "implementation",
+        "math"
+      ],
+      "cf_rating": 2200
+    },
+    {
+      "id": "nerc2023-F",
+      "contest": "nerc2023",
+      "letter": "F",
+      "title": "Fugitive Frenzy",
+      "solved_teams": 1,
+      "attempted_teams": 11,
+      "first_solve_min": 235,
+      "links": {
+        "mirror": "https://codeforces.com/contest/1912/problem/F",
+        "kattis": null,
+        "statement": "https://nerc.itmo.ru/archive/2023/nef-2023-statement.pdf"
+      },
+      "statement_summary": "Pursuit on a tree (n <= 100): a slow police officer starts at s, a fast fugitive can jump anywhere not passing through the officer. Compute the expected capture time under optimal mixed strategies.",
+      "solution_idea": "Show the game reduces to 'initial states' when the officer is at a leaf: the fugitive picks a random leaf, the officer picks a leaf and walks there. The Nash equilibrium gives a system x_u = (|L|-1 + sum_{v in L} dist(u,v)/x_v) / (sum_{v in L} 1/x_v) over leaf values; solve it by fixed-point iteration (converges fast) and then evaluate x_s. O(n*L + q*L^2).",
+      "solution_source": "editorial",
+      "candidate_tags": [
+        "game theory",
+        "nash equilibrium",
+        "expected value",
+        "fixed point iteration",
+        "trees"
+      ],
+      "cf_tags": [
+        "math",
+        "probabilities"
+      ],
+      "cf_rating": 3100
+    },
+    {
+      "id": "nerc2023-G",
+      "contest": "nerc2023",
+      "letter": "G",
+      "title": "Great City Saint Petersburg",
+      "solved_teams": 19,
+      "attempted_teams": 42,
+      "first_solve_min": 100,
+      "links": {
+        "mirror": "https://codeforces.com/contest/1912/problem/G",
+        "kattis": null,
+        "statement": "https://nerc.itmo.ru/archive/2023/nef-2023-statement.pdf"
+      },
+      "statement_summary": "Trapping rain water on n heights (n, q <= 2e5) with q range +1 updates; output the water volume initially and after each update.",
+      "solution_idea": "Water = sum min(prefixmax_i, suffixmax_i) - sum a_i. A range +1 update induces at most one contiguous range +1 on the prefix-max array and one on the suffix-max array (endpoints found by segment-tree descent for first element exceeding a value). Keep a segment tree over p_i - q_i (monotone) to know where p_i < q_i, so the change of sum min(p,q) under a range increment of p or q is a count query. O((n+q) log n).",
+      "solution_source": "editorial",
+      "candidate_tags": [
+        "segment tree",
+        "trapping rain water",
+        "prefix maximum",
+        "range updates",
+        "monotonicity"
+      ],
+      "cf_tags": [
+        "data structures"
+      ],
+      "cf_rating": 2400
+    },
+    {
+      "id": "nerc2023-H",
+      "contest": "nerc2023",
+      "letter": "H",
+      "title": "Hypercatapult Commute",
+      "solved_teams": 13,
+      "attempted_teams": 27,
+      "first_solve_min": 74,
+      "links": {
+        "mirror": "https://codeforces.com/contest/1912/problem/H",
+        "kattis": null,
+        "statement": "https://nerc.itmo.ru/archive/2023/nef-2023-statement.pdf"
+      },
+      "statement_summary": "n <= 1000 cities, m <= 1e5 passengers (a_i -> b_i); each city's catapult can be used once a day; find a minimal sequence of launches delivering everyone (passengers can transfer), or impossible.",
+      "solution_idea": "Process each weakly connected component of the request digraph. If it is acyclic, k-1 launches in topological order suffice. Otherwise k launches are needed, achieved by one big cycle of launches; the first launch from v only breaks requests out of v, so find a vertex v whose outgoing edges' removal makes the component acyclic (check each v with a topological sort), start the cycle at v. O(nm).",
+      "solution_source": "editorial",
+      "candidate_tags": [
+        "graphs",
+        "topological sort",
+        "weakly connected components",
+        "cycle detection",
+        "constructive"
+      ],
+      "cf_tags": [
+        "graphs"
+      ],
+      "cf_rating": 2400
+    },
+    {
+      "id": "nerc2023-I",
+      "contest": "nerc2023",
+      "letter": "I",
+      "title": "Innovative Washing Machine",
+      "solved_teams": 1,
+      "attempted_teams": 12,
+      "first_solve_min": 291,
+      "links": {
+        "mirror": "https://codeforces.com/contest/1912/problem/I",
+        "kattis": null,
+        "statement": "https://nerc.itmo.ru/archive/2023/nef-2023-statement.pdf"
+      },
+      "statement_summary": "A convex polygon drum (n vertices) rotating uniformly with water of area s at the bottom; compute the time-average of the 'pressure imbalance' (average depth difference of submerged vertices from the deepest one).",
+      "solution_idea": "Write f(theta) with projections p_i(theta) = -x_i sin + y_i cos: imbalance = mean projection of submerged vertices minus the global minimum projection. The integral of the minimum projection over a full turn equals minus the perimeter. For the mean part, find the angles where the submerged vertex set changes using two pointers over the polygon with prefix cross-product areas (cut triangle at given area ratio), sort events, and integrate sin/cos analytically on each interval with constant mean coordinates. O(n log n).",
+      "solution_source": "editorial",
+      "candidate_tags": [
+        "computational geometry",
+        "two pointers",
+        "integration",
+        "polygon area",
+        "event sorting"
+      ],
+      "cf_tags": [
+        "geometry",
+        "math",
+        "two pointers"
+      ],
+      "cf_rating": 3300
+    },
+    {
+      "id": "nerc2023-J",
+      "contest": "nerc2023",
+      "letter": "J",
+      "title": "Joy of Pokémon Observation",
+      "solved_teams": 35,
+      "attempted_teams": 51,
+      "first_solve_min": 55,
+      "links": {
+        "mirror": "https://codeforces.com/contest/1912/problem/J",
+        "kattis": null,
+        "statement": "https://nerc.itmo.ru/archive/2023/nef-2023-statement.pdf"
+      },
+      "statement_summary": "For each of h <= 1024 habitats, count non-negative integer solutions of sum c_i * l_i = t for s <= 3 species with l_i <= 16 and t <= 1e9.",
+      "solution_idea": "Count lattice points of a linear Diophantine equation with tiny coefficients: for s=2 iterate the residue of one variable modulo the other coefficient and count the rest by division; for s=3 iterate residues modulo c (and b), reducing to counting pairs with a*ka + b*kb <= R, summed as an arithmetic progression in closed form. Big-integer-free O(l^2) per habitat.",
+      "solution_source": "editorial",
+      "candidate_tags": [
+        "number theory",
+        "counting lattice points",
+        "diophantine equation",
+        "arithmetic progression sum",
+        "math"
+      ],
+      "cf_tags": [],
+      "cf_rating": 2300
+    },
+    {
+      "id": "nerc2023-K",
+      "contest": "nerc2023",
+      "letter": "K",
+      "title": "Kim's Quest",
+      "solved_teams": 169,
+      "attempted_teams": 180,
+      "first_solve_min": 10,
+      "links": {
+        "mirror": "https://codeforces.com/contest/1912/problem/K",
+        "kattis": null,
+        "statement": "https://nerc.itmo.ru/archive/2023/nef-2023-statement.pdf"
+      },
+      "statement_summary": "Count subsequences of length >= 3 of a sequence (n <= 2e5) in which every three consecutive chosen elements have an even sum, modulo 998244353.",
+      "solution_idea": "Only parities matter. DP over the sequence with state (parity of last chosen, parity of second-to-last chosen / fewer than 2 chosen): appending a_i is allowed if x + y + a_i is even. O(n) with 4-6 states.",
+      "solution_source": "editorial",
+      "candidate_tags": [
+        "dp",
+        "counting subsequences",
+        "parity",
+        "modular arithmetic"
+      ],
+      "cf_tags": [
+        "bitmasks",
+        "combinatorics",
+        "dp"
+      ],
+      "cf_rating": 1800
+    },
+    {
+      "id": "nerc2023-L",
+      "contest": "nerc2023",
+      "letter": "L",
+      "title": "LOL Lovers",
+      "solved_teams": 268,
+      "attempted_teams": 276,
+      "first_solve_min": 3,
+      "links": {
+        "mirror": "https://codeforces.com/contest/1912/problem/L",
+        "kattis": null,
+        "statement": "https://nerc.itmo.ru/archive/2023/nef-2023-statement.pdf"
+      },
+      "statement_summary": "A string of L/O of length n <= 200; split into nonempty prefix and suffix so the two parts have different numbers of L and different numbers of O.",
+      "solution_idea": "Try every split point and check counts (n is tiny); or observe cutting off only the first/last letter works except for a few patterns. O(n).",
+      "solution_source": "editorial",
+      "candidate_tags": [
+        "brute force",
+        "prefix sums",
+        "strings",
+        "implementation"
+      ],
+      "cf_tags": [
+        "strings"
+      ],
+      "cf_rating": 800
+    },
+    {
+      "id": "nerc2024-A",
+      "contest": "nerc2024",
+      "letter": "A",
+      "title": "Adrenaline Rush",
+      "solved_teams": 248,
+      "attempted_teams": 290,
+      "first_solve_min": 6,
+      "links": {
+        "mirror": "https://codeforces.com/contest/2052/problem/A",
+        "kattis": null,
+        "statement": "https://nerc.itmo.ru/archive/2024/nef-2024-statement.pdf"
+      },
+      "statement_summary": "Cars 1..n (n <= 1000) start in order and finish in a given permutation; each ordered pair may overtake at most once. Output a longest possible sequence of adjacent overtakes consistent with the final order.",
+      "solution_idea": "Upper bound: pairs that end inverted contribute exactly 1 overtake, pairs in original relative order at most 2, so the answer is n(n-1) - inv(c). Achieve it constructively: process cars from last finisher to first; each car overtakes all cars in front of it one by one and then is overtaken back by those that must finish ahead of it. O(n^2) output.",
+      "solution_source": "editorial",
+      "candidate_tags": [
+        "constructive",
+        "permutations",
+        "inversions",
+        "simulation"
+      ],
+      "cf_tags": [
+        "constructive algorithms"
+      ],
+      "cf_rating": 1600
+    },
+    {
+      "id": "nerc2024-B",
+      "contest": "nerc2024",
+      "letter": "B",
+      "title": "BitBitJump",
+      "solved_teams": 46,
+      "attempted_teams": 68,
+      "first_solve_min": 100,
+      "links": {
+        "mirror": "https://codeforces.com/contest/2052/problem/B",
+        "kattis": null,
+        "statement": "https://nerc.itmo.ru/archive/2024/nef-2024-statement.pdf"
+      },
+      "statement_summary": "Write a generator that outputs a program for a one-instruction BitBitJump machine (copy bit a to bit b, jump to c; 2^12 16-bit words) which checks whether the IO word equals a given 16-bit x, leaving the result in its lowest bit.",
+      "solution_idea": "Self-modifying code: each instruction copies the next input bit into the low bits of its own jump target, so execution branches on that bit. Use two blocks of 17 instructions (at words 0 and 64): depending on bit i of x, the matching branch continues to the next instruction of the 'still equal' block while the other branches to a 'return false' instruction; the final instruction writes 1 (true) or 0 to the IO bit and jumps to the halt address.",
+      "solution_source": "editorial",
+      "candidate_tags": [
+        "constructive",
+        "self-modifying code",
+        "esoteric machine simulation",
+        "bit manipulation"
+      ],
+      "cf_tags": [],
+      "cf_rating": 2400
+    },
+    {
+      "id": "nerc2024-C",
+      "contest": "nerc2024",
+      "letter": "C",
+      "title": "Cactus without Bridges",
+      "solved_teams": 0,
+      "attempted_teams": 4,
+      "first_solve_min": null,
+      "links": {
+        "mirror": "https://codeforces.com/contest/2052/problem/C",
+        "kattis": null,
+        "statement": "https://nerc.itmo.ru/archive/2024/nef-2024-statement.pdf"
+      },
+      "statement_summary": "Bridgeless cactus where every odd cycle is at least as long as the number of odd cycles: label edges with 1..t (all used) so that at every vertex the incident labels are distinct and consecutive (interval edge coloring), or say impossible.",
+      "solution_idea": "Parity argument: every vertex has even degree, so half its labels are odd; by handshake counting the number of odd-labelled edges is |E|/2, so |E| must be even, i.e. the number of odd cycles must be even (otherwise impossible). Otherwise construct by induction on cycles: removing a cycle splits the cactus into components of type 1/2, and the cycle labels are chosen so consecutive edges differ by F(v) in {+-1, +-2} with zero total; the length condition guarantees a valid sign choice. Shift subcomponent labels accordingly.",
+      "solution_source": "editorial",
+      "candidate_tags": [
+        "constructive",
+        "interval edge coloring",
+        "cactus graph",
+        "parity argument",
+        "induction"
+      ],
+      "cf_tags": [
+        "constructive algorithms",
+        "math"
+      ],
+      "cf_rating": 3500
+    },
+    {
+      "id": "nerc2024-D",
+      "contest": "nerc2024",
+      "letter": "D",
+      "title": "DAG Serialization",
+      "solved_teams": 114,
+      "attempted_teams": 151,
+      "first_solve_min": 26,
+      "links": {
+        "mirror": "https://codeforces.com/contest/2052/problem/D",
+        "kattis": null,
+        "statement": "https://nerc.itmo.ru/archive/2024/nef-2024-statement.pdf"
+      },
+      "statement_summary": "n <= 1e5 set/unset operations on a boolean register with known return values (at most two return true) and a DAG of precedence constraints; find a topological order producing exactly those results.",
+      "solution_idea": "The register has at most three phases: false, true (after 'set true'), false (after 'unset true'). 'set false' must happen during the true phase: add arcs set-true -> set-false -> unset-true, and set-true -> unset-true. 'unset false' ops are fine in either false phase. Add these logical arcs to the DAG and output a topological sort (starting from the appropriate op); a cycle means impossible. Handle the cases with 0 or 1 true results separately.",
+      "solution_source": "editorial",
+      "candidate_tags": [
+        "topological sort",
+        "graphs",
+        "case analysis",
+        "dag"
+      ],
+      "cf_tags": [
+        "brute force",
+        "graphs"
+      ],
+      "cf_rating": 2100
+    },
+    {
+      "id": "nerc2024-E",
+      "contest": "nerc2024",
+      "letter": "E",
+      "title": "Expression Correction",
+      "solved_teams": 202,
+      "attempted_teams": 238,
+      "first_solve_min": 20,
+      "links": {
+        "mirror": "https://codeforces.com/contest/2052/problem/E",
+        "kattis": null,
+        "statement": "https://nerc.itmo.ru/archive/2024/nef-2024-statement.pdf"
+      },
+      "statement_summary": "Given an equality of sums/differences of numbers (no leading zeros, <= 10 digits), say if it is correct, or if moving exactly one digit to another position makes it correct; output the result.",
+      "solution_idea": "Brute force all (source digit, destination position) moves, re-parse and evaluate each candidate equality with 64-bit integers, rejecting invalid forms: leading zeros, 11-digit numbers, empty numbers, expressions starting with an operator. Pure careful implementation.",
+      "solution_source": "editorial",
+      "candidate_tags": [
+        "brute force",
+        "implementation",
+        "expression parsing",
+        "strings"
+      ],
+      "cf_tags": [
+        "brute force",
+        "expression parsing",
+        "strings"
+      ],
+      "cf_rating": 1900
+    },
+    {
+      "id": "nerc2024-F",
+      "contest": "nerc2024",
+      "letter": "F",
+      "title": "Fix Flooded Floor",
+      "solved_teams": 227,
+      "attempted_teams": 272,
+      "first_solve_min": 10,
+      "links": {
+        "mirror": "https://codeforces.com/contest/2052/problem/F",
+        "kattis": null,
+        "statement": "https://nerc.itmo.ru/archive/2024/nef-2024-statement.pdf"
+      },
+      "statement_summary": "A 2 x n strip with some damaged cells: decide whether the damaged cells can be tiled by dominoes in zero, exactly one, or multiple ways.",
+      "solution_idea": "Greedy left to right keeping all processed columns full: a column with one empty cell forces a horizontal domino into the next column; a fully empty column takes a vertical domino, but if the next column is also fully empty there are two tilings (two verticals vs two horizontals) so the answer becomes Multiple if completion succeeds. O(n).",
+      "solution_source": "editorial",
+      "candidate_tags": [
+        "greedy",
+        "domino tiling",
+        "dp",
+        "case analysis"
+      ],
+      "cf_tags": [
+        "constructive algorithms",
+        "dp",
+        "graphs"
+      ],
+      "cf_rating": 1700
+    },
+    {
+      "id": "nerc2024-G",
+      "contest": "nerc2024",
+      "letter": "G",
+      "title": "Geometric Balance",
+      "solved_teams": 13,
+      "attempted_teams": 41,
+      "first_solve_min": 113,
+      "links": {
+        "mirror": "https://codeforces.com/contest/2052/problem/G",
+        "kattis": null,
+        "statement": "https://nerc.itmo.ru/archive/2024/nef-2024-statement.pdf"
+      },
+      "statement_summary": "A turtle draws segments using 8 compass directions (n <= 5e4 commands, possibly with moves without drawing); find the smallest positive rotation angle b such that the drawn ink set is invariant up to translation.",
+      "solution_idea": "Normalize the drawing: collect drawn segments per direction, merge collinear overlapping/adjacent segments into maximal ones, and canonicalize (sort). Test rotations by 45, 90 and 180 degrees: rotate all segments, translate so the lexicographically smallest endpoint matches, and compare segment sets (use exact integer coordinates with the diagonal component tracked separately). Otherwise answer 360.",
+      "solution_source": "editorial",
+      "candidate_tags": [
+        "computational geometry",
+        "canonical form",
+        "segment merging",
+        "rotational symmetry",
+        "hashing"
+      ],
+      "cf_tags": [
+        "data structures",
+        "geometry",
+        "implementation"
+      ],
+      "cf_rating": 2800
+    },
+    {
+      "id": "nerc2024-H",
+      "contest": "nerc2024",
+      "letter": "H",
+      "title": "Hunting Hoglins in Hogwarts",
+      "solved_teams": 1,
+      "attempted_teams": 7,
+      "first_solve_min": 297,
+      "links": {
+        "mirror": "https://codeforces.com/contest/2052/problem/H",
+        "kattis": null,
+        "statement": "https://nerc.itmo.ru/archive/2024/nef-2024-statement.pdf"
+      },
+      "statement_summary": "Interactive: catch k hoglins in a hallway of n cells by blocking one cell per round; a hoglin moves randomly within its accessible range and bumping into blocks shrinks its range and is reported. Must average about 4.2*log2(n) actions per hoglin.",
+      "solution_idea": "Plain binary search is too slow. Maintain a list of disjoint candidate segments of equal length with posterior probabilities (Bayesian updates from bump/no-bump answers), ordered by probability. Each iteration blocks midpoints of segments in decreasing probability until a bump occurs, splitting the hit segments in half; the probability profile stays geometric so the order is just reversed each iteration. Expected ~3.9 log2 n queries per hoglin.",
+      "solution_source": "editorial",
+      "candidate_tags": [
+        "interactive",
+        "probability",
+        "bayesian update",
+        "randomized search",
+        "binary search variant"
+      ],
+      "cf_tags": [
+        "interactive"
+      ],
+      "cf_rating": 3500
+    },
+    {
+      "id": "nerc2024-I",
+      "contest": "nerc2024",
+      "letter": "I",
+      "title": "Incompetent Delivery Guy",
+      "solved_teams": 9,
+      "attempted_teams": 24,
+      "first_solve_min": 127,
+      "links": {
+        "mirror": "https://codeforces.com/contest/2052/problem/I",
+        "kattis": null,
+        "statement": "https://nerc.itmo.ru/archive/2024/nef-2024-statement.pdf"
+      },
+      "statement_summary": "Directed weighted graph (n, m <= 4e5): pointers can be put only on shortest-path edges to target n; an orc may deviate to a random edge up to d times. Find the maximum d such that pointers can be set so that the orc from vertex 1 always reaches n.",
+      "solution_idea": "Dijkstra from the target on the reversed graph gives shortest-path DAG and vertices that cannot reach n (type -1). Define vertex types by levels: an 'immediate k-vertex' has an edge to a (k-1)-vertex; a k-vertex is one where every shortest-path continuation passes through an immediate k-vertex, computed with retrograde analysis (counting remaining good outgoing shortest-path edges) on the DAG. Iterate k with O(m) per stage amortized. O(m log n).",
+      "solution_source": "editorial",
+      "candidate_tags": [
+        "dijkstra",
+        "shortest path dag",
+        "retrograde analysis",
+        "game on graph",
+        "bfs layering"
+      ],
+      "cf_tags": [
+        "graphs",
+        "shortest paths"
+      ],
+      "cf_rating": 2800
+    },
+    {
+      "id": "nerc2024-J",
+      "contest": "nerc2024",
+      "letter": "J",
+      "title": "Judicious Watching",
+      "solved_teams": 150,
+      "attempted_teams": 186,
+      "first_solve_min": 30,
+      "links": {
+        "mirror": "https://codeforces.com/contest/2052/problem/J",
+        "kattis": null,
+        "statement": "https://nerc.itmo.ru/archive/2024/nef-2024-statement.pdf"
+      },
+      "statement_summary": "n homework tasks with durations and deadlines and m episodes to watch in order; for each query time t_k, find the maximum number of episodes that can be watched before t_k while still meeting all deadlines.",
+      "solution_idea": "Sort tasks by deadline (EDF) and compute, from right to left, the latest start time of each task such that all later tasks still fit. For a query t, tasks whose latest start is >= t are postponed after t; all others are done ASAP from time 0, leaving one free block [sum of early tasks, min(t, earliest postponed latest-start)]. Binary search plus prefix sums of episode lengths gives the count. O((n + q) log n).",
+      "solution_source": "editorial",
+      "candidate_tags": [
+        "greedy scheduling",
+        "earliest deadline first",
+        "binary search",
+        "prefix sums",
+        "sorting"
+      ],
+      "cf_tags": [
+        "binary search",
+        "greedy",
+        "sortings"
+      ],
+      "cf_rating": 2000
+    },
+    {
+      "id": "nerc2024-K",
+      "contest": "nerc2024",
+      "letter": "K",
+      "title": "Knowns and Unknowns",
+      "solved_teams": 1,
+      "attempted_teams": 7,
+      "first_solve_min": 247,
+      "links": {
+        "mirror": "https://codeforces.com/contest/2052/problem/K",
+        "kattis": null,
+        "statement": "https://nerc.itmo.ru/archive/2024/nef-2024-statement.pdf"
+      },
+      "statement_summary": "Two permutations (professors' orders) and two lists of the visiting students in those orders with some entries unknown (-1); determine for each student Y/N/? whether they visited, or report inconsistency (sum n <= 2000).",
+      "solution_idea": "For each list split into blocks: known entries and maximal runs of d unknowns, whose candidate students lie between the neighbouring known entries in the professor's order. Build a flow network: source -> professor-1 blocks (capacity = block size), professor-2 blocks -> sink, unit edges for students that are candidates in both. Max flow < k means inconsistent; otherwise a student is forced Y/N depending on whether its edge is in every / no maximum flow, checked via cycles in the residual graph (reachability). O(n^2).",
+      "solution_source": "editorial",
+      "candidate_tags": [
+        "max flow",
+        "bipartite matching",
+        "residual graph",
+        "edge in every max flow",
+        "permutations"
+      ],
+      "cf_tags": [],
+      "cf_rating": 2800
+    },
+    {
+      "id": "nerc2024-L",
+      "contest": "nerc2024",
+      "letter": "L",
+      "title": "Legacy Screensaver",
+      "solved_teams": 5,
+      "attempted_teams": 16,
+      "first_solve_min": 175,
+      "links": {
+        "mirror": "https://codeforces.com/contest/2052/problem/L",
+        "kattis": null,
+        "statement": "https://nerc.itmo.ru/archive/2024/nef-2024-statement.pdf"
+      },
+      "statement_summary": "Two rectangles bounce elastically in a W x H screen (W, H <= 4000) moving diagonally in discrete steps; compute the limiting fraction of seconds during which they overlap, as an irreducible fraction.",
+      "solution_idea": "Separate axes: the x-projections are periodic with period tx = lcm(2(W-w1), 2(W-w2)), similarly ty; record overlap bit strings a (length tx) and b (length ty). Time tau matches (i, j) iff i = tau mod tx, j = tau mod ty, possible iff i = j mod g (g = gcd(tx, ty)) and all such pairs occur equally often (CRT). Answer = sum_r c_r * d_r / lcm(tx, ty) with c_r, d_r counts of ones by residue mod g. O((W+H)^2).",
+      "solution_source": "editorial",
+      "candidate_tags": [
+        "chinese remainder theorem",
+        "periodicity",
+        "gcd lcm",
+        "math",
+        "simulation"
+      ],
+      "cf_tags": [],
+      "cf_rating": 2900
+    },
+    {
+      "id": "nerc2024-M",
+      "contest": "nerc2024",
+      "letter": "M",
+      "title": "Managing Cluster",
+      "solved_teams": 31,
+      "attempted_teams": 68,
+      "first_solve_min": 46,
+      "links": {
+        "mirror": "https://codeforces.com/contest/2052/problem/M",
+        "kattis": null,
+        "statement": "https://nerc.itmo.ru/archive/2024/nef-2024-statement.pdf"
+      },
+      "statement_summary": "A tree on 2n machines, each running a replica of one of n services (each twice); with each machine in at most one swap, maximize the number of services whose two replicas are on adjacent machines.",
+      "solution_idea": "The answer equals the maximum matching size of the tree (greedy/DP). Make each matching edge hold equal services: build a graph on services connecting the services at the two ends of each matched edge; it decomposes into paths and cycles (degree <= 2). For a cycle of c edges, the swaps p1<->p_{2c-1}, p2<->p_{2c-2}, ... (c-1 swaps) fix all edges; paths are handled the same way. O(n).",
+      "solution_source": "editorial",
+      "candidate_tags": [
+        "tree maximum matching",
+        "constructive",
+        "permutation cycles",
+        "greedy",
+        "trees"
+      ],
+      "cf_tags": [
+        "dp",
+        "graphs",
+        "math",
+        "trees"
+      ],
+      "cf_rating": 2700
+    },
+    {
+      "id": "nerc2025-A",
+      "contest": "nerc2025",
+      "letter": "A",
+      "title": "Alphabet City",
+      "solved_teams": 253,
+      "attempted_teams": 271,
+      "first_solve_min": 12,
+      "links": {
+        "mirror": "https://codeforces.com/contest/2181/problem/A",
+        "kattis": null,
+        "statement": "https://nerc.itmo.ru/archive/2025/nef-2025-statement.pdf"
+      },
+      "statement_summary": "n street names, m signs ordered for each; for every possible lost order l, find the max k such that letters of m copies of all other names can form k copies of each of them plus at least one copy of name l (or -1).",
+      "solution_idea": "Count letters per string and totals sum[j]. With r = m - k the condition per letter j becomes r*(sum[j] - cnt_l[j]) >= cnt_l[j], so r = max over letters of ceil(cnt_l[j] / (sum[j] - cnt_l[j])), impossible if some letter appears only in s_l. Answer max(m - r, -1). O(26 n + L).",
+      "solution_source": "editorial",
+      "candidate_tags": [
+        "counting",
+        "math",
+        "ceil division",
+        "strings",
+        "inequalities"
+      ],
+      "cf_tags": [
+        "binary search",
+        "math",
+        "strings"
+      ],
+      "cf_rating": 1300
+    },
+    {
+      "id": "nerc2025-B",
+      "contest": "nerc2025",
+      "letter": "B",
+      "title": "Battle of Arrays",
+      "solved_teams": 280,
+      "attempted_teams": 311,
+      "first_solve_min": 7,
+      "links": {
+        "mirror": "https://codeforces.com/contest/2181/problem/B",
+        "kattis": null,
+        "statement": "https://nerc.itmo.ru/archive/2025/nef-2025-statement.pdf"
+      },
+      "statement_summary": "Two players with arrays alternately attack: choose own element x and reduce an opponent element y by x (destroy if y <= x); whoever empties the opponent's array wins. Determine the winner (intended variant: y is always the opponent's maximum).",
+      "solution_idea": "Domination argument (sorted arrays compared elementwise): attacking with your maximum element is always optimal. Simulate with two max-heaps, each move subtracting the attacker's max from the defender's max; the total sum shrinks geometrically so the simulation takes O(N (log N + log M)) moves. Note: the statement as published allowed any y; jury and accepted solutions used y = max, and the jury treated it as a typo.",
+      "solution_source": "editorial",
+      "candidate_tags": [
+        "games",
+        "greedy",
+        "priority queue",
+        "simulation",
+        "exchange argument"
+      ],
+      "cf_tags": [
+        "data structures",
+        "games",
+        "greedy"
+      ],
+      "cf_rating": 1400
+    },
+    {
+      "id": "nerc2025-C",
+      "contest": "nerc2025",
+      "letter": "C",
+      "title": "Cacti Classification",
+      "solved_teams": 3,
+      "attempted_teams": 22,
+      "first_solve_min": 125,
+      "links": {
+        "mirror": "https://codeforces.com/contest/2181/problem/C",
+        "kattis": null,
+        "statement": "https://nerc.itmo.ru/archive/2025/nef-2025-statement.pdf"
+      },
+      "statement_summary": "Interactive: a hidden cactus (loops/multi-edges allowed) with m labelled edges; with at most 8m connectivity queries on edge subsets (each derived from a previous set by removing edges), classify each edge as bridge or on a cycle and give the cycle length if <= 14 (else 'big').",
+      "solution_idea": "Key fact: removing two edges of the same cycle disconnects the cactus. Process edges by label and assign each to a bracket i = number of earlier edges of its cycle (0..14, 15 = bridge or far): maintain G_i = all edges minus those in bracket i (always connected) and binary search the smallest i with Ask(G_i - e) connected (monotone) using 4 queries. Second pass: another binary search over brackets of Ask(G_i - e) gives min(cycle length, 15); brackets 14-15 use one query on E - e to separate bridges. Total <= 8m queries.",
+      "solution_source": "editorial",
+      "candidate_tags": [
+        "interactive",
+        "binary search",
+        "cactus graph",
+        "connectivity queries",
+        "monotone predicate"
+      ],
+      "cf_tags": [
+        "binary search",
+        "constructive algorithms",
+        "interactive",
+        "math"
+      ],
+      "cf_rating": 3200
+    },
+    {
+      "id": "nerc2025-D",
+      "contest": "nerc2025",
+      "letter": "D",
+      "title": "Doorway",
+      "solved_teams": 154,
+      "attempted_teams": 188,
+      "first_solve_min": 34,
+      "links": {
+        "mirror": "https://codeforces.com/contest/2181/problem/D",
+        "kattis": null,
+        "statement": "https://nerc.itmo.ru/archive/2025/nef-2025-statement.pdf"
+      },
+      "statement_summary": "n <= 1e5 layers, each a wall-bounded interval with sliding doors of given lengths (sum k up to ~3e5+); slide doors to maximize the total length of x-intervals free in every layer.",
+      "solution_idea": "One opening suffices (doors between openings can be pushed aside). The left end of the best opening is some R_ij (prefix sums with doors pushed left) and the right end some L_ij (pushed right). Start with all doors pushed right, sweep doors in increasing R_ij, moving them left one by one; maintain a multiset of L values of doors still on the right (opening right boundary = its minimum) and the max R of doors moved left; update the answer each step. O(K log K).",
+      "solution_source": "editorial",
+      "candidate_tags": [
+        "sweep line",
+        "multiset",
+        "sorting",
+        "prefix sums",
+        "greedy"
+      ],
+      "cf_tags": [
+        "binary search",
+        "data structures",
+        "sortings"
+      ],
+      "cf_rating": 2000
+    },
+    {
+      "id": "nerc2025-E",
+      "contest": "nerc2025",
+      "letter": "E",
+      "title": "Elevator Against Humanity",
+      "solved_teams": 1,
+      "attempted_teams": 35,
+      "first_solve_min": 279,
+      "links": {
+        "mirror": "https://codeforces.com/contest/2181/problem/E",
+        "kattis": null,
+        "statement": "https://nerc.itmo.ru/archive/2025/nef-2025-statement.pdf"
+      },
+      "statement_summary": "Elevator starting at floor 1 must pick up n passengers at distinct floors and drop them at distinct floors (each visit is a stop, pickup before drop); find the maximum possible total travel time (t tests).",
+      "solution_idea": "Write the time as sum |x_{i+1} - x_i| over the visiting order and assign +/- signs: each floor appears twice except the last, with 2n pluses and 2n-1 minuses; maximize by giving pluses to the larger half and minuses to the smaller half. Enumerate the final floor y_k among destination floors and evaluate closed-form sums (prefix sums over sorted floors); prove achievability by alternating between high and low groups. Handle the special case where all starts are below all destinations (three candidate orders). Stress-test recommended.",
+      "solution_source": "editorial",
+      "candidate_tags": [
+        "constructive",
+        "greedy",
+        "absolute value sign assignment",
+        "case analysis",
+        "sorting"
+      ],
+      "cf_tags": [
+        "brute force",
+        "constructive algorithms",
+        "greedy",
+        "sortings"
+      ],
+      "cf_rating": 2900
+    },
+    {
+      "id": "nerc2025-F",
+      "contest": "nerc2025",
+      "letter": "F",
+      "title": "Fragmented Nim",
+      "solved_teams": 236,
+      "attempted_teams": 261,
+      "first_solve_min": 12,
+      "links": {
+        "mirror": "https://codeforces.com/contest/2181/problem/F",
+        "kattis": null,
+        "statement": "https://nerc.itmo.ru/archive/2025/nef-2025-statement.pdf"
+      },
+      "statement_summary": "Nim variant where the opponent chooses which pile you must take from (n <= 2e5 piles); determine the winner.",
+      "solution_idea": "Giving the opponent a pile with more than one stone loses (they can take all or leave one depending on the parity of the rest). So players hand over 1-stone piles while they exist; after that the player to move wins if any pile remains. Answer by parity of (#ones + [max > 1]): odd means Alice wins. O(n).",
+      "solution_source": "editorial",
+      "candidate_tags": [
+        "game theory",
+        "nim variant",
+        "parity",
+        "case analysis"
+      ],
+      "cf_tags": [
+        "games"
+      ],
+      "cf_rating": 1600
+    },
+    {
+      "id": "nerc2025-G",
+      "contest": "nerc2025",
+      "letter": "G",
+      "title": "Greta's Game",
+      "solved_teams": 62,
+      "attempted_teams": 135,
+      "first_solve_min": 35,
+      "links": {
+        "mirror": "https://codeforces.com/contest/2181/problem/G",
+        "kattis": null,
+        "statement": "https://nerc.itmo.ru/archive/2025/nef-2025-statement.pdf"
+      },
+      "statement_summary": "n participants in a circle; in each round, every adjacent pair (i, i+1) where i's number exceeds i+1's gives both a point. Given final points a_i, find the minimum possible number of rounds.",
+      "solution_idea": "Let b_i = rounds where i beat i+1, so a_i = b_i + b_{i-1}. For known b, min rounds = max(max b_i, ceil(sum b / (n-1))) (not all b_i can increase in one round), achieved greedily. For odd n, b is determined uniquely by alternating sums. For even n, b_i = b^_i + (-1)^i * delta with one free parameter; choose integer delta within the non-negativity range minimizing max(r0 + delta, r1 - delta) (balance point). Validate consistency. O(n).",
+      "solution_source": "editorial",
+      "candidate_tags": [
+        "math",
+        "linear recurrence on cycle",
+        "parity of n",
+        "greedy scheduling bound",
+        "ternary/balance optimization"
+      ],
+      "cf_tags": [
+        "binary search",
+        "dp",
+        "graphs",
+        "greedy",
+        "math"
+      ],
+      "cf_rating": 2400
+    },
+    {
+      "id": "nerc2025-H",
+      "contest": "nerc2025",
+      "letter": "H",
+      "title": "Honey Cake",
+      "solved_teams": 292,
+      "attempted_teams": 312,
+      "first_solve_min": 4,
+      "links": {
+        "mirror": "https://codeforces.com/contest/2181/problem/H",
+        "kattis": null,
+        "statement": "https://nerc.itmo.ru/archive/2025/nef-2025-statement.pdf"
+      },
+      "statement_summary": "Cut a w x h x d cake (each up to 1e9) into n <= 1e9 equal pieces, cutting each dimension into equal integer-length parts; output the number of cuts per dimension or -1.",
+      "solution_idea": "Need n = wp*hp*dp with wp | w, hp | h, dp | d. Greedy with gcd: wp = gcd(n, w), then hp = gcd(n/wp, h), then dp = gcd(n/(wp*hp), d); a solution exists iff the remainder is 1. Output wp-1, hp-1, dp-1.",
+      "solution_source": "editorial",
+      "candidate_tags": [
+        "number theory",
+        "gcd",
+        "greedy factorization",
+        "math"
+      ],
+      "cf_tags": [
+        "brute force",
+        "math",
+        "number theory"
+      ],
+      "cf_rating": 1200
+    },
+    {
+      "id": "nerc2025-I",
+      "contest": "nerc2025",
+      "letter": "I",
+      "title": "Irrigation Interlock",
+      "solved_teams": 2,
+      "attempted_teams": 11,
+      "first_solve_min": 252,
+      "links": {
+        "mirror": "https://codeforces.com/contest/2181/problem/I",
+        "kattis": null,
+        "statement": "https://nerc.itmo.ru/archive/2025/nef-2025-statement.pdf"
+      },
+      "statement_summary": "Two point sets (pumps n, reservoirs m, up to 1e5 each, many tests): find two pumps and two reservoirs whose connecting segments intersect (touching counts), or report impossible.",
+      "solution_idea": "Build the convex hull of one set and classify the other set's points inside/outside it (O(log) point-in-convex-polygon). If one set has points both inside and outside the other's hull, the segment between them crosses a hull edge. Otherwise WLOG all points of A lie outside conv(B): segment pq intersects conv(B) iff p and q do not 'see' each other; compute tangent directions from each point to the hull, map each point to an angular arc, and find two non-overlapping arcs via sorting and a sweep. O((n+m) log).",
+      "solution_source": "editorial",
+      "candidate_tags": [
+        "computational geometry",
+        "convex hull",
+        "tangents to convex polygon",
+        "point in polygon",
+        "angular sweep"
+      ],
+      "cf_tags": [
+        "geometry"
+      ],
+      "cf_rating": 3500
+    },
+    {
+      "id": "nerc2025-J",
+      "contest": "nerc2025",
+      "letter": "J",
+      "title": "Jinx or Jackpot",
+      "solved_teams": 32,
+      "attempted_teams": 53,
+      "first_solve_min": 103,
+      "links": {
+        "mirror": "https://codeforces.com/contest/2181/problem/J",
+        "kattis": null,
+        "statement": "https://nerc.itmo.ru/archive/2025/nef-2025-statement.pdf"
+      },
+      "statement_summary": "A slot machine's win probability is p_i/100 for an unknown index i uniform over a known array; starting with 1000 dollars and at most k rounds, choose integer bets adaptively to maximize expected profit.",
+      "solution_idea": "Bayesian update: after a wins and b losses the next-win probability is p(a,b) = sum p_i^{a+1}(1-p_i)^b / sum p_i^a (1-p_i)^b. The value function is linear in money, dp(a,b,x) = C[a][b]*x, so optimal bets are all-in or zero: C[a][b] = max(p C[a+1][b] + (1-p) C[a][b+1], 2p C[a+1][b]). Precompute p(a,b) by grouping the 101 distinct p values: O(n + 100 k^2). Answer 1000(C[0][0]-1).",
+      "solution_source": "editorial",
+      "candidate_tags": [
+        "dp",
+        "probability",
+        "bayesian inference",
+        "expected value",
+        "linearity of value function"
+      ],
+      "cf_tags": [
+        "brute force",
+        "dp",
+        "math",
+        "probabilities"
+      ],
+      "cf_rating": 2300
+    },
+    {
+      "id": "nerc2025-K",
+      "contest": "nerc2025",
+      "letter": "K",
+      "title": "Knit the Grid",
+      "solved_teams": 0,
+      "attempted_teams": 4,
+      "first_solve_min": null,
+      "links": {
+        "mirror": "https://codeforces.com/contest/2181/problem/K",
+        "kattis": null,
+        "statement": "https://nerc.itmo.ru/archive/2025/nef-2025-statement.pdf"
+      },
+      "statement_summary": "An r x c grid where non-intersecting knitted cycles pass through every inner grid point; given which frogs (cells) changed color parity when all knitted segments were removed, reconstruct a valid cycle arrangement or report impossible.",
+      "solution_idea": "Label each cell by the parity of cycles enclosing it (outside = 0): a segment is knitted iff its neighbouring cells differ, so each frog color gives the XOR of its four neighbours. Non-intersection forbids chessboard 2x2 squares and coverage of inner points forbids constant 2x2 squares, i.e. some diagonal pair must differ. All cells are determined by the top row via the XOR rule; diagonal XORs propagate as x_j or not x_j, so every constraint (2x2 squares, bottom row frogs) is a clause on at most two top-row variables: solve with 2-SAT in O(rc) and rebuild the cycles.",
+      "solution_source": "editorial",
+      "candidate_tags": [
+        "2-sat",
+        "xor constraints",
+        "grid parity",
+        "constructive",
+        "linear propagation"
+      ],
+      "cf_tags": [
+        "2-sat",
+        "constructive algorithms",
+        "graphs",
+        "matrices"
+      ],
+      "cf_rating": 3500
+    },
+    {
+      "id": "nerc2025-L",
+      "contest": "nerc2025",
+      "letter": "L",
+      "title": "LLM Training",
+      "solved_teams": 3,
+      "attempted_teams": 11,
+      "first_solve_min": 122,
+      "links": {
+        "mirror": "https://codeforces.com/contest/2181/problem/L",
+        "kattis": null,
+        "statement": "https://nerc.itmo.ru/archive/2025/nef-2025-statement.pdf"
+      },
+      "statement_summary": "Given texts of tokens with some positions marked as LLM-generated, for every context size k compute the minimal total log-loss of an optimal k-context next-token model (n tokens total up to ~1e5+).",
+      "solution_idea": "For fixed k, the optimal model is the empirical conditional distribution, so the loss = sum over contexts |N_ctx| log |N_ctx| - sum over (ctx,next) cnt log cnt. Contexts shorter than k are text prefixes: handle via a trie, each node contributing to all larger k. Contexts of length exactly k: build a suffix array with LCP on the concatenated reversed texts, process k decreasing and merge adjacent suffix groups with DSU when k = LCP_i, maintaining per-group next-token counts with small-to-large merging and updating the global sum of x log x. O(n log^2 n).",
+      "solution_source": "editorial",
+      "candidate_tags": [
+        "suffix array",
+        "lcp array",
+        "dsu",
+        "small to large merging",
+        "trie",
+        "entropy counting"
+      ],
+      "cf_tags": [
+        "math",
+        "string suffix structures"
+      ],
+      "cf_rating": 2800
+    },
+    {
+      "id": "nerc2025-M",
+      "contest": "nerc2025",
+      "letter": "M",
+      "title": "Medical Parity",
+      "solved_teams": 224,
+      "attempted_teams": 285,
+      "first_solve_min": 7,
+      "links": {
+        "mirror": "https://codeforces.com/contest/2181/problem/M",
+        "kattis": null,
+        "statement": "https://nerc.itmo.ru/archive/2025/nef-2025-statement.pdf"
+      },
+      "statement_summary": "Binary strings x and y of length n; flip the minimum number of bits in x and y so that y becomes the prefix-parity string of x.",
+      "solution_idea": "DP over positions with state b = current prefix parity (value of y_i after flips): D[i][b] = min over a in {0,1} of D[i-1][(b - a) mod 2] + [x_i != a] + [y_i != b]. Answer min(D[n][0], D[n][1]). O(n).",
+      "solution_source": "editorial",
+      "candidate_tags": [
+        "dp",
+        "prefix parity",
+        "bit strings",
+        "linear dp"
+      ],
+      "cf_tags": [
+        "dp",
+        "strings"
+      ],
+      "cf_rating": 1700
+    }
+  ]
+}

@@ -1,0 +1,2091 @@
+{
+  "source": "nac",
+  "contests": [
+    {
+      "id": "nac2021",
+      "family": "nac",
+      "name": "ICPC North America Championship 2021",
+      "short": "NAC 2021",
+      "year": 2021,
+      "date": "2021-08-14",
+      "total_teams": 48,
+      "links": {
+        "scoreboard": "https://nac21.kattis.com/contests/nac21/standings",
+        "statements": "http://seusa.vanb.org/nac2021.pdf",
+        "editorial": "https://icpcarchive.github.io/North-America/ICPC-North-America-Championship/ICPC-North-America-Championship-2021/tutorials_en.pdf",
+        "mirror": "https://open.kattis.com/contests/gvj893",
+        "kattis": "https://nac21.kattis.com/contests/nac21"
+      },
+      "notes": "Held online (virtual) because of COVID; official contest on nac21.kattis.com. 48 official teams (6 unnamed placeholder accounts with no submissions excluded). Solution ideas from the NAC/Petrozavodsk 2021 editorial by Ildar Gainullin; judges' video explanations at serjudging.vanb.org/?p=1687. Problem H unsolved. No Codeforces gym mirror found; mirror = open Kattis mirror contest."
+    },
+    {
+      "id": "nac2022",
+      "family": "nac",
+      "name": "ICPC North America Championship 2022",
+      "short": "NAC 2022",
+      "year": 2022,
+      "date": "2022-05-30",
+      "total_teams": 50,
+      "links": {
+        "scoreboard": "https://nac22.kattis.com/contests/nac22/standings",
+        "statements": "http://serjudging.vanb.org/wp-content/uploads/nac2022.pdf",
+        "editorial": "http://serjudging.vanb.org/?p=1795",
+        "mirror": null,
+        "kattis": "https://nac22.kattis.com/contests/nac22"
+      },
+      "notes": "Onsite at UCF, Orlando. 50 official teams (Kattis final standings). No solution slides were published; solution_idea fields were derived from the judges' accepted reference solutions (code) published on serjudging.vanb.org (marked 'editorial'). No Codeforces gym mirror found."
+    },
+    {
+      "id": "nac2023",
+      "family": "nac",
+      "name": "ICPC North America Championship 2023",
+      "short": "NAC 2023",
+      "year": 2023,
+      "date": "2023-05-29",
+      "total_teams": 51,
+      "links": {
+        "scoreboard": "https://nac.icpc.global/scoreboard/2023/",
+        "statements": "https://nac.icpc.global/wp-content/uploads/2023/06/nac2023_problems.pdf",
+        "editorial": "http://serjudging.vanb.org/wp-content/uploads/nac.pdf",
+        "mirror": "https://open.kattis.com/contests/p524yj",
+        "kattis": "https://open.kattis.com/contests/p524yj"
+      },
+      "notes": "Onsite at UCF, Orlando; DOMjudge final scoreboard (51 teams). Official solution slides (PDF title page mistakenly says 2022) hosted on serjudging.vanb.org. D and H unsolved. vanb's per-problem stats list 11 solves for J; the official scoreboard shows 10 (scoreboard used)."
+    },
+    {
+      "id": "nac2024",
+      "family": "nac",
+      "name": "ICPC North America Championship 2024",
+      "short": "NAC 2024",
+      "year": 2024,
+      "date": "2024-05-27",
+      "total_teams": 50,
+      "links": {
+        "scoreboard": "https://nac.icpc.global/scoreboard/2024/",
+        "statements": "http://serjudging.vanb.org/wp-content/uploads/nac2024.pdf",
+        "editorial": "https://assets.ucup.ac/tutorials/tutorials-3-00-en.pdf",
+        "mirror": "https://open.kattis.com/contests/dmh7ro",
+        "kattis": "https://open.kattis.com/contests/dmh7ro"
+      },
+      "notes": "Onsite at UCF, Orlando; DOMjudge final scoreboard (50 teams). Official judges' slides (also used as Universal Cup Season 3 Stage 0; same slides at serjudging.vanb.org/wp-content/uploads/nac-1.pdf). E, K, L unsolved. Problem F is 'Magic Bean' on Kattis, 'Magic Bean Cube' on the scoreboard; vanb lists 2 solves for F, the official scoreboard shows 3 (scoreboard used)."
+    },
+    {
+      "id": "nac2025",
+      "family": "nac",
+      "name": "ICPC North America Championship 2025",
+      "short": "NAC 2025",
+      "year": 2025,
+      "date": "2025-05-26",
+      "total_teams": 52,
+      "links": {
+        "scoreboard": "https://nac.icpc.global/scoreboard/2025/",
+        "statements": "https://nac.icpc.global/problems/2025/nac2025_problemset.pdf",
+        "editorial": "https://nac.icpc.global/problems/2025/nac2025_solutions.pdf",
+        "mirror": null,
+        "kattis": null
+      },
+      "notes": "Onsite at UCF, Orlando; PC^2 final unfrozen scoreboard (52 teams). Official solution slides. G unsolved. Also used as Universal Cup Season 4 Stage 0. Problems are on open.kattis.com (per-problem links)."
+    },
+    {
+      "id": "nac2026",
+      "family": "nac",
+      "name": "ICPC North America Championship 2026",
+      "short": "NAC 2026",
+      "year": 2026,
+      "date": "2026-03-22",
+      "total_teams": 52,
+      "links": {
+        "scoreboard": "https://nac.icpc.global/scoreboard/2026/nac/index.html",
+        "statements": "https://nac.icpc.global/problems/2026/nac/ProblemSet.pdf",
+        "editorial": "https://nac.icpc.global/problems/2026/nac2026_solutions.pdf",
+        "mirror": null,
+        "kattis": null
+      },
+      "notes": "Onsite at UCF, Orlando, held in March (earlier than usual); PC^2 final scoreboard (52 teams). Official solution slides. B and G unsolved. Problems are on open.kattis.com (per-problem links)."
+    }
+  ],
+  "problems": [
+    {
+      "id": "nac2021-A",
+      "contest": "nac2021",
+      "letter": "A",
+      "title": "AND Permutation",
+      "solved_teams": 2,
+      "attempted_teams": 16,
+      "first_solve_min": 39,
+      "links": {
+        "mirror": "https://open.kattis.com/problems/andpermutation",
+        "kattis": "https://open.kattis.com/problems/andpermutation",
+        "statement": "http://seusa.vanb.org/nac2021.pdf"
+      },
+      "statement_summary": "Given n < 2^18 distinct values a_i < 2^60 whose set is closed under taking submasks, output a permutation b of them with a_i & b_i = 0 for every i.",
+      "solution_idea": "Divide and conquer on a bit: pick a bit i present in some value, split into X (bit set) and Y (bit clear); every x in X has x-2^i in Y. Recursively solve {x-2^i} and Y, then pair x with the partner found for x-2^i and fix Y's partners by re-adding 2^i when that value lies in X. Recursion over bits gives O(n log C).",
+      "solution_source": "editorial",
+      "candidate_tags": [
+        "bitmask recursion",
+        "divide and conquer on bits",
+        "submask-closed set",
+        "constructive permutation"
+      ],
+      "cf_tags": [],
+      "cf_rating": null
+    },
+    {
+      "id": "nac2021-B",
+      "contest": "nac2021",
+      "letter": "B",
+      "title": "Apple Orchard",
+      "solved_teams": 1,
+      "attempted_teams": 2,
+      "first_solve_min": 166,
+      "links": {
+        "mirror": "https://open.kattis.com/problems/appleorchard",
+        "kattis": "https://open.kattis.com/problems/appleorchard",
+        "statement": "http://seusa.vanb.org/nac2021.pdf"
+      },
+      "statement_summary": "n <= 3000 circles (tree shades) and q <= 3000 axis-aligned rectangles; for each rectangle output the percentage of its area covered by the union of circles.",
+      "solution_idea": "Build the power diagram (Laguerre-Voronoi) of the circles with O(n^2 log n) half-plane intersections; inside each power cell the union of circles equals that cell's own circle. Each query is then the sum over cells of area(cell polygon ∩ circle ∩ rectangle), computed with a convex-polygon/circle intersection area routine; O(n^2 log n + nq).",
+      "solution_source": "editorial",
+      "candidate_tags": [
+        "power diagram",
+        "half-plane intersection",
+        "circle polygon intersection area",
+        "union of circles area",
+        "computational geometry"
+      ],
+      "cf_tags": [],
+      "cf_rating": null
+    },
+    {
+      "id": "nac2021-C",
+      "contest": "nac2021",
+      "letter": "C",
+      "title": "Cleaning Robot",
+      "solved_teams": 33,
+      "attempted_teams": 42,
+      "first_solve_min": 29,
+      "links": {
+        "mirror": "https://open.kattis.com/problems/cleaningrobot",
+        "kattis": "https://open.kattis.com/problems/cleaningrobot",
+        "statement": "http://seusa.vanb.org/nac2021.pdf"
+      },
+      "statement_summary": "Grid of n*m <= 5e6 cells with k obstacles; find the largest square robot size that, moving axis-parallel without hitting obstacles, can reach/clean every free cell (or -1).",
+      "solution_idea": "Binary search on the robot side k. For fixed k use 2D prefix sums to find all valid top-left placements, BFS to keep only placements connected to each other, then use a 2D difference array to check that the union of reachable k x k squares covers every free cell. O(nm log min(n,m)).",
+      "solution_source": "editorial",
+      "candidate_tags": [
+        "binary search on answer",
+        "2d prefix sums",
+        "bfs on grid",
+        "2d difference array"
+      ],
+      "cf_tags": [],
+      "cf_rating": null
+    },
+    {
+      "id": "nac2021-D",
+      "contest": "nac2021",
+      "letter": "D",
+      "title": "Contest Construction",
+      "solved_teams": 48,
+      "attempted_teams": 48,
+      "first_solve_min": 8,
+      "links": {
+        "mirror": "https://open.kattis.com/problems/contestconstruction",
+        "kattis": "https://open.kattis.com/problems/contestconstruction",
+        "statement": "http://seusa.vanb.org/nac2021.pdf"
+      },
+      "statement_summary": "Count k-subsets (k <= 18) of n <= 50 difficulties such that, when sorted, every element is at most the sum of the two preceding ones.",
+      "solution_idea": "Sort difficulties; dp[i][j][c] = number of valid chosen sequences of length c whose last two elements are i < j; extend with l > j when d_l <= d_i + d_j. O(n^3 k).",
+      "solution_source": "editorial",
+      "candidate_tags": [
+        "counting dp",
+        "sorting",
+        "dp on last two elements",
+        "fibonacci-like condition"
+      ],
+      "cf_tags": [],
+      "cf_rating": null
+    },
+    {
+      "id": "nac2021-E",
+      "contest": "nac2021",
+      "letter": "E",
+      "title": "Ketek Counting",
+      "solved_teams": 2,
+      "attempted_teams": 5,
+      "first_solve_min": 102,
+      "links": {
+        "mirror": "https://open.kattis.com/problems/ketekcounting",
+        "kattis": "https://open.kattis.com/problems/ketekcounting",
+        "statement": "http://seusa.vanb.org/nac2021.pdf"
+      },
+      "statement_summary": "String of length <= 30000 over letters and '?'; count distinct word-palindromes (sentences equal to their word-reversal) obtainable by filling '?' and inserting spaces, mod 998244353.",
+      "solution_idea": "Interleave the string from both ends (s1, sn, s2, s_{n-1}, ...): a Ketek split corresponds to decomposing a prefix of this new string into even-length palindromes. Count with dp over prefixes where transitions are even palindromes (with '?' acting as wildcard, multiplying by 26 for free pairs), enumerating palindromes by expanding around every center for O(n^2) total.",
+      "solution_source": "editorial",
+      "candidate_tags": [
+        "palindromic decomposition dp",
+        "string interleaving trick",
+        "expand around center",
+        "counting with wildcards",
+        "dp"
+      ],
+      "cf_tags": [],
+      "cf_rating": null
+    },
+    {
+      "id": "nac2021-F",
+      "contest": "nac2021",
+      "letter": "F",
+      "title": "Mountainous Palindromic Subarray",
+      "solved_teams": 48,
+      "attempted_teams": 48,
+      "first_solve_min": 2,
+      "links": {
+        "mirror": "https://open.kattis.com/problems/mountainouspalindromesubarray",
+        "kattis": "https://open.kattis.com/problems/mountainouspalindromesubarray",
+        "statement": "http://seusa.vanb.org/nac2021.pdf"
+      },
+      "statement_summary": "Array of n <= 1e6 integers; find the longest contiguous subarray that is strictly increasing then strictly decreasing and is a palindrome (-1 if none).",
+      "solution_idea": "Split the array into maximal monotone runs; a candidate must be centered at a peak, so for each peak expand outward while the sequence stays strictly monotone on both sides and symmetric. Total work is bounded by the run lengths, giving O(n).",
+      "solution_source": "editorial",
+      "candidate_tags": [
+        "linear scan",
+        "palindrome expansion",
+        "two pointers",
+        "monotone runs"
+      ],
+      "cf_tags": [],
+      "cf_rating": null
+    },
+    {
+      "id": "nac2021-G",
+      "contest": "nac2021",
+      "letter": "G",
+      "title": "Permutation CFG",
+      "solved_teams": 2,
+      "attempted_teams": 5,
+      "first_solve_min": 80,
+      "links": {
+        "mirror": "https://open.kattis.com/problems/permutationcfg",
+        "kattis": "https://open.kattis.com/problems/permutationcfg",
+        "statement": "http://seusa.vanb.org/nac2021.pdf"
+      },
+      "statement_summary": "A permutation defines grammar rules k -> (elements <= k in permutation order); starting from n apply s <= 5 expansion steps; answer q <= 2e5 queries 'occurrences of k among the first a symbols'.",
+      "solution_idea": "Let f(x,s) be the expanded length of symbol x after s steps; f satisfies a Pascal-like recurrence so f(x,s) = O(x^s) and is computable by binomial coefficients. Answer queries by descending the expansion tree: at each level walk over the children (prefix of the permutation) using fast f to find which child contains position a; levels with s <= 2 are reduced to offline 2D dominance counting with a BIT. Roughly O((n+q) log n + q * small).",
+      "solution_source": "editorial",
+      "candidate_tags": [
+        "recursive descent on implicit tree",
+        "binomial coefficients",
+        "offline 2d queries",
+        "fenwick tree",
+        "counting"
+      ],
+      "cf_tags": [],
+      "cf_rating": null
+    },
+    {
+      "id": "nac2021-H",
+      "contest": "nac2021",
+      "letter": "H",
+      "title": "Special Cycle",
+      "solved_teams": 0,
+      "attempted_teams": 3,
+      "first_solve_min": null,
+      "links": {
+        "mirror": "https://open.kattis.com/problems/specialcycle",
+        "kattis": "https://open.kattis.com/problems/specialcycle",
+        "statement": "http://seusa.vanb.org/nac2021.pdf"
+      },
+      "statement_summary": "Graph with n <= 150 vertices and some special edges; find a simple cycle such that every special edge either lies on the cycle or has neither endpoint on it, or report -1.",
+      "solution_idea": "Handle special-edge components that are not paths (a cycle among special edges is the answer; branching components must be avoided), compress each special path to one forced edge. Then build a gadget graph (deg(v) copies of every vertex, a split node pair per ordinary edge, forced connections for special edges, an extra edge letting unused vertices drop out) so that a perfect matching corresponds to a vertex-disjoint set of cycles; find it with Edmonds' blossom general matching.",
+      "solution_source": "editorial",
+      "candidate_tags": [
+        "general graph matching",
+        "edmonds blossom",
+        "gadget reduction",
+        "degree-constrained subgraph",
+        "cycle cover"
+      ],
+      "cf_tags": [],
+      "cf_rating": null
+    },
+    {
+      "id": "nac2021-I",
+      "contest": "nac2021",
+      "letter": "I",
+      "title": "The King's Guards",
+      "solved_teams": 1,
+      "attempted_teams": 1,
+      "first_solve_min": 143,
+      "links": {
+        "mirror": "https://open.kattis.com/problems/thekingsguards",
+        "kattis": "https://open.kattis.com/problems/thekingsguards",
+        "statement": "http://seusa.vanb.org/nac2021.pdf"
+      },
+      "statement_summary": "n <= 300 villages, weighted roads and g guards each with an allowed village set; choose roads of minimum cost so each connected component contains exactly one guard (all guards placed), or -1.",
+      "solution_idea": "Greedy in the style of Kruskal justified by matroid properties: process (only MST) edges in increasing weight and keep an edge if, after merging, a bipartite matching that assigns a distinct guard to every component (and all guards) still exists; checking by bipartite matching gives O(n^3). Alternative min-cost max-flow formulation also works.",
+      "solution_source": "editorial",
+      "candidate_tags": [
+        "kruskal greedy",
+        "matroid intersection",
+        "bipartite matching",
+        "minimum spanning forest",
+        "min cost flow"
+      ],
+      "cf_tags": [],
+      "cf_rating": null
+    },
+    {
+      "id": "nac2021-J",
+      "contest": "nac2021",
+      "letter": "J",
+      "title": "The Paladin",
+      "solved_teams": 47,
+      "attempted_teams": 48,
+      "first_solve_min": 6,
+      "links": {
+        "mirror": "https://open.kattis.com/problems/thepaladin",
+        "kattis": "https://open.kattis.com/problems/thepaladin",
+        "statement": "http://seusa.vanb.org/nac2021.pdf"
+      },
+      "statement_summary": "Given allowed letter pairs with costs, find the minimum cost palindrome of length k <= 100 where cost sums the cost of every adjacent pair.",
+      "solution_idea": "A palindrome is determined by its first half; each step a->b in the half contributes cost(ab)+cost(ba) because of the mirrored pair. Run dp[len][letter] = min cost walk of length ceil(k/2) on a 26-node graph, then close the middle according to k's parity (an extra 'aa' pair when k is even).",
+      "solution_source": "editorial",
+      "candidate_tags": [
+        "dp on walks",
+        "palindrome",
+        "shortest walk of fixed length",
+        "graph on alphabet"
+      ],
+      "cf_tags": [],
+      "cf_rating": null
+    },
+    {
+      "id": "nac2021-K",
+      "contest": "nac2021",
+      "letter": "K",
+      "title": "Token Game",
+      "solved_teams": 2,
+      "attempted_teams": 3,
+      "first_solve_min": 203,
+      "links": {
+        "mirror": "https://open.kattis.com/problems/tokengame",
+        "kattis": "https://open.kattis.com/problems/tokengame",
+        "statement": "http://seusa.vanb.org/nac2021.pdf"
+      },
+      "statement_summary": "Two tokens on a 300x300 board; a move decreases one coordinate of one token without jumping over/onto the other token. For n <= 1e5 starting positions (tokens in the same row or column) count Alice's winning first moves.",
+      "solution_idea": "Compute win/lose for all 300^4 states. Key observation: for each (x1, x2, y1) with x1 != x2 there is exactly one losing y2, so losing states can be generated in order, using bitsets of already-losing y2's per triple (prefix-like accumulation) and _Find_first to get the unique losing value. Then for each query count moves into losing positions. O(n^4/64).",
+      "solution_source": "editorial",
+      "candidate_tags": [
+        "combinatorial game theory",
+        "win lose dp",
+        "bitset optimization",
+        "p-positions"
+      ],
+      "cf_tags": [],
+      "cf_rating": null
+    },
+    {
+      "id": "nac2021-L",
+      "contest": "nac2021",
+      "letter": "L",
+      "title": "TraveLog",
+      "solved_teams": 32,
+      "attempted_teams": 44,
+      "first_solve_min": 38,
+      "links": {
+        "mirror": "https://open.kattis.com/problems/travelog",
+        "kattis": "https://open.kattis.com/problems/travelog",
+        "statement": "http://seusa.vanb.org/nac2021.pdf"
+      },
+      "statement_summary": "Directed graph n <= 2e5, m <= 3e5; Bob took a shortest path from 1 to n; given an unordered subset of arrival times, output 0 if no shortest path is consistent, 1 if several are, else the unique path.",
+      "solution_idea": "Dijkstra from 1 to get dist; keep only shortest-path DAG edges (dist[v] = dist[u]+w). Remove edges (u,v) that jump over a recorded time t (dist[u] < t < dist[v]) and require every recorded time to be the dist of a visited city. Count paths from 1 to n in the remaining DAG capped at 2 and reconstruct when exactly one.",
+      "solution_source": "editorial",
+      "candidate_tags": [
+        "dijkstra",
+        "shortest path dag",
+        "path counting on dag",
+        "interval filtering"
+      ],
+      "cf_tags": [],
+      "cf_rating": null
+    },
+    {
+      "id": "nac2021-M",
+      "contest": "nac2021",
+      "letter": "M",
+      "title": "You be The Judge, Again",
+      "solved_teams": 48,
+      "attempted_teams": 48,
+      "first_solve_min": 7,
+      "links": {
+        "mirror": "https://open.kattis.com/problems/youbethejudge2",
+        "kattis": "https://open.kattis.com/problems/youbethejudge2",
+        "statement": "http://seusa.vanb.org/nac2021.pdf"
+      },
+      "statement_summary": "Validate a 2^n x 2^n grid (n <= 10) claimed to be tiled by (4^n-1)/3 distinct L-triominoes plus one empty cell.",
+      "solution_idea": "Implementation: check exactly one zero, each label appears exactly 3 times with labels in range and distinct count correct, and each label's three cells fit in a 2x2 box forming an L shape. O(4^n).",
+      "solution_source": "editorial",
+      "candidate_tags": [
+        "implementation",
+        "simulation",
+        "validation",
+        "hashing counts"
+      ],
+      "cf_tags": [],
+      "cf_rating": null
+    },
+    {
+      "id": "nac2022-A",
+      "contest": "nac2022",
+      "letter": "A",
+      "title": "Contact Tracing",
+      "solved_teams": 44,
+      "attempted_teams": 48,
+      "first_solve_min": 59,
+      "links": {
+        "mirror": "https://open.kattis.com/problems/contacttracing2",
+        "kattis": "https://open.kattis.com/problems/contacttracing2",
+        "statement": "http://serjudging.vanb.org/wp-content/uploads/nac2022.pdf"
+      },
+      "statement_summary": "n <= 1000 people, k <= 10 days of contact lists; a disease with a 1-day latent then infectious then symptomatic schedule started from an unknown patient zero; find the minimum set of people that must quarantine to surely stop it.",
+      "solution_idea": "Forward simulation of the set of people who could have caught the disease on each day: day-0 candidates are people with no contacts after day 1; on day d a person a joins the 'caught today' set if they met someone from the previous day's set and their own last contact day is at most d+1 (otherwise they would have been quarantined). The set for day k is the answer. O(k*c).",
+      "solution_source": "editorial",
+      "candidate_tags": [
+        "simulation",
+        "graph bfs by days",
+        "set propagation",
+        "implementation"
+      ],
+      "cf_tags": [],
+      "cf_rating": null
+    },
+    {
+      "id": "nac2022-B",
+      "contest": "nac2022",
+      "letter": "B",
+      "title": "Cookie Cutter",
+      "solved_teams": 3,
+      "attempted_teams": 8,
+      "first_solve_min": 187,
+      "links": {
+        "mirror": "https://open.kattis.com/problems/cookiecutter2",
+        "kattis": "https://open.kattis.com/problems/cookiecutter2",
+        "statement": "http://serjudging.vanb.org/wp-content/uploads/nac2022.pdf"
+      },
+      "statement_summary": "Square cookie of side n <= 10^4 with m <= 3000 chip points; cut with a straight line and keep one side to maximize (chips fraction) - (area fraction).",
+      "solution_idea": "An optimal line can be rotated/translated until it passes through two chips, or through one chip as the midpoint of a corner-cutting chord (local area minimum). For every chip as pivot, angularly sort the others and sweep with two pointers to count chips on one side, computing the cut area of the square by convex polygon clipping; plus the single-chip corner-triangle candidates. O(m^2 log m).",
+      "solution_source": "editorial",
+      "candidate_tags": [
+        "computational geometry",
+        "angular sort sweep",
+        "rotating line",
+        "polygon clipping area",
+        "two pointers"
+      ],
+      "cf_tags": [],
+      "cf_rating": null
+    },
+    {
+      "id": "nac2022-C",
+      "contest": "nac2022",
+      "letter": "C",
+      "title": "Cram",
+      "solved_teams": 6,
+      "attempted_teams": 6,
+      "first_solve_min": 90,
+      "links": {
+        "mirror": "https://open.kattis.com/problems/cram",
+        "kattis": "https://open.kattis.com/problems/cram",
+        "statement": "http://serjudging.vanb.org/wp-content/uploads/nac2022.pdf"
+      },
+      "statement_summary": "Compress a string of length <= 1e5 using literal characters (cost 1) and possibly overlapping back-references (cost 3); find the minimum cost.",
+      "solution_idea": "dp[i] = min cost for prefix i, transitions dp[i]+1 -> dp[i+1] and dp[i]+3 -> dp[i+L] where L is the longest previous factor at i (longest match starting at an earlier position). L is found with suffix array + LCP + RMQ, taking for each suffix the nearest earlier-starting suffix in SA order on both sides (doubly linked list deletion). Since dp is monotone, using the maximal L suffices. O(n log n).",
+      "solution_source": "editorial",
+      "candidate_tags": [
+        "suffix array",
+        "lcp array",
+        "longest previous factor",
+        "dp",
+        "sparse table rmq"
+      ],
+      "cf_tags": [],
+      "cf_rating": null
+    },
+    {
+      "id": "nac2022-D",
+      "contest": "nac2022",
+      "letter": "D",
+      "title": "Double Sort",
+      "solved_teams": 1,
+      "attempted_teams": 3,
+      "first_solve_min": 198,
+      "links": {
+        "mirror": "https://open.kattis.com/problems/doublesort",
+        "kattis": "https://open.kattis.com/problems/doublesort",
+        "statement": "http://serjudging.vanb.org/wp-content/uploads/nac2022.pdf"
+      },
+      "statement_summary": "Choose n <= 50 distinct numbers uniformly from 1..m (m <= 10^4), sort, take differences, sort the differences, take prefix sums; output the expected value at each index.",
+      "solution_idea": "Gaps are all >= 1; peel off one layer: subtract 1 from every gap, the gaps that stay positive form a smaller instance with fewer elements and range m - n, and their count follows a hypergeometric-like probability C(m-n, b) C(n, b)/C(m, n). dp[cnt][range] = expected sorted prefix sums, built by recursing on the peeled instance and shifting indices. O(n^2 m) with floating point.",
+      "solution_source": "editorial",
+      "candidate_tags": [
+        "expected value",
+        "probability dp",
+        "order statistics",
+        "combinatorics",
+        "stars and bars"
+      ],
+      "cf_tags": [],
+      "cf_rating": null
+    },
+    {
+      "id": "nac2022-E",
+      "contest": "nac2022",
+      "letter": "E",
+      "title": "GCD Harmony",
+      "solved_teams": 32,
+      "attempted_teams": 43,
+      "first_solve_min": 26,
+      "links": {
+        "mirror": "https://open.kattis.com/problems/gcdharmony",
+        "kattis": "https://open.kattis.com/problems/gcdharmony",
+        "statement": "http://serjudging.vanb.org/wp-content/uploads/nac2022.pdf"
+      },
+      "statement_summary": "Tree with n <= 5000 nodes, values <= 100; change node values (cost = new value) so every edge's endpoints have gcd > 1; minimize total cost.",
+      "solution_idea": "Tree DP dp[u][x] = min cost of subtree with u set to x; values never need to exceed ~2n (setting all to 2 costs 2n). For each child, convert its dp to a 'best over multiples of d' array with a sieve-like pass over divisors, then dp[u][x] adds the min over d | x, d >= 2; implemented by propagating minima over multiples. About O(n V log V) with V ~ 2n.",
+      "solution_source": "editorial",
+      "candidate_tags": [
+        "tree dp",
+        "gcd",
+        "divisor sieve",
+        "number theory",
+        "dp optimization"
+      ],
+      "cf_tags": [],
+      "cf_rating": null
+    },
+    {
+      "id": "nac2022-F",
+      "contest": "nac2022",
+      "letter": "F",
+      "title": "Leaderboard Effect",
+      "solved_teams": 14,
+      "attempted_teams": 16,
+      "first_solve_min": 87,
+      "links": {
+        "mirror": "https://open.kattis.com/problems/leaderboardeffect",
+        "kattis": "https://open.kattis.com/problems/leaderboardeffect",
+        "statement": "http://serjudging.vanb.org/wp-content/uploads/nac2022.pdf"
+      },
+      "statement_summary": "n <= 17 problems with read time, code time and solve probability, contest length t <= 100; infinitely many teams pick unread problems weighted by current solve counts; output the limiting expected fraction of teams solving each problem.",
+      "solution_idea": "In the infinite-team limit the leaderboard is deterministic: the solved fraction per problem at each minute. DP over time and bitmask of read problems: dp[t][mask] = mass of teams that just became free at minute t having read mask; transitions choose unread problem i with probability proportional to solved[i] (or uniformly if none solved), branch on solvable/unsolvable and land at t+r_i(+c_i), accumulating solved fractions in time order. O(t * 2^n * n).",
+      "solution_source": "editorial",
+      "candidate_tags": [
+        "bitmask dp",
+        "probability dp over time",
+        "expected value",
+        "mean field simulation"
+      ],
+      "cf_tags": [],
+      "cf_rating": null
+    },
+    {
+      "id": "nac2022-G",
+      "contest": "nac2022",
+      "letter": "G",
+      "title": "Rafting Trip",
+      "solved_teams": 22,
+      "attempted_teams": 31,
+      "first_solve_min": 72,
+      "links": {
+        "mirror": "https://open.kattis.com/problems/raftingtrip",
+        "kattis": "https://open.kattis.com/problems/raftingtrip",
+        "statement": "http://serjudging.vanb.org/wp-content/uploads/nac2022.pdf"
+      },
+      "statement_summary": "r x c grid (<= 500x500) of river cells with directions, land and sightseeing spots; a raft follows the arrows until land/exit/revisit; maximize the number of distinct spots adjacent to visited cells.",
+      "solution_idea": "River cells form a functional graph. Find cycles (each cycle is a root whose cells are all visited) and the reverse trees hanging off cycles and sinks. DFS on the reversed edges from roots, maintaining a multiset/count map of adjacent spots: add the cell's neighbouring spots on entry, record the distinct count, remove on exit. O(rc log) or O(rc).",
+      "solution_source": "editorial",
+      "candidate_tags": [
+        "functional graph",
+        "cycle detection",
+        "dfs on reverse tree",
+        "add remove counting",
+        "grid"
+      ],
+      "cf_tags": [],
+      "cf_rating": null
+    },
+    {
+      "id": "nac2022-H",
+      "contest": "nac2022",
+      "letter": "H",
+      "title": "Ranked Choice Spoiling",
+      "solved_teams": 1,
+      "attempted_teams": 8,
+      "first_solve_min": 290,
+      "links": {
+        "mirror": "https://open.kattis.com/problems/rankedchoicespoiling",
+        "kattis": "https://open.kattis.com/problems/rankedchoicespoiling",
+        "statement": "http://serjudging.vanb.org/wp-content/uploads/nac2022.pdf"
+      },
+      "statement_summary": "n <= 1000 ballots over 2 or 3 candidates; you may insert a new candidate Z anywhere in every ballot; can you make A win instant-runoff voting (A already winning counts)?",
+      "solution_idea": "Only Z's placement first or last matters (A-first ballots irrelevant), giving few ballot types. k=2: closed-form inequality (A needs at least a quarter of ballots as 'A B'). k=3: brute force how many ballots of each non-A-first group get Z on top (greedily preferring to 'spoil' BCA before BAC and CBA before CAB), O(n^2) splits, each checked by simulating the IRV elimination rounds.",
+      "solution_source": "editorial",
+      "candidate_tags": [
+        "brute force",
+        "casework",
+        "simulation",
+        "greedy exchange argument",
+        "voting"
+      ],
+      "cf_tags": [],
+      "cf_rating": null
+    },
+    {
+      "id": "nac2022-I",
+      "contest": "nac2022",
+      "letter": "I",
+      "title": "Reset",
+      "solved_teams": 5,
+      "attempted_teams": 12,
+      "first_solve_min": 127,
+      "links": {
+        "mirror": "https://open.kattis.com/problems/reset",
+        "kattis": "https://open.kattis.com/problems/reset",
+        "statement": "http://serjudging.vanb.org/wp-content/uploads/nac2022.pdf"
+      },
+      "statement_summary": "n <= 2e5 tasks with time t and research reduction d; each attempt has c seconds, each task can be researched at most once per attempt (1 second, reduces time by d); minimize resets until all tasks fit in one attempt.",
+      "solution_idea": "Binary search on the number of resets R. Tasks needing at most R researches to vanish are 'free' and only consume research seconds; the others are researched in every attempt (R+1 times incl. the final one) and contribute their leftover time plus 1 in the final attempt. Feasibility = the nontrivial tasks fit in the final attempt and the remaining research seconds across R attempts (minus nontrivial ones) cover the free tasks' needs. O(n log C).",
+      "solution_source": "editorial",
+      "candidate_tags": [
+        "binary search on answer",
+        "greedy",
+        "scheduling",
+        "counting argument"
+      ],
+      "cf_tags": [],
+      "cf_rating": null
+    },
+    {
+      "id": "nac2022-J",
+      "contest": "nac2022",
+      "letter": "J",
+      "title": "Tic Tac Toe Counting",
+      "solved_teams": 49,
+      "attempted_teams": 49,
+      "first_solve_min": 9,
+      "links": {
+        "mirror": "https://open.kattis.com/problems/tictactoecounting",
+        "kattis": "https://open.kattis.com/problems/tictactoecounting",
+        "statement": "http://serjudging.vanb.org/wp-content/uploads/nac2022.pdf"
+      },
+      "statement_summary": "Up to 1e5 tic-tac-toe boards; for each, decide reachability and count the number of game continuations won by X and by O.",
+      "solution_idea": "Enumerate the whole game tree from the empty board by DFS with memoization over the 3^9 board encodings, storing for each reachable board the number of X-win and O-win continuations; answer queries by table lookup (-1 -1 for unreachable).",
+      "solution_source": "editorial",
+      "candidate_tags": [
+        "game tree enumeration",
+        "memoization",
+        "base 3 encoding",
+        "brute force"
+      ],
+      "cf_tags": [],
+      "cf_rating": null
+    },
+    {
+      "id": "nac2022-K",
+      "contest": "nac2022",
+      "letter": "K",
+      "title": "Transparency",
+      "solved_teams": 3,
+      "attempted_teams": 3,
+      "first_solve_min": 137,
+      "links": {
+        "mirror": "https://open.kattis.com/problems/transparency",
+        "kattis": "https://open.kattis.com/problems/transparency",
+        "statement": "http://serjudging.vanb.org/wp-content/uploads/nac2022.pdf"
+      },
+      "statement_summary": "DFA with s <= 50 states over upper/lower-case letters; find two distinct accepted strings with the same upper-case projection minimizing the sum of their lengths (-1 if none).",
+      "solution_idea": "Fix the point where the two strings first differ (reached by a shared prefix: 2 * shortest distance). From there, compute with Dijkstra on pairs of states the min cost to reach a pair of accepting states where uppercase letters are taken synchronously (cost 2) and lowercase letters independently (cost 1). Combine three divergence cases: two different lowercase letters, one string ends (prefix case), or lowercase vs uppercase (one side reads lowercase-only path to a state with the same uppercase). Floyd–Warshall for lowercase-only distances.",
+      "solution_source": "editorial",
+      "candidate_tags": [
+        "automata",
+        "product automaton",
+        "dijkstra",
+        "floyd warshall",
+        "shortest path on state pairs"
+      ],
+      "cf_tags": [],
+      "cf_rating": null
+    },
+    {
+      "id": "nac2022-L",
+      "contest": "nac2022",
+      "letter": "L",
+      "title": "Triangular Logs",
+      "solved_teams": 11,
+      "attempted_teams": 22,
+      "first_solve_min": 47,
+      "links": {
+        "mirror": "https://open.kattis.com/problems/triangularlogs",
+        "kattis": "https://open.kattis.com/problems/triangularlogs",
+        "statement": "http://serjudging.vanb.org/wp-content/uploads/nac2022.pdf"
+      },
+      "statement_summary": "n, q <= 1e5 trees with heights; each query is an axis-aligned rectangle: can three trees inside form a non-degenerate triangle?",
+      "solution_idea": "Heights <= 1e9 and a triangle-free sorted sequence grows like Fibonacci, so any region with >= 45 trees answers yes. Use a 2D range structure (merge-sort/range tree on x with sorted y lists, or k-d tree) to enumerate up to 45 points in the rectangle; if fewer, sort their heights and test consecutive triples. O(q (log^2 n + 45 log 45)).",
+      "solution_source": "editorial",
+      "candidate_tags": [
+        "fibonacci bound",
+        "pigeonhole",
+        "range tree",
+        "orthogonal range reporting",
+        "sorting"
+      ],
+      "cf_tags": [],
+      "cf_rating": null
+    },
+    {
+      "id": "nac2022-M",
+      "contest": "nac2022",
+      "letter": "M",
+      "title": "Word Ladder",
+      "solved_teams": 47,
+      "attempted_teams": 49,
+      "first_solve_min": 30,
+      "links": {
+        "mirror": "https://open.kattis.com/problems/wordladder3",
+        "kattis": "https://open.kattis.com/problems/wordladder3",
+        "statement": "http://serjudging.vanb.org/wp-content/uploads/nac2022.pdf"
+      },
+      "statement_summary": "Output n <= 5000 distinct equal-length words (length <= 10) forming a ladder whose shortest ladder from first to last must use all n words.",
+      "solution_idea": "Need an induced path in the Hamming graph (snake-in-the-box): non-consecutive words must differ in >= 2 letters. Greedy construction over a small alphabet: from the last word, append any neighbour (one letter changed) that is not banned, then ban all neighbours of the previous word so later words cannot shortcut. Precompute a long enough snake of length-8 words.",
+      "solution_source": "editorial",
+      "candidate_tags": [
+        "constructive",
+        "hamming graph",
+        "snake in the box",
+        "greedy construction"
+      ],
+      "cf_tags": [],
+      "cf_rating": null
+    },
+    {
+      "id": "nac2023-A",
+      "contest": "nac2023",
+      "letter": "A",
+      "title": "Allergen Testing",
+      "solved_teams": 34,
+      "attempted_teams": 50,
+      "first_solve_min": 25,
+      "links": {
+        "mirror": "https://open.kattis.com/problems/allergentesting",
+        "kattis": "https://open.kattis.com/problems/allergentesting",
+        "statement": "https://nac.icpc.global/wp-content/uploads/2023/06/nac2023_problems.pdf"
+      },
+      "statement_summary": "t <= 1e4 queries (n, d <= 1e18): minimum number of skin test sites to identify the single allergen among n compounds within d days, a reacting site being unusable afterwards.",
+      "solution_idea": "By induction, k sites and d days distinguish sum_x C(k,x) d^(k-x) = (d+1)^k compounds (x sites react on day 1, the rest continue). So the answer is the minimum k with (d+1)^k >= n (k <= 60), computed with overflow-safe multiplication; n = 1 gives 0.",
+      "solution_source": "editorial",
+      "candidate_tags": [
+        "math",
+        "combinatorics",
+        "binomial theorem",
+        "overflow safe power",
+        "induction"
+      ],
+      "cf_tags": [],
+      "cf_rating": null
+    },
+    {
+      "id": "nac2023-B",
+      "contest": "nac2023",
+      "letter": "B",
+      "title": "A Tree and Two Edges",
+      "solved_teams": 16,
+      "attempted_teams": 21,
+      "first_solve_min": 89,
+      "links": {
+        "mirror": "https://open.kattis.com/problems/atreeandtwoedges",
+        "kattis": "https://open.kattis.com/problems/atreeandtwoedges",
+        "statement": "https://nac.icpc.global/wp-content/uploads/2023/06/nac2023_problems.pdf"
+      },
+      "statement_summary": "Connected graph with n <= 5e4 nodes and n+1 edges (tree plus two extra edges); answer q <= 5e4 queries counting simple paths between u and v.",
+      "solution_idea": "Take a spanning tree; every simple path uses each extra edge at most once in some direction, so enumerate the few combinations (none, one edge in either direction, both edges in both orders/directions) as concatenations of tree paths and check the tree segments are pairwise vertex-disjoint. Disjointness of tree paths is tested by splitting at LCAs into ascending paths and using LCA / Euler tour ancestor checks. O((n+q) log n).",
+      "solution_source": "editorial",
+      "candidate_tags": [
+        "lca",
+        "tree paths",
+        "path disjointness",
+        "case enumeration",
+        "euler tour"
+      ],
+      "cf_tags": [],
+      "cf_rating": null
+    },
+    {
+      "id": "nac2023-C",
+      "contest": "nac2023",
+      "letter": "C",
+      "title": "Broken Minimum Spanning Tree",
+      "solved_teams": 31,
+      "attempted_teams": 42,
+      "first_solve_min": 32,
+      "links": {
+        "mirror": "https://open.kattis.com/problems/brokenminimumspanningtree",
+        "kattis": "https://open.kattis.com/problems/brokenminimumspanningtree",
+        "statement": "https://nac.icpc.global/wp-content/uploads/2023/06/nac2023_problems.pdf"
+      },
+      "statement_summary": "Weighted graph n <= 2000, m <= 3000 and a given spanning tree; output the minimum sequence of edge swaps (keeping a spanning tree) that turns it into a minimum spanning tree.",
+      "solution_idea": "Run Kruskal with ties broken in favor of the given tree edges, obtaining the MST that shares the most edges with the given tree; the answer is the number of given edges outside it. Perform swaps: add a target MST edge, DFS the tree path between its endpoints and remove an edge on it that is not in the target MST (exists by exchange property). O(n*m).",
+      "solution_source": "editorial",
+      "candidate_tags": [
+        "minimum spanning tree",
+        "kruskal tie breaking",
+        "edge exchange",
+        "tree path dfs"
+      ],
+      "cf_tags": [],
+      "cf_rating": null
+    },
+    {
+      "id": "nac2023-D",
+      "contest": "nac2023",
+      "letter": "D",
+      "title": "Fail Fast",
+      "solved_teams": 0,
+      "attempted_teams": 5,
+      "first_solve_min": null,
+      "links": {
+        "mirror": "https://open.kattis.com/problems/failfast",
+        "kattis": "https://open.kattis.com/problems/failfast",
+        "statement": "https://nac.icpc.global/wp-content/uploads/2023/06/nac2023_problems.pdf"
+      },
+      "statement_summary": "n <= 1e5 tests with cost c, pass probability p and at most one prerequisite (forest); order them (respecting prerequisites) to minimize expected cost until the first failure.",
+      "solution_idea": "Without dependencies sort by c/(1-p) (exchange argument). With a forest of precedences use the tree-scheduling merge: repeatedly take the unit with the best ratio from a priority queue; if its parent unit is already scheduled, run it, otherwise merge it into the parent (cost c1 + p1*c2, probability p1*p2, concatenated sequence). DSU + linked lists + heap, O(n log n).",
+      "solution_source": "editorial",
+      "candidate_tags": [
+        "greedy exchange argument",
+        "scheduling with precedence constraints",
+        "priority queue",
+        "disjoint set union",
+        "tree merging"
+      ],
+      "cf_tags": [],
+      "cf_rating": null
+    },
+    {
+      "id": "nac2023-E",
+      "contest": "nac2023",
+      "letter": "E",
+      "title": "First Last",
+      "solved_teams": 3,
+      "attempted_teams": 6,
+      "first_solve_min": 159,
+      "links": {
+        "mirror": "https://open.kattis.com/problems/firstlast",
+        "kattis": "https://open.kattis.com/problems/firstlast",
+        "statement": "https://nac.icpc.global/wp-content/uploads/2023/06/nac2023_problems.pdf"
+      },
+      "statement_summary": "n <= 1000 words whose first/last letters come from at most 3 letters; players alternately pick unused words chaining last letter to first letter; count first words that win for Alice.",
+      "solution_idea": "Model letters as vertices and words as directed edges: a geography game on a <= 3-vertex multigraph. Reductions: two self-loops at a vertex cancel, and opposite edges u->v, v->u cancel (the opponent can mirror). The reduced graph has at most 3 self-loops and only 3-cycles, so memoized minimax over remaining edge counts is fast.",
+      "solution_source": "editorial",
+      "candidate_tags": [
+        "combinatorial game theory",
+        "memoized minimax",
+        "graph reduction",
+        "strategy stealing mirroring",
+        "multigraph"
+      ],
+      "cf_tags": [],
+      "cf_rating": null
+    },
+    {
+      "id": "nac2023-F",
+      "contest": "nac2023",
+      "letter": "F",
+      "title": "Four Square",
+      "solved_teams": 50,
+      "attempted_teams": 50,
+      "first_solve_min": 15,
+      "links": {
+        "mirror": "https://open.kattis.com/problems/foursquare",
+        "kattis": "https://open.kattis.com/problems/foursquare",
+        "statement": "https://nac.icpc.global/wp-content/uploads/2023/06/nac2023_problems.pdf"
+      },
+      "statement_summary": "Given four rectangles (sides <= 1000), decide whether they can tile a square, rotations allowed.",
+      "solution_idea": "Total area must be a perfect square s^2. Brute force all permutations and orientations over the possible layouts: some axis-parallel line always splits the square without crossing a rectangle, so recursively split into a strip of one/two rectangles and a remaining rectangle.",
+      "solution_source": "editorial",
+      "candidate_tags": [
+        "brute force",
+        "casework",
+        "geometry",
+        "permutations"
+      ],
+      "cf_tags": [],
+      "cf_rating": null
+    },
+    {
+      "id": "nac2023-G",
+      "contest": "nac2023",
+      "letter": "G",
+      "title": "Frequent Flier",
+      "solved_teams": 49,
+      "attempted_teams": 51,
+      "first_solve_min": 26,
+      "links": {
+        "mirror": "https://open.kattis.com/problems/frequentflier",
+        "kattis": "https://open.kattis.com/problems/frequentflier",
+        "statement": "https://nac.icpc.global/wp-content/uploads/2023/06/nac2023_problems.pdf"
+      },
+      "statement_summary": "n <= 2e5 months with f_i flights; in every window of m consecutive months you must pay for at least k flights (or all if fewer); minimize paid flights.",
+      "solution_idea": "Greedy left to right: when the window ending at month i has fewer than k paid flights, pay for the most recent unpaid flights (they cover the most future windows; exchange argument). Maintain a sliding-window sum of paid counts and a stack of months with unpaid flights, popping from the most recent. O(n) amortized.",
+      "solution_source": "editorial",
+      "candidate_tags": [
+        "greedy",
+        "sliding window",
+        "monotonic stack",
+        "exchange argument"
+      ],
+      "cf_tags": [],
+      "cf_rating": null
+    },
+    {
+      "id": "nac2023-H",
+      "contest": "nac2023",
+      "letter": "H",
+      "title": "Game Show Elimination",
+      "solved_teams": 0,
+      "attempted_teams": 3,
+      "first_solve_min": null,
+      "links": {
+        "mirror": "https://open.kattis.com/problems/gameshowelimination",
+        "kattis": "https://open.kattis.com/problems/gameshowelimination",
+        "statement": "https://nac.icpc.global/wp-content/uploads/2023/06/nac2023_problems.pdf"
+      },
+      "statement_summary": "n <= 1000 contestants, contestant i scores uniformly in [i, i+k] (k <= 10); each week the second-highest scorer is eliminated; output expected final ranks.",
+      "solution_idea": "Contestant i-k can never beat i, so only the top few remaining contestants can place second. DP over states (below, bitmask of the k contestants just below the second-highest remaining, above), O(n k 2^k) after capping 'above' at k. Transition probabilities of who is second are computed by bucketing scores by their integer part (within a unit bucket all orders are equally likely) and cached, O(k^3 2^k).",
+      "solution_source": "editorial",
+      "candidate_tags": [
+        "probability dp",
+        "bitmask dp",
+        "expected value",
+        "uniform distribution integration",
+        "state compression"
+      ],
+      "cf_tags": [],
+      "cf_rating": null
+    },
+    {
+      "id": "nac2023-I",
+      "contest": "nac2023",
+      "letter": "I",
+      "title": "Power of Divisors",
+      "solved_teams": 51,
+      "attempted_teams": 51,
+      "first_solve_min": 9,
+      "links": {
+        "mirror": "https://open.kattis.com/problems/powerofdivisors",
+        "kattis": "https://open.kattis.com/problems/powerofdivisors",
+        "statement": "https://nac.icpc.global/wp-content/uploads/2023/06/nac2023_problems.pdf"
+      },
+      "statement_summary": "Given x <= 1e18, find the smallest n with n^{d(n)} = x where d is the number of divisors (-1 if none).",
+      "solution_idea": "x must be a perfect e-th power with e = d(n) <= ~60. For each e compute the integer e-th root by binary search with overflow-safe multiplication, then verify d(root) = e by trial division in O(sqrt(root)). Edge case x = 1.",
+      "solution_source": "editorial",
+      "candidate_tags": [
+        "number theory",
+        "divisor counting",
+        "integer root binary search",
+        "brute force"
+      ],
+      "cf_tags": [],
+      "cf_rating": null
+    },
+    {
+      "id": "nac2023-J",
+      "contest": "nac2023",
+      "letter": "J",
+      "title": "Repetitive String Invention",
+      "solved_teams": 10,
+      "attempted_teams": 11,
+      "first_solve_min": 197,
+      "links": {
+        "mirror": "https://open.kattis.com/problems/repetitivestringinvention",
+        "kattis": "https://open.kattis.com/problems/repetitivestringinvention",
+        "statement": "https://nac.icpc.global/wp-content/uploads/2023/06/nac2023_problems.pdf"
+      },
+      "statement_summary": "String of length <= 800; count ordered pairs of non-overlapping substrings whose concatenation is a square (form TT).",
+      "solution_idea": "Either the two substrings are equal (count non-overlapping equal pairs via an lcp[i][j] table) or the longer one is ABA and the shorter is B. Precompute lcp[i][j] in O(n^2); fix B's occurrence, mark positions where B starts, enumerate the start of the longer substring and count compatible non-overlapping positions with prefix sums. O(n^3) with a small constant.",
+      "solution_source": "editorial",
+      "candidate_tags": [
+        "string",
+        "lcp dp table",
+        "counting",
+        "prefix sums",
+        "squares tandem repeats"
+      ],
+      "cf_tags": [],
+      "cf_rating": null
+    },
+    {
+      "id": "nac2023-K",
+      "contest": "nac2023",
+      "letter": "K",
+      "title": "Space Alignment",
+      "solved_teams": 48,
+      "attempted_teams": 51,
+      "first_solve_min": 15,
+      "links": {
+        "mirror": "https://open.kattis.com/problems/spacealignment",
+        "kattis": "https://open.kattis.com/problems/spacealignment",
+        "statement": "https://nac.icpc.global/wp-content/uploads/2023/06/nac2023_problems.pdf"
+      },
+      "statement_summary": "n <= 100 lines indented with spaces and tabs at known brace depths; find the smallest tab width making indentation proportional to depth (-1 if impossible).",
+      "solution_idea": "Any valid width is at most 1000 (from s1 + t1*k = s2 + t2*k). Try every k from 1 to 1000, compute each line's indentation and check it equals depth * unit, where the unit is taken from any line with nonzero depth. O(1000 * total length).",
+      "solution_source": "editorial",
+      "candidate_tags": [
+        "brute force",
+        "implementation",
+        "linear equations"
+      ],
+      "cf_tags": [],
+      "cf_rating": null
+    },
+    {
+      "id": "nac2023-L",
+      "contest": "nac2023",
+      "letter": "L",
+      "title": "Splitting Pairs",
+      "solved_teams": 17,
+      "attempted_teams": 21,
+      "first_solve_min": 47,
+      "links": {
+        "mirror": "https://open.kattis.com/problems/splittingpairs",
+        "kattis": "https://open.kattis.com/problems/splittingpairs",
+        "statement": "https://nac.icpc.global/wp-content/uploads/2023/06/nac2023_problems.pdf"
+      },
+      "statement_summary": "Nim variant with n <= 50 piles (<= 1e12): a move removes r <= n/2 piles and splits r other piles into two; t <= 1000 games, determine the winner.",
+      "solution_idea": "Found by small-case analysis and proven by mirroring: for even n the position is losing iff all piles are odd; for odd n divide all piles by the largest power of two dividing all of them, and it is losing iff all resulting piles are odd (i.e. all piles share the same 2-adic valuation). O(n) per game.",
+      "solution_source": "editorial",
+      "candidate_tags": [
+        "combinatorial game theory",
+        "parity argument",
+        "2-adic valuation",
+        "pattern finding brute force"
+      ],
+      "cf_tags": [],
+      "cf_rating": null
+    },
+    {
+      "id": "nac2023-M",
+      "contest": "nac2023",
+      "letter": "M",
+      "title": "Who Watches the Watchmen?",
+      "solved_teams": 1,
+      "attempted_teams": 5,
+      "first_solve_min": 296,
+      "links": {
+        "mirror": "https://open.kattis.com/problems/whowatchesthewatchmen",
+        "kattis": "https://open.kattis.com/problems/whowatchesthewatchmen",
+        "statement": "https://nac.icpc.global/wp-content/uploads/2023/06/nac2023_problems.pdf"
+      },
+      "statement_summary": "n <= 500 sentries in 3D with view directions; re-aim (cost 1) or move (cost 1000) sentries so each sees exactly one other sentry and is seen by exactly one; minimize cost.",
+      "solution_idea": "n = 1 impossible. If n is even or not all sentries collinear, it is a min-cost perfect matching (assignment, Hungarian O(n^3)) between watchers and watched with cost 0 if i already sees j first and 1 if the segment i-j is unobstructed. If n is odd and all collinear, exactly one sentry must move (cost 1000): brute force the moved one, it closes a cycle with a contiguous block while others pair up, computed with 3D ray tests and prefix sums.",
+      "solution_source": "editorial",
+      "candidate_tags": [
+        "hungarian algorithm",
+        "min cost perfect matching",
+        "3d geometry",
+        "collinearity",
+        "casework"
+      ],
+      "cf_tags": [],
+      "cf_rating": null
+    },
+    {
+      "id": "nac2024-A",
+      "contest": "nac2024",
+      "letter": "A",
+      "title": "Arrested Development",
+      "solved_teams": 47,
+      "attempted_teams": 50,
+      "first_solve_min": 6,
+      "links": {
+        "mirror": "https://open.kattis.com/problems/arresteddevelopment",
+        "kattis": "https://open.kattis.com/problems/arresteddevelopment",
+        "statement": "http://serjudging.vanb.org/wp-content/uploads/nac2024.pdf"
+      },
+      "statement_summary": "n <= 50 tasks, each taking a minutes for intern 1 or b minutes for intern 2 (<= 1e5); assign tasks to minimize the makespan.",
+      "solution_idea": "Knapsack-style DP: f(i,k) = minimum total time of intern 2 after the first i tasks when intern 1's total is exactly k; answer min over k of max(k, f(n,k)). O(n^2 max(a,b)).",
+      "solution_source": "editorial",
+      "candidate_tags": [
+        "knapsack dp",
+        "two machine scheduling",
+        "makespan minimization"
+      ],
+      "cf_tags": [],
+      "cf_rating": null
+    },
+    {
+      "id": "nac2024-B",
+      "contest": "nac2024",
+      "letter": "B",
+      "title": "Champernowne Substring",
+      "solved_teams": 3,
+      "attempted_teams": 5,
+      "first_solve_min": 205,
+      "links": {
+        "mirror": "https://open.kattis.com/problems/champernownesubstring",
+        "kattis": "https://open.kattis.com/problems/champernownesubstring",
+        "statement": "http://serjudging.vanb.org/wp-content/uploads/nac2024.pdf"
+      },
+      "statement_summary": "Given a pattern of length <= 25 with digits and '?', find the first index (mod 998244353) where it matches in 123456789101112...",
+      "solution_idea": "Brute force the digit length of the first number touching the pattern and its alignment (how many of its digits fall before the pattern); special-case numbers < 100 and carries into a new power of ten. This reduces to: given wildcard constraints on consecutive k-digit numbers x and x+1 (x not ending in 9), find the minimum compatible x, where digits become uniquely determined.",
+      "solution_source": "editorial",
+      "candidate_tags": [
+        "brute force",
+        "digit casework",
+        "wildcard matching",
+        "string construction"
+      ],
+      "cf_tags": [],
+      "cf_rating": null
+    },
+    {
+      "id": "nac2024-C",
+      "contest": "nac2024",
+      "letter": "C",
+      "title": "Comparator",
+      "solved_teams": 7,
+      "attempted_teams": 11,
+      "first_solve_min": 117,
+      "links": {
+        "mirror": "https://open.kattis.com/problems/comparator",
+        "kattis": "https://open.kattis.com/problems/comparator",
+        "statement": "http://serjudging.vanb.org/wp-content/uploads/nac2024.pdf"
+      },
+      "statement_summary": "An IFFY comparator program with n <= 2e5 if-statements over k <= 10-bit words; count words violating reflexivity, pairs violating asymmetry and triples violating transitivity.",
+      "solution_idea": "Parse each boolean expression into its 4-entry truth table over (x,y); only 16k^2 statements are useful (first occurrence per (a, b, table)). Evaluate the comparator on all 4^k pairs (expected few statements per pair), then count transitivity violations with bitsets: for each x,y with f(x,y)=1, popcount(row_y & ~row_x). O(n + |s| + 4*4^k + 8^k/64).",
+      "solution_source": "editorial",
+      "candidate_tags": [
+        "expression parsing",
+        "truth tables",
+        "bitset",
+        "brute force over all pairs",
+        "transitivity counting"
+      ],
+      "cf_tags": [],
+      "cf_rating": null
+    },
+    {
+      "id": "nac2024-D",
+      "contest": "nac2024",
+      "letter": "D",
+      "title": "Dihedral Group",
+      "solved_teams": 50,
+      "attempted_teams": 50,
+      "first_solve_min": 5,
+      "links": {
+        "mirror": "https://open.kattis.com/problems/dihedralgroup",
+        "kattis": "https://open.kattis.com/problems/dihedralgroup",
+        "statement": "http://serjudging.vanb.org/wp-content/uploads/nac2024.pdf"
+      },
+      "statement_summary": "Cyclic permutation of 1..n (n <= 5e4) and a query sequence of length m; decide if it appears contiguously in the cyclic order or its reverse.",
+      "solution_idea": "The first query value fixes a unique position in the cycle; check both directions naively in O(m).",
+      "solution_source": "editorial",
+      "candidate_tags": [
+        "implementation",
+        "cyclic array",
+        "string matching"
+      ],
+      "cf_tags": [],
+      "cf_rating": null
+    },
+    {
+      "id": "nac2024-E",
+      "contest": "nac2024",
+      "letter": "E",
+      "title": "House Deconstruction",
+      "solved_teams": 0,
+      "attempted_teams": 0,
+      "first_solve_min": null,
+      "links": {
+        "mirror": "https://open.kattis.com/problems/housedeconstruction",
+        "kattis": "https://open.kattis.com/problems/housedeconstruction",
+        "statement": "http://serjudging.vanb.org/wp-content/uploads/nac2024.pdf"
+      },
+      "statement_summary": "Circle with n people and m > n houses (<= 2e5); choose n houses minimizing total walking in a min-cost matching, and count the optimal house sets mod 998244353.",
+      "solution_idea": "Exchange arguments: matching arcs do not cross, no unmatched house lies under an arc, nested arcs go the same direction. Hence each person has only two candidate houses (found with a stack, like bracket matching around the circle); the resulting candidate graph splits into path components, where all costs and counts of optimal choices are computed with prefix/suffix sums in linear time.",
+      "solution_source": "editorial",
+      "candidate_tags": [
+        "circular matching",
+        "exchange argument",
+        "stack bracket matching",
+        "counting optimal solutions",
+        "prefix sums"
+      ],
+      "cf_tags": [],
+      "cf_rating": null
+    },
+    {
+      "id": "nac2024-F",
+      "contest": "nac2024",
+      "letter": "F",
+      "title": "Magic Bean",
+      "solved_teams": 3,
+      "attempted_teams": 5,
+      "first_solve_min": 215,
+      "links": {
+        "mirror": "https://open.kattis.com/problems/magicbeancube",
+        "kattis": "https://open.kattis.com/problems/magicbeancube",
+        "statement": "http://serjudging.vanb.org/wp-content/uploads/nac2024.pdf"
+      },
+      "statement_summary": "A 'Magic Bean' puzzle with 30 beads of 3 colors in three rings plus a central exchanging ring; output at most 240 rotations that solve a scrambled state.",
+      "solution_idea": "Build a commutator primitive (rotate a colored ring, rotate the shared center ring, undo the colored ring, undo the center) that swaps two beads in specific spots between two rings while only permuting others within rings; with ~6 moves per misplaced bead, fixing beads one by one solves in <= 180 moves.",
+      "solution_source": "editorial",
+      "candidate_tags": [
+        "permutation puzzle",
+        "commutators",
+        "constructive",
+        "simulation"
+      ],
+      "cf_tags": [],
+      "cf_rating": null
+    },
+    {
+      "id": "nac2024-G",
+      "contest": "nac2024",
+      "letter": "G",
+      "title": "Manhattan Walk",
+      "solved_teams": 46,
+      "attempted_teams": 46,
+      "first_solve_min": 17,
+      "links": {
+        "mirror": "https://open.kattis.com/problems/manhattanwalk",
+        "kattis": "https://open.kattis.com/problems/manhattanwalk",
+        "statement": "http://serjudging.vanb.org/wp-content/uploads/nac2024.pdf"
+      },
+      "statement_summary": "r x c grid (<= 1000x1000), each cell has a down/right arrow flipping on a timer uniform in [0,p]; walking from top-left to bottom-right seeing only the current cell, minimize expected waiting time.",
+      "solution_idea": "DP from the target: f(i,j) depends on the two successors' values a <= b. If the arrow points to a, go; otherwise either go to b or wait for the flip (remaining timer uniform) and go to a: expected cost E[min(T + a, b)] has a closed form (b-a >= p gives a + p/2, else a + (b-a) - (b-a)^2/(2p)). Average both arrow cases; O(rc).",
+      "solution_source": "editorial",
+      "candidate_tags": [
+        "expected value dp",
+        "grid dp",
+        "probability",
+        "closed form integration"
+      ],
+      "cf_tags": [],
+      "cf_rating": null
+    },
+    {
+      "id": "nac2024-H",
+      "contest": "nac2024",
+      "letter": "H",
+      "title": "MountainCraft",
+      "solved_teams": 33,
+      "attempted_teams": 36,
+      "first_solve_min": 43,
+      "links": {
+        "mirror": "https://open.kattis.com/problems/mountaincraft",
+        "kattis": "https://open.kattis.com/problems/mountaincraft",
+        "statement": "http://serjudging.vanb.org/wp-content/uploads/nac2024.pdf"
+      },
+      "statement_summary": "q <= 2e5 toggles of 45-degree triangular mountains (peak (x,y)) clipped to viewport [0,w]; after each, output total length of visible (non-overlapped) mountain edges.",
+      "solution_idea": "Projecting all edges onto the x-axis, the answer is a constant factor times the x-length of the viewport covered by the mountains' base intervals [x-y, x+y] (clipped to [0,w]). Maintain this union length under insert/delete with a segment tree over compressed coordinates storing, per node, how many intervals fully cover it and the covered length (the classic area-of-union-of-rectangles structure, no lazy propagation). O(q log q).",
+      "solution_source": "editorial",
+      "candidate_tags": [
+        "segment tree",
+        "interval coverage",
+        "coordinate compression",
+        "union of intervals",
+        "offline"
+      ],
+      "cf_tags": [],
+      "cf_rating": null
+    },
+    {
+      "id": "nac2024-I",
+      "contest": "nac2024",
+      "letter": "I",
+      "title": "Not Another Constructive!",
+      "solved_teams": 30,
+      "attempted_teams": 35,
+      "first_solve_min": 37,
+      "links": {
+        "mirror": "https://open.kattis.com/problems/notanotherconstructive",
+        "kattis": "https://open.kattis.com/problems/notanotherconstructive",
+        "statement": "http://serjudging.vanb.org/wp-content/uploads/nac2024.pdf"
+      },
+      "statement_summary": "String of length n <= 40 with fixed letters and '?'; fill the '?' so the number of subsequences 'NAC' is exactly k <= 2500.",
+      "solution_idea": "Backtracking/DP over positions with state (count of N, count of NA, count of NAC so far), trying only letters N, A, C or a neutral letter for each '?'; memoize visited states (reachable states < 5e7) and prune when the NAC count exceeds k.",
+      "solution_source": "editorial",
+      "candidate_tags": [
+        "backtracking",
+        "memoization",
+        "subsequence counting dp",
+        "constructive",
+        "pruning"
+      ],
+      "cf_tags": [],
+      "cf_rating": null
+    },
+    {
+      "id": "nac2024-J",
+      "contest": "nac2024",
+      "letter": "J",
+      "title": "Passport Stamps",
+      "solved_teams": 49,
+      "attempted_teams": 50,
+      "first_solve_min": 6,
+      "links": {
+        "mirror": "https://open.kattis.com/problems/passportstamps",
+        "kattis": "https://open.kattis.com/problems/passportstamps",
+        "statement": "http://serjudging.vanb.org/wp-content/uploads/nac2024.pdf"
+      },
+      "statement_summary": "Passport with p <= 1e18 pages, n <= 1e5 trips each stamping c_i contiguous pages chosen adversarially; find the first trip that might fail.",
+      "solution_idea": "Before trip k the free pages number p - sum_{i<k} c_i and can be fragmented into at most k blocks, so some block has at least free/k pages; trip k is guaranteed safe iff (p - sum_{i<k} c_i) / k >= c_k (pigeonhole), and otherwise the adversary can fragment the pages to make it fail. Check k in increasing order (not monotone, so no binary search); use 128-bit/overflow care.",
+      "solution_source": "editorial",
+      "candidate_tags": [
+        "pigeonhole principle",
+        "adversarial reasoning",
+        "math",
+        "prefix sums"
+      ],
+      "cf_tags": [],
+      "cf_rating": null
+    },
+    {
+      "id": "nac2024-K",
+      "contest": "nac2024",
+      "letter": "K",
+      "title": "Shadow Line",
+      "solved_teams": 0,
+      "attempted_teams": 3,
+      "first_solve_min": null,
+      "links": {
+        "mirror": "https://open.kattis.com/problems/shadowline",
+        "kattis": "https://open.kattis.com/problems/shadowline",
+        "statement": "http://serjudging.vanb.org/wp-content/uploads/nac2024.pdf"
+      },
+      "statement_summary": "n <= 3000 vertical segments between a point light on the negative x-axis and a wall; as the light moves left along the axis, find the total length of light positions where the shadows form a single interval (-1 if unbounded).",
+      "solution_idea": "Sort segment endpoints by angle from the light; the shadow is connected iff every prefix in angular order has more bottom endpoints than top ones before all segments close. The relative order of two endpoints changes only where the line through them meets the x-axis, giving O(n^2) critical points; sweep them in order maintaining prefix sums (each swap changes one prefix by +-2) to know validity between events. O(n^2 log n).",
+      "solution_source": "editorial",
+      "candidate_tags": [
+        "angular sweep",
+        "event sorting",
+        "computational geometry",
+        "prefix sums maintenance",
+        "kinetic ordering"
+      ],
+      "cf_tags": [],
+      "cf_rating": null
+    },
+    {
+      "id": "nac2024-L",
+      "contest": "nac2024",
+      "letter": "L",
+      "title": "Square of Triangles",
+      "solved_teams": 0,
+      "attempted_teams": 8,
+      "first_solve_min": null,
+      "links": {
+        "mirror": "https://open.kattis.com/problems/squareoftriangles",
+        "kattis": "https://open.kattis.com/problems/squareoftriangles",
+        "statement": "http://serjudging.vanb.org/wp-content/uploads/nac2024.pdf"
+      },
+      "statement_summary": "t <= 20 tests of four triangles given by squared side lengths (<= 1e7); decide if they tile a square.",
+      "solution_idea": "Exhaustive search over arrangements (or enumerate all ways to cut a square into four triangles) with exact integer arithmetic on squared lengths: e.g. one triangle covering a side plus part of an adjacent side with the remaining trapezoid split into three, or one triangle being half the square. Heavy casework.",
+      "solution_source": "editorial",
+      "candidate_tags": [
+        "geometry casework",
+        "brute force",
+        "exact arithmetic",
+        "tiling"
+      ],
+      "cf_tags": [],
+      "cf_rating": null
+    },
+    {
+      "id": "nac2024-M",
+      "contest": "nac2024",
+      "letter": "M",
+      "title": "Training, Round 2",
+      "solved_teams": 28,
+      "attempted_teams": 40,
+      "first_solve_min": 68,
+      "links": {
+        "mirror": "https://open.kattis.com/problems/traininground2",
+        "kattis": "https://open.kattis.com/problems/traininground2",
+        "statement": "http://serjudging.vanb.org/wp-content/uploads/nac2024.pdf"
+      },
+      "statement_summary": "n <= 5000 problems in order with ranges on implementation and thinking skill; solving one lets you raise one skill by 1; maximize problems solved.",
+      "solution_idea": "Track the set of achievable (s,t) pairs; since s+t = start + solved, state is (solved count, s increment). For each problem, from every state in range add both increments. Store states as bitsets per number of solved problems and iterate only over set bits, removing processed ones, for O(n^2) overall (O(n^2/64) memory-friendly).",
+      "solution_source": "editorial",
+      "candidate_tags": [
+        "dp over states",
+        "bitset",
+        "reachability",
+        "2d dp"
+      ],
+      "cf_tags": [],
+      "cf_rating": null
+    },
+    {
+      "id": "nac2025-A",
+      "contest": "nac2025",
+      "letter": "A",
+      "title": "A Totient Quotient",
+      "solved_teams": 44,
+      "attempted_teams": 45,
+      "first_solve_min": 21,
+      "links": {
+        "mirror": "https://open.kattis.com/problems/atotientquotient",
+        "kattis": "https://open.kattis.com/problems/atotientquotient",
+        "statement": "https://nac.icpc.global/problems/2025/nac2025_problemset.pdf"
+      },
+      "statement_summary": "Given a fraction a/b (a, b <= 1e4), find the minimal pair (m, n) with phi(m^2)/phi(n^2) = a/b under the problem's minimality conditions.",
+      "solution_idea": "Process primes dividing a or b in decreasing order maintaining the factorization of a/b: if the largest prime p has even exponent 2k in a, multiply m by p^(k+1), n by p and divide a by p^(2k); if odd 2k+1, multiply m by p^(k+1), divide a by p^(2k+1) and multiply b by (p-1) (factorized). Symmetric when p is in b. Correct by induction on the largest prime; O(max(a,b) log).",
+      "solution_source": "editorial",
+      "candidate_tags": [
+        "euler totient",
+        "prime factorization",
+        "number theory",
+        "greedy by largest prime",
+        "constructive"
+      ],
+      "cf_tags": [],
+      "cf_rating": null
+    },
+    {
+      "id": "nac2025-B",
+      "contest": "nac2025",
+      "letter": "B",
+      "title": "Circle of Leaf",
+      "solved_teams": 37,
+      "attempted_teams": 44,
+      "first_solve_min": 15,
+      "links": {
+        "mirror": "https://open.kattis.com/problems/circleofleaf",
+        "kattis": "https://open.kattis.com/problems/circleofleaf",
+        "statement": "https://nac.icpc.global/problems/2025/nac2025_problemset.pdf"
+      },
+      "statement_summary": "Rooted tree (N <= 2e5); add an edge from every leaf to the root; count spanning trees of the resulting graph mod p.",
+      "solution_idea": "Tree DP: dp[v][j] = ways in v's subtree to have j in {0,1} surviving 'leaf paths' (paths to the root through a leaf edge); two such paths at a node would form a cycle. dp[v][0] = prod over children (dp[c][0]+dp[c][1]) (cut the edge to c if it carries a path), dp[v][1] = sum over c of dp[c][1] * prod of others, via prefix/suffix products (no modular inverses, zeros occur). Leaves: [1,1]. Answer dp[root][0]. O(N).",
+      "solution_source": "editorial",
+      "candidate_tags": [
+        "tree dp",
+        "spanning tree counting",
+        "prefix suffix products",
+        "combinatorics"
+      ],
+      "cf_tags": [],
+      "cf_rating": null
+    },
+    {
+      "id": "nac2025-C",
+      "contest": "nac2025",
+      "letter": "C",
+      "title": "Entrapment",
+      "solved_teams": 4,
+      "attempted_teams": 7,
+      "first_solve_min": 186,
+      "links": {
+        "mirror": "https://open.kattis.com/problems/entrapment",
+        "kattis": "https://open.kattis.com/problems/entrapment",
+        "statement": "https://nac.icpc.global/problems/2025/nac2025_problemset.pdf"
+      },
+      "statement_summary": "Interactive asymmetric game on a 3x3 grid: Trapper asks subset queries and blocks squares, Runner moves secretly (may 'cheat' by not committing); choose a side and play optimally to win.",
+      "solution_idea": "The state space (set of possible runner squares, available squares, rounds left) is small, so solve the game completely with memoized minimax over bitboards (9-bit masks) without alpha-beta; then play the winning side using the stored strategy. The difficulty is careful implementation.",
+      "solution_source": "editorial",
+      "candidate_tags": [
+        "game theory",
+        "minimax",
+        "memoization",
+        "bitmask",
+        "interactive"
+      ],
+      "cf_tags": [],
+      "cf_rating": null
+    },
+    {
+      "id": "nac2025-D",
+      "contest": "nac2025",
+      "letter": "D",
+      "title": "Geometry Rush",
+      "solved_teams": 39,
+      "attempted_teams": 47,
+      "first_solve_min": 29,
+      "links": {
+        "mirror": "https://open.kattis.com/problems/geometryrush",
+        "kattis": "https://open.kattis.com/problems/geometryrush",
+        "statement": "https://nac.icpc.global/problems/2025/nac2025_problemset.pdf"
+      },
+      "statement_summary": "Move from (0,0) with steps (1,+-1) for w steps between a polygonal ceiling and floor (x non-decreasing); output the min and max reachable final y without touching obstacles, or impossible.",
+      "solution_idea": "Sweep x from 0 to w with two pointers over the polyline segments; the reachable y set stays an interval with fixed parity. At each x compute the allowed [ylow, yhigh] from the curves (adjusted to parity), update ymin = max(ymin-1, ylow), ymax = min(ymax+1, yhigh); fail if empty. O(n + m + w).",
+      "solution_source": "editorial",
+      "candidate_tags": [
+        "sweep line",
+        "two pointers",
+        "interval dp",
+        "parity",
+        "geometry"
+      ],
+      "cf_tags": [],
+      "cf_rating": null
+    },
+    {
+      "id": "nac2025-E",
+      "contest": "nac2025",
+      "letter": "E",
+      "title": "Humans vs AI",
+      "solved_teams": 16,
+      "attempted_teams": 19,
+      "first_solve_min": 78,
+      "links": {
+        "mirror": "https://open.kattis.com/problems/humansvsai",
+        "kattis": "https://open.kattis.com/problems/humansvsai",
+        "statement": "https://nac.icpc.global/problems/2025/nac2025_problemset.pdf"
+      },
+      "statement_summary": "Arrays h, a (N <= 2e5) and k <= 100; count subarrays where human points >= k * AI points even after an adversary swaps h_i and a_i in one trial of the subarray.",
+      "solution_idea": "Without the adversary: map c_i = h_i - a_i if positive else k*(h_i - a_i) and count pairs of prefix sums P_i <= P_j. The adversary always flips the element with the largest h_i - a_i (if any human-win trial exists), subtracting a fixed amount. Fix that maximum s (leftmost max) with its range from monotonic stacks, iterate over the smaller side (small-to-large, O(n log n) queries) and count valid other endpoints with a wavelet tree / persistent order-statistics tree, or offline with a BIT.",
+      "solution_source": "editorial",
+      "candidate_tags": [
+        "prefix sums",
+        "divide by maximum small to large",
+        "wavelet tree",
+        "fenwick tree offline counting",
+        "monotonic stack"
+      ],
+      "cf_tags": [],
+      "cf_rating": null
+    },
+    {
+      "id": "nac2025-F",
+      "contest": "nac2025",
+      "letter": "F",
+      "title": "Mob Grinder",
+      "solved_teams": 30,
+      "attempted_teams": 35,
+      "first_solve_min": 65,
+      "links": {
+        "mirror": "https://open.kattis.com/problems/mobgrinder",
+        "kattis": "https://open.kattis.com/problems/mobgrinder",
+        "statement": "https://nac.icpc.global/problems/2025/nac2025_problemset.pdf"
+      },
+      "statement_summary": "Fill an N x M grid (NM <= 1e5) with exactly U/R/D/L conveyor belts so every cell eventually flows to the top-right corner, or report impossible.",
+      "solution_idea": "Need U >= N-1 and R >= M-1. Use a monotone staircase path from bottom-left to top-right made of N-1 U's and M-1 R's; cells above-left of it can be any mix of R/D, cells below-right any mix of L/U, all flowing into the path. Choose the staircase so the two regions have sizes matching the remaining R+D and L+U counts, then fill. O(NM).",
+      "solution_source": "editorial",
+      "candidate_tags": [
+        "constructive",
+        "grid",
+        "staircase path",
+        "counting"
+      ],
+      "cf_tags": [],
+      "cf_rating": null
+    },
+    {
+      "id": "nac2025-G",
+      "contest": "nac2025",
+      "letter": "G",
+      "title": "Most Scenic Cycle",
+      "solved_teams": 0,
+      "attempted_teams": 3,
+      "first_solve_min": null,
+      "links": {
+        "mirror": "https://open.kattis.com/problems/mostsceniccycle",
+        "kattis": "https://open.kattis.com/problems/mostsceniccycle",
+        "statement": "https://nac.icpc.global/problems/2025/nac2025_problemset.pdf"
+      },
+      "statement_summary": "Biconnected weighted graph (V <= 2e5, E <= 4e5) whose regional cycles form a tree-like dual (planar, dual tree); find the maximum-weight simple cycle.",
+      "solution_idea": "Series-parallel style reduction: repeatedly contract degree-2 vertices (sum the two edge weights) and merge parallel edges (record a+b as a candidate cycle, keep the heavier edge). Leaf regional cycles disappear one by one because the dual is a tree; the maximum recorded value (or final self-loop) is the answer. Queues + hash maps, O(V+E).",
+      "solution_source": "editorial",
+      "candidate_tags": [
+        "series parallel reduction",
+        "graph contraction",
+        "cycle basis",
+        "planar dual tree",
+        "greedy"
+      ],
+      "cf_tags": [],
+      "cf_rating": null
+    },
+    {
+      "id": "nac2025-H",
+      "contest": "nac2025",
+      "letter": "H",
+      "title": "Ornaments on a Tree",
+      "solved_teams": 40,
+      "attempted_teams": 50,
+      "first_solve_min": 40,
+      "links": {
+        "mirror": "https://open.kattis.com/problems/ornamentsonatree",
+        "kattis": "https://open.kattis.com/problems/ornamentsonatree",
+        "statement": "https://nac.icpc.global/problems/2025/nac2025_problemset.pdf"
+      },
+      "statement_summary": "Rooted tree (N <= 2e5), some node values fixed; assign nonnegative values to the others so each node plus its children sums to at most K, maximizing total.",
+      "solution_idea": "Exchange argument: an optimal solution puts as much weight as possible on leaves, then recursively bottom-up each node takes the maximum allowed by its own constraint and its children's constraints given already-fixed values (pre-written values are treated as fixed). Greedy post-order pass, O(N).",
+      "solution_source": "editorial",
+      "candidate_tags": [
+        "greedy",
+        "tree",
+        "exchange argument",
+        "post order traversal"
+      ],
+      "cf_tags": [],
+      "cf_rating": null
+    },
+    {
+      "id": "nac2025-I",
+      "contest": "nac2025",
+      "letter": "I",
+      "title": "Polygon Partition",
+      "solved_teams": 3,
+      "attempted_teams": 4,
+      "first_solve_min": 207,
+      "links": {
+        "mirror": "https://open.kattis.com/problems/polygonpartition",
+        "kattis": "https://open.kattis.com/problems/polygonpartition",
+        "statement": "https://nac.icpc.global/problems/2025/nac2025_problemset.pdf"
+      },
+      "statement_summary": "Simple polygon with no lattice points on its boundary; split its semi-integer boundary points into two sets with equal sum of floor(non-integer coordinate).",
+      "solution_idea": "Always possible: orient the polygon counter-clockwise; for every integer vertical line the crossings alternate direction and (right-to-left minus left-to-right) sums give the area; same for horizontal lines. Equating both expressions gives the partition: right-to-left horizontal crossings plus top-to-bottom vertical crossings vs the rest. Compute crossings per edge, O(total boundary points).",
+      "solution_source": "editorial",
+      "candidate_tags": [
+        "computational geometry",
+        "area by integration",
+        "invariant",
+        "constructive proof"
+      ],
+      "cf_tags": [],
+      "cf_rating": null
+    },
+    {
+      "id": "nac2025-J",
+      "contest": "nac2025",
+      "letter": "J",
+      "title": "Popping Balloons",
+      "solved_teams": 3,
+      "attempted_teams": 5,
+      "first_solve_min": 151,
+      "links": {
+        "mirror": "https://open.kattis.com/problems/poppingballoons",
+        "kattis": "https://open.kattis.com/problems/poppingballoons",
+        "statement": "https://nac.icpc.global/problems/2025/nac2025_problemset.pdf"
+      },
+      "statement_summary": "String of B/Y/R (n <= 2e5); remove uniformly random balloons until the sequence is sorted B..Y..R; expected time mod 998244353.",
+      "solution_idea": "Answer n - E[X], where P(X >= k) = (# non-decreasing subsequences of length k) / C(n,k). Count non-decreasing subsequences of every length with divide-and-conquer + FFT/NTT: for each range keep polynomials f_{i,j}(x) for subsequences starting with color i and ending with j; merge halves by polynomial multiplication. O(10 n log^2 n).",
+      "solution_source": "editorial",
+      "candidate_tags": [
+        "divide and conquer ntt",
+        "polynomial multiplication",
+        "expected value",
+        "counting subsequences",
+        "linearity of expectation"
+      ],
+      "cf_tags": [],
+      "cf_rating": null
+    },
+    {
+      "id": "nac2025-K",
+      "contest": "nac2025",
+      "letter": "K",
+      "title": "SLA Tomography",
+      "solved_teams": 52,
+      "attempted_teams": 52,
+      "first_solve_min": 8,
+      "links": {
+        "mirror": "https://open.kattis.com/problems/slatomography",
+        "kattis": "https://open.kattis.com/problems/slatomography",
+        "statement": "https://nac.icpc.global/problems/2025/nac2025_problemset.pdf"
+      },
+      "statement_summary": "Given the amount of trapped resin per printed layer (n <= 1e5 layers), find the minimum width of a 2D design producing these amounts.",
+      "solution_idea": "Build bottom-up keeping x = number of columns that can still trap resin, all in one pool (merging pools only helps). For the next amount r: if r < x, split the pool, width += 1; else add r - x columns, width += r - x. Greedy O(n).",
+      "solution_source": "editorial",
+      "candidate_tags": [
+        "greedy",
+        "constructive",
+        "simulation"
+      ],
+      "cf_tags": [],
+      "cf_rating": null
+    },
+    {
+      "id": "nac2025-L",
+      "contest": "nac2025",
+      "letter": "L",
+      "title": "Solar Farm",
+      "solved_teams": 29,
+      "attempted_teams": 45,
+      "first_solve_min": 28,
+      "links": {
+        "mirror": "https://open.kattis.com/problems/solarfarm",
+        "kattis": "https://open.kattis.com/problems/solarfarm",
+        "statement": "https://nac.icpc.global/problems/2025/nac2025_problemset.pdf"
+      },
+      "statement_summary": "T <= 1000 tests: circle radius r and panel w x h (<= 1e9); maximize i*j such that an (i*w) x (j*h) rectangle fits in the circle.",
+      "solution_idea": "f(i) = floor of the max j for i columns is not unimodal, but its real relaxation F(i) is, with optimum near the square of diagonal 2r. The integer optimum lies within O(sqrt r) of that point, so search around it (bounded by binary searches comparing f and F) with exact integer sqrt to avoid precision issues.",
+      "solution_source": "editorial",
+      "candidate_tags": [
+        "math",
+        "integer sqrt",
+        "search around optimum",
+        "bounding argument",
+        "geometry"
+      ],
+      "cf_tags": [],
+      "cf_rating": null
+    },
+    {
+      "id": "nac2025-M",
+      "contest": "nac2025",
+      "letter": "M",
+      "title": "This Is Sparta!",
+      "solved_teams": 3,
+      "attempted_teams": 8,
+      "first_solve_min": 115,
+      "links": {
+        "mirror": "https://open.kattis.com/problems/thisissparta",
+        "kattis": "https://open.kattis.com/problems/thisissparta",
+        "statement": "https://nac.icpc.global/problems/2025/nac2025_problemset.pdf"
+      },
+      "statement_summary": "Array V (N <= 1e5, values <= 1e18) repeatedly sorted then V_i -= V_{i-1} sequentially, K <= 1e18 times; output the final state.",
+      "solution_idea": "Elements hit 0 fast: within each power-of-two bucket at least half drop per round (~166 rounds to get N <= 59), and a bounded number of slow rounds (~2e6) brings N to 3. For N = 3 with stable order, k rounds give [a, b - ka, c - kb + k(k+1)/2 a]: jump as many rounds as possible until the order changes, Euclid-like, O(log) jumps.",
+      "solution_source": "editorial",
+      "candidate_tags": [
+        "simulation",
+        "amortized analysis",
+        "closed form formula",
+        "euclidean algorithm",
+        "sorting"
+      ],
+      "cf_tags": [],
+      "cf_rating": null
+    },
+    {
+      "id": "nac2026-A",
+      "contest": "nac2026",
+      "letter": "A",
+      "title": "Acorn Quarrels",
+      "solved_teams": 20,
+      "attempted_teams": 29,
+      "first_solve_min": 51,
+      "links": {
+        "mirror": "https://open.kattis.com/problems/acornquarrels",
+        "kattis": "https://open.kattis.com/problems/acornquarrels",
+        "statement": "https://nac.icpc.global/problems/2026/nac/A-Acornquarrels/A-Acornquarrels.pdf"
+      },
+      "statement_summary": "Tree with N <= 1e5 squirrels; in label order each squirrel steals one acorn from each neighbor tied for most acorns; choose starting values in [N, 2N-1] so everyone ends with their initial amount.",
+      "solution_idea": "Construct so that when u steals, all its neighbors hold the same amount T_u (so u steals from all of them and every edge sees a steal in both directions). This gives linear relations d_v = T_u + L_v(u) - [v<u]deg(v) and T_v = d_u - L_u(v) + [u<v]deg(u); fix d_1 = T_1 = 0, propagate by DFS, then shift all values into [N, 2N-1]. O(N).",
+      "solution_source": "editorial",
+      "candidate_tags": [
+        "constructive",
+        "tree dfs",
+        "invariants",
+        "system of equations on tree"
+      ],
+      "cf_tags": [],
+      "cf_rating": null
+    },
+    {
+      "id": "nac2026-B",
+      "contest": "nac2026",
+      "letter": "B",
+      "title": "Boss Rush",
+      "solved_teams": 0,
+      "attempted_teams": 10,
+      "first_solve_min": null,
+      "links": {
+        "mirror": "https://open.kattis.com/problems/bossrush",
+        "kattis": "https://open.kattis.com/problems/bossrush",
+        "statement": "https://nac.icpc.global/problems/2026/nac/B-Bossrush/B-Bossrush.pdf"
+      },
+      "statement_summary": "n <= 3e5 bosses attack periodically with period d and offsets f_i; a parry defeats one attacking boss and has cooldown w; minimize the time to defeat all.",
+      "solution_idea": "Binary search on the finishing time t. Model the timeline mod d as a graph: boss edges f_i -> f_i + w (mod d) and 'wait' edges j -> j+1 whose multiplicities s_j are determined by t; a valid parry schedule is an Eulerian trail from 0 to t mod d, so check in/out degree balance and connectivity. Compress the cycle of residues to O(n) event points. O(n (log n + log d + log w)); online union-find variant gives O(n log n).",
+      "solution_source": "editorial",
+      "candidate_tags": [
+        "binary search on answer",
+        "eulerian path",
+        "modular timeline graph",
+        "coordinate compression",
+        "union find"
+      ],
+      "cf_tags": [],
+      "cf_rating": null
+    },
+    {
+      "id": "nac2026-C",
+      "contest": "nac2026",
+      "letter": "C",
+      "title": "Cable Pruning",
+      "solved_teams": 9,
+      "attempted_teams": 15,
+      "first_solve_min": 86,
+      "links": {
+        "mirror": "https://open.kattis.com/problems/cablepruning",
+        "kattis": "https://open.kattis.com/problems/cablepruning",
+        "statement": "https://nac.icpc.global/problems/2026/nac/C-Cablepruning/C-Cablepruning.pdf"
+      },
+      "statement_summary": "Connected weighted graph with n vertices and n edges (one cycle) and k <= 1e5 vertex pairs that must stay connected; minimize total weight of kept edges (Steiner forest on a unicyclic graph).",
+      "solution_idea": "Find the cycle and the trees hanging from it; split each pair into tree parts and a cycle part (u to its root, root to root, root to v). Tree parts: mark union of paths (HLD + range assign or small-to-large). Cycle part: try removing each cycle edge in turn while walking around the cycle, flipping each pair between its two arcs, with a lazy segment tree that sums weights of edges with positive coverage (min-count trick). O((n+k) log^2 n).",
+      "solution_source": "editorial",
+      "candidate_tags": [
+        "unicyclic graph",
+        "steiner forest",
+        "lazy segment tree",
+        "heavy light decomposition",
+        "sweep around cycle"
+      ],
+      "cf_tags": [],
+      "cf_rating": null
+    },
+    {
+      "id": "nac2026-D",
+      "contest": "nac2026",
+      "letter": "D",
+      "title": "Draw Your Deck",
+      "solved_teams": 14,
+      "attempted_teams": 22,
+      "first_solve_min": 58,
+      "links": {
+        "mirror": "https://open.kattis.com/problems/drawyourdeck",
+        "kattis": "https://open.kattis.com/problems/drawyourdeck",
+        "statement": "https://nac.icpc.global/problems/2026/nac/D-Drawyourdeck/D-Drawyourdeck.pdf"
+      },
+      "statement_summary": "Deck of N <= 1500 cards valued 0..3; draw one, then repeatedly discard a card from hand to draw that many; probability (random shuffle, optimal play) of drawing the whole deck.",
+      "solution_idea": "If sum < N-1 impossible; if sum = N-1 the answer is exactly 1/N (cycle lemma: exactly one cyclic shift works). Otherwise 1s are irrelevant and you can play greedily; DP over counts (a zeros, b twos, c threes) of cards drawn, tracking the available draws and short-circuiting when they hit 0 or exceed the rest. abc <= (n/3)^3 states.",
+      "solution_source": "editorial",
+      "candidate_tags": [
+        "probability",
+        "cycle lemma",
+        "counting dp",
+        "combinatorics"
+      ],
+      "cf_tags": [],
+      "cf_rating": null
+    },
+    {
+      "id": "nac2026-E",
+      "contest": "nac2026",
+      "letter": "E",
+      "title": "Evil Judges",
+      "solved_teams": 52,
+      "attempted_teams": 52,
+      "first_solve_min": 3,
+      "links": {
+        "mirror": "https://open.kattis.com/problems/eviljudges",
+        "kattis": "https://open.kattis.com/problems/eviljudges",
+        "statement": "https://nac.icpc.global/problems/2026/nac/E-Eviljudges/E-Eviljudges.pdf"
+      },
+      "statement_summary": "String over {A,C,K} (<= 2e5) and up to M <= 1e9 adjacent swaps; minimize the number of AC and AK subsequences.",
+      "solution_idea": "Treat A as 1 and C/K as 0: the count is the number of inversions, and each useful adjacent swap removes exactly one. Answer max(0, inversions - M), with inversions counted by a single sweep (number of A's before each C/K), using 64-bit integers.",
+      "solution_source": "editorial",
+      "candidate_tags": [
+        "inversions counting",
+        "greedy",
+        "adjacent swaps",
+        "prefix counts"
+      ],
+      "cf_tags": [],
+      "cf_rating": null
+    },
+    {
+      "id": "nac2026-F",
+      "contest": "nac2026",
+      "letter": "F",
+      "title": "Friend Meetup",
+      "solved_teams": 43,
+      "attempted_teams": 50,
+      "first_solve_min": 10,
+      "links": {
+        "mirror": "https://open.kattis.com/problems/friendmeetup",
+        "kattis": "https://open.kattis.com/problems/friendmeetup",
+        "statement": "https://nac.icpc.global/problems/2026/nac/F-Friendmeetup/F-Friendmeetup.pdf"
+      },
+      "statement_summary": "n <= 2e5 people on the integer grid with speeds v_i; over all pairs, maximize the meeting time (Manhattan distance)/(v_i + v_j).",
+      "solution_idea": "Rotate coordinates a = x+y, b = x-y so Manhattan distance becomes max(|a_i-a_j|, |b_i-b_j|). Binary search on the answer t: (a_i - a_j) <= t(v_i + v_j) for all pairs iff max_i(a_i - t v_i) <= min_j(a_j + t v_j), same for b; each check O(n).",
+      "solution_source": "editorial",
+      "candidate_tags": [
+        "binary search on answer",
+        "manhattan to chebyshev rotation",
+        "fractional optimization",
+        "max min decoupling"
+      ],
+      "cf_tags": [],
+      "cf_rating": null
+    },
+    {
+      "id": "nac2026-G",
+      "contest": "nac2026",
+      "letter": "G",
+      "title": "Gemstone Dowsing",
+      "solved_teams": 0,
+      "attempted_teams": 3,
+      "first_solve_min": null,
+      "links": {
+        "mirror": "https://open.kattis.com/problems/gemstonedowsing",
+        "kattis": "https://open.kattis.com/problems/gemstonedowsing",
+        "statement": "https://nac.icpc.global/problems/2026/nac/G-Gemstonedowsing/G-Gemstonedowsing.pdf"
+      },
+      "statement_summary": "N <= 1e5 buried gemstones, k known; N surface readings each report the nearest gem (each gem in exactly one reading); for each unknown gem, the deepest it could be.",
+      "solution_idea": "Each reading defines a semicircle (radius = distance to the nearest known gem) that must contain its gem; gems' x-order follows reading order. Only the nearest known readings on both sides matter, and any unknown placed outside known semicircles can be completed consistently. For each unknown reading U, check the extreme bottom point of its semicircle and its intersections with the neighbouring known semicircles. O(n) sweep.",
+      "solution_source": "editorial",
+      "candidate_tags": [
+        "computational geometry",
+        "circle intersection",
+        "sweep",
+        "ordering argument"
+      ],
+      "cf_tags": [],
+      "cf_rating": null
+    },
+    {
+      "id": "nac2026-H",
+      "contest": "nac2026",
+      "letter": "H",
+      "title": "Heist of the Century",
+      "solved_teams": 39,
+      "attempted_teams": 44,
+      "first_solve_min": 55,
+      "links": {
+        "mirror": "https://open.kattis.com/problems/heistofthecentury",
+        "kattis": "https://open.kattis.com/problems/heistofthecentury",
+        "statement": "https://nac.icpc.global/problems/2026/nac/H-Heistofthecentury/H-Heistofthecentury.pdf"
+      },
+      "statement_summary": "Interactive: hidden array h of length N <= 500 with values in [1,2N]; a query d returns max_i |d_i - h_i|; recover h with at most 4N queries.",
+      "solution_idea": "Baseline all n/n+1 keeps the answer <= n. For each i query with d_i = 1 and with d_i = 2N (others n): an answer > n decodes h_i directly; otherwise h_i in {n, n+1}, tentatively set n. With the current guess the error is <= 1, so for each uncertain index query the guess with d_i = 1 to read h_i = q+1. At most 3N+1 queries, O(N^2).",
+      "solution_source": "editorial",
+      "candidate_tags": [
+        "interactive",
+        "adaptive queries",
+        "constructive",
+        "max norm decoding"
+      ],
+      "cf_tags": [],
+      "cf_rating": null
+    },
+    {
+      "id": "nac2026-I",
+      "contest": "nac2026",
+      "letter": "I",
+      "title": "I Don't Miss Pennies",
+      "solved_teams": 52,
+      "attempted_teams": 52,
+      "first_solve_min": 11,
+      "links": {
+        "mirror": "https://open.kattis.com/problems/idontmisspennies",
+        "kattis": "https://open.kattis.com/problems/idontmisspennies",
+        "statement": "https://nac.icpc.global/problems/2026/nac/I-Idontmisspennies/I-Idontmisspennies.pdf"
+      },
+      "statement_summary": "n <= 3e5 item prices; group purchases (cash totals rounded to nearest 5 cents) to maximize savings.",
+      "solution_idea": "Only prices mod 5 matter. Items with remainder 0, 1, 2 go alone (already round down or neutral). Pair each 3 with a 4 (sum = 2 mod 5); leftover 3s pair as 3+3 = 1 mod 5, leftover 4s group in threes (4+4+4 = 2 mod 5). Greedy O(n).",
+      "solution_source": "editorial",
+      "candidate_tags": [
+        "greedy",
+        "modular arithmetic",
+        "casework"
+      ],
+      "cf_tags": [],
+      "cf_rating": null
+    },
+    {
+      "id": "nac2026-J",
+      "contest": "nac2026",
+      "letter": "J",
+      "title": "Jelly Fusion",
+      "solved_teams": 13,
+      "attempted_teams": 20,
+      "first_solve_min": 44,
+      "links": {
+        "mirror": "https://open.kattis.com/problems/jellyfusion",
+        "kattis": "https://open.kattis.com/problems/jellyfusion",
+        "statement": "https://nac.icpc.global/problems/2026/nac/J-Jellyfusion/J-Jellyfusion.pdf"
+      },
+      "statement_summary": "Circular array of N <= 3e5 rectangles; fuse adjacent ones (width = max, height = max) to maximize the sum of areas.",
+      "solution_idea": "On a line, dp_i = max_j dp_j + max(w_{j+1..i}) * max(h_{j+1..i}); by exchange, in every fused segment the max-width and max-height pieces sit at the two ends, so transitions are dp_{i-1}+w_i h_i, dp_j + w_i h_j or dp_j + w_j h_i, optimized with a Li Chao tree (lines inserted by intercept, not slope). For the circle, the first max-width jelly is at an end of its segment: try the two rotations. O(N log N).",
+      "solution_source": "editorial",
+      "candidate_tags": [
+        "dp",
+        "convex hull trick",
+        "li chao tree",
+        "exchange argument",
+        "circular array"
+      ],
+      "cf_tags": [],
+      "cf_rating": null
+    },
+    {
+      "id": "nac2026-K",
+      "contest": "nac2026",
+      "letter": "K",
+      "title": "Kindergarten Revisited",
+      "solved_teams": 30,
+      "attempted_teams": 37,
+      "first_solve_min": 30,
+      "links": {
+        "mirror": "https://open.kattis.com/problems/kindergartenrevisited",
+        "kattis": "https://open.kattis.com/problems/kindergartenrevisited",
+        "statement": "https://nac.icpc.global/problems/2026/nac/K-Kindergartenrevisited/K-Kindergartenrevisited.pdf"
+      },
+      "statement_summary": "N <= 100 disjoint axis-aligned rectangles on the plane; minimum number of straight-line cuts (none may cut a rectangle interior) to separate all rectangles, or impossible.",
+      "solution_idea": "The answer is always N-1 or impossible: recursively find any line not nicking a rectangle that separates them. Candidate lines pass through pairs of rectangle vertices; precompute for every vertex pair counts of rectangles left/right/nicked (O(n^3)), find a non-nicking separating line, recurse on both sides updating counts by subtracting the other side's contribution. O(n^3) total.",
+      "solution_source": "editorial",
+      "candidate_tags": [
+        "computational geometry",
+        "recursive separation",
+        "line through two points",
+        "divide and conquer"
+      ],
+      "cf_tags": [],
+      "cf_rating": null
+    },
+    {
+      "id": "nac2026-L",
+      "contest": "nac2026",
+      "letter": "L",
+      "title": "Leaking Santa's Secrets",
+      "solved_teams": 2,
+      "attempted_teams": 5,
+      "first_solve_min": 202,
+      "links": {
+        "mirror": "https://open.kattis.com/problems/leakingsantassecrets",
+        "kattis": "https://open.kattis.com/problems/leakingsantassecrets",
+        "statement": "https://nac.icpc.global/problems/2026/nac/L-Leakingsantassecrets/L-Leakingsantassecrets.pdf"
+      },
+      "statement_summary": "Interactive: recover a hidden permutation H of size N <= 220 using at most 1510 queries, each returning the number of cycles of H composed with a chosen permutation Q.",
+      "solution_idea": "Composing with a transposition changes the cycle count by +-1 depending on whether the two elements share a cycle; composing many transpositions shifts by their count when all elements are in different cycles. Query the identity, then insert elements one by one, binary searching over the current cycles (one query per halving, swaps batched) to find which cycle the new element joins and adding that swap; when the count reaches N, H = Q^{-1}. About 1 + sum log2(i+1) = 1506 queries.",
+      "solution_source": "editorial",
+      "candidate_tags": [
+        "interactive",
+        "binary search",
+        "permutation cycles",
+        "transpositions parity"
+      ],
+      "cf_tags": [],
+      "cf_rating": null
+    },
+    {
+      "id": "nac2026-M",
+      "contest": "nac2026",
+      "letter": "M",
+      "title": "Maki Conveyor Belt",
+      "solved_teams": 27,
+      "attempted_teams": 38,
+      "first_solve_min": 30,
+      "links": {
+        "mirror": "https://open.kattis.com/problems/makiconveyorbelt",
+        "kattis": "https://open.kattis.com/problems/makiconveyorbelt",
+        "statement": "https://nac.icpc.global/problems/2026/nac/M-Makiconveyorbelt/M-Makiconveyorbelt.pdf"
+      },
+      "statement_summary": "Circular conveyor with K plates of maki (type, count, price); Alice and Bob at fixed seats need a_i / b_i pieces of each type; minimize time to satisfy both, then minimum cost.",
+      "solution_idea": "For a fixed number of rotations r every plate is Alice-only, Bob-only, shared or unreachable; type i is satisfiable iff min(a_i, Aonly) + min(b_i, Bonly) + shared >= a_i + b_i. Feasibility is monotone in r, so binary search (or process plate arrival events incrementally); then compute minimum cost by sorting plates by price and greedily filling exclusive then shared demand. O((K log K + M) log N).",
+      "solution_source": "editorial",
+      "candidate_tags": [
+        "binary search on answer",
+        "greedy",
+        "sorting",
+        "feasibility check",
+        "simulation"
+      ],
+      "cf_tags": [],
+      "cf_rating": null
+    }
+  ]
+}

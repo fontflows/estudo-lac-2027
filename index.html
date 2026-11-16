@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Estudo LAC</title>
+<meta name="description" content="Tópicos, problemas e contests de nível campeonato ICPC, ordenados para estudo.">
+<script>
+  try { var t = localStorage.getItem("sg-theme"); if (t === "light" || t === "dark") document.documentElement.setAttribute("data-theme", t); } catch (e) {}
+</script>
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="assets/favicon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<a class="skip" href="#app">Ir para o conteúdo</a>
+<header class="site">
+  <div class="hin">
+    <a class="wordmark" href="#/topicos">Estudo</a>
+    <nav class="tabs" aria-label="Seções">
+      <a data-tab="topicos" href="#/topicos">Tópicos</a>
+      <a data-tab="problemas" href="#/problemas">Problemas</a>
+      <a data-tab="contests" href="#/contests">Contests</a>
+      <a data-tab="sobre" href="#/sobre">Sobre</a>
+    </nav>
+    <div class="hright">
+      <span id="countdown" class="countdown"></span>
+      <button type="button" id="themebtn" class="themebtn">Tema</button>
+    </div>
+  </div>
+</header>
+<main id="app" class="wrap" tabindex="-1"></main>
+<footer class="wrap foot">
+  <p>© 2026 <a href="https://gempro.group/" target="_blank" rel="noopener">GEMPRO</a> · USP Ribeirão Preto<span aria-hidden="true"> · </span><a href="#/sobre">Dados: placares e editoriais oficiais</a><span id="mocknote" hidden></span></p>
+</footer>
+<script src="data/dataset.js"></script>
+<script src="assets/core.js"></script>
+<script src="assets/charts.js"></script>
+<script src="assets/app.js"></script>
+</body>
+</html>
