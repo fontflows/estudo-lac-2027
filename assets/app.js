@@ -611,8 +611,10 @@
           '<tr><th scope="row">Presença</th><td class="num">' + SG.fmtPct(a.presence) + '</td><td class="muted small">' + a.nContests + " de " + nC + " contests têm ao menos um problema (ponderado por família)</td></tr>" +
           '<tr><th scope="row">Problemas</th><td class="num">' + a.nProblems + '</td><td class="muted small">' + a.nPrimary + " como tópico principal, " + a.nSecondary + " como secundário</td></tr>" +
           '<tr><th scope="row">Posição</th><td class="num">' + a.rankPerContest + "º</td><td class=\"muted small\">de " + S.list.length + " tópicos, por problemas por contest</td></tr>" +
-          '<tr><th scope="row">Dificuldade típica</th><td class="num">' + (a.medianDv != null ? Math.round(a.medianDv * 100) + "%" : DASH) + "</td><td>" + diffCell(a.typicalDiff, true) +
-          ' <span class="muted small">mediana da fração dos ' + esc(TOPK) + ' de cada contest que resolveu</span></td></tr>' +
+          '<tr><th scope="row">Dificuldade típica</th><td class="num"></td><td>' + diffCell(a.typicalDiff, true) +
+          (a.medianDv != null ? ' <span class="muted small">no problema mediano do tópico, ' +
+            (SG.K ? Math.round(a.medianDv * SG.K) + " dos " + SG.K : Math.round(a.medianDv * 100) + "% dos") +
+            " melhores times do contest resolveram</span>" : "") + "</td></tr>" +
           '<tr><th scope="row">Distribuição</th><td class="num">' + a.nProblems + "</td><td>" + binsHtml + "</td></tr>" +
           '<tr><th scope="row">1º AC</th><td class="num">' + (a.firstSolve.n ? SG.fmtNum(a.firstSolve.median, 0) : DASH) + "</td><td>" + fsTxt + "</td></tr>" +
           "</tbody></table>";
