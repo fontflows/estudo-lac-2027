@@ -1,5 +1,7 @@
 # Estudo LAC 2027
 
+**Site: https://fontflows.github.io/estudo-lac-2027/**
+
 Static study guide for the ICPC Latin America Championship: which topics appear most in
 championship-level contests, how hard they are, and links to every problem.
 Plain HTML/CSS/JS, no build step. Works on GitHub Pages and opened directly from disk (`file://`).
@@ -30,6 +32,6 @@ Open `index.html` in a browser. Or serve the folder: `python -m http.server` and
 
 1. Push this folder to a GitHub repository (the repository root is the site root).
 2. Settings → Pages → Build and deployment → Source: "Deploy from a branch"; branch `main`, folder `/ (root)`.
-3. The site is served at `https://<user>.github.io/<repo>/`. `.nojekyll` disables Jekyll processing.
+3. The site is served at https://fontflows.github.io/estudo-lac-2027/ and updates a minute or two after each push to `main`. `.nojekyll` disables Jekyll processing.
 
 Links keep the filter in the URL (`#/topicos?escopo=latam&de=2019&ate=2026`), so any view can be shared.
