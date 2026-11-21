@@ -1,0 +1,258 @@
+{
+  "summary": "Revisão crítica do curriculum.json (155 C, 67 B). Aplicando tudo: 133 insights C (−22) e 61 aprofundamentos B (−6). Maior fonte de redundância: a mesma ideia descrita em grupos diferentes (eventos, ciclos, emparelhamento na reta, forma canônica, ordem aleatória, semente+propagação) e pares C/B que repetem a mesma ideia (pilha de versões × entra/sai na DFS, composição de funções, O(√S) valores distintos).",
+  "merges": [
+    {
+      "keep": "breakpoint-optimum",
+      "absorb": ["few-active-constraints"],
+      "name": "Ótimo numa configuração crítica: empurre até encostar",
+      "statement": "Se o objetivo depende de um parâmetro contínuo (um real, um ponto, um círculo, uma reta) e a combinatória da solução só muda em O(n) eventos, dentro de cada pedaço o objetivo é monótono, linear ou côncavo (para mínimo), e o ótimo está numa fronteira. Na prática: pegue uma solução ótima e desloque, gire ou encolha sem piorar até ela encostar em 1–3 objetos da entrada. Os candidatos viram os breakpoints (O(n) em 1D) ou as duplas e triplas de objetos (O(n²)–O(n³) no plano), que se enumeram e avaliam. Não use busca ternária quando a função não é unimodal.",
+      "reason": "As duas são a mesma prova (perturbar o ótimo até as restrições ficarem justas) com a mesma consequência (enumerar candidatos definidos por eventos/objetos). apac2024-I já estava em breakpoint-optimum com o argumento geométrico de few-active-constraints. 7 problemas e G3 juntos; separadas pareciam duas ideias raras."
+    },
+    {
+      "keep": "skip-between-events",
+      "absorb": ["integrate-between-events", "polynomial-coefficients-sweep"],
+      "name": "Entre eventos, forma fechada",
+      "statement": "Se a estrutura discreta de um processo (quem lidera, a ordem dos elementos, quais vértices estão submersos ou são de apoio) só muda em O(n) eventos, entre dois eventos a quantidade de interesse tem forma fechada (linear, mod, polinômio, sin/cos). Calcule os eventos e trate cada trecho de uma vez: pule k passos da simulação com uma divisão, integre o trecho analiticamente ou, com muitas consultas, mantenha no agregado a soma dos coeficientes do polinômio e troque os coeficientes de um elemento quando ele cruza uma quebra. O custo passa a ser O(#eventos), como no Euclides, em que subtrações repetidas viram um mod.",
+      "reason": "Três descrições da mesma ideia: integrate-between-events tem até como contexto 'área acima da água em função do nível (quadrática por partes)', que é exatamente nerc2022apr-G de polynomial-coefficients-sweep; skip-between-events é a versão em tempo discreto. Junta 5 problemas no grupo de ordem/tempo, que estava subpovoado."
+    },
+    {
+      "keep": "uncross-optimal-matching",
+      "absorb": ["no-overtaking-order"],
+      "name": "Emparelhamento na reta não cruza: ordem preservada",
+      "statement": "Em emparelhamentos entre pontos numa reta ou num círculo com custo = distância — ou quando os agentes fisicamente não podem se ultrapassar —, existe solução que preserva a ordem, pois descruzar dois arcos não aumenta o custo. Na reta isso força ordenado com ordenado; no círculo sobra só um deslocamento cíclico (enumere o destino do primeiro). Com pontos opcionais, os arcos não se cruzam, nenhum ponto livre fica sob um arco e o emparelhamento vira uma estrutura de parênteses (pilha), com pouquíssimos parceiros candidatos por elemento.",
+      "reason": "no-overtaking-order cita como contexto 'casar pontos de dois conjuntos num círculo minimizando custo (deslocamento cíclico)', que é o próprio uncross. A consequência que se aprende é uma só: a atribuição é monótona/cíclica."
+    },
+    {
+      "keep": "unroll-duplicate",
+      "absorb": ["cut-at-canonical-element", "rotate-removed-cycle-edge"],
+      "name": "Quebrar o ciclo num corte",
+      "statement": "Um problema circular vira linear quando você escolhe onde cortar: (a) duplique (x e x+L, ou a+a) e trate o que cruza o corte como objetos que passam de L; (b) prove que algum elemento distinguido (o máximo, o primeiro máximo) está sempre na borda do seu bloco e corte só nele (1–2 rotações); ou (c) teste todos os cortes de forma incremental: ao girar o corte uma posição, só os itens que usavam aquela aresta trocam de lado, cada um O(1) vezes. Num grafo unicíclico, a aresta removida do ciclo faz o papel do corte.",
+      "reason": "São três estratégias para a mesma pergunta ('onde cortar o ciclo?'), duas delas vindas de um único problema cada (nac2026-J, nac2026-C). Para estudar, a unidade certa é o menu de cortes."
+    },
+    {
+      "keep": "functional-graph",
+      "absorb": ["reversible-transition-permutation"],
+      "name": "Sucessor único ⇒ grafo funcional (ciclos com árvores)",
+      "statement": "Se cada estado tem no máximo um sucessor, cada componente é um ciclo (ou um sumidouro) com árvores apontando para ele: contraia o ciclo e resolva o resto com DFS nas arestas invertidas. Se a transição não é determinística no estado natural, amplie o estado (por exemplo, o par dos dois últimos elementos) até que seja. Se além disso o anterior também fica determinado, o grafo é uma permutação: só ciclos, percorridos visitando cada estado uma vez em O(#estados).",
+      "reason": "Mesma ideia (transição determinística ⇒ estrutura de ciclos); a permutação é só o caso inversível. O passo realmente útil de lac2026-K (ampliar o estado até ficar determinístico) entra no enunciado."
+    },
+    {
+      "keep": "normal-form-reversible",
+      "absorb": ["canonical-form-symmetry"],
+      "name": "Equivalência ⇒ compare formas canônicas",
+      "statement": "Se os objetos se relacionam por operações reversíveis ou por uma simetria (rotação, translação, relações de grupo), a pergunta 'S e E são equivalentes?' vira 'N(S) = N(E)?', em que N leva qualquer objeto a um representante canônico (normalizar, fundir partes sobrepostas, transladar até o menor ponto, reduzir a palavra). Para construir, faça S → N(S) seguido do inverso de E → N(E); a forma normal não precisa ser ótima, só alcançável dentro do limite.",
+      "reason": "Igualdade a menos de simetria é um caso de equivalência sob operações reversíveis; o que se aprende nas duas é 'escolha um representante canônico e compare'."
+    },
+    {
+      "keep": "distinct-parts-sqrt",
+      "absorb": ["subset-sum-sqrt"],
+      "name": "Soma total S ⇒ só O(√S) valores distintos",
+      "statement": "Valores positivos distintos com soma ≤ S são no máximo ~√(2S). Assim, partes estritamente crescentes têm O(√n) termos (uma DP em (soma, quantidade) custa O(n√n)), e um subset sum com soma total S tem O(√S) valores distintos: agrupe por valor, quebre cada multiplicidade em potências de 2 (1, 2, 4, …, resto) e rode a mochila em O(S√S), ou ÷64 com bitset.",
+      "reason": "B subset-sum-sqrt (lac2024-F) e C distinct-parts-sqrt (apac2024-M) são o mesmo limite; o contexto de distinct-parts-sqrt chegava a citar 'lac2024-F'. Fica um item C, com o detalhe da quebra binária no enunciado."
+    },
+    {
+      "keep": "large-forced-small-brute",
+      "absorb": ["explosive-count-small-tail"],
+      "name": "Crescimento explosivo: o caso grande é garantido, o pequeno é força bruta",
+      "statement": "Quando algo cresce exponencialmente (sequência sem triângulo cresce como Fibonacci, contagens fatoriais, 2^k subconjuntos contra n valores) ou a saída tem teto (min(resposta, LIMITE)), a propriedade buscada só pode falhar — ou só pode variar — numa parte de tamanho ~log do limite. Resolva os casos grandes com uma regra simples ou uma resposta garantida e reserve a busca exponencial para o que sobra. Para o k-ésimo objeto com k ≤ 1e18, só os últimos ~20 elementos (ou poucas inversões) mudam.",
+      "reason": "explosive-count-small-tail é o mesmo argumento de crescimento aplicado ao k-ésimo; separado, era a releitura de um único problema (latam_regional2024-I)."
+    },
+    {
+      "keep": "powers-of-two-lex",
+      "absorb": ["dominant-penalty"],
+      "name": "Termo dominante ⇒ otimize lexicograficamente",
+      "statement": "Se um peso supera a soma de todos os menores (2^i > Σ_{j<i} 2^j) ou um termo do objetivo tem coeficiente gigante (big-M), o objetivo é lexicográfico. Decida do maior para o menor, fixando cada escolha se ainda for viável, ou deduza que a solução ótima quase não usa o termo caro e enumere só essas formas restritas.",
+      "reason": "dominant-penalty tem como contexto 'custos lexicográficos codificados como M·a + b': é a mesma ideia de dominância. Juntos chegam a G3 e cabem melhor em 'forma do ótimo' (ver regroup)."
+    },
+    {
+      "keep": "skip-noop-steps",
+      "absorb": ["merge-random-samples-order"],
+      "name": "Revelar a ordem aleatória aos poucos",
+      "statement": "Uma ordem aleatória uniforme — ou valores i.i.d. contínuos que só são comparados — pode ser gerada passo a passo, porque o próximo elemento relevante é uniforme entre os candidatos restantes. Ignore os passos que não mudam o estado (o próximo passo efetivo é uniforme entre os efetivos) ou, com dois grupos, o próximo maior é de A com probabilidade a/(a + b). Isso vira uma recorrência ou DP sobre contagens, em vez de uma soma sobre ordens completas.",
+      "reason": "Os dois são a mesma técnica (gerar preguiçosamente a permutação aleatória e condicionar no próximo elemento relevante); cada um tinha só 1 problema."
+    },
+    {
+      "keep": "first-divergence",
+      "absorb": ["fix-intersection"],
+      "name": "Pares de objetos: fixe a parte comum",
+      "statement": "Para contar ou otimizar pares de objetos (caminhos, strings, intervalos), fixe a parte que eles compartilham: a interseção, ou o prefixo comum até o primeiro ponto de divergência. Fora dela, os dois seguem independentes (ou só sincronizados), então a contagem vira um produto de fatores locais em cada ponta e cada parte vira um subproblema padrão.",
+      "reason": "O prefixo comum até a divergência é a interseção dos dois objetos; nos dois casos o truque é fixar a parte compartilhada e tornar as pontas independentes."
+    },
+    {
+      "keep": "crossing-interleave",
+      "absorb": ["laminar-forest"],
+      "name": "Cruzar = extremos intercalados; sem cruzamento = floresta",
+      "statement": "Duas cordas ou intervalos com extremos numa ordem linear ou cíclica (reta, perímetro de região convexa, linha do tempo de uma pilha) se cruzam sse os extremos se intercalam (a < c < b < d). Logo 'nenhum par se cruza' = família laminar = sequência de parênteses bem aninhada (teste com pilha), e essa família é uma floresta por inclusão (pai = menor intervalo que contém; ordene por (início, −fim) e use pilha), sobre a qual se faz DP em árvore. Contar cruzamentos = contar pares intercalados (ordene por l e use BIT sobre r).",
+      "reason": "crossing-interleave já dizia 'sem cruzamento = família laminar = parênteses'; laminar-forest só acrescenta 'laminar = floresta'. É uma cadeia de equivalências, que se estuda junta."
+    },
+    {
+      "keep": "reachable-interval",
+      "absorb": ["extreme-solutions-intersection"],
+      "name": "Viáveis formam um intervalo: as soluções extremas resumem tudo",
+      "statement": "Se cada passo leva a uma faixa contínua e as restrições são intervalos, o conjunto de valores viáveis em cada passo é um intervalo (às vezes com paridade fixa): propague [lo, hi] para frente e reconstrua de trás para frente, escolhendo em cada intervalo um valor compatível com o próximo. Do mesmo modo, num posicionamento sequencial, cada peça pode ocupar qualquer posição entre a da solução mais à esquerda e a da mais à direita, e o que é obrigatório em todas as soluções é a interseção dessas duas extremas.",
+      "reason": "A posição de cada bloco no nonograma (nerc2021-J) varia num intervalo [mais à esquerda, mais à direita]: é a mesma propriedade de 'viáveis formam intervalo'."
+    },
+    {
+      "keep": "minimax-decision-tree",
+      "absorb": ["probability-mass-bisection"],
+      "name": "Pergunte onde a resposta divide melhor os candidatos",
+      "statement": "Mantenha o conjunto (ou a distribuição a posteriori) dos candidatos consistentes e escolha a consulta cuja resposta o divide melhor: no pior caso, minimizando o maior grupo restante (universo pequeno, pré-computável); com respostas ruidosas ou alvo que se move ao acaso, dividindo ao meio a massa de probabilidade, e não o tamanho. Pré-calcule offline as primeiras jogadas.",
+      "reason": "É o mesmo princípio de maximizar a informação por consulta, em duas métricas (pior caso × esperança)."
+    },
+    {
+      "keep": "two-attributes-edge",
+      "absorb": ["twice-appearing-paths-cycles"],
+      "name": "Objeto com dois extremos = aresta",
+      "statement": "Se cada item é definido por dois valores (dois atributos, as duas ocorrências de um elemento, os dois lados de uma carta), modele-o como uma aresta entre eles. 'Não repetir atributo' vira emparelhamento; 'compartilham atributo' vira adjacência de arestas (grafo de linha); escolher um lado por item vira orientar as arestas. Se cada valor aparece no máximo duas vezes, o grafo tem grau ≤ 2 e se decompõe em caminhos e ciclos, cada um resolvido por um padrão fixo.",
+      "reason": "O passo de modelagem (item com duas pontas → aresta) é o mesmo nos dois; 'grau ≤ 2 ⇒ caminhos e ciclos' é uma consequência. O contexto de twice-appearing ('cartas com dois números: grafo de valores') já era two-attributes-edge."
+    },
+    {
+      "keep": "stack-of-versions",
+      "absorb": ["dfs-enter-exit-state"],
+      "name": "Mudanças em pilha: desfaça em vez de recalcular",
+      "statement": "Se as alterações são sempre desfeitas na ordem inversa — push/pop no fim, ou entrar/sair de um vértice na DFS —, mantenha uma única estrutura e uma pilha de alterações, e desfaça a última ao dar pop ou ao subir. Na DFS, a estrutura representa exatamente o caminho raiz → v, com O(n) atualizações no total. Cuidado: estruturas com custo amortizado (compressão de caminho, autômato de sufixos) podem degradar com desfazer/refazer repetido; use versões sem amortização ou persistentes.",
+      "reason": "O caminho da DFS é uma pilha (entrar = push, sair = pop); C stack-of-versions e B dfs-enter-exit-state ensinavam a mesma coisa em categorias diferentes. Fica C, G3."
+    },
+    {
+      "keep": "closed-under-composition",
+      "absorb": ["segtree-function-composition"],
+      "name": "Passos como funções: componha em blocos",
+      "statement": "Se cada passo é uma função do estado e as consultas pedem 'aplique os passos l..r a x', verifique se a composição continua compacta: a mesma família com O(1) parâmetros (soma + clamp, afim mod p) ou uma tabela sobre k estados pequenos (autômato, pares (custo, estado de saída)). Então pré-componha blocos numa segment tree (que aceita updates pontuais), numa sparse table ou em binary lifting, e responda cada consulta compondo O(log n) blocos.",
+      "reason": "B segtree-function-composition (apac2025-D) é o caso 'tabela sobre estados pequenos' da mesma ideia; manter os dois duplicava a lição."
+    },
+    {
+      "keep": "dedupe-by-features",
+      "absorb": ["enumerate-type-counts"],
+      "name": "Só o vetor de características importa: agrupe o que é intercambiável",
+      "statement": "Se a resposta depende só de um vetor pequeno de características (soma, momentos, quantos itens de cada tipo), troque os objetos por esse vetor. Itens do mesmo tipo são intercambiáveis: depois de descartar as opções dominadas (muitas vezes só os extremos importam), enumere só as contagens por tipo. Numa busca exaustiva, guarde por nível só os vetores distintos alcançáveis, cujo número costuma ser polinomial.",
+      "reason": "Os dois dizem 'o estado é o vetor de características, não a identidade dos objetos'; cada um tinha 1 problema."
+    },
+    {
+      "keep": "fix-seed-propagate",
+      "absorb": ["cycle-parametrize"],
+      "name": "Fixe a semente e propague",
+      "statement": "Se restrições locais determinam cada valor a partir de vizinhos já conhecidos (x_v = x_u + c numa árvore, conservação de fluxo ao redor de um ciclo, regra XOR tipo Lights Out na grade), fixe como variável o mínimo que determina o resto: a raiz, a incógnita de uma aresta do ciclo, a primeira linha. Tudo vira função dela (x + p_i, ±x alternado), e o que sobra é uma condição ou um custo sobre poucas variáveis: translação para caber numa faixa, mediana de Σ|x + p_i|, x = −min p_i, sistema linear ou 2-SAT. Num ciclo, a paridade do comprimento decide se a solução é única ou uma família de um parâmetro.",
+      "reason": "cycle-parametrize ('fixe a incógnita de uma aresta e tudo vira x + p_i') é exatamente fix-seed-propagate aplicado a um ciclo. Juntos: 4 problemas, G3."
+    },
+    {
+      "keep": "matroid-kruskal-oracle",
+      "absorb": ["kuhn-vertex-weights"],
+      "category": "C",
+      "group": "exchange",
+      "name": "Guloso por peso com teste de completabilidade (matroide)",
+      "statement": "Se as escolhas viáveis têm a propriedade de troca de um matroide (florestas, conjuntos de vértices cobríveis por um emparelhamento, vetores independentes, tarefas agendáveis dentro dos prazos), percorrer os elementos em ordem de peso e aceitar cada um sse o conjunto continua independente/completável dá o ótimo. O teste pode ser qualquer oráculo: DSU, uma tentativa de caminho aumentante de Kuhn (vértices já casados nunca são descasados), eliminação gaussiana ou um emparelhamento.",
+      "reason": "kuhn-vertex-weights justifica a si mesmo com 'matroide transversal + guloso', que é o enunciado de matroid-kruskal-oracle. A ideia comum atravessa MST, matching e base XOR, então deixa de ser aprofundamento de uma técnica e vira insight C (grupo exchange). signal sugerido: 'minimizar/maximizar a soma dos escolhidos sob uma restrição de independência verificável; peso só nos vértices/elementos'."
+    },
+    {
+      "keep": "segtree-descent",
+      "absorb": ["bit-descent"],
+      "name": "Descida na árvore (segment tree / BIT) em vez de busca binária",
+      "property": "Numa segment tree de máximos ou de somas, o primeiro índice ≥ l com valor > x, ou o primeiro prefixo com soma ≥ k, é encontrado em O(log n) descendo pela árvore, em vez de busca binária + consulta em O(log² n), com atualizações pontuais. No BIT, o mesmo se faz descendo por potências de 2 e somando enquanto não ultrapassa k; guardando também Σ peso, obtém-se o custo dos k primeiros.",
+      "why": "Cada nó resume seu intervalo: se o filho da esquerda (restrito ao intervalo) já satisfaz a condição, a resposta está nele, senão no da direita, e só um caminho raiz–folha é aprofundado. No BIT, o nó i cobre (i − lowbit(i), i], e somar blocos de tamanhos decrescentes reconstrói o prefixo bit a bit.",
+      "reason": "Mesma ideia em duas estruturas; o contexto de segtree-descent ('k-ésimo / primeira posição com soma de prefixo ≥ k') é o próprio bit-descent."
+    },
+    {
+      "keep": "matching-alternating-flex",
+      "absorb": ["flow-edge-mandatory"],
+      "name": "Obrigatório, opcional ou proibido em todo emparelhamento/fluxo máximo",
+      "property": "Dado um ótimo (emparelhamento máximo M ou fluxo máximo F), todo outro ótimo difere dele por caminhos alternantes ou ciclos no grafo residual. Assim: v fica fora de algum emparelhamento máximo sse é livre ou é alcançável de um livre do mesmo lado por caminho alternante par; remover u e v de um emparelhamento perfeito mantém um perfeito sse uv ∈ M ou há caminho M-alternante entre os parceiros; uma aresta saturada está em todo fluxo máximo sse seus extremos estão em SCCs diferentes do residual. Tudo sai de buscas de alcançabilidade/SCC no residual.",
+      "why": "Deslizar a solução ao longo de um caminho alternante, ou circular fluxo num ciclo residual, troca quais elementos são usados sem mudar o valor; reciprocamente, a diferença entre dois ótimos se decompõe exatamente nesses caminhos e ciclos.",
+      "reason": "Mesma teoria (Dulmage–Mendelsohn / circulação residual) e mesma pergunta (Y/N/? para cada elemento). O sinal de flow-edge-mandatory ('classificar cada elemento como obrigatório/proibido/opcional num matching ou fluxo') descreve os dois."
+    }
+  ],
+  "rewrites": [
+    {"id": "skip-between-events", "field": "signal", "proposed": "simulação com tempos ou repetições até 1e18 cuja regra depende só de quem está ativo; integral ou média ao longo de uma rotação ou de um nível; muitas consultas sobre um parâmetro contínuo", "reason": "Cobrir as três faces absorvidas."},
+    {"id": "unroll-duplicate", "field": "signal", "proposed": "array circular, anel, intervalos que dão a volta, partição circular em blocos, grafo com n vértices e n arestas", "reason": "Incluir os sinais de cut-at-canonical-element e rotate-removed-cycle-edge."},
+    {"id": "functional-graph", "field": "signal", "proposed": "'siga a seta até sair ou repetir'; cada passo determinado pelos dois últimos elementos (reflexão, recorrência de 2ª ordem); até 1e6 estados", "reason": "Incluir o sinal de reversible-transition-permutation."},
+    {"id": "skip-noop-steps", "field": "signal", "proposed": "eventos em ordem aleatória em que muitos não mudam o estado; cartas ou valores aleatórios em que só importa quem tem o maior", "reason": "Cobrir os dois casos absorvidos."},
+    {"id": "fix-seed-propagate", "field": "signal", "proposed": "valores determinados localmente por vizinhos (diferença fixa por aresta, soma de vizinhos num anel, regra XOR na grade) com faixa permitida ou custo a minimizar; itens em círculo equalizados movendo unidades entre vizinhos", "reason": "Incluir o sinal de cycle-parametrize, sem a palavra 'observações'."},
+    {"id": "separate-axes", "field": "name", "proposed": "Coordenadas independentes: resolva cada eixo sozinho", "reason": "O nome atual ('com reflexão') prende a ideia ao bilhar; o que se transfere é a separabilidade."},
+    {"id": "separate-axes", "field": "statement", "proposed": "Se o movimento ou o custo se separa por coordenada (reflexões nas paredes, passos diagonais, distância de Manhattan, regras que tratam x e y sem interação), resolva cada eixo como um problema 1D — muitas vezes periódico (no bilhar, período 2·(espaço livre)) — e combine no fim: CRT para coincidências, soma para custos, produto para contagens.", "reason": "Generaliza para além de quicar nas paredes."},
+    {"id": "separate-axes", "field": "signal", "proposed": "objeto que quica nas paredes; custo |dx| + |dy|; movimentos em x e em y que não interagem", "reason": "Acompanha o novo enunciado."},
+    {"id": "separate-axes", "field": "contexts", "proposed": ["bilhar / logo de DVD: desdobrar as reflexões e usar CRT nas duas coordenadas", "soma das distâncias de Manhattan entre todos os pares = soma por eixo", "contar caminhos de rei/torre com movimentos independentes em cada eixo"], "reason": "Contextos realmente distintos."},
+    {"id": "hall-two-consumers", "field": "name", "proposed": "Hall com poucos tipos: teste só os subconjuntos de tipos", "reason": "A versão para 2 consumidores é o caso k = 2 de uma ideia mais útil."},
+    {"id": "hall-two-consumers", "field": "statement", "proposed": "Se um lado do emparelhamento tem poucos tipos (k ≤ ~15–20 agentes ou categorias), a condição de Hall só precisa ser checada nos 2^k subconjuntos de tipos: demanda(S) ≤ |recursos que atendem algum tipo de S| (somas sobre subconjuntos com SOS). Para dois consumidores com recursos exclusivos e um pool compartilhado, isso vira min(a, A_excl) + min(b, B_excl) + compartilhado ≥ a + b.", "reason": "O enunciado atual é uma fórmula de um problema só (nac2026-M); a generalização é reutilizável."},
+    {"id": "hall-two-consumers", "field": "signal", "proposed": "poucos agentes ou categorias e muitos recursos, cada recurso servindo a um subconjunto deles; pergunta de viabilidade de atendimento", "reason": "Acompanha o novo enunciado."},
+    {"id": "hall-two-consumers", "field": "contexts", "proposed": ["dois trabalhadores com tarefas exclusivas e compartilhadas", "k ≤ 20 tipos de pedido: viabilidade via Hall sobre os 2^k subconjuntos com SOS DP", "fluxo bipartido com poucos nós de um lado: corte mínimo em fórmula fechada"], "reason": "Acompanha o novo enunciado."},
+    {"id": "ratio-binary-search", "field": "name", "proposed": "Razão ótima: chute λ e teste o sinal", "reason": "O nome atual descreve só a separação par a par de nac2026-F."},
+    {"id": "ratio-binary-search", "field": "statement", "proposed": "Para otimizar uma razão Σa/Σb (ou (a_i − a_j)/(v_i + v_j) sobre pares), fixe o valor λ da resposta: 'razão ≤ λ' vira 'a − λ·b ≤ 0', que é linear e se separa por elemento. A escolha ótima vira soma ou mínimo independente, e 'vale para todos os pares' vira max_i(a_i − λv_i) ≤ min_j(a_j + λv_j), em O(n). Busque λ por busca binária ou pela iteração de Dinkelbach.", "reason": "Generaliza para programação fracionária, que é a ideia transferível; o caso de pares fica como exemplo."},
+    {"id": "guess-fixed-point", "field": "contexts", "proposed": ["speedrun com reset (CF 865C — Gotta Go Fast)", "probabilidade de vitória em jogos alternados com passe de turno", "value iteration em MDP / jogo estocástico"], "reason": "Tirar Dinkelbach, que agora é o núcleo de ratio-binary-search."},
+    {"id": "saturate-count-uniqueness", "field": "name", "proposed": "Conte só até o limiar que importa", "reason": "A saturação serve para unicidade (L = 2), k-ésimo (L = K + 1) e 'pelo menos K'."},
+    {"id": "saturate-count-uniqueness", "field": "statement", "proposed": "Se a pergunta só precisa saber se a contagem passa de um limiar L (unicidade: L = 2; k-ésimo: L = K + 1; 'existem pelo menos K?'), faça a DP de contagem com min(contagem, L). Isso evita números gigantes e overflow sem mudar a decisão; para unicidade, a reconstrução só é feita quando a contagem é exatamente 1.", "reason": "Generalização direta, sem perder o caso original."},
+    {"id": "in-out-perfect-matching", "field": "name", "proposed": "Cópias de saída e entrada por vértice", "reason": "O truque reutilizável é dividir o vértice; a permutação é um dos usos."},
+    {"id": "in-out-perfect-matching", "field": "statement", "proposed": "Separe cada nó em uma cópia 'saída' e uma 'entrada'. Exigir de cada um exatamente um sucessor e um predecessor é um emparelhamento perfeito bipartido entre as cópias (uma permutação, cobertura por ciclos dirigidos; com custos, atribuição). Com 'no máximo um', cada aresta do emparelhamento emenda dois nós num mesmo caminho, e a cobertura mínima de um DAG por caminhos é n − emparelhamento máximo.", "reason": "Cobre também a cobertura por caminhos (latam2019-A, nerc2021-B usam essa divisão via B)."},
+    {"id": "phases-to-precedence", "field": "statement", "proposed": "Quando uma ordem precisa reproduzir resultados registrados sobre um estado (registrador, pilha, contador), divida a linha do tempo em fases delimitadas pelos eventos que mudam o estado e traduza cada resultado em 'ocorre entre os eventos X e Y', isto é, arcos extras no grafo de precedência. Resolva por ordenação topológica (ciclo ⇒ impossível).", "reason": "Tirar a palavra 'observação' (rótulo proibido) do texto."},
+    {"id": "phases-to-precedence", "field": "signal", "proposed": "reconstruir uma ordem de operações compatível com resultados registrados e restrições de precedência", "reason": "Idem."},
+    {"id": "sufficient-statistic-counts", "field": "statement", "proposed": "Com um parâmetro desconhecido sorteado de um prior conhecido e resultados independentes, a posteriori depende só das contagens de sucessos e fracassos, não da ordem: use (a, b) como estado da DP e pré-compute p(a, b) agrupando parâmetros iguais.", "reason": "Tirar 'observações' do texto."},
+    {"id": "statistic-identifies-target", "field": "signal", "proposed": "k ≥ 50 amostras aleatórias de um objeto escondido e pedido de reconstrução", "reason": "Tirar 'observações' do texto."},
+    {"id": "control-parity-game", "field": "statement", "proposed": "Em jogos em que a maioria das jogadas é forçada (por exemplo, pilhas de tamanho 1), o jogador que chega à primeira jogada com escolha entre duas opções de paridade oposta — esvaziar a pilha ou deixar 1 — fixa a paridade do restante e vence. O resultado depende só da paridade das jogadas forçadas antes desse ponto.", "reason": "O enunciado atual descreve o Nim ordenado de nerc2025-F; o princípio vale para qualquer jogo com jogadas forçadas."},
+    {"id": "shape-times-translations", "field": "statement", "proposed": "Para contar figuras numa grade, conte cada forma uma única vez numa posição canônica (canto ou centro fixo) e multiplique pelo número de translações que a mantêm dentro: a contagem vira uma soma, sobre as formas (vetor do lado, dimensões da caixa), de (n − largura + 1)(n − altura + 1).", "reason": "A segunda frase atual ('gere intervalos de valores com peso e responda offline') reconta apac2025-I."},
+    {"id": "extremes-at-block-ends", "field": "contexts", "proposed": ["partição em segmentos com custo max·comprimento", "lotes de tarefas com custo (maior duração) × (maior tamanho) do lote"], "reason": "O contexto 'fundir retângulos/caixas adjacentes com custo por máximos' é o próprio nac2026-J."},
+    {"id": "bounded-by-smallest-group", "field": "contexts", "proposed": ["dividir frequências em blocos de tamanho comum: o tamanho do bloco é ≤ menor frequência", "testar todo comprimento ≤ a menor string do conjunto: k·|menor| ≤ Σ|s|", "parâmetro comum a k grupos limitado pelo menor grupo, com custo O(k) por valor"], "reason": "Os contextos atuais repetem harmonic-blocks (Σ n/d) e distinct-parts-sqrt (O(√n) frequências distintas)."},
+    {"id": "bounded-by-smallest-group", "field": "statement", "proposed": "Se o parâmetro enumerado é limitado pelo tamanho do menor de k grupos e cada valor custa O(k) para avaliar, o total é O(k·min) ≤ O(Σ tamanhos) = O(n). Limitar a enumeração pelo menor grupo transforma uma força bruta aparentemente quadrática em linear.", "reason": "Tirar a remissão '(mesma família do argumento harmônico)', que confunde com harmonic-blocks."},
+    {"id": "parity-bit", "field": "contexts", "proposed": ["subconjunto de tamanho par com XOR 0", "consultas 'existe subconjunto de tamanho ímpar com XOR = x?' numa base XOR", "combinações com número ímpar de termos atingindo um alvo em GF(2)"], "reason": "O contexto com '(apac2024-L usa 2a_i+1)' é um problema que já está em problems, então não conta como contexto diferente."},
+    {"id": "only-gcd-matters", "field": "contexts", "proposed": ["moedas de valores r_i: todo múltiplo grande de gcd é representável (Frobenius)", "problema dos jarros de água", "reflexões/translações que deslocam a posição por múltiplos de g"], "reason": "Tirar o id de problema do texto do contexto."},
+    {"id": "equal-windows-periodic", "field": "contexts", "proposed": ["array binário em que toda janela de k tem exatamente s uns (período k)", "reconstruir um array a partir das somas de todas as janelas de tamanho m (a_{i+m} − a_i = s_{i+1} − s_i)"], "reason": "Tirar o id de problema do texto do contexto."},
+    {"id": "bitmask-greedy-embedding", "field": "name", "proposed": "Encaixe mais cedo como valor da DP", "reason": "Evitar 'guloso' (= greedy, rótulo proibido) no nome; 'encaixe mais cedo' é o conteúdo real."},
+    {"id": "harmonic-multiples-aggregate", "field": "property", "proposed": "Para calcular, para todo x, o mínimo ou a soma de h(y) sobre os y que compartilham um divisor d ≥ 2 com x, basta usar d primo (ω(x) ≤ 7 para x ≤ 1e6): faça g[d] = agregado de h sobre os múltiplos de d e depois agregue g[d] sobre os divisores primos de x. O primeiro passo custa Σ V/p = O(V log log V); com todos os divisores, O(V log V).", "reason": "Para 'gcd > 1', só os primos importam, o que deixa o truque mais barato e mais memorável."},
+    {"id": "matroid-kruskal-oracle", "field": "signal", "proposed": "minimizar/maximizar a soma dos escolhidos sob uma restrição de independência verificável (cada componente com um guarda distinto, cobertura por emparelhamento, vetores LI); peso só nos vértices ou elementos; n ≤ 300–500", "reason": "Acompanha a fusão com kuhn-vertex-weights."}
+  ],
+  "drops": [
+    {"id": "two-bins-bipartite", "action": "to_A", "target": "Bipartição (2-coloração)", "reason": "É o uso padrão de uma técnica com nome; lac2024-E já tem o passo A 'Bipartição (2-coloração)' logo em seguida. Um time forte não aprende nada novo com 'dois grupos + conflitos = bipartido'."},
+    {"id": "rearrangement-pairing", "action": "to_A", "target": "Desigualdade do rearranjo", "reason": "Teorema com nome usado do jeito padrão (ordenado com ordenado). O que latam2022-B ensina de novo já está em B correlation-convolution e no passo sem categoria sobre pares positivos."},
+    {"id": "log-of-product", "action": "drop", "target": null, "reason": "Truque elementar que qualquer competidor forte já conhece; não passa no teste 'aprende algo reutilizável?'. O passo de nerc2021-D fica cat null."},
+    {"id": "periodic-coincidence-gcd", "action": "to_B", "target": "CRT", "reason": "É uma propriedade não trivial de uma técnica com nome (CRT com módulos não coprimos: compatível sse i ≡ j mod g, e cada par ocorre uma vez por lcm). Nome sugerido: 'CRT não coprimo: coincidências por resíduo mod gcd'."},
+    {"id": "ie-flip-inequalities", "action": "to_B", "target": "Inclusão-exclusão", "reason": "Uso não trivial de uma técnica com nome (inclusão-exclusão sobre as descidas transforma zigue-zague em blocos monótonos): encaixa na definição de B do SPEC."},
+    {"id": "product-except-one", "action": "drop", "target": null, "reason": "Produto de prefixo/sufixo para 'todos menos um' é conhecimento básico, e a base 'DP em árvore' estava errada. O cuidado com fator 0 mod p pode ir no texto do passo de nac2025-B."}
+  ],
+  "regroup": [
+    {"id": "powers-of-two-lex", "group": "exchange", "reason": "Depois da fusão com dominant-penalty, é um argumento sobre a forma do ótimo (dominância lexicográfica), não sobre representação de estado."},
+    {"id": "insert-in-value-order", "group": "order-time", "reason": "O núcleo é a ordem de processamento (inserir por valor); os contextos de contagem continuam no enunciado. Reforça o grupo de ordem/tempo, que só tinha 5 itens."},
+    {"id": "matroid-kruskal-oracle", "group": "exchange", "reason": "Vira C (ver merges); prova por troca de bases."},
+    {"id": "fix-seed-propagate", "group": "representation", "reason": "Depois da fusão com cycle-parametrize, é 'reescreva tudo em função de poucas incógnitas', que é mudança de representação, não construção."},
+    {"id": "closed-under-composition", "group": "representation", "reason": "Divisão do grupo state (ver groups)."},
+    {"id": "spread-to-subobjects", "group": "representation", "reason": "Divisão do grupo state."},
+    {"id": "distinct-successor", "group": "representation", "reason": "Divisão do grupo state."},
+    {"id": "aggregate-moments", "group": "representation", "reason": "Divisão do grupo state."},
+    {"id": "reciprocals-parallel", "group": "representation", "reason": "Divisão do grupo state."},
+    {"id": "interleave-ends-palindrome", "group": "representation", "reason": "Divisão do grupo state."}
+  ],
+  "groups": [
+    {"action": "rename", "detail": "order-time: 'Ordem e tempo de processamento' → 'Ordem de processamento e eventos'. Com as fusões e o regroup, passa a ter 6 itens: monotone-potential-order, backward-deadlines, stack-of-versions, threshold-sweep-dsu, skip-between-events (+integrate, +polynomial) e insert-in-value-order. O grupo era pequeno porque as ideias de 'eventos' estavam espalhadas por geometry e counting, não porque a família seja rara no conjunto."},
+    {"action": "split", "detail": "state (17 itens, misturado) → 'state' = 'Estado de DP e de busca' (product-graph-pairs, advance-lagging-path, time-expanded-state, window-bitmask-state, drop-determined-dimension, drop-dominated, dedupe-by-features, checker-to-dp) + novo 'representation' = 'Mudar a representação' (closed-under-composition, spread-to-subobjects, distinct-successor, aggregate-moments, reciprocals-parallel, interleave-ends-palindrome, fix-seed-propagate). Ordem sugerida: representation logo depois de state."},
+    {"action": "add", "detail": "Grupo novo 'representation' (ver split). Contagem final por grupo: order-time 6, exchange 15, monotone-critical 9, counting 8, sequences 7, invariants 13, graph-modeling 13, state 8, representation 7, bounds 8, geometry 5, constructions 15, probability 7, games 6, interactive 6 = 133."}
+  ],
+  "generality": [
+    {"id": "threshold-sweep-dsu", "from": 3, "to": 2, "reason": "Varredura com DSU fica restrita a conectividade/grafos, ou seja, uma área."},
+    {"id": "powers-of-two-lex", "from": 2, "to": 3, "reason": "Depois da fusão (dominância lexicográfica/big-M), vale em grafos, DP e otimização."},
+    {"id": "stack-of-versions", "from": 2, "to": 3, "reason": "Depois da fusão com entra/sai da DFS, vale em strings, árvores, backtracking e conectividade offline."},
+    {"id": "fix-seed-propagate", "from": 2, "to": 3, "reason": "Depois da fusão: árvores, ciclos, grades e sistemas lineares."},
+    {"id": "separate-axes", "from": 2, "to": 3, "reason": "Depois da reescrita (separabilidade por coordenada): geometria, contagem de caminhos, soma de distâncias."},
+    {"id": "hall-two-consumers", "from": 1, "to": 2, "reason": "A versão 'Hall sobre subconjuntos de poucos tipos' cobre uma família de problemas de alocação."},
+    {"id": "cheaper-chain", "from": 2, "to": 1, "reason": "Só se aplica a transporte/abastecimento ao longo de uma linha com custo por unidade."},
+    {"id": "ends-moves-value-interval", "from": 2, "to": 1, "reason": "Específico de ordenar permutações com 'mover para a ponta'."},
+    {"id": "tree-knapsack-n2", "from": 3, "to": 2, "reason": "B de DP em árvore: uma área só."},
+    {"id": "segtree-descent", "from": 3, "to": 2, "reason": "Estruturas de dados apenas."},
+    {"id": "shortest-path-dag", "from": 3, "to": 2, "reason": "Grafos apenas."},
+    {"id": "expectation-by-tail", "from": 3, "to": 2, "reason": "Probabilidade/contagem apenas."}
+  ],
+  "steps": [
+    {"problem": "latam_regional2025-A", "issue": "O texto do passo 1 e o 'how' de transitions-as-euler contêm '(ideia de raciocínio próprio, não verificada contra solução do júri)', e o passo 2 contém 'dúvida: tratar limites de tamanho do trecho oculto'. São notas internas que apareceriam no site.", "fix": "Tirar os parênteses e a 'dúvida' do texto e registrar 'unverified': true no problem_steps (a fonte raw é 'own'). Passo 2: '… paridade de graus + conectividade (BFS no complemento, O(N²)); o número de arestas restantes já fixa o tamanho do trecho oculto.'"},
+    {"problem": "latam_regional2025-C", "issue": "O passo 1 contém a nota '(ideia de raciocínio próprio, não verificada …)'.", "fix": "Tirar a nota do texto e marcar 'unverified': true. O conteúdo está certo: custo r·Σ s_i H_i é crescente em r, então r ótimo = algum L_i/H_i."},
+    {"problem": "latam_regional2025-D", "issue": "O passo 1 contém a nota '(ideia de raciocínio próprio, não verificada …)'.", "fix": "Tirar a nota e marcar 'unverified': true. A fórmula (dígitos inteiros + max(v2, v5) + ord_m(10)) está correta."},
+    {"problem": "latam_regional2025-G", "issue": "O 'how' em min-of-linear-concave contém a nota '(ideia de raciocínio próprio, não verificada …)'; além disso, a busca ternária em t inteiro pode travar em platôs.", "fix": "Texto: 'Fluxo máximo = corte mínimo = mínimo de funções lineares em t, logo côncavo em t: busca ternária sobre t inteiro (cuidado com platôs: compare f(m) com f(m+1)).' Marcar 'unverified': true."},
+    {"problem": "latam_regional2025-L", "issue": "O passo 1 contém a nota '(ideia de raciocínio próprio, não verificada …)'.", "fix": "Tirar a nota e marcar 'unverified': true; acrescentar que a região y > Ax² + B é convexa (A > 0), condição necessária para crossing-interleave valer."},
+    {"problem": "lac2024-I", "issue": "O passo 2 (cat null) esconde o insight de configuração crítica: o ponto novo vai para a circunferência porque empurrá-lo para fora só aumenta a área, e o ápice ótimo é o ponto do círculo mais distante da corda.", "fix": "cat C, ref breakpoint-optimum (já fundido com few-active-constraints); texto: 'Empurrar o ponto novo para fora só aumenta a área, então ele fica na circunferência; para cada par (i, j) de futuros vizinhos, o ápice ótimo é o ponto do círculo mais distante da corda ij.'"},
+    {"problem": "lac2024-E", "issue": "Com two-bins-bipartite → A, os passos 2 e 3 viram dois passos A 'Bipartição (2-coloração)' repetidos.", "fix": "Fundir num único passo A: 'Grafo de conflitos (pares que se cruzam) 2-colorido por BFS/DFS em O(N²); as cores são as filas.'"},
+    {"problem": "latam2022-B", "issue": "O passo 1 apontava para rearrangement-pairing, que vira A.", "fix": "cat A, ref 'Desigualdade do rearranjo'; manter o texto."},
+    {"problem": "nerc2021-D", "issue": "O passo 2 apontava para log-of-product, que foi descartado.", "fix": "cat null; manter o texto."},
+    {"problem": "nac2025-B", "issue": "O passo apontava para product-except-one, que foi descartado.", "fix": "cat A, ref 'Soma de prefixos' (produtos de prefixo/sufixo); manter a nota de que fatores ≡ 0 mod p impedem dividir pelo inverso."},
+    {"problem": "latam2022-F", "issue": "O 'how' em powers-of-two-lex diz 'o resto se decide do maior para o menor', mas a solução (raw) é mais forte e mais simples: Bob fica exatamente com a componente de N − 1 em G − N.", "fix": "'O vértice N pesa mais que todos os outros juntos: Ana fica com N, e Bob, com N − 1, leva tudo o que consegue — a componente de N − 1 em G − N; o resto fica com Ana, ligado por N.'"},
+    {"problem": "nac2026-J", "issue": "Os dois passos C (extremes-at-block-ends e cut-at-canonical-element) vêm do mesmo problema; com a fusão, o segundo passa a apontar para unroll-duplicate.", "fix": "Atualizar o ref do passo 3 para unroll-duplicate; o texto continua correto (corte canônico no primeiro máximo de largura)."},
+    {"problem": "nac2026-C", "issue": "O passo 1 apontava para rotate-removed-cycle-edge, agora fundido.", "fix": "ref unroll-duplicate; o texto continua correto."},
+    {"problem": "latam2021-C", "issue": "O passo 1 apontava para cycle-parametrize, agora fundido.", "fix": "ref fix-seed-propagate; o texto ('fixando o fluxo x numa aresta… x = −min prefixo') está correto em relação ao raw."},
+    {"problem": "nac2022-G", "issue": "O passo B dfs-enter-exit-state passa a ser o C stack-of-versions; o problema fica com dois C (functional-graph, stack-of-versions).", "fix": "Atualizar cat B→C e ref para stack-of-versions."},
+    {"problem": "lac2025-K", "issue": "O 'how' diz que a ordem nos ciclos completos é 'derivada comparando duas cartas vizinhas'; o raw dá a ordem concreta (ataques, depois multiplicadores, depois somas, pois o poder só cresce).", "fix": "Deixar explícito: 'Nos ciclos completos a ordem ótima é fixa — atacar, multiplicar, somar —, o que se verifica comparando duas cartas vizinhas de tipos diferentes; só o ciclo final parcial pede enumerar quantas de cada tipo usar.'"},
+    {"problem": "verificados sem problemas", "issue": "Conferidos contra o raw (solution_idea) e sem erro: lac2024-A, B, C, F, G, H, J; lac2025-A, B, D, E, F, H, I, J; lac2026-A, C, D, G, H, I, K, L; latam2019-A, B, C, D, F, G, H, J; latam2021-A, B, E, F, G, H, I, J, M; latam2022-A, C, D, E, G, H, J, L, M; latam2023a-B, F, G, H, J, K, L; latam2023b-A, C, E, F, G, H, J, K, L, M; latam_regional2024-B, C, D, E, G, H, I, L; nerc2023-F, nac2025-I, nerc2024-C, nerc2021-J, nac2024-K, nerc2022apr-B, nerc2025-E, nerc2022dec-L, nac2024-C, nac2023-H, nerc2019-J, apac2024-F, nerc2022apr-E, nac2026-G, nerc2023-B, nac2022-E, nerc2021-G, nac2023-E, nac2021-K, nerc2022dec-J.", "fix": "Nenhuma mudança necessária."}
+  ]
+}

@@ -1,0 +1,2377 @@
+{
+ "group": "lac_apac",
+ "problems": [
+  {
+   "id": "lac2024-A",
+   "keep": true,
+   "keep_reason": null,
+   "steps": [
+    {
+     "kind": "reformulação",
+     "text": "Largura(t) = max(X+VX·t) − min(X+VX·t) é a diferença entre o envelope superior e o inferior de N retas; idem para a altura.",
+     "cat": "A",
+     "technique": "Convex hull trick / Li Chao"
+    },
+    {
+     "kind": "observação-chave",
+     "text": "A área é o produto largura·altura; em cada trecho entre breakpoints dos envelopes é produto de duas funções lineares positivas, logo monótona ou côncava, e o mínimo está num breakpoint (ou em t=0).",
+     "cat": "C",
+     "name": "Ótimo em breakpoint de função linear por partes",
+     "statement": "Se a função objetivo é montada a partir de peças simples entre O(n) pontos de quebra e em cada peça o extremo procurado cai na borda (peça monótona ou côncava para mínimo), então o ótimo global está num ponto de quebra: enumere-os. Não use busca ternária quando a função é produto/combinação não convexa de convexas — ela não é unimodal.",
+     "signal": "pontos em movimento linear no tempo; minimizar área/produto de duas grandezas que são max/min de funções lineares",
+     "contexts": [
+      "minimizar perímetro ou diâmetro de pontos que se movem linearmente",
+      "programação linear em 1 variável: ótimo num vértice (ponto de quebra)",
+      "minimizar custo total por partes como Σ|x−a_i|·w_i (ótimo num a_i)"
+     ],
+     "known_problems": [],
+     "specific": false
+    },
+    {
+     "kind": "estrutura/algoritmo",
+     "text": "Calcular os breakpoints dos 4 envelopes por ordenação de inclinações e avaliar a área em cada um: O(N log N).",
+     "cat": null
+    }
+   ]
+  },
+  {
+   "id": "lac2024-B",
+   "keep": true,
+   "keep_reason": null,
+   "steps": [
+    {
+     "kind": "reformulação",
+     "text": "Uma estratégia é uma árvore de decisão sobre os resultados das fases (qual estratégia usar e quando reiniciar).",
+     "cat": null
+    },
+    {
+     "kind": "observação-chave",
+     "text": "Como reiniciar custa 'o valor esperado ótimo E' (que é a resposta), chuta-se E, calcula-se por DP em (fase, tempo gasto) o custo esperado f(E) quando reiniciar vale E, e busca-se o ponto fixo f(E)=E.",
+     "cat": "C",
+     "name": "Chutar a resposta como custo do reinício (ponto fixo)",
+     "statement": "Se o processo ótimo pode 'voltar ao começo' e o custo de voltar é a própria resposta desconhecida E, trate E como parâmetro: com E fixo a DP fica acíclica (reiniciar = pagar E); f(E) é monótona com inclinação < 1, então a resposta é o ponto fixo f(E)=E, achado por busca binária.",
+     "signal": "valor esperado com opção de reiniciar/desistir e recomeçar; estados que voltam ao estado inicial",
+     "contexts": [
+      "jogo de speedrun com reset (CF 865C Gotta Go Fast)",
+      "cadeias de Markov em que toda falha volta ao início",
+      "otimização de razão (Dinkelbach): chutar a razão λ e testar sinal de custo − λ·peso"
+     ],
+     "known_problems": [
+      "Codeforces 865C — Gotta Go Fast"
+     ],
+     "specific": false
+    },
+    {
+     "kind": "otimização",
+     "text": "Busca binária em E com DP sobre (nível, tempo) para cada chute.",
+     "cat": "A",
+     "technique": "Busca binária na resposta"
+    }
+   ]
+  },
+  {
+   "id": "lac2024-C",
+   "keep": true,
+   "keep_reason": null,
+   "steps": [
+    {
+     "kind": "reformulação",
+     "text": "Colocar pedras adjacentes sem repetir casa é geografia não dirigida em vértices; a grade é bipartida.",
+     "cat": "B",
+     "base": "Matching bipartido (Kuhn/Hopcroft-Karp)",
+     "name": "Geografia em grafo ⇔ emparelhamento máximo",
+     "property": "Com a ficha em v e o jogador X a mover (para vizinho não visitado; quem não pode mover perde), X vence sse v pertence a TODO emparelhamento máximo.",
+     "why": "Se v está em todo M máximo, X responde sempre com o par em M do vértice atual; se o oponente chegasse a um vértice livre, o caminho percorrido seria alternante e trocá-lo daria um M máximo sem v. Se existe M máximo sem v, o oponente usa essa estratégia: todo vizinho escolhido por X está emparelhado (senão M aumentaria) e ele responde com o par.",
+     "signal": "jogo de dois jogadores que movem uma ficha para casa vizinha nunca visitada; perde quem não pode mover",
+     "contexts": [
+      "jogo de cavalo/rei em tabuleiro sem repetir casas",
+      "geografia em grafo geral (com Blossom)",
+      "contar posições iniciais vencedoras em grade com obstáculos"
+     ],
+     "specific": false
+    },
+    {
+     "kind": "estrutura/algoritmo",
+     "text": "Os vértices perdedores para o segundo jogador são os alcançáveis por caminho alternante a partir de vértices livres do mesmo lado.",
+     "cat": "B",
+     "base": "Matching bipartido (Kuhn/Hopcroft-Karp)",
+     "name": "Vértices que estão em todo emparelhamento máximo",
+     "property": "Dado um emparelhamento máximo M, v (do lado L) fica de fora de algum emparelhamento máximo sse v é livre ou é alcançável de um vértice livre de L por caminho alternante de comprimento par; basta uma BFS no grafo residual a partir da fonte (lado L) e do sorvedouro (lado R).",
+     "why": "Deslizar M ao longo de um caminho alternante par que começa num livre troca qual vértice fica livre sem mudar |M|; reciprocamente, a diferença simétrica entre M e um M' que evita v contém esse caminho.",
+     "signal": "pergunta sobre quais vértices/arestas são obrigatórios, opcionais ou proibidos em emparelhamentos máximos",
+     "contexts": [
+      "arestas que pertencem a algum emparelhamento máximo (decomposição de Dulmage–Mendelsohn)",
+      "posições vencedoras em jogos de emparelhamento",
+      "verificar unicidade do emparelhamento máximo"
+     ],
+     "specific": false
+    },
+    {
+     "kind": "estrutura/algoritmo",
+     "text": "Emparelhamento máximo na grade (até 2500 vértices).",
+     "cat": "A",
+     "technique": "Matching bipartido (Kuhn/Hopcroft-Karp)"
+    }
+   ]
+  },
+  {
+   "id": "lac2024-D",
+   "keep": false,
+   "discard_reason": "jogo resolvido por fatoração e poucos casos; fácil para o top; 29/40 dos top-40 resolveram"
+  },
+  {
+   "id": "lac2024-E",
+   "keep": true,
+   "keep_reason": null,
+   "steps": [
+    {
+     "kind": "observação-chave",
+     "text": "Dois clientes podem dividir uma fila LIFO sse seus intervalos [entrada, saída] não se cruzam (aninhados ou disjuntos).",
+     "cat": "C",
+     "name": "Pilha (LIFO) ⇔ intervalos aninhados",
+     "statement": "Uma sequência de entradas/saídas é válida para uma única pilha sse os intervalos (push, pop) formam uma família laminar — nenhum par se cruza (+a +b −a −b). Conflito em pilha é sempre um par cruzado.",
+     "signal": "eventos de entrar/sair com regra 'último que entra, primeiro que sai'; arcos/parênteses",
+     "contexts": [
+      "validar sequência de parênteses com vários tipos",
+      "desenhar arcos de um lado de uma reta sem cruzamento (book embedding)",
+      "ordenar com pilhas (two-stack sorting)"
+     ],
+     "known_problems": [
+      "NOIP 2008 — Twin Stack Sorting"
+     ],
+     "specific": false
+    },
+    {
+     "kind": "redução",
+     "text": "Montar o grafo de conflitos (pares que se cruzam) e 2-colori-lo; as cores são as filas.",
+     "cat": "C",
+     "name": "Dois recipientes + conflitos par a par ⇒ 2-coloração",
+     "statement": "Se cada item vai para um de dois recipientes e as restrições são só 'i e j não podem ficar juntos', construa o grafo de conflitos: há solução sse ele é bipartido, e as cores são a atribuição. Se as restrições forem implicações mais gerais entre pares, use 2-SAT.",
+     "signal": "exatamente 2 opções por item (duas filas, dois lados, dois turnos) e restrições entre pares",
+     "contexts": [
+      "dividir pessoas em dois grupos sem inimigos juntos",
+      "arcos em duas páginas sem cruzamento",
+      "atribuir aulas a duas salas sem sobreposição incompatível"
+     ],
+     "known_problems": [],
+     "specific": false
+    },
+    {
+     "kind": "estrutura/algoritmo",
+     "text": "BFS/DFS de 2-coloração no grafo de cruzamentos, O(N²).",
+     "cat": "A",
+     "technique": "Bipartição (2-coloração)"
+    }
+   ]
+  },
+  {
+   "id": "lac2024-F",
+   "keep": true,
+   "keep_reason": null,
+   "steps": [
+    {
+     "kind": "observação-chave",
+     "text": "Os andares residenciais (≥1 por projeto, sem limite superior) compensam qualquer diferença múltipla de g = gcd(R); sobra só testar se alguma diferença de térreos é ≡ 0 mod g.",
+     "cat": "C",
+     "name": "Coeficientes ilimitados ⇒ só o gcd importa",
+     "statement": "Se você pode somar quantidades arbitrariamente grandes de valores r_i (nos dois lados de uma igualdade, ou com coeficientes grandes o bastante), toda diferença múltipla de gcd(r_i) é alcançável (Bézout com coeficientes deslocados para positivos); a restrição remanescente é só a classe módulo g.",
+     "signal": "quantidades repetíveis à vontade (andares, moedas, passos de tamanho fixo) e uma igualdade/alvo a atingir",
+     "contexts": [
+      "moedas de valores r_i: todo múltiplo grande de gcd é representável (Frobenius)",
+      "problema dos jarros de água",
+      "reflexões/translações que deslocam por múltiplos de g (apac2026-H)"
+     ],
+     "known_problems": [],
+     "specific": false
+    },
+    {
+     "kind": "otimização",
+     "text": "As somas de térreos alcançáveis são subset sums com soma total ≤ 2e5.",
+     "cat": "B",
+     "base": "Mochila",
+     "name": "Subset sum com O(√S) valores distintos",
+     "property": "Se a soma total dos itens é S, há no máximo ~√(2S) valores distintos; agrupando por valor e quebrando multiplicidades em potências de 2 (1,2,4,…,resto), o subset sum custa O(S√S), e O(S√S/64) com bitset.",
+     "why": "1+2+…+k ≤ S ⇒ k = O(√S); a divisão binária representa qualquer quantidade 0..c de cópias com O(log c) itens.",
+     "signal": "pergunta 'quais somas são alcançáveis' com soma total limitada (≤ 1e5–1e6) e muitos itens",
+     "contexts": [
+      "tamanhos de componentes de um grafo (soma = n): quais tamanhos de união são possíveis",
+      "dividir em duas metades de soma próxima com soma total ≤ 1e6"
+     ],
+     "specific": false
+    },
+    {
+     "kind": "estrutura/algoritmo",
+     "text": "Mochila booleana com bitset sobre os térreos.",
+     "cat": "A",
+     "technique": "Mochila"
+    }
+   ]
+  },
+  {
+   "id": "lac2024-G",
+   "keep": true,
+   "keep_reason": null,
+   "steps": [
+    {
+     "kind": "reformulação",
+     "text": "Moedas esperadas = Σ (visitas esperadas a cada casa) − 1; as visitas satisfazem E = p ⋆lcm E + δ₁.",
+     "cat": "A",
+     "technique": "Valor esperado por linearidade"
+    },
+    {
+     "kind": "estrutura/algoritmo",
+     "text": "Aplicar a transformada 'soma sobre divisores' torna a convolução-lcm um produto ponto a ponto: T(E) = 1/(1−T(p)), depois inverter com Möbius.",
+     "cat": "B",
+     "base": "Möbius",
+     "name": "Transformada zeta sobre divisores diagonaliza convolução lcm/gcd",
+     "property": "Com T(A)_k = Σ_{d|k} A_d, vale T(A ⋆lcm B) = T(A)·T(B); com somas sobre múltiplos, o mesmo vale para convolução gcd. A inversa de T é a inversão de Möbius; ambas custam O(N log N) por soma harmônica.",
+     "why": "lcm(x,y) | k ⇔ x | k e y | k, então os pares contados em T(A⋆B)_k são exatamente produto das contagens independentes — o mesmo argumento do OR/AND com SOS DP em máscaras.",
+     "signal": "operações lcm/gcd entre valores ≤ N combinadas com probabilidades ou contagens; 'gcd/lcm de pares'",
+     "contexts": [
+      "contar pares (i,j) com gcd = g para todo g",
+      "convolução OR/AND em bitmasks (SOS DP)",
+      "probabilidade de o lcm/gcd de amostras aleatórias valer k"
+     ],
+     "specific": false
+    }
+   ]
+  },
+  {
+   "id": "lac2024-H",
+   "keep": true,
+   "keep_reason": null,
+   "steps": [
+    {
+     "kind": "reformulação",
+     "text": "Reverter e rotacionar geram o grupo diedral; a composição das operações i..j é P(i−1)⁻¹·P(j) com P de prefixo, e contamos pares em que isso fixa S.",
+     "cat": "C",
+     "name": "Contar intervalos por composição de prefixos num grupo",
+     "statement": "Se as operações têm inversa (formam um grupo) e se quer contar intervalos [i..j] cuja composição cai num conjunto pequeno H, guarde as composições de prefixo P_k: comp(i..j) = P_{i−1}⁻¹·P_j ∈ H. Para cada j conte, num hashmap, os prefixos anteriores P com P = P_j·h⁻¹ para h ∈ H — generalização de 'subarrays de soma zero'.",
+     "signal": "contar subarrays/intervalos de operações cujo efeito combinado é neutro ou é um elemento dado",
+     "contexts": [
+      "subarrays de soma 0 ou XOR 0",
+      "substrings em que toda letra aparece um número par de vezes (máscara de paridade de prefixo)",
+      "intervalos de permutações cuja composição é a identidade"
+     ],
+     "known_problems": [],
+     "specific": false
+    },
+    {
+     "kind": "observação-chave",
+     "text": "Reduzir S à sua raiz primitiva (menor período via KMP) para que só identidade e no máximo uma reflexão+rotação fixem S; a reflexão é achada buscando reverse(S) em S+S.",
+     "cat": "B",
+     "base": "KMP",
+     "name": "Período primitivo e rotações que fixam uma string",
+     "property": "O menor período é p = n − π[n−1] se p divide n (senão a string é primitiva); as rotações que fixam S são exatamente os múltiplos de p; uma rotação de T igual a S existe sse S ocorre em T+T.",
+     "why": "Se S = rot_k(S), então k e n são períodos, e pelo lema de Fine–Wilf gcd(k,n) também; o menor período que divide n gera todos os outros.",
+     "signal": "strings sob rotação (colares, cíclicos), pergunta 'quantas rotações/reflexões deixam S igual'",
+     "contexts": [
+      "contar rotações distintas de uma string (Burnside com rotações)",
+      "decidir se S é potência de outra string",
+      "testar se dois colares são iguais a menos de rotação"
+     ],
+     "specific": false
+    }
+   ]
+  },
+  {
+   "id": "lac2024-I",
+   "keep": true,
+   "keep_reason": null,
+   "steps": [
+    {
+     "kind": "observação-chave",
+     "text": "Pontos inteiros num disco de raio 1e4 têm envoltória com ~1600 vértices, o que permite O(H²) sobre pares do hull.",
+     "cat": "B",
+     "base": "Convex hull",
+     "name": "Hull de pontos inteiros tem O(C^{2/3}) vértices",
+     "property": "Um polígono convexo com vértices inteiros dentro de uma caixa/disco de lado C tem O(C^{2/3}) vértices.",
+     "why": "Arestas consecutivas têm direções distintas, e cada vetor de aresta é múltiplo de um vetor primitivo distinto; os k menores vetores primitivos somam comprimento Θ(k^{3/2}) e o perímetro é O(C), logo k = O(C^{2/3}).",
+     "signal": "coordenadas inteiras pequenas (≤ 1e4–1e6) e um algoritmo quadrático/cúbico sobre vértices do hull",
+     "contexts": [
+      "onion peeling/várias camadas de hull com coordenadas pequenas",
+      "força bruta sobre pares de vértices do hull para maior triângulo/quadrilátero"
+     ],
+     "specific": false
+    },
+    {
+     "kind": "observação-chave",
+     "text": "O ponto novo fica na circunferência; para cada par (i,j) de vértices que serão seus vizinhos, o ápice ótimo é o ponto do círculo mais distante da corda ij.",
+     "cat": null
+    },
+    {
+     "kind": "estrutura/algoritmo",
+     "text": "Hull + áreas por soma acumulada de trapézios para avaliar cada par em O(1).",
+     "cat": "A",
+     "technique": "Shoelace (área)"
+    }
+   ]
+  },
+  {
+   "id": "lac2024-J",
+   "keep": true,
+   "keep_reason": null,
+   "steps": [
+    {
+     "kind": "observação-chave",
+     "text": "Ordenando recursos por B_i/A_i, existe solução ótima em que a vila A produz um prefixo e B um sufixo, com no máximo um recurso dividido.",
+     "cat": "C",
+     "name": "Ordenar por razão ⇒ divisão prefixo/sufixo",
+     "statement": "Em alocação fracionária de itens entre dois agentes (ou recursos) com custos lineares a_i e b_i e capacidades, uma troca de vizinhos mostra que vale atribuir por ordem de a_i/b_i: um agente pega um prefixo, o outro um sufixo, e no máximo um item fica dividido (estrutura de vértice de PL com uma restrição acoplante). Enumere o item de corte.",
+     "signal": "dois agentes/máquinas com custos diferentes por item, quantidades divisíveis, minimizar custo total",
+     "contexts": [
+      "mochila fracionária (ordenar por valor/peso)",
+      "dividir tarefas entre duas máquinas com velocidades diferentes por tarefa",
+      "comércio com vantagem comparativa"
+     ],
+     "known_problems": [],
+     "specific": false
+    },
+    {
+     "kind": "otimização",
+     "text": "Para cada recurso de corte, somas de prefixo/sufixo dão as capacidades restantes em O(1).",
+     "cat": "A",
+     "technique": "Soma de prefixos"
+    }
+   ]
+  },
+  {
+   "id": "lac2024-K",
+   "keep": false,
+   "discard_reason": "DP/caminho curto simples em estados pequenos; 34/40 dos top-40 resolveram"
+  },
+  {
+   "id": "lac2024-L",
+   "keep": false,
+   "discard_reason": "verificação direta por linha; 40/40 dos top-40 resolveram"
+  },
+  {
+   "id": "lac2025-A",
+   "keep": true,
+   "keep_reason": null,
+   "steps": [
+    {
+     "kind": "reformulação",
+     "text": "Um passeio palíndromo cresce pelas duas pontas ao mesmo tempo: estado (u,v) = 'existe passeio palíndromo u→v'; de (u,v) vai-se a (u',v') com arestas u'→u e v→v' de mesma letra.",
+     "cat": "C",
+     "name": "BFS em pares de pontas para propriedades simétricas",
+     "statement": "Quando uma propriedade de caminho compara as duas pontas (palíndromo, dois agentes andando juntos, equivalência de autômatos), faça BFS no grafo-produto de pares (u,v), partindo dos centros (u,u) e arestas únicas; o custo é Σ indeg(u)·outdeg(v) = O(M²).",
+     "signal": "palíndromo sobre caminhos/passeios de grafo; dois tokens que precisam se mover em sincronia",
+     "contexts": [
+      "menor caminho palíndromo entre 1 e n (ABC197 F)",
+      "dois robôs que se movem simultaneamente em labirintos",
+      "equivalência de dois DFAs por BFS em pares de estados"
+     ],
+     "known_problems": [
+      "AtCoder ABC197 F — Construct a Palindrome"
+     ],
+     "specific": false
+    },
+    {
+     "kind": "estrutura/algoritmo",
+     "text": "BFS sobre até N² estados de par.",
+     "cat": "A",
+     "technique": "BFS"
+    }
+   ]
+  },
+  {
+   "id": "lac2025-B",
+   "keep": true,
+   "keep_reason": null,
+   "steps": [
+    {
+     "kind": "reformulação",
+     "text": "Dois times disjuntos de mesmo tamanho e mesmo XOR ⇔ um subconjunto não vazio de tamanho par com XOR 0 (divida-o ao meio).",
+     "cat": null
+    },
+    {
+     "kind": "redução",
+     "text": "Anexar um bit 1 a cada vetor: XOR zero nessa coordenada força tamanho par.",
+     "cat": "C",
+     "name": "Bit constante extra para controlar paridade de tamanho",
+     "statement": "Para impor 'o subconjunto tem tamanho par' (ou ímpar) num problema de XOR/álgebra linear em GF(2), acrescente a cada vetor uma coordenada constante 1: a coordenada extra do XOR é a paridade da cardinalidade, e a restrição vira linear.",
+     "signal": "XOR de subconjuntos com restrição sobre o número de elementos escolhidos",
+     "contexts": [
+      "subconjunto de tamanho par com XOR 0",
+      "contar vetores alcançáveis por XOR de pares a_i⊕a_j (apac2024-L usa 2a_i+1)",
+      "combinações com número ímpar de termos"
+     ],
+     "known_problems": [],
+     "specific": false
+    },
+    {
+     "kind": "estrutura/algoritmo",
+     "text": "Eliminação gaussiana em GF(2) com bitsets, guardando para cada vetor da base quais originais o compõem.",
+     "cat": "B",
+     "base": "Base XOR",
+     "name": "Recuperar o subconjunto que gera a dependência",
+     "property": "Além de reduzir os vetores, mantenha para cada vetor da base um bitset de N bits com os índices originais combinados; quando um novo vetor reduz a 0, o XOR desses bitsets é o subconjunto. Com N > K+1 a dependência sempre existe.",
+     "why": "Cada passo de eliminação é um XOR, e os bitsets de índices sofrem os mesmos XORs, então representam a combinação exata; N vetores em dimensão K < N são linearmente dependentes.",
+     "signal": "pedido de exibir explicitamente os elementos cujo XOR dá 0 ou um alvo",
+     "contexts": [
+      "certificado de subconjunto com XOR = x",
+      "resolver sistema GF(2) e mostrar a combinação"
+     ],
+     "specific": false
+    },
+    {
+     "kind": "estrutura/algoritmo",
+     "text": "Eliminação em O(N·K²/64).",
+     "cat": "A",
+     "technique": "Eliminação gaussiana"
+    }
+   ]
+  },
+  {
+   "id": "lac2025-C",
+   "keep": false,
+   "discard_reason": "testar cada limiar de temperatura com varredura linear; 40/40 dos top-40 resolveram"
+  },
+  {
+   "id": "lac2025-D",
+   "keep": true,
+   "keep_reason": null,
+   "steps": [
+    {
+     "kind": "reformulação",
+     "text": "Peso em vértice vira peso em aresta: w(u,v) = max(D_u, D_v); f(u,v) é o gargalo minimax.",
+     "cat": null
+    },
+    {
+     "kind": "observação-chave",
+     "text": "Unindo componentes em ordem crescente de peso, todos os pares que se conectam na união de A e B com peso w têm f = w.",
+     "cat": "C",
+     "name": "Gargalo de todos os pares na ordem das uniões",
+     "statement": "Se o valor de um par é o max (ou min) dos pesos no melhor caminho, processe arestas em ordem de peso com DSU: na união de componentes A e B com peso w, exatamente os |A|·|B| pares novos recebem valor w. Somas sobre todos os pares saem direto; somas por vértice pedem a árvore de reconstrução.",
+     "signal": "soma/contagem sobre todos os pares de 'max da aresta no caminho' ou 'menor gargalo'",
+     "contexts": [
+      "soma do maior peso de aresta sobre todos os caminhos de uma árvore",
+      "contar pares cujo caminho minimax ≤ k",
+      "contribuição de cada elemento como mínimo de subarrays"
+     ],
+     "known_problems": [],
+     "specific": false
+    },
+    {
+     "kind": "estrutura/algoritmo",
+     "text": "Construir a árvore de reconstrução de Kruskal e somar, ao longo do caminho de cada folha até a raiz, (folhas(v_i) − folhas(v_{i+1}))·w(v_i).",
+     "cat": "B",
+     "base": "MST (Kruskal/Prim)",
+     "name": "Árvore de reconstrução de Kruskal",
+     "property": "Cada união do Kruskal cria um nó novo com o peso da aresta e os dois componentes como filhos. O gargalo minimax entre u e v é o peso do LCA; os vértices alcançáveis a partir de u usando pesos ≤ w formam a subárvore do ancestral mais alto de u com peso ≤ w.",
+     "why": "Os pesos crescem da folha para a raiz (uniões em ordem), e u,v ficam conectados exatamente na união representada pelo LCA.",
+     "signal": "consultas 'a partir de u, quem é alcançável usando arestas ≤ w' ou gargalo entre pares, muitas vezes online",
+     "contexts": [
+      "consultas online de alcance com limite de peso (IOI 2018 Werewolf)",
+      "k-ésimo maior entre os vértices alcançáveis com peso ≤ w (persistente sobre a ordem de folhas)"
+     ],
+     "specific": false
+    },
+    {
+     "kind": "estrutura/algoritmo",
+     "text": "DSU para montar a árvore e uma DFS para as somas.",
+     "cat": "A",
+     "technique": "DSU"
+    }
+   ]
+  },
+  {
+   "id": "lac2025-E",
+   "keep": true,
+   "keep_reason": null,
+   "steps": [
+    {
+     "kind": "observação-chave",
+     "text": "Uma empresa em B está num caminho entre dois patrocinadores sse há patrocinadores em pelo menos duas componentes de T − B (ou em B).",
+     "cat": "C",
+     "name": "Vértice entre dois pontos ⇔ conjunto toca ≥ 2 ramos",
+     "statement": "Em árvore, v está no caminho entre dois vértices de um conjunto S (ou em S) sse S intersecta pelo menos duas componentes de T − v. Testa-se com Euler tour: cada componente é uma subárvore de filho ou o complemento da subárvore de v.",
+     "signal": "pergunta se um vértice 'fica entre' membros de um conjunto em árvore, ou pertence à menor subárvore que os conecta",
+     "contexts": [
+      "vértices da árvore de Steiner/árvore virtual de um conjunto",
+      "contar vértices cobertos por caminhos entre pares de marcados"
+     ],
+     "known_problems": [],
+     "specific": false
+    },
+    {
+     "kind": "redução",
+     "text": "Para cada empresa, os patrocinadores mais próximos à esquerda/direita na ordem de propostas definem pares (início, fim) inválidos; varre-se o início mantendo o primeiro fim inválido.",
+     "cat": "C",
+     "name": "Restrições como regiões no plano (início, fim) + varredura",
+     "statement": "Para achar, para cada início i, o maior fim válido (ou contar intervalos válidos), transforme cada 'testemunha' de invalidade num retângulo/faixa de pares (L,R) proibidos; varra L e mantenha numa segment tree com lazy (soma de proibições + primeira posição positiva) quais R estão bloqueados.",
+     "signal": "'para todo início, maior intervalo válido' com validade que depende de pares de elementos do intervalo",
+     "contexts": [
+      "contar subarrays com todos os elementos distintos/sem par proibido",
+      "para cada L, menor R tal que o subarray contém todas as cores"
+     ],
+     "known_problems": [],
+     "specific": false
+    },
+    {
+     "kind": "estrutura/algoritmo",
+     "text": "Euler tour para testar subárvores.",
+     "cat": "A",
+     "technique": "Euler tour em árvore"
+    },
+    {
+     "kind": "estrutura/algoritmo",
+     "text": "Segment tree com lazy indexada pelo fim do intervalo.",
+     "cat": "A",
+     "technique": "Segment tree com lazy"
+    }
+   ]
+  },
+  {
+   "id": "lac2025-F",
+   "keep": true,
+   "keep_reason": null,
+   "steps": [
+    {
+     "kind": "estrutura/algoritmo",
+     "text": "Sem remoções: range chmax de altura + range min de consulta.",
+     "cat": "A",
+     "technique": "Segment tree com lazy"
+    },
+    {
+     "kind": "redução",
+     "text": "Remoções tratadas offline: cada retângulo vive num intervalo de tempo e é inserido em O(log N) nós de uma segment tree sobre o tempo; DFS com estrutura que desfaz mudanças.",
+     "cat": "B",
+     "base": "Segment tree",
+     "name": "Segment tree sobre o tempo (remoções offline)",
+     "property": "Se a estrutura suporta inserir e desfazer a última inserção (pilha de alterações), ela passa a suportar remoções arbitrárias offline: cada elemento ativo em [t1,t2) vai para os O(log T) nós canônicos; uma DFS aplica as inserções ao entrar no nó, responde consultas nas folhas e desfaz ao sair. Custo extra: fator log.",
+     "why": "Todo intervalo de tempo se decompõe em O(log T) nós; na folha t estão aplicados exatamente os elementos vivos em t, e o desfazer em ordem de pilha restaura o estado do pai.",
+     "signal": "inserções e remoções intercaladas com consultas, numa estrutura que só sabe inserir (DSU, base XOR, chmax)",
+     "contexts": [
+      "conectividade dinâmica offline com DSU com rollback (CF 1140F)",
+      "base XOR com remoções",
+      "bipartição dinâmica de grafo offline"
+     ],
+     "specific": false
+    }
+   ]
+  },
+  {
+   "id": "lac2025-G",
+   "keep": true,
+   "keep_reason": null,
+   "steps": [
+    {
+     "kind": "observação-chave",
+     "text": "Se o tabuleiro nunca tem buracos, ele é descrito só pelas alturas das colunas; peça horizontal é segura sse as alturas no seu vão são todas iguais.",
+     "cat": null
+    },
+    {
+     "kind": "estrutura/algoritmo",
+     "text": "Manter as alturas como conjunto de intervalos [l,r,h] num map ordenado, com atribuição em intervalo.",
+     "cat": "C",
+     "name": "Map de intervalos constantes (amortizado)",
+     "statement": "Para um array com 'atribuir valor a um intervalo' e consultas sobre intervalos, guarde-o como intervalos maximais constantes num map ordenado: cada atribuição corta no máximo 2 intervalos e apaga os do meio, então o total de intervalos criados é O(operações) e o custo amortizado é O(log n). Funciona com coordenadas até 1e18 sem compressão.",
+     "signal": "atribuição/pintura de intervalos com coordenadas enormes, consulta 'tudo igual?' ou 'quantas cores'",
+     "contexts": [
+      "pintar segmentos de uma cerca e contar comprimento por cor",
+      "Chtholly tree (atribuições aleatórias)",
+      "manter intervalos livres/ocupados de memória"
+     ],
+     "known_problems": [],
+     "specific": false
+    }
+   ]
+  },
+  {
+   "id": "lac2025-H",
+   "keep": true,
+   "keep_reason": null,
+   "steps": [
+    {
+     "kind": "observação-chave",
+     "text": "De uma solução ótima com k estrelas chega-se a uma ótima com k+1 por uma troca local de poucos tipos (+1; +2/−1; +3/−2; +3/−1/−1; +2/+2/−3).",
+     "cat": "C",
+     "name": "Ótimo incremental por trocas locais finitas",
+     "statement": "Quando se pede o ótimo para todo k e cada item tem poucos níveis (pesos 1..3), prove que ótimo(k+1) difere de ótimo(k) por um conjunto finito de trocas pequenas; mantenha um heap/set por tipo de candidato (por estado do item) e aplique sempre a troca mais barata.",
+     "signal": "'para todo k = 1..n·c, custo mínimo de exatamente k unidades' com itens de poucos níveis e custos não convexos",
+     "contexts": [
+      "mochila com pesos 1 e 2 para todas as capacidades",
+      "escolher k itens com custos que dependem de níveis (comprar 1, 2 ou 3 unidades)"
+     ],
+     "known_problems": [],
+     "specific": false
+    }
+   ]
+  },
+  {
+   "id": "lac2025-I",
+   "keep": true,
+   "keep_reason": null,
+   "steps": [
+    {
+     "kind": "reformulação",
+     "text": "Como os valores de P são distintos, um subarray comum das repetições infinitas é uma corrida em A (lido duas vezes) em que cada elemento é o sucessor cíclico do anterior em P.",
+     "cat": "C",
+     "name": "Elementos distintos ⇒ sequência = função sucessor",
+     "statement": "Se os elementos de uma sequência são distintos, ela é determinada por next[valor] (lista ligada indexada pelo valor): 'x seguido de y aparece em P' vira next[x]=y em O(1), e inserir antes/apagar em P é O(1). Comparar com outra sequência vira varrer pares consecutivos.",
+     "signal": "permutação/sequência de valores distintos com inserções e remoções e consultas de 'aparece consecutivo'",
+     "contexts": [
+      "maior subarray comum entre duas permutações (pares consecutivos)",
+      "verificar se B é subarray de uma permutação dinâmica",
+      "simular fila/roda com remoções por valor"
+     ],
+     "known_problems": [],
+     "specific": false
+    },
+    {
+     "kind": "observação-chave",
+     "text": "Se A contém um ciclo completo consistente de P, a resposta é infinita (*).",
+     "cat": null
+    }
+   ]
+  },
+  {
+   "id": "lac2025-J",
+   "keep": true,
+   "keep_reason": null,
+   "steps": [
+    {
+     "kind": "reformulação",
+     "text": "Cone com vértice na origem ⇔ calota esférica após projetar as estrelas na esfera unitária.",
+     "cat": null
+    },
+    {
+     "kind": "estrutura/algoritmo",
+     "text": "Candidatos ao maior cone vazio são as faces do hull 3D dos pontos projetados.",
+     "cat": "B",
+     "base": "Convex hull",
+     "name": "Hull 3D de pontos na esfera = Delaunay esférico",
+     "property": "Para pontos sobre uma esfera, um plano que deixa todos de um lado corta uma calota vazia; os planos suporte que tocam 3 pontos são as faces do hull 3D, e a maior calota vazia limitada por 3 pontos é uma delas (círculos vazios ⇔ faces, como na triangulação de Delaunay).",
+     "why": "A interseção esfera ∩ semiespaço é uma calota; 'calota vazia' ⇔ 'plano com todos os pontos do mesmo lado' ⇔ plano suporte do hull.",
+     "signal": "pontos em direções 3D, ângulos a partir da origem, maior círculo/calota vazia",
+     "contexts": [
+      "Delaunay 2D por lifting (x,y) → (x,y,x²+y²) e hull 3D",
+      "maior círculo vazio entre pontos"
+     ],
+     "specific": false
+    },
+    {
+     "kind": "observação-chave",
+     "text": "A calota ótima é tocada por 3 pontos (ou 2 com centro restrito); enumere essas configurações e verifique o vazio — O(n³)·O(n) como alternativa.",
+     "cat": "C",
+     "name": "Ótimo geométrico fixado por poucas restrições ativas",
+     "statement": "Em problemas de maior círculo/esfera vazia, menor círculo envolvente ou maior figura dentro de região, o ótimo é tocado por 2–3 objetos (pontos/bordas). Enumere as figuras definidas por cada dupla/tripla de restrições, verifique a validade de cada uma e fique com a melhor; complexidade polinomial pequena se n ≤ 50–500.",
+     "signal": "maior/menor círculo, esfera ou cone com condição de vazio/cobertura e n pequeno (≤ 500)",
+     "contexts": [
+      "menor círculo que contém todos os pontos (determinado por 2–3 pontos)",
+      "maior círculo cuja borda fica na união de discos (lac2026-C)",
+      "maior círculo vazio dentro de um polígono"
+     ],
+     "known_problems": [],
+     "specific": false
+    }
+   ]
+  },
+  {
+   "id": "lac2025-K",
+   "keep": true,
+   "keep_reason": null,
+   "steps": [
+    {
+     "kind": "observação-chave",
+     "text": "Nos ciclos completos a ordem ótima das cartas (ataque/multiplica/soma) é fixa, derivada comparando duas cartas vizinhas; só o ciclo final parcial pede força bruta sobre quantas de cada tipo usar.",
+     "cat": "C",
+     "name": "Ordem canônica por troca de vizinhos",
+     "statement": "Para ordenar operações heterogêneas (somar a, multiplicar por m, consumir o valor) de modo a maximizar o resultado, compare o efeito de trocar duas operações adjacentes: isso dá um comparador e a ordem ótima. Depois disso, a busca restante é só sobre quais/quantos itens usar, não sobre a ordem.",
+     "signal": "operações que transformam um acumulador (x → x+a, x → m·x, f_i(x)=a_i x + b_i) em ordem livre",
+     "contexts": [
+      "ordenar funções lineares para maximizar a composição (ABC366 F)",
+      "regra de Johnson / escalonamento com comparador por troca adjacente",
+      "ordem de upgrades em jogos incrementais"
+     ],
+     "known_problems": [
+      "AtCoder ABC366 F — Maximum Composition"
+     ],
+     "specific": false
+    },
+    {
+     "kind": "otimização",
+     "text": "O poder cresce a cada ciclo, então bastam O(√H) ciclos simulados; trate cartas ×1 e poder 0.",
+     "cat": null
+    }
+   ]
+  },
+  {
+   "id": "lac2025-L",
+   "keep": false,
+   "discard_reason": "força bruta sobre os 10 dígitos por posição; 40/40 dos top-40 resolveram"
+  },
+  {
+   "id": "lac2026-A",
+   "keep": true,
+   "keep_reason": null,
+   "steps": [
+    {
+     "kind": "observação-chave",
+     "text": "Formigas que não se ultrapassam preservam a ordem cíclica: fixado o destino da primeira, os demais estão forçados.",
+     "cat": "C",
+     "name": "Sem ultrapassagem ⇒ ordem preservada ⇒ só um deslocamento",
+     "statement": "Se agentes numa linha/círculo não podem se cruzar (ou colidem e são indistinguíveis), a ordem relativa é invariante: a correspondência início→destino é a ordenada (na linha) ou um deslocamento cíclico (no círculo). Enumere só o deslocamento (o destino do primeiro) em vez de emparelhamentos arbitrários.",
+     "signal": "agentes que não podem passar uns pelos outros; colisões que invertem direção",
+     "contexts": [
+      "formigas que colidem e invertem direção (POJ 1852 Ants)",
+      "casar pontos de dois conjuntos num círculo minimizando custo (deslocamento cíclico)",
+      "mover fichas numa linha sem cruzar minimizando o maior deslocamento"
+     ],
+     "known_problems": [
+      "POJ 1852 — Ants"
+     ],
+     "specific": false
+    },
+    {
+     "kind": "reformulação",
+     "text": "Desenrolar o anel em reta (posições x e x+L) e exigir destinos estritamente crescentes dentro de uma volta.",
+     "cat": "C",
+     "name": "Desenrolar o ciclo duplicando",
+     "statement": "Problema circular vira linear cortando o círculo num ponto e duplicando (x, x+L) ou o array (a+a): objetos que cruzam o corte viram objetos que passam de L. Fixe o que acontece no ponto de corte e resolva linearmente.",
+     "signal": "array circular, posições num anel, intervalos que podem dar a volta",
+     "contexts": [
+      "maior soma de subarray circular",
+      "cobertura de círculo por arcos",
+      "rotação ótima de array circular"
+     ],
+     "known_problems": [],
+     "specific": false
+    },
+    {
+     "kind": "observação-chave",
+     "text": "Com ordem preservada numa reta, o tempo ótimo é max_i |início_i − destino_i|; testar os dois candidatos para o destino da primeira formiga.",
+     "cat": null
+    }
+   ]
+  },
+  {
+   "id": "lac2026-B",
+   "keep": false,
+   "discard_reason": "construção de poucas rodadas de médias; quase todo o top resolveu; 39/40 dos top-40 resolveram"
+  },
+  {
+   "id": "lac2026-C",
+   "keep": true,
+   "keep_reason": null,
+   "steps": [
+    {
+     "kind": "observação-chave",
+     "text": "O círculo ótimo é um dos círculos dos aspersores ou passa por três vértices da fronteira da união (interseções de pares de círculos não cobertas).",
+     "cat": "C",
+     "name": "Ótimo geométrico fixado por poucas restrições ativas",
+     "statement": "Em problemas de maior/menor círculo com condição de cobertura ou vazio, o ótimo é tocado por 2–3 objetos; enumere as figuras definidas por duplas/triplas de candidatos (vértices, bordas) e verifique cada uma.",
+     "signal": "maior/menor círculo com condição de cobertura/vazio e n pequeno (≤ 50)",
+     "contexts": [
+      "menor círculo envolvente",
+      "maior cone/calota vazia (lac2025-J)",
+      "maior círculo vazio dentro de polígono"
+     ],
+     "known_problems": [],
+     "specific": false
+    },
+    {
+     "kind": "estrutura/algoritmo",
+     "text": "Verificar se a circunferência candidata está coberta: cada disco cobre um arco; unir os intervalos angulares e checar se cobrem [0, 2π).",
+     "cat": "C",
+     "name": "Cobertura de circunferência por intervalos angulares",
+     "statement": "Para saber se uma curva fechada (circunferência) está coberta por regiões, intersecte cada região com a curva para obter um arco [α,β], quebre arcos que cruzam o ângulo 0 e verifique a união dos intervalos ordenados; com epsilons cuidadosos.",
+     "signal": "círculo/curva que precisa ficar inteira dentro de uma união de discos ou regiões",
+     "contexts": [
+      "círculo totalmente coberto pela união de outros círculos",
+      "área visível/cobertura angular de radares",
+      "perímetro da união de círculos"
+     ],
+     "known_problems": [],
+     "specific": false
+    }
+   ]
+  },
+  {
+   "id": "lac2026-D",
+   "keep": true,
+   "keep_reason": null,
+   "steps": [
+    {
+     "kind": "reformulação",
+     "text": "Preencher posições de trás para frente: a posição t aceita qualquer pedido com índice ≥ t−K, então o conjunto de elegíveis só ganha um pedido por passo.",
+     "cat": "C",
+     "name": "Varrer posições ao contrário transforma prazos em liberações",
+     "statement": "Em escalonamento com prazos (item i deve ocupar posição ≤ d_i), percorra as posições do fim para o início: o conjunto de itens elegíveis só cresce, e toda posição é obrigada a receber alguém. Mantenha os elegíveis num multiset/heap e, em cada posição, decida qual sai do conjunto (o melhor numa posição valiosa, o pior senão), justificando por troca.",
+     "signal": "cada item tem prazo/limite de posição (dentro das primeiras i+K), posições com valores diferentes",
+     "contexts": [
+      "tarefas com prazo e lucro, uma por dia (processar dias de trás para frente com heap)",
+      "atribuir descontos/bonificações a posições específicas de uma ordem com prazos"
+     ],
+     "known_problems": [],
+     "specific": false
+    }
+   ]
+  },
+  {
+   "id": "lac2026-E",
+   "keep": false,
+   "discard_reason": "intersecção de semirretas em 2x; 39/40 dos top-40 resolveram"
+  },
+  {
+   "id": "lac2026-F",
+   "keep": false,
+   "discard_reason": "estrutura forçada da pilha + backtracking pequeno e flood fill; 37/40 dos top-40 resolveram"
+  },
+  {
+   "id": "lac2026-G",
+   "keep": true,
+   "keep_reason": null,
+   "steps": [
+    {
+     "kind": "estrutura/algoritmo",
+     "text": "Grupos de G e C seguidos de blocos 'AT': um G antes de j blocos gera C(j+1,3) GATA, um C gera j(j+1)/2 CAT, sem interferência; decompor G e C em somas de números tetraédricos e triangulares.",
+     "cat": "C",
+     "name": "Contagem exata por peças independentes",
+     "statement": "Para construir um objeto com exatamente X padrões, projete peças cujas contribuições são conhecidas e independentes (sem contagem cruzada), com valores que crescem polinomialmente (triangulares, tetraédricos, potências); escreva X como soma dessas contribuições (maior primeiro, resto com DP pequena) e verifique o limite de tamanho.",
+     "signal": "construir string/grafo/array com exatamente k ocorrências de algo e tamanho limitado",
+     "contexts": [
+      "string com exatamente k subsequências 'ab'",
+      "permutação com exatamente k inversões",
+      "grafo com exatamente k triângulos ou caminhos mínimos"
+     ],
+     "known_problems": [],
+     "specific": false
+    }
+   ]
+  },
+  {
+   "id": "lac2026-H",
+   "keep": true,
+   "keep_reason": null,
+   "steps": [
+    {
+     "kind": "reformulação",
+     "text": "A interseção de dois caminhos em árvore é um caminho u..v; para ele, os pares são F(u→v)·F(v→u), com F contado pelos ramos em cada ponta.",
+     "cat": "C",
+     "name": "Fixar a interseção e contar as pontas independentemente",
+     "statement": "Para contar pares de objetos (caminhos, intervalos) pela forma da sua interseção, fixe a interseção e conte as extensões em cada extremidade separadamente: a contagem vira produto de fatores locais (escolhas em cada ponta que não estendem a interseção).",
+     "signal": "contar pares de caminhos/intervalos cuja sobreposição tem tamanho exato k",
+     "contexts": [
+      "pares de intervalos na reta com interseção exatamente [l,r]",
+      "pares de caminhos em árvore que compartilham pelo menos um vértice"
+     ],
+     "known_problems": [],
+     "specific": false
+    },
+    {
+     "kind": "estrutura/algoritmo",
+     "text": "Somar F(u→v)F(v→u) sobre todos os pares a distância k com centroid decomposition e convolução NTT de polinômios de profundidade ponderados.",
+     "cat": "B",
+     "base": "Centroid decomposition",
+     "name": "Centroid + FFT para contar por distância",
+     "property": "Para obter, para todo k, a soma de pesos de pares a distância k, em cada centróide monte o polinômio P_c(x) = Σ peso·x^prof por subárvore filha; os pares cruzando o centróide são ((ΣP_c)² − ΣP_c²)/2 (ou o produto ordenado). O grau de cada polinômio é limitado pelo tamanho da subárvore, então cada nível custa O(n log n) e o total O(n log² n).",
+     "why": "O quadrado da soma conta todos os pares e subtrair os quadrados remove pares do mesmo filho, evitando convolução entre cada par de filhos; a soma dos tamanhos por nível da decomposição é n.",
+     "signal": "'para cada k = 1..n−1, conte pares de vértices/caminhos a distância k' em árvore",
+     "contexts": [
+      "contar pares a distância prima (CodeChef PRIMEDST)",
+      "histograma de todas as distâncias de uma árvore"
+     ],
+     "specific": false
+    },
+    {
+     "kind": "estrutura/algoritmo",
+     "text": "Convoluções módulo 998244353.",
+     "cat": "A",
+     "technique": "FFT/NTT"
+    }
+   ]
+  },
+  {
+   "id": "lac2026-I",
+   "keep": true,
+   "keep_reason": null,
+   "steps": [
+    {
+     "kind": "observação-chave",
+     "text": "Pegar x soma (#restantes menores que x); se o oponente pega um valor e você pega uma cópia igual, as contribuições se cancelam em paridade — só valores de multiplicidade ímpar importam.",
+     "cat": "C",
+     "name": "Estratégia espelho: pares iguais se anulam",
+     "statement": "Em jogos em que o efeito de um lance depende só do valor escolhido, um jogador que responde com uma cópia igual neutraliza o lance do oponente; elimine os pares e analise só o que sobra sem par (multiplicidade ímpar). Confirme a fórmula por força bruta em instâncias pequenas.",
+     "signal": "jogo com multiconjunto/pilhas onde há elementos repetidos e resultado por paridade ou soma",
+     "contexts": [
+      "Nim: pilhas iguais se anulam no XOR",
+      "estratégia simétrica em tabuleiro (copiar espelhado)",
+      "jogo de divisores com estratégia de pareamento (lac2024-D)"
+     ],
+     "known_problems": [],
+     "specific": false
+    }
+   ]
+  },
+  {
+   "id": "lac2026-J",
+   "keep": false,
+   "discard_reason": "simulação do adversário ordenando contagens; 39/40 dos top-40 resolveram"
+  },
+  {
+   "id": "lac2026-K",
+   "keep": true,
+   "keep_reason": null,
+   "steps": [
+    {
+     "kind": "reformulação",
+     "text": "Cada passo é reflexão por um gato: para gatos consecutivos b,c,d, 2c.x = b.x + d.x em passo horizontal (idem y no vertical).",
+     "cat": null
+    },
+    {
+     "kind": "observação-chave",
+     "text": "Como as coordenadas são distintas, um par ordenado de gatos consecutivos determina o próximo (e o anterior): os O(N²) estados de par formam uma permutação; percorrer seus ciclos.",
+     "cat": "C",
+     "name": "Par de estados determina o próximo ⇒ ciclos de permutação",
+     "statement": "Quando a regra de transição faz (anterior, atual) determinar unicamente o próximo e também o anterior, o grafo sobre pares de estados é uma permutação: decomponha em ciclos visitando cada estado uma vez (O(estados)), em vez de buscar caminhos.",
+     "signal": "sequência/circuito em que cada passo é determinado pelos dois últimos elementos (reflexão, recorrência de 2ª ordem)",
+     "contexts": [
+      "período de Fibonacci mod m (Pisano) via pares",
+      "trajetória de bilhar/espelhos em grade",
+      "recorrências x_{n+1} = f(x_{n−1}, x_n) invertíveis"
+     ],
+     "known_problems": [],
+     "specific": false
+    },
+    {
+     "kind": "estrutura/algoritmo",
+     "text": "Hash (ou array de índices por coordenada) para achar o próximo gato e bitset para estados visitados; manter só ciclos de comprimento par sem gato repetido.",
+     "cat": null
+    }
+   ]
+  },
+  {
+   "id": "lac2026-L",
+   "keep": true,
+   "keep_reason": null,
+   "steps": [
+    {
+     "kind": "estrutura/algoritmo",
+     "text": "Manter a ordem dos pedestres no tempo: eles trocam de ordem em O(N²) instantes; a cada troca só mudam gaps adjacentes, cujos instantes de cruzar C também viram eventos.",
+     "cat": "B",
+     "base": "Sweep line",
+     "name": "Ordem cinética (eventos de troca de vizinhos)",
+     "property": "Para pontos que se movem linearmente numa reta, a ordem ordenada só muda quando dois vizinhos adjacentes se cruzam; cada par se cruza no máximo uma vez, então há O(N²) eventos. Guarde num heap o próximo cruzamento de cada par adjacente e, ao trocar, recalcule só os pares afetados.",
+     "why": "Entre eventos a ordem é constante; uma troca só altera as adjacências dos dois elementos envolvidos (no máximo 3 pares novos); movimentos lineares se cruzam no máximo uma vez.",
+     "signal": "pontos com velocidade constante e muitas consultas em tempos crescentes sobre a ordem/gaps",
+     "contexts": [
+      "ranking de corredores ao longo de uma corrida",
+      "par mais próximo de pontos que se movem",
+      "bounding box cinético (lac2024-A)"
+     ],
+     "specific": false
+    },
+    {
+     "kind": "otimização",
+     "text": "Comparar tempos como frações exatas e contar pares adjacentes com gap ≥ C ao varrer as consultas em ordem.",
+     "cat": null
+    }
+   ]
+  },
+  {
+   "id": "latam_regional2024-A",
+   "keep": false,
+   "discard_reason": "contagem de letras distintas; 40/40 dos top-40 resolveram"
+  },
+  {
+   "id": "latam_regional2024-B",
+   "keep": true,
+   "keep_reason": null,
+   "steps": [
+    {
+     "kind": "observação-chave",
+     "text": "Grau mínimo ≥ 3 garante que a resposta sempre existe; escolhe-se o ciclo por um critério extremo (aresta de retorno com extremo superior mais profundo) e a prova usa essa extremalidade.",
+     "cat": "C",
+     "name": "Garantia forte ⇒ resposta sempre existe; escolha extrema",
+     "statement": "Quando o enunciado dá uma condição forte (grau mínimo, densidade, tamanho) e pede 'encontre X', suspeite que X sempre existe e construa-o escolhendo um objeto extremo (mais profundo, mais longo, mais à esquerda); a prova de correção vem de 'se falhasse, haveria um objeto mais extremo'.",
+     "signal": "'todo vértice tem grau ≥ k' / 'garante-se que…' com pedido de exibir uma estrutura",
+     "contexts": [
+      "grafo com grau mínimo d tem ciclo de comprimento ≥ d+1 (caminho máximo da DFS)",
+      "achar ciclo longo ou conjunto independente grande (√n)",
+      "princípio extremal em provas de existência"
+     ],
+     "known_problems": [],
+     "specific": false
+    },
+    {
+     "kind": "estrutura/algoritmo",
+     "text": "Na árvore DFS, tomar a aresta de retorno x–y que maximiza a profundidade do ancestral x; o ciclo é o caminho x..y mais essa aresta.",
+     "cat": "B",
+     "base": "DFS",
+     "name": "Escolha extrema de aresta de retorno na árvore DFS",
+     "property": "Numa DFS não dirigida toda aresta fora da árvore liga ancestral e descendente. Escolhendo a aresta de retorno cujo extremo superior é o mais profundo possível, nenhum vértice do ciclo (exceto x) tem aresta de retorno saindo abaixo dele que suba menos que x — logo seus outros vizinhos levam para fora do ciclo, preservando a conectividade.",
+     "why": "Ausência de arestas cruzadas na DFS não dirigida; a maximalidade proíbe arestas de retorno que fechariam ciclos mais 'baixos'.",
+     "signal": "achar um ciclo com propriedade extra (removível, longo, curto) num grafo conexo grande",
+     "contexts": [
+      "ciclo de comprimento ≥ k usando a aresta de retorno ao ancestral mais alto",
+      "pontes/articulações via low-link",
+      "orientar arestas para tornar o grafo fortemente conexo"
+     ],
+     "specific": false
+    }
+   ]
+  },
+  {
+   "id": "latam_regional2024-C",
+   "keep": true,
+   "keep_reason": null,
+   "steps": [
+    {
+     "kind": "observação-chave",
+     "text": "Distância de edição para string unária tem forma fechada: d(a^x, S) = max(|S|−x, 0) + max(x − cnt_a(S), 0); divide-se S em m entre a parte r e a parte b.",
+     "cat": null
+    },
+    {
+     "kind": "otimização",
+     "text": "Cada um dos 4 termos max(·,0) liga/desliga monotonicamente em m: busca binária nos pontos de troca e, em cada trecho, minimizar uma soma linear fixa de contagens de prefixo com RMQ.",
+     "cat": "C",
+     "name": "Termos max(·,0) monótonos ⇒ poucos trechos sem max",
+     "statement": "Se f(m) = Σ max(g_i(m), 0) e cada g_i é monótona em m, o conjunto de termos ativos muda em no máximo k pontos: ache-os por busca binária; em cada trecho f é uma expressão fixa (sem max) e o mínimo vem de uma RMQ sobre valores pré-calculados — uma estrutura por combinação de termos ativos (2^k).",
+     "signal": "minimizar expressão com max(…,0) ou |…| sobre um ponto de corte, com muitas consultas em intervalo",
+     "contexts": [
+      "minimizar Σ|x − a_i| por trechos entre os a_i ordenados",
+      "consultas de melhor ponto de divisão de um intervalo em duas partes com custos de contagem"
+     ],
+     "known_problems": [],
+     "specific": false
+    },
+    {
+     "kind": "estrutura/algoritmo",
+     "text": "Contagens de letras por prefixo.",
+     "cat": "A",
+     "technique": "Soma de prefixos"
+    },
+    {
+     "kind": "estrutura/algoritmo",
+     "text": "16 sparse tables para mínimo das expressões lineares em m.",
+     "cat": "A",
+     "technique": "Sparse table"
+    }
+   ]
+  },
+  {
+   "id": "latam_regional2024-D",
+   "keep": true,
+   "keep_reason": null,
+   "steps": [
+    {
+     "kind": "reformulação",
+     "text": "Cada modelo é um par (cor do texto, cor do fundo) = aresta num grafo bipartido de cores; 'compartilham cor' = arestas adjacentes; modelos com cores todas distintas = emparelhamento.",
+     "cat": "C",
+     "name": "Item com dois atributos = aresta entre valores",
+     "statement": "Se cada item é definido por um par (a, b) de atributos de dois tipos, modele o item como aresta a–b num grafo bipartido de valores: conjuntos de itens sem atributo repetido são emparelhamentos, e 'compartilham atributo' é adjacência de arestas (grafo de linha).",
+     "signal": "itens descritos por dois atributos e restrição de 'não repetir nenhum atributo'",
+     "contexts": [
+      "torres não atacantes em casas permitidas (linha, coluna)",
+      "dominós com faces distintas",
+      "escolher pares (aluno, projeto) sem repetir nenhum"
+     ],
+     "known_problems": [],
+     "specific": false
+    },
+    {
+     "kind": "redução",
+     "text": "Reconstruir o grafo bipartido a partir da matriz de adjacência do grafo de linha enumerando cliques maximais (cada cor é uma clique; grafos de linha bipartidos não têm diamante).",
+     "cat": null
+    },
+    {
+     "kind": "estrutura/algoritmo",
+     "text": "Emparelhamento máximo no grafo de cores.",
+     "cat": "A",
+     "technique": "Matching bipartido (Kuhn/Hopcroft-Karp)"
+    }
+   ]
+  },
+  {
+   "id": "latam_regional2024-E",
+   "keep": true,
+   "keep_reason": null,
+   "steps": [
+    {
+     "kind": "observação-chave",
+     "text": "Numa permutação montanha o valor 1 está numa ponta e removê-lo deixa uma montanha: colocar 1, 2, 3, … sempre na ponta esquerda ou direita restante.",
+     "cat": "C",
+     "name": "Unimodal = inserir do menor ao maior pelas pontas",
+     "statement": "Sequências 'cresce e depois decresce' se constroem (e se contam) inserindo valores do menor para o maior em uma das duas pontas livres — ou do maior para o menor ao redor do pico. Cada decisão é binária (esquerda/direita), o que dá 2^{n−1} permutações unimodais e torna a decisão gulosa/DP local.",
+     "signal": "permutações/sequências bitônicas, 'estritamente crescente até um pico e depois decrescente'",
+     "contexts": [
+      "contar permutações unimodais (2^{n−1})",
+      "construir com deque inserindo na frente ou atrás",
+      "completar sequência bitônica parcialmente conhecida"
+     ],
+     "known_problems": [],
+     "specific": false
+    },
+    {
+     "kind": "otimização",
+     "text": "Quando as duas pontas são desconhecidas, compara-se o vizinho conhecido mais próximo de cada lado e põe-se o valor pequeno no lado do menor vizinho (troca).",
+     "cat": null
+    },
+    {
+     "kind": "estrutura/algoritmo",
+     "text": "Dois ponteiros nas pontas livres, O(N).",
+     "cat": "A",
+     "technique": "Dois ponteiros"
+    }
+   ]
+  },
+  {
+   "id": "latam_regional2024-F",
+   "keep": false,
+   "discard_reason": "construção direta de conjunto independente maximal no caminho; 40/40 dos top-40 resolveram"
+  },
+  {
+   "id": "latam_regional2024-G",
+   "keep": true,
+   "keep_reason": null,
+   "steps": [
+    {
+     "kind": "reformulação",
+     "text": "Com raiz no destino T, cada vértice é conquistado pela folha mais próxima da sua subárvore (desempate por id).",
+     "cat": null
+    },
+    {
+     "kind": "estrutura/algoritmo",
+     "text": "Agrupar consultas por T e mover a raiz por uma DFS, atualizando só os dois vértices cujo dono muda quando a raiz passa a um vizinho (melhor e segundo melhor de filhos distintos).",
+     "cat": "B",
+     "base": "Rerooting",
+     "name": "Rerooting com estado global e consultas offline por raiz",
+     "property": "Se cada consulta usa uma raiz diferente e a resposta depende de um estado global (contagem por folha), ordene as consultas por raiz e percorra a árvore em DFS movendo a raiz aresta a aresta: mover a raiz de u para v só altera os valores de u e v (com melhor/segundo melhor guardados), e na volta desfaz-se.",
+     "why": "A orientação só muda na aresta u–v; as subárvores dos outros vértices são as mesmas, então só os agregados de u e v precisam ser recalculados.",
+     "signal": "muitas consultas com raiz/destino variável e resposta global que não é uma simples soma por vértice",
+     "contexts": [
+      "consultas de tamanho de subárvore com raiz variável",
+      "contar vértices mais próximos de x que da raiz para todas as raízes"
+     ],
+     "specific": false
+    }
+   ]
+  },
+  {
+   "id": "latam_regional2024-H",
+   "keep": true,
+   "keep_reason": null,
+   "steps": [
+    {
+     "kind": "observação-chave",
+     "text": "T(x) = Σ_y C(x,y)·B_y com C(x,y) = número de caminhos x→y: uma atualização de B_y altera T(x) em C(x,y)·Δ.",
+     "cat": "C",
+     "name": "Resposta linear nas entradas ⇒ matriz de influência",
+     "statement": "Quando cada resposta é combinação linear fixa das entradas atualizáveis, pré-calcule a influência C(x,y) de cada entrada em cada resposta (em DAG, número de caminhos por DP topológica); uma atualização vira um delta multiplicado por C.",
+     "signal": "DP linear (somas) sobre DAG/árvore com atualizações pontuais nos valores-base",
+     "contexts": [
+      "soma de subárvore com updates (influência = ser ancestral)",
+      "expressões lineares com variáveis atualizadas"
+     ],
+     "known_problems": [],
+     "specific": false
+    },
+    {
+     "kind": "otimização",
+     "text": "A cada k atualizações recalcula-se tudo em O(M) por ordem topológica; consultas corrigem o valor com as ≤ k atualizações pendentes; k ≈ √M.",
+     "cat": "B",
+     "base": "Sqrt decomposition",
+     "name": "Reconstrução periódica + correção pelas pendentes",
+     "property": "Em vez de blocos de array, faça blocos na sequência de eventos: mantenha uma foto estática recalculada a cada k atualizações (custo R) e responda cada consulta como foto + correção pelas ≤ k pendentes (custo k·c). Total O(E/k·R + E·k·c), ótimo em k = √(R/c).",
+     "why": "O erro da foto é só a soma das atualizações posteriores a ela, que são no máximo k e cada uma é corrigível isoladamente.",
+     "signal": "estrutura cara de recalcular mas cuja correção por uma atualização é barata; ~1e5–1e6 eventos",
+     "contexts": [
+      "distância ao vértice especial mais próximo com inserções (BFS multi-fonte a cada √q)",
+      "consultas em grafo com arestas adicionadas em lote"
+     ],
+     "specific": false
+    },
+    {
+     "kind": "estrutura/algoritmo",
+     "text": "DP em ordem topológica para recalcular T e contar caminhos.",
+     "cat": "A",
+     "technique": "Ordenação topológica"
+    }
+   ]
+  },
+  {
+   "id": "latam_regional2024-I",
+   "keep": true,
+   "keep_reason": null,
+   "steps": [
+    {
+     "kind": "estrutura/algoritmo",
+     "text": "Achar o número de inversões x e depois montar a permutação posição a posição, escolhendo cada elemento pela contagem de completamentos f(n−1, x−i), com contagens saturadas em K+1.",
+     "cat": "C",
+     "name": "k-ésimo objeto por contagem de completamentos (saturada)",
+     "statement": "Para gerar o k-ésimo objeto numa ordem (lexicográfica, por chave), decida posição a posição: para cada candidato conte quantos objetos completam o prefixo; se k ≤ contagem, fixe-o, senão subtraia. Sature as contagens em K+1 (min) para não estourar.",
+     "signal": "'imprima o k-ésimo' com k até 1e18 numa ordem lexicográfica ou composta",
+     "contexts": [
+      "k-ésima sequência de parênteses balanceada",
+      "k-ésima permutação com restrições",
+      "k-ésimo número com soma de dígitos s"
+     ],
+     "known_problems": [],
+     "specific": false
+    },
+    {
+     "kind": "observação-chave",
+     "text": "f(n,x) cresce tão rápido que, para n > ~100, x < 15: com K ≤ 4e18 a parte que muda da permutação é minúscula.",
+     "cat": "C",
+     "name": "Contagem explosiva ⇒ k-ésimo só mexe numa parte pequena",
+     "statement": "Se K ≤ 1e18 e a quantidade de objetos cresce fatorial/exponencialmente com um parâmetro, o k-ésimo objeto só varia num pedaço de tamanho ~log K (os últimos ~20 elementos, poucas inversões); o resto é fixo. Limite a DP a esse pedaço.",
+     "signal": "n grande (1e5) com k até 1e18 numa ordem de permutações/strings",
+     "contexts": [
+      "k-ésima permutação lexicográfica de n = 1e5 (só os últimos ~20 se movem)",
+      "k-ésima string de tamanho n grande"
+     ],
+     "known_problems": [],
+     "specific": false
+    },
+    {
+     "kind": "otimização",
+     "text": "DP f(n,x) com somas de prefixo nas transições.",
+     "cat": "A",
+     "technique": "Soma de prefixos"
+    }
+   ]
+  },
+  {
+   "id": "latam_regional2024-J",
+   "keep": false,
+   "discard_reason": "união de intervalos ordenados; 40/40 dos top-40 resolveram"
+  },
+  {
+   "id": "latam_regional2024-K",
+   "keep": false,
+   "discard_reason": "cortes por runs com cuidado nas bordas; 40/40 dos top-40 resolveram"
+  },
+  {
+   "id": "latam_regional2024-L",
+   "keep": true,
+   "keep_reason": null,
+   "steps": [
+    {
+     "kind": "observação-chave",
+     "text": "As trocas induzem permutações r (linhas) e c (colunas); a matriz deve satisfazer M[i][j] = M[r(i)][c(j)], logo é constante nas órbitas, e todos os ciclos de r e de c precisam ter o mesmo comprimento.",
+     "cat": "C",
+     "name": "Invariância sob permutação ⇒ constante nas órbitas (ciclos)",
+     "statement": "Se o objeto deve ficar igual após aplicar uma permutação de posições (linhas, colunas, índices), as posições se agrupam em órbitas = ciclos da permutação, e cada órbita tem um único valor. Raciocine sobre os ciclos (comprimentos, quantidade) em vez das posições.",
+     "signal": "objeto que deve ser invariante (fixo) sob uma sequência de trocas/rotações",
+     "contexts": [
+      "contar colorações fixas por uma permutação (Burnside: k^{#ciclos})",
+      "string que volta a si após aplicar uma permutação de posições",
+      "matriz invariante por rotação"
+     ],
+     "known_problems": [],
+     "specific": false
+    },
+    {
+     "kind": "estrutura/algoritmo",
+     "text": "Relabel para ciclos consecutivos e preencher um quadrado latino de blocos cíclicos S×S, bloco (i,j) com símbolos k·S+1..k·S+S, k = (i+j) mod (N/S).",
+     "cat": null
+    }
+   ]
+  },
+  {
+   "id": "latam_regional2025-A",
+   "keep": true,
+   "keep_reason": null,
+   "steps": [
+    {
+     "kind": "reformulação",
+     "text": "Lista em que todo par aparece adjacente exatamente uma vez = trilha euleriana do grafo completo K_N (ideia de raciocínio próprio, não verificada contra solução do júri).",
+     "cat": "C",
+     "name": "Cada transição usada uma vez ⇒ caminho euleriano",
+     "statement": "Se uma sequência deve usar cada 'transição' (par de elementos consecutivos, aresta, peça) exatamente uma vez, modele elementos como vértices e transições como arestas: a sequência é um caminho euleriano. Existência = paridade dos graus + conectividade das arestas.",
+     "signal": "'cada par aparece exatamente uma vez como vizinhos', 'usar todas as peças/arestas uma vez'",
+     "contexts": [
+      "sequência de De Bruijn (todas as substrings de tamanho k uma vez)",
+      "encadear todos os dominós",
+      "reconstruir string a partir de todos os pares consecutivos"
+     ],
+     "known_problems": [
+      "CSES — De Bruijn Sequence"
+     ],
+     "specific": false
+    },
+    {
+     "kind": "redução",
+     "text": "Arestas não usadas devem formar trilha do fim do prefixo ao começo do sufixo: paridade de graus + conectividade (BFS no complemento, O(N²)); dúvida: tratar limites de tamanho do trecho oculto.",
+     "cat": "A",
+     "technique": "Caminho euleriano"
+    }
+   ]
+  },
+  {
+   "id": "latam_regional2025-B",
+   "keep": false,
+   "discard_reason": "DP de médias de prefixo; quase todo o top resolveu; 38/40 dos top-40 resolveram"
+  },
+  {
+   "id": "latam_regional2025-C",
+   "keep": true,
+   "keep_reason": null,
+   "steps": [
+    {
+     "kind": "reformulação",
+     "text": "Com taxa comum r, p_i = r·H_i: o faxineiro i é elegível sse r ∈ [L_i/H_i, U_i/H_i] e o custo é r·Σ s_i H_i; para r fixo, preencher com os mais rápidos elegíveis (ideia de raciocínio próprio, não verificada contra solução do júri).",
+     "cat": null
+    },
+    {
+     "kind": "observação-chave",
+     "text": "O r ótimo é algum L_i/H_i: varrer os candidatos com entradas/saídas de intervalos.",
+     "cat": "C",
+     "name": "Parâmetro contínuo ⇒ só os eventos importam",
+     "statement": "Se a solução depende de um parâmetro real r, cada item está ativo num intervalo de r e, entre eventos, o custo é monótono em r, o ótimo está num extremo de intervalo: ordene os O(n) eventos, varra r mantendo os ativos numa estrutura e avalie só nos eventos. Compare frações exatamente.",
+     "signal": "taxa/preço/limiar comum real a escolher, itens que aceitam só uma faixa do parâmetro",
+     "contexts": [
+      "escolher preço único que maximiza receita com faixas de aceitação",
+      "limiar de tempo ótimo com itens ativos em janelas",
+      "breakpoints de função linear por partes (lac2024-A)"
+     ],
+     "known_problems": [],
+     "specific": false
+    },
+    {
+     "kind": "estrutura/algoritmo",
+     "text": "BIT indexado por H guardando capacidades; descer no BIT para pegar as S primeiras unidades dos mais rápidos e somar o custo.",
+     "cat": "B",
+     "base": "BIT",
+     "name": "Descida no BIT (k-ésima unidade em O(log n))",
+     "property": "Num BIT de contagens, ache o menor prefixo com soma ≥ k em O(log n) descendo por potências de 2 (de cima para baixo, somando enquanto não ultrapassa k), em vez de busca binária + consulta O(log² n). Guardando também Σ peso, obtém-se o custo dos k primeiros.",
+     "why": "O nó i do BIT cobre exatamente (i − lowbit(i), i]; somando blocos de tamanhos decrescentes reconstrói-se o prefixo bit a bit.",
+     "signal": "multiset dinâmico com 'k-ésimo menor' ou 'soma dos k menores'",
+     "contexts": [
+      "k-ésimo elemento de multiset com inserções/remoções",
+      "soma dos k menores custos ativos numa varredura"
+     ],
+     "specific": false
+    },
+    {
+     "kind": "estrutura/algoritmo",
+     "text": "Varredura dos eventos de r.",
+     "cat": "A",
+     "technique": "Sweep line"
+    }
+   ]
+  },
+  {
+   "id": "latam_regional2025-D",
+   "keep": true,
+   "keep_reason": null,
+   "steps": [
+    {
+     "kind": "reformulação",
+     "text": "Para a/b com denominador reduzido b': dígitos = dígitos(⌊a/b⌋) + max(v2(b'), v5(b')) + ord_m(10), com m = b' sem fatores 2 e 5 (ideia de raciocínio próprio, não verificada contra solução do júri).",
+     "cat": null
+    },
+    {
+     "kind": "estrutura/algoritmo",
+     "text": "Pré-calcular a ordem multiplicativa de 10 módulo todo m ≤ 1e5 a partir da fatoração de φ(m).",
+     "cat": "B",
+     "base": "Fatoração",
+     "name": "Ordem multiplicativa via divisores de φ(m)",
+     "property": "Para gcd(a,m)=1, o menor k com a^k ≡ 1 (mod m) divide φ(m) (ou λ(m)): comece com d = φ(m) e, para cada primo p de d, divida d por p enquanto a^{d/p} ≡ 1. Custa O(log² m) por m com exponenciação rápida.",
+     "why": "Pelo teorema de Lagrange a ordem divide a ordem do grupo (Z/mZ)*, que é φ(m); remover primos enquanto a potência continua 1 chega ao menor divisor válido.",
+     "signal": "período de dízimas, ciclos de x → a·x mod m, 'menor k com a^k ≡ 1'",
+     "contexts": [
+      "período da expansão decimal/em base b de 1/m",
+      "ciclo de multiplicação modular",
+      "menor k com 10^k ≡ 1 (repunits divisíveis por m)"
+     ],
+     "specific": false
+    },
+    {
+     "kind": "estrutura/algoritmo",
+     "text": "Contar pares por denominador reduzido com enumeração de divisores e Möbius sobre gcd.",
+     "cat": "A",
+     "technique": "Möbius"
+    },
+    {
+     "kind": "otimização",
+     "text": "Frequências por faixa de valor para os dígitos inteiros e divisão por N² com inverso.",
+     "cat": "A",
+     "technique": "Inverso modular"
+    }
+   ]
+  },
+  {
+   "id": "latam_regional2025-E",
+   "keep": false,
+   "discard_reason": "fórmula min_k(k + a_{k+1}) mantida em segment tree; todo o top resolveu; 40/40 dos top-40 resolveram"
+  },
+  {
+   "id": "latam_regional2025-F",
+   "keep": false,
+   "discard_reason": "truncar X e fatorar poucos dígitos; 40/40 dos top-40 resolveram"
+  },
+  {
+   "id": "latam_regional2025-G",
+   "keep": true,
+   "keep_reason": null,
+   "steps": [
+    {
+     "kind": "observação-chave",
+     "text": "Fluxo máximo = corte mínimo = mínimo de funções lineares em t, logo côncavo em t: busca ternária sobre t inteiro (ideia de raciocínio próprio, não verificada contra solução do júri).",
+     "cat": "C",
+     "name": "Ótimo sobre soluções lineares no parâmetro ⇒ convexo/côncavo",
+     "statement": "Se o valor ótimo para um parâmetro t é o mínimo (máximo) sobre um conjunto — mesmo exponencial — de soluções cujo custo é linear em t, então é côncavo (convexo) em t, sem precisar conhecer as soluções: use busca ternária em t (cuidado com platôs em inteiros) ou procure o ponto de troca.",
+     "signal": "capacidades/pesos que variam linearmente com t e pergunta 'para qual t o ótimo é máximo/mínimo'",
+     "contexts": [
+      "corte mínimo paramétrico",
+      "caminho mínimo com pesos a_e + t·b_e (min de retas ⇒ côncavo)",
+      "MST com pesos lineares em t"
+     ],
+     "known_problems": [],
+     "specific": false
+    },
+    {
+     "kind": "estrutura/algoritmo",
+     "text": "Em cada t, o corte mínimo de vértices da grade planar é um caminho mínimo no dual (Dijkstra de uma borda à oposta pelos blocos e falhas de cabo).",
+     "cat": "B",
+     "base": "Corte mínimo",
+     "name": "Corte mínimo planar = caminho mínimo no dual",
+     "property": "Em grafo planar com s e t na face externa, um corte s–t corresponde a um caminho no grafo dual entre as duas regiões da face externa separadas por s e t; corte mínimo = caminho mínimo dual (Dijkstra), muito mais rápido que fluxo.",
+     "why": "Remover as arestas de um caminho dual de uma borda à outra 'corta' o plano em duas partes, uma com s e outra com t, e vice-versa — dualidade de Whitney.",
+     "signal": "grade/mapa planar grande (≥ 1e5 vértices) com origem e destino na borda e pergunta de corte/bloqueio",
+     "contexts": [
+      "bloquear todos os caminhos de cima para baixo de um mapa com obstáculos (barreira = caminho dual)",
+      "lobos e coelhos (BZOJ 1001)",
+      "menor custo para separar duas bordas de uma grade"
+     ],
+     "specific": false
+    },
+    {
+     "kind": "estrutura/algoritmo",
+     "text": "Dijkstra no dual por avaliação.",
+     "cat": "A",
+     "technique": "Dijkstra"
+    },
+    {
+     "kind": "otimização",
+     "text": "Ternária sobre t ∈ [0, K].",
+     "cat": "A",
+     "technique": "Busca ternária"
+    }
+   ]
+  },
+  {
+   "id": "latam_regional2025-H",
+   "keep": false,
+   "discard_reason": "contar máximos de prefixo; 40/40 dos top-40 resolveram"
+  },
+  {
+   "id": "latam_regional2025-I",
+   "keep": true,
+   "keep_reason": null,
+   "steps": [
+    {
+     "kind": "reformulação",
+     "text": "Rota = caminho crescente na metade baixa, um código cruzado a → b+N, caminho na metade alta; identificando i+N com i, pedem-se dois caminhos monótonos que não compartilham andar.",
+     "cat": null
+    },
+    {
+     "kind": "observação-chave",
+     "text": "BFS sobre pares (x,y) das duas frentes avançando sempre a atrasada e nunca pousando sobre a outra frente: como ambas só avançam, isso garante disjunção sem guardar conjuntos visitados.",
+     "cat": "C",
+     "name": "Dois caminhos monótonos disjuntos: avance sempre o atrasado",
+     "statement": "Para dois caminhos que só avançam numa ordem (topológica, índice, coluna) e não podem compartilhar vértices, faça DP/BFS no estado (x, y) das duas pontas, movendo sempre a de menor índice: o vértice que a atrasada visita nunca é revisitado pela outra, então basta checar x ≠ y localmente.",
+     "signal": "dois caminhos/percursos simultâneos em DAG ou grade, ambos monótonos, sem vértices em comum",
+     "contexts": [
+      "TSP bitônico (DP sobre as duas pontas)",
+      "dois caminhantes de canto a canto numa grade coletando itens (Cherry Pickup)",
+      "dois caminhos disjuntos em DAG pequeno"
+     ],
+     "known_problems": [],
+     "specific": false
+    },
+    {
+     "kind": "estrutura/algoritmo",
+     "text": "BFS em O(N²) estados por código cruzado, com ponteiros para reconstruir.",
+     "cat": "A",
+     "technique": "BFS"
+    }
+   ]
+  },
+  {
+   "id": "latam_regional2025-J",
+   "keep": false,
+   "discard_reason": "contar ocorrências de padrões; 40/40 dos top-40 resolveram"
+  },
+  {
+   "id": "latam_regional2025-K",
+   "keep": false,
+   "discard_reason": "testar um rei extremo em cada direção; 40/40 dos top-40 resolveram"
+  },
+  {
+   "id": "latam_regional2025-L",
+   "keep": true,
+   "keep_reason": null,
+   "steps": [
+    {
+     "kind": "reformulação",
+     "text": "Cada reta corta a região y > Ax² + B numa corda aberta entre as raízes x1 < x2 de Ax² − Mx + (B − C) = 0 (ideia de raciocínio próprio, não verificada contra solução do júri).",
+     "cat": null
+    },
+    {
+     "kind": "redução",
+     "text": "Duas cordas de região convexa se cruzam dentro dela sse seus extremos se intercalam: contar pares de intervalos cruzados (l_i < l_j < r_i < r_j).",
+     "cat": "C",
+     "name": "Cordas de região convexa ⇒ intervalos que se intercalam",
+     "statement": "Para contar interseções de segmentos/cordas cujos extremos estão na fronteira de uma região convexa (ou num círculo, ou em duas retas verticais), parametrize a fronteira: duas cordas se cruzam no interior sse os extremos se intercalam. Vira contar pares de intervalos cruzados — ordenar por l e BIT sobre r.",
+     "signal": "contar pares de retas/cordas que se cruzam dentro de uma região (faixa, círculo, parábola)",
+     "contexts": [
+      "pares de cordas que se cruzam num círculo",
+      "pares de retas que se cruzam na faixa x1 < x < x2 (inversões entre as ordens em x1 e x2)"
+     ],
+     "known_problems": [],
+     "specific": false
+    },
+    {
+     "kind": "estrutura/algoritmo",
+     "text": "Contagem de pares intercalados com BIT após ordenar extremos comparados exatamente (raízes (M ± √D)/2A com aritmética inteira).",
+     "cat": "A",
+     "technique": "BIT"
+    }
+   ]
+  },
+  {
+   "id": "apac2024-A",
+   "keep": true,
+   "keep_reason": null,
+   "steps": [
+    {
+     "kind": "reformulação",
+     "text": "As operações são relações de grupo (A^a = P^p = 1, P = APA, A = PAP); toda palavra reduz a uma de 8 formas normais e S → E é possível sse ambas reduzem à mesma.",
+     "cat": "C",
+     "name": "Operações reversíveis ⇒ compare formas normais",
+     "statement": "Se todas as operações de reescrita são reversíveis (ou suas inversas são deriváveis), alcançabilidade é uma relação de equivalência: defina um procedimento que leva qualquer objeto a uma forma normal canônica. Resposta: N(S) = N(E); construção: S → N(S) seguido do inverso de E → N(E).",
+     "signal": "transformar S em E por operações de inserir/remover/substituir padrões que podem ser desfeitas",
+     "contexts": [
+      "strings com 'remover AA/BB' e trocas reversíveis (forma reduzida por pilha)",
+      "puzzles de permutação com movimentos invertíveis (levar ambos à configuração padrão)",
+      "transformar um array em outro por operações reversíveis (comparar invariante canônico)"
+     ],
+     "known_problems": [],
+     "specific": false
+    },
+    {
+     "kind": "observação-chave",
+     "text": "Movimentos derivados dão A⁴ = P⁴ = 1, então expoentes reduzem a gcd(a,4) e gcd(p,4); o grupo é quociente do grupo dos quatérnios Q8.",
+     "cat": null
+    }
+   ]
+  },
+  {
+   "id": "apac2024-B",
+   "keep": true,
+   "keep_reason": null,
+   "steps": [
+    {
+     "kind": "observação-chave",
+     "text": "A penalidade 1e6·(pares faltantes)² domina, e com planaridade o ótimo é uma clique (≤ 4 vértices) ou clique menos uma aresta (≤ 5 vértices).",
+     "cat": "C",
+     "name": "Penalidade dominante ⇒ forma restrita + força bruta",
+     "statement": "Quando um termo do objetivo é numericamente enorme (big-M), a solução ótima tem quase nada dele: deduza a forma possível da resposta (poucos defeitos, tamanho limitado) e enumere só essas formas.",
+     "signal": "objetivo com coeficiente gigante (1e6, 1e9) multiplicando uma quantidade de 'defeitos'",
+     "contexts": [
+      "custos lexicográficos codificados como M·a + b",
+      "maximizar mantendo zero violações a não ser que valha a pena só uma"
+     ],
+     "known_problems": [],
+     "specific": false
+    },
+    {
+     "kind": "estrutura/algoritmo",
+     "text": "Grafo planar tem vértice de grau ≤ 5: remover repetidamente o de grau mínimo e força bruta nos subconjuntos da sua vizinhança enumera todas as cliques em O(n).",
+     "cat": "C",
+     "name": "Ordem de degeneração limita vizinhos 'para frente'",
+     "statement": "Em grafos esparsos (planares: ≤ 3n−6 arestas, logo grau mínimo ≤ 5; arboricidade baixa), ordene os vértices removendo sempre o de menor grau: cada vértice tem ≤ d vizinhos posteriores. Estruturas locais (cliques, triângulos) são enumeradas a partir do seu primeiro vértice nessa ordem, com custo O(n·2^d).",
+     "signal": "grafo planar/esparso e pergunta sobre cliques, triângulos ou subgrafos densos pequenos",
+     "contexts": [
+      "contar triângulos em O(m√m) orientando arestas por grau",
+      "colorir grafo planar com 6 cores",
+      "enumerar K4 em grafo planar"
+     ],
+     "known_problems": [],
+     "specific": false
+    }
+   ]
+  },
+  {
+   "id": "apac2024-C",
+   "keep": false,
+   "discard_reason": "derivar x pelos carries da popcount e verificar; 40/40 dos top-40 resolveram"
+  },
+  {
+   "id": "apac2024-D",
+   "keep": true,
+   "keep_reason": null,
+   "steps": [
+    {
+     "kind": "observação-chave",
+     "text": "Janelas 6×7 com somas iguais dão g[i][j] + g[i−6][j−7] = g[i−6][j] + g[i][j−7]: cada classe de resíduo (i mod 6, j mod 7) é constante, listrada na horizontal ou listrada na vertical.",
+     "cat": "C",
+     "name": "Somas de janelas iguais ⇒ periodicidade por resíduo",
+     "statement": "Se toda janela de tamanho k tem a mesma soma, subtraindo janelas vizinhas vem a_i = a_{i+k}: o objeto é determinado pelos resíduos mod k. Em 2D a mesma subtração dá uma equação de 4 termos que força cada classe de resíduo a ser constante ou listrada; conte por classe.",
+     "signal": "'toda janela/subgrade de tamanho fixo tem a mesma soma (ou mesma quantidade de 1s)'",
+     "contexts": [
+      "array binário em que toda janela de k tem exatamente s uns (período k)",
+      "reconstruir array a partir de somas de janelas (apac2026-E: a_{i+m} − a_i = s_{i+1} − s_i)"
+     ],
+     "known_problems": [],
+     "specific": false
+    },
+    {
+     "kind": "estrutura/algoritmo",
+     "text": "Separar 'constante' de 'listrada' com inclusão-exclusão.",
+     "cat": "A",
+     "technique": "Inclusão-exclusão"
+    },
+    {
+     "kind": "otimização",
+     "text": "Funções geradoras por linha elevadas à 6ª potência via NTT (ou DP com poda sobre os 2^42 tipos).",
+     "cat": "A",
+     "technique": "FFT/NTT"
+    }
+   ]
+  },
+  {
+   "id": "apac2024-E",
+   "keep": false,
+   "discard_reason": "cota inferior por linhas/colunas sem repetição atingida diretamente; 40/40 dos top-40 resolveram"
+  },
+  {
+   "id": "apac2024-F",
+   "keep": true,
+   "keep_reason": null,
+   "steps": [
+    {
+     "kind": "observação-chave",
+     "text": "Juntar dois grupos nunca piora a razão max/min, então basta testar k primo (divisores primos de n, ≤ 7).",
+     "cat": "C",
+     "name": "Mesclar não piora ⇒ teste só os divisores primos",
+     "statement": "Se ao escolher k | n (número de blocos, período) uma divisão mais grossa é sempre no máximo tão boa quanto uma mais fina que a refina, basta testar os k 'mínimos' na ordem de divisibilidade: os primos (ou n/p para cada primo p). Reduz de d(n) para ω(n) ≤ ~10 casos.",
+     "signal": "escolher k que divide n (grupos, período, blocos iguais) otimizando razão/máximo",
+     "contexts": [
+      "menor período de string: testar só n/p para p primo",
+      "dividir array cíclico em k blocos iguais",
+      "ordem multiplicativa: remover fatores primos de φ(m)"
+     ],
+     "known_problems": [],
+     "specific": false
+    },
+    {
+     "kind": "estrutura/algoritmo",
+     "text": "Para k fixo, deslizar o aluno 1 muda só dois grupos por passo: multiset de somas dá max/min em O(log n); comparar frações por multiplicação cruzada.",
+     "cat": null
+    }
+   ]
+  },
+  {
+   "id": "apac2024-G",
+   "keep": true,
+   "keep_reason": "C: limite amortizado por pombos com parada antecipada — técnica reutilizável que transforma O(n²m) em O(nm + k·n²)",
+   "steps": [
+    {
+     "kind": "otimização",
+     "text": "Incrementar contadores por par (só entre alunos com a mesma letra na coluna) e parar no primeiro par que chega a k: até então cada par contribuiu < k incrementos.",
+     "cat": "C",
+     "name": "Parar no primeiro sucesso limita o trabalho (pombos)",
+     "statement": "Se você procura o primeiro par/objeto que acumula ≥ k coincidências, incremente contadores e pare assim que algum chega a k: antes disso cada contador está < k, então o trabalho total é ≤ (k−1)·#pares + 1, independentemente do tamanho da entrada que gera as coincidências.",
+     "signal": "procurar par com pelo menos k (pequeno) coisas em comum entre muitos objetos longos",
+     "contexts": [
+      "retângulo com 4 cantos 1 numa matriz binária (pares de colunas por linha, para na repetição)",
+      "dois conjuntos com ≥ 2 elementos em comum",
+      "dois vetores com ≥ k posições iguais"
+     ],
+     "known_problems": [],
+     "specific": false
+    }
+   ]
+  },
+  {
+   "id": "apac2024-H",
+   "keep": false,
+   "discard_reason": "poucos casos sobre a maioria de cada mesa; 40/40 dos top-40 resolveram"
+  },
+  {
+   "id": "apac2024-I",
+   "keep": true,
+   "keep_reason": null,
+   "steps": [
+    {
+     "kind": "observação-chave",
+     "text": "As n² retas pelos pontos médios dividem o plano em células onde os testes de orientação são fixos e a área do hull é linear no centro X: o ótimo está num vértice do arranjo.",
+     "cat": "C",
+     "name": "Linear por célula de arranjo ⇒ ótimo num vértice",
+     "statement": "Se o espaço de parâmetros (um ponto no plano) é dividido por O(m) retas em células onde a combinatória da solução é fixa e o objetivo é linear dentro de cada célula, o ótimo está num vértice do arranjo: enumere as O(m²) interseções de pares de retas, valide e avalie cada uma.",
+     "signal": "escolher um ponto/centro no plano com n pequeno (≤ 30–100) e objetivo linear por partes",
+     "contexts": [
+      "programação linear em 2 variáveis (ótimo em vértice)",
+      "versão 1D: ótimo em breakpoint (lac2024-A)",
+      "posicionar ponto minimizando soma de distâncias L1 (vértices da grade de coordenadas)"
+     ],
+     "known_problems": [],
+     "specific": false
+    },
+    {
+     "kind": "estrutura/algoritmo",
+     "text": "Para cada vértice candidato: hull de P ∪ (2X − P) e área.",
+     "cat": "A",
+     "technique": "Convex hull"
+    }
+   ]
+  },
+  {
+   "id": "apac2024-J",
+   "keep": false,
+   "discard_reason": "Dijkstra das duas pontas + melhor aresta fora do caminho; 40/40 dos top-40 resolveram"
+  },
+  {
+   "id": "apac2024-K",
+   "keep": true,
+   "keep_reason": null,
+   "steps": [
+    {
+     "kind": "reformulação",
+     "text": "x = ⌈k/n⌉; para x fixo os y se agrupam pelo LCA com x: o ancestral a_i 'possui' S(a_i) \\ S(a_{i−1}).",
+     "cat": null
+    },
+    {
+     "kind": "estrutura/algoritmo",
+     "text": "Árvores persistentes (por x ao longo de arestas; por subárvore via small-to-large) e descida pela diferença de duas versões para achar o LCA e depois o y.",
+     "cat": "B",
+     "base": "Segment tree persistente",
+     "name": "k-ésimo por descida na diferença de duas versões",
+     "property": "Com versões persistentes indexadas por valor, a diferença (versão R − versão L) dá as contagens de um subconjunto; descer as duas árvores juntas comparando k com a contagem do filho esquerdo encontra o k-ésimo menor do subconjunto em O(log n), sem construir o subconjunto.",
+     "why": "Contagens são aditivas e as versões compartilham estrutura; a diferença nó a nó é a contagem do subconjunto naquele intervalo de valores.",
+     "signal": "k-ésimo menor num subarray, num caminho ou numa subárvore, com muitas consultas",
+     "contexts": [
+      "k-ésimo menor em subarray (SPOJ MKTHNUM)",
+      "k-ésimo menor no caminho u–v de árvore (SPOJ COT)"
+     ],
+     "specific": false
+    },
+    {
+     "kind": "estrutura/algoritmo",
+     "text": "Construir as versões de subárvore reaproveitando o filho pesado.",
+     "cat": "A",
+     "technique": "Small-to-large"
+    }
+   ]
+  },
+  {
+   "id": "apac2024-L",
+   "keep": true,
+   "keep_reason": null,
+   "steps": [
+    {
+     "kind": "redução",
+     "text": "Os vetores alcançáveis são o span de vetores com a_i⊕a_j nos blocos i e j; trocar a_i por 2a_i + 1 (bit de paridade) e calcular o posto s dá rank = C(s,2) + (n−s)(s−1).",
+     "cat": "C",
+     "name": "Bit constante extra para controlar paridade de tamanho",
+     "statement": "Para impor paridade de cardinalidade (ou distinguir 'somou um número par de termos') num problema linear em GF(2), acrescente uma coordenada constante 1 a cada vetor: ela passa a registrar a paridade e a restrição vira linear.",
+     "signal": "XOR de pares/subconjuntos com restrição implícita sobre quantos termos entram",
+     "contexts": [
+      "subconjunto de tamanho par com XOR 0 (lac2025-B)",
+      "combinações com número ímpar de termos"
+     ],
+     "known_problems": [],
+     "specific": false
+    },
+    {
+     "kind": "estrutura/algoritmo",
+     "text": "Base linear dos 2a_i+1; resposta 2^rank.",
+     "cat": "A",
+     "technique": "Base XOR"
+    },
+    {
+     "kind": "otimização",
+     "text": "Potência de 2 módulo 998244353.",
+     "cat": "A",
+     "technique": "Exponenciação rápida"
+    }
+   ]
+  },
+  {
+   "id": "apac2024-M",
+   "keep": true,
+   "keep_reason": null,
+   "steps": [
+    {
+     "kind": "reformulação",
+     "text": "Inclusão-exclusão: cada '>' vira 'sem condição' − '≤', sobrando concatenações de blocos quase crescentes (a1 < a2 ≤ a3 < …), fáceis de contar.",
+     "cat": "C",
+     "name": "Inclusão-exclusão em desigualdades: zig-zag vira blocos monótonos",
+     "statement": "Restrições alternadas (subidas/descidas prescritas) são difíceis; escreva cada relação incômoda como 'qualquer' − 'a oposta não estrita': os termos viram sequências de blocos monótonos, contadas por produto/concatenação (série 1/(1−A)) com sinal.",
+     "signal": "contar sequências/permutações com padrão de subidas e descidas prescrito",
+     "contexts": [
+      "permutações com string de subidas/descidas dada (DI-string) via inclusão-exclusão",
+      "números alternantes/up-down (Euler zigzag)"
+     ],
+     "known_problems": [],
+     "specific": false
+    },
+    {
+     "kind": "observação-chave",
+     "text": "Composições quase estritamente crescentes de n têm comprimento O(√n): DP em (soma, comprimento) custa O(n√n).",
+     "cat": "C",
+     "name": "Partes distintas ⇒ O(√n) partes",
+     "statement": "Uma sequência estritamente crescente de inteiros positivos com soma n tem no máximo ~√(2n) termos; logo DPs sobre (soma, quantidade de termos) custam O(n√n), e conjuntos de valores distintos com soma total S têm O(√S) elementos.",
+     "signal": "contar partições/composições em partes distintas (ou crescentes) para n até ~1e5–3e5",
+     "contexts": [
+      "partições em partes distintas para todo n",
+      "subset sum com soma total S tem O(√S) valores distintos (lac2024-F)"
+     ],
+     "known_problems": [],
+     "specific": false
+    },
+    {
+     "kind": "estrutura/algoritmo",
+     "text": "Sequências de blocos: C(x) = 1/(1 − A(x)), uma inversa de série via NTT.",
+     "cat": "B",
+     "base": "FFT/NTT",
+     "name": "Inversa de série de potências para concatenação de blocos",
+     "property": "Se objetos são concatenações livres de blocos com função geradora A(x) (A(0)=0), sua função geradora é 1/(1 − A(x)); a inversa de série até grau N sai por iteração de Newton em O(N log N), respondendo todos os n ≤ N de uma vez.",
+     "why": "Concatenar k blocos é A(x)^k e Σ_k A^k é a série geométrica; Newton dobra a precisão a cada passo com uma multiplicação.",
+     "signal": "contagem para todos os n até 1e5–1e6 de objetos formados por sequências de blocos",
+     "contexts": [
+      "composições com partes num conjunto permitido para todo n",
+      "número de ladrilhamentos para todo n"
+     ],
+     "specific": false
+    }
+   ]
+  },
+  {
+   "id": "apac2025-A",
+   "keep": false,
+   "discard_reason": "DP de contagem por linha/coluna com inclusão-exclusão pequena; 40/40 dos top-40 resolveram"
+  },
+  {
+   "id": "apac2025-B",
+   "keep": true,
+   "keep_reason": null,
+   "steps": [
+    {
+     "kind": "estrutura/algoritmo",
+     "text": "Colorir as arestas gulosamente particiona-as em poucos emparelhamentos; cada emparelhamento é roteado num par de camadas z próprio, sem colisões.",
+     "cat": "C",
+     "name": "Decompor em emparelhamentos para rotear em paralelo",
+     "statement": "Para desenhar/agendar muitas conexões sem conflito, decomponha as arestas em emparelhamentos (coloração de arestas gulosa com ≤ 2Δ−1 cores; Δ+1 por Vizing; Δ em bipartido): dentro de um emparelhamento nenhuma conexão compartilha extremo, então todas podem ser feitas na mesma camada/rodada.",
+     "signal": "grau máximo pequeno e necessidade de dispor conexões em camadas/rodadas sem conflito nos vértices",
+     "contexts": [
+      "agendar partidas em rodadas (cada time joga ≤ 1 por rodada)",
+      "comunicação em rodadas entre pares de máquinas",
+      "roteamento de fios em camadas"
+     ],
+     "known_problems": [],
+     "specific": false
+    },
+    {
+     "kind": "otimização",
+     "text": "Gadgets numa grade √n/3 × d e coloração de um grafo contraído para caber em 400³ — engenharia específica da construção.",
+     "cat": null
+    }
+   ]
+  },
+  {
+   "id": "apac2025-C",
+   "keep": true,
+   "keep_reason": null,
+   "steps": [
+    {
+     "kind": "reformulação",
+     "text": "Prova-se que o valor de conectividade = corte máximo + 1 (completando com cliques).",
+     "cat": null
+    },
+    {
+     "kind": "observação-chave",
+     "text": "No cacto, 2-colorir uma árvore geradora e contar arestas bicoloridas: cada ciclo ímpar perde exatamente uma aresta, então max-cut = m − #ciclos ímpares.",
+     "cat": "C",
+     "name": "Max-cut em cacto = m − ciclos ímpares",
+     "statement": "Corte máximo é NP-difícil em geral, mas em grafos cujos ciclos são disjuntos em arestas (cactos) cada ciclo ímpar obriga a perder exatamente uma aresta e ciclos pares nenhuma.",
+     "signal": "grafo cacto com pergunta sobre bipartição/corte máximo",
+     "contexts": [
+      "max-cut de grafo unicíclico",
+      "max-cut de grafo bipartido (= m)"
+     ],
+     "known_problems": [],
+     "specific": true
+    },
+    {
+     "kind": "estrutura/algoritmo",
+     "text": "DFS para árvore geradora e cores.",
+     "cat": "A",
+     "technique": "DFS"
+    }
+   ]
+  },
+  {
+   "id": "apac2025-D",
+   "keep": true,
+   "keep_reason": "B: segment tree de composição de funções de estado pequeno — deepening reutilizável além do cálculo do Hanói",
+   "steps": [
+    {
+     "kind": "reformulação",
+     "text": "Pensar do maior disco para o menor: se o disco não está no destino, todos os menores vão para o terceiro pino (2^x − 1 movimentos) e o destino dos menores fica determinado.",
+     "cat": null
+    },
+    {
+     "kind": "estrutura/algoritmo",
+     "text": "Para cada bloco de discos e cada um dos 3 pinos-alvo guardar (movimentos, pino exigido para os menores); blocos compõem associativamente numa segment tree com update pontual.",
+     "cat": "B",
+     "base": "Segment tree",
+     "name": "Segment tree de composição de funções (estado pequeno)",
+     "property": "Se processar um bloco é uma função de um estado de entrada pequeno (k estados) para (estado de saída, custo), guarde em cada nó a tabela dessa função para os k estados; o pai é a composição dos filhos. Consultas de intervalo e updates pontuais em O(k log n).",
+     "why": "Composição de funções é associativa, que é tudo o que a segment tree exige; o estado pequeno torna a tabela de cada nó O(k).",
+     "signal": "processo sequencial com estado pequeno (autômato, DP linear) sobre um intervalo, com atualizações pontuais",
+     "contexts": [
+      "DP linear com updates via matrizes (max,+) por posição (CF 750E)",
+      "verificar se substring é aceita por um autômato",
+      "simular máquina de estados em intervalos"
+     ],
+     "specific": false
+    }
+   ]
+  },
+  {
+   "id": "apac2025-E",
+   "keep": true,
+   "keep_reason": null,
+   "steps": [
+    {
+     "kind": "estrutura/algoritmo",
+     "text": "Conhecendo o prefixo da expressão, pôr 1 só nas folhas da cadeia de aninhamento da folha atual e 0 nas outras reduz a expressão a x−(x−(x−…)) e isola qual parêntese vem a seguir.",
+     "cat": "C",
+     "name": "Neutralizar o conhecido para isolar a próxima incógnita",
+     "statement": "Para descobrir uma estrutura oculta pedaço a pedaço, use o que já foi descoberto para montar consultas em que tudo o que é conhecido ou irrelevante vira elemento neutro/absorvente (0 em AND, 1 em OR), de modo que a resposta dependa só da próxima incógnita.",
+     "signal": "interativo para reconstruir fórmula/árvore/sequência oculta com limite apertado de consultas (~2–3n)",
+     "contexts": [
+      "descobrir circuito booleano oculto",
+      "reconstruir árvore oculta consultando distâncias com vértices conhecidos fixos",
+      "adivinhar string caractere a caractere com consultas que fixam o prefixo"
+     ],
+     "known_problems": [],
+     "specific": false
+    },
+    {
+     "kind": "otimização",
+     "text": "Árvore de decisão pequena: 2 consultas para abrir/simples e ~r/2+2 para fechar r parênteses, total amortizado ≤ 2,5n.",
+     "cat": null
+    }
+   ]
+  },
+  {
+   "id": "apac2025-F",
+   "keep": true,
+   "keep_reason": null,
+   "steps": [
+    {
+     "kind": "observação-chave",
+     "text": "No revezamento ótimo, depois do primeiro portador a estrela só passa para personagens estritamente mais baratos: a cadeia de mínimos de sufixo entre r_m e l_j.",
+     "cat": "C",
+     "name": "Revezamento só para o mais barato (cadeia de mínimos)",
+     "statement": "Em transporte com troca de portador/veículo, em que cada agente tem custo por unidade de distância, só vale passar a carga a um agente mais barato que o atual; o percurso ótimo usa a cadeia de mínimos prefixo/sufixo na direção do movimento, mantida com pilha monotônica.",
+     "signal": "carregar algo ao longo de uma reta com agentes/postos de custo por unidade diferentes",
+     "contexts": [
+      "abastecer só até o próximo posto mais barato (problema do posto de gasolina)",
+      "trocar de veículo com custo por km ao longo de uma rota"
+     ],
+     "known_problems": [],
+     "specific": false
+    },
+    {
+     "kind": "estrutura/algoritmo",
+     "text": "Cadeia de mínimos mantida com pilha ao ordenar os níveis por l_j.",
+     "cat": "A",
+     "technique": "Pilha monotônica"
+    },
+    {
+     "kind": "otimização",
+     "text": "O custo de buscar com cada primeiro portador é linear em l_j: mínimo de retas.",
+     "cat": "A",
+     "technique": "Convex hull trick / Li Chao"
+    }
+   ]
+  },
+  {
+   "id": "apac2025-G",
+   "keep": false,
+   "discard_reason": "comparação gulosa de runs com dois ponteiros; 40/40 dos top-40 resolveram"
+  },
+  {
+   "id": "apac2025-H",
+   "keep": false,
+   "discard_reason": "interativo com k = número de rosas e busca binária curta; 31/40 dos top-40 resolveram"
+  },
+  {
+   "id": "apac2025-I",
+   "keep": true,
+   "keep_reason": null,
+   "steps": [
+    {
+     "kind": "observação-chave",
+     "text": "Quadrados com todos os vértices em cantos de célula dão áreas ilimitadas; os demais alternam vértices em arestas horizontais/verticais e têm centro em ponto da grade ou centro de célula.",
+     "cat": null
+    },
+    {
+     "kind": "reformulação",
+     "text": "Fixar o centro numa posição pivô; cada segmento unitário da grade dá um intervalo de áreas 2d² para o vértice, com peso = número de translações do centro que mantêm o quadrado dentro.",
+     "cat": "C",
+     "name": "Contar formas módulo translação × número de posições",
+     "statement": "Para contar figuras numa grade, conte cada forma uma vez com uma posição canônica (centro pivô) e multiplique pelo número de translações válidas; se a forma varia continuamente com um parâmetro, gere intervalos de valores com peso e responda consultas offline por varredura.",
+     "signal": "contar quadrados/retângulos/padrões em grade n×n com n até ~2000",
+     "contexts": [
+      "contar quadrados inclinados em grade de pontos (por vetor lado × posições)",
+      "contar ocorrências de uma forma por tipo × posições"
+     ],
+     "known_problems": [],
+     "specific": false
+    },
+    {
+     "kind": "estrutura/algoritmo",
+     "text": "Varredura dos O(n²) intervalos de área contra as consultas ordenadas.",
+     "cat": "A",
+     "technique": "Sweep line"
+    }
+   ]
+  },
+  {
+   "id": "apac2025-J",
+   "keep": false,
+   "discard_reason": "DP de intervalos direta; 40/40 dos top-40 resolveram"
+  },
+  {
+   "id": "apac2025-K",
+   "keep": true,
+   "keep_reason": null,
+   "steps": [
+    {
+     "kind": "observação-chave",
+     "text": "No ótimo, os livros com rótulo < l vão para a frente, os > r para o fim e o intervalo de rótulos [l,r] é ordenado com trocas adjacentes: custo (l−1) + (n−r) + inv(a_l..a_r).",
+     "cat": "C",
+     "name": "Mover para as pontas ⇒ o que fica é um intervalo de valores",
+     "statement": "Com operações 'mandar ao início/fim' (custo 1) e trocas adjacentes, os elementos mandados ao início são um prefixo de valores e os mandados ao fim um sufixo de valores; o resto é um intervalo contíguo de valores ordenado por trocas (custo = inversões). Otimize sobre intervalos [l,r] de valores.",
+     "signal": "ordenar permutação com 'mover para frente/trás' combinados com outra operação",
+     "contexts": [
+      "mínimo de 'mover para frente' para ordenar (n − maior sufixo de valores já em ordem)",
+      "ordenar com 'mover para o fim' (maior prefixo de valores consecutivos em ordem)"
+     ],
+     "known_problems": [],
+     "specific": false
+    },
+    {
+     "kind": "otimização",
+     "text": "Varrer r mantendo num set os l 'recordes' onde f(l,r) = r − l − inv cresce; cada nova inversão remove um candidato — remoções amortizadas, O(n log n).",
+     "cat": null
+    },
+    {
+     "kind": "estrutura/algoritmo",
+     "text": "Contagem de inversões com BIT.",
+     "cat": "A",
+     "technique": "BIT"
+    }
+   ]
+  },
+  {
+   "id": "apac2025-L",
+   "keep": false,
+   "discard_reason": "deslocamento de índices na fila e contagem direta; 40/40 dos top-40 resolveram"
+  },
+  {
+   "id": "apac2025-M",
+   "keep": true,
+   "keep_reason": null,
+   "steps": [
+    {
+     "kind": "observação-chave",
+     "text": "Os movimentos são translações por diferenças de pontos marcados (mais reflexões): com um ponto só um segmento; com direções colineares uma faixa; com três não colineares tudo.",
+     "cat": "C",
+     "name": "Alcançável = grupo gerado; classifique pela dimensão",
+     "statement": "Quando os movimentos combinam translações por vetores derivados da entrada, o conjunto alcançável é o grupo/reticulado gerado: classifique pela quantidade de direções independentes (0, 1 ou 2) e trate os pontos de borda com testes de múltiplo inteiro.",
+     "signal": "movimentos do tipo 'somar P − Q' ou refletir por pontos dados, pergunta de alcançabilidade",
+     "contexts": [
+      "saltos (a,b) na grade alcançam o reticulado gerado (gcd)",
+      "reflexões por pontos geram translações"
+     ],
+     "known_problems": [],
+     "specific": true
+    },
+    {
+     "kind": "estrutura/algoritmo",
+     "text": "Testes de lado de reta e colinearidade.",
+     "cat": "A",
+     "technique": "Produto vetorial / orientação"
+    }
+   ]
+  },
+  {
+   "id": "apac2026-A",
+   "keep": true,
+   "keep_reason": null,
+   "steps": [
+    {
+     "kind": "reformulação",
+     "text": "Inserir sufixos do fim para o início: S(k) < S(j) ⇔ (s_k, posição de S(k+1)) < (s_j, posição de S(j+1)), e a ordem dos sucessores já é conhecida.",
+     "cat": "B",
+     "base": "Suffix array + LCP",
+     "name": "Ordem de sufixos = (primeira letra, ordem do sufixo seguinte)",
+     "property": "A comparação de dois sufixos se reduz à primeira letra e, em caso de empate, à ordem dos sufixos que começam uma posição depois. Construindo de trás para frente, cada novo sufixo é posicionado comparando só primeiras letras com uma ordem já conhecida.",
+     "why": "S(k) = s_k + S(k+1), então comparar S(k) e S(j) é comparar s_k e s_j e, se iguais, S(k+1) e S(j+1).",
+     "signal": "construir/ordenar sufixos de forma incremental ou com consultas de comparação caras",
+     "contexts": [
+      "prefix doubling do suffix array (pares de ranks)",
+      "classificação L/S do SA-IS",
+      "ordenar sufixos em interativo com poucas comparações"
+     ],
+     "specific": false
+    },
+    {
+     "kind": "otimização",
+     "text": "Alfabeto de 26 letras gera ≤ 25 'posições de divisão'; busca binária só sobre representantes de bloco + 1 consulta de confirmação, ≈ n(log₂26 + 1) consultas.",
+     "cat": null
+    }
+   ]
+  },
+  {
+   "id": "apac2026-B",
+   "keep": true,
+   "keep_reason": "C: binarizar jogo de valor com busca binária no limiar — técnica geral para jogos min/max",
+   "steps": [
+    {
+     "kind": "redução",
+     "text": "Para um limiar v, rotular folhas ≤ v como boas para o minimizador e > v como ruins: o jogo vira ganha/perde; busca binária em v.",
+     "cat": "C",
+     "name": "Binarizar o valor de um jogo por limiar",
+     "statement": "Se o resultado de um jogo é um valor (um jogador minimiza, outro maximiza), pergunte para cada limiar v 'o minimizador garante ≤ v?': vira um jogo ganha/perde, geralmente com DP simples (±1, sinal), e a resposta é monótona em v — busca binária.",
+     "signal": "jogo de dois jogadores com resultado numérico (valor final, folha restante), min vs max",
+     "contexts": [
+      "maior mediana com valores ±1 por limiar (CF 1486D)",
+      "jogos minimax sobre árvore com valores nas folhas",
+      "minimizar o máximo em jogos de remoção"
+     ],
+     "known_problems": [
+      "Codeforces 1486D — Max Median"
+     ],
+     "specific": false
+    },
+    {
+     "kind": "estrutura/algoritmo",
+     "text": "D(x) = sinal da soma dos D dos filhos, calculado de baixo para cima por limiar.",
+     "cat": "A",
+     "technique": "DP em árvore"
+    },
+    {
+     "kind": "otimização",
+     "text": "Busca binária sobre o rótulo da folha final.",
+     "cat": "A",
+     "technique": "Busca binária na resposta"
+    }
+   ]
+  },
+  {
+   "id": "apac2026-C",
+   "keep": false,
+   "discard_reason": "max-heap Dijkstra = ordem de DFS, validar com pilha; 40/40 dos top-40 resolveram"
+  },
+  {
+   "id": "apac2026-D",
+   "keep": true,
+   "keep_reason": null,
+   "steps": [
+    {
+     "kind": "reformulação",
+     "text": "Estático: dp(u) = max(a_u, Σ dp(filhos)).",
+     "cat": "A",
+     "technique": "DP em árvore"
+    },
+    {
+     "kind": "estrutura/algoritmo",
+     "text": "Com b_u = soma dos dp dos filhos leves, o dp do topo de cada cadeia pesada é max de termos a_{c_i} + b_{c_1} + … + b_{c_{i−1}}; manter por cadeia numa segment tree com lazy e propagar mudanças dos topos aos pais.",
+     "cat": "B",
+     "base": "HLD",
+     "name": "DP dinâmica sobre HLD",
+     "property": "Para DP em árvore com updates pontuais, separe a contribuição dos filhos leves (b_u, armazenada no vértice) da do filho pesado; ao longo de uma cadeia pesada o dp vira composição de funções simples (max/soma), mantida numa segment tree por cadeia. Um update altera O(log n) cadeias.",
+     "why": "Todo caminho até a raiz cruza O(log n) arestas leves; dentro de uma cadeia, a recorrência é linear em (max,+) e portanto composta numa segment tree.",
+     "signal": "DP em árvore cujo valor deve ser respondido após cada atualização pontual de peso",
+     "contexts": [
+      "conjunto independente máximo com updates (DDP clássico, Luogu P4719)",
+      "cobertura mínima por caminhos raiz→vértice com demandas alteradas"
+     ],
+     "specific": false
+    },
+    {
+     "kind": "estrutura/algoritmo",
+     "text": "Range add em b + range max por cadeia.",
+     "cat": "A",
+     "technique": "Segment tree com lazy"
+    }
+   ]
+  },
+  {
+   "id": "apac2026-E",
+   "keep": false,
+   "discard_reason": "diferenças telescópicas por resíduo + máximos por resíduo; quase todo o top resolveu; 39/40 dos top-40 resolveram"
+  },
+  {
+   "id": "apac2026-F",
+   "keep": false,
+   "discard_reason": "contribuições por largura com FFT e divisores; quase todo o top resolveu; 38/40 dos top-40 resolveram"
+  },
+  {
+   "id": "apac2026-G",
+   "keep": true,
+   "keep_reason": null,
+   "steps": [
+    {
+     "kind": "reformulação",
+     "text": "'Todo vértice em algum caminho 1–n e ordem única dos internos' ⇔ grafo série-paralelo de dois terminais 1 e n (prova via árvore de dominadores).",
+     "cat": null
+    },
+    {
+     "kind": "estrutura/algoritmo",
+     "text": "Reconhecer com reduções série (vértice de grau 2) e paralelas (fundir arestas múltiplas) aplicadas com uma fila até sobrar uma aresta 1–n.",
+     "cat": "C",
+     "name": "Reconhecer classe de grafos por reduções locais com fila",
+     "statement": "Muitas classes de grafos se reconhecem aplicando repetidamente reduções locais (podar folha, contrair vértice de grau 2, fundir arestas paralelas, remover vértice de grau < k) com uma fila de candidatos: a classe vale sse o processo termina na configuração mínima. A ordem das reduções não importa quando o sistema é confluente.",
+     "signal": "grafo com estrutura 'aninhada' (série/paralelo, árvore, k-core) a ser verificada em O(m log n)",
+     "contexts": [
+      "reconhecer árvore podando folhas",
+      "k-core/degeneração removendo vértices de grau < k",
+      "reconhecer grafos série-paralelos"
+     ],
+     "known_problems": [],
+     "specific": false
+    },
+    {
+     "kind": "estrutura/algoritmo",
+     "text": "Reduções série/paralelo com fila.",
+     "cat": "A",
+     "technique": "Redução série-paralela"
+    },
+    {
+     "kind": "otimização",
+     "text": "Pares (u,v) válidos são os de uma mesma cadeia contraída por uma operação série: somar w_i·w_j por cadeia com somas de prefixo durante a redução.",
+     "cat": null
+    }
+   ]
+  },
+  {
+   "id": "apac2026-H",
+   "keep": false,
+   "discard_reason": "invariante de diferenças absolutas + gcd; todo o top resolveu; 40/40 dos top-40 resolveram"
+  },
+  {
+   "id": "apac2026-I",
+   "keep": true,
+   "keep_reason": null,
+   "steps": [
+    {
+     "kind": "reformulação",
+     "text": "Trocar a_i por mínimos de sufixo (b é não decrescente).",
+     "cat": null
+    },
+    {
+     "kind": "observação-chave",
+     "text": "Ao longo de b_1 | b_2 | …, o valor muda no máximo log₂(M) ≈ 18 vezes, pois cada troca ao menos dobra.",
+     "cat": "C",
+     "name": "Cadeias de divisibilidade mudam ≤ log vezes",
+     "statement": "Em sequências em que cada termo divide o próximo (ou gcd/AND/OR de prefixo), cada mudança de valor ao menos dobra (ou perde um bit), então há ≤ log₂(M) valores distintos: comprima a sequência em 'valores distintos + pontos de mudança' e indexe a DP por isso.",
+     "signal": "divisibilidade em cadeia, gcd/AND/OR de prefixos ou subarrays",
+     "contexts": [
+      "gcd de todos os subarrays: O(n log M) valores distintos por fim (CF 475D)",
+      "OR de subarrays: ≤ 30 valores distintos por fim"
+     ],
+     "known_problems": [
+      "Codeforces 475D — CGCDSSQ"
+     ],
+     "specific": false
+    },
+    {
+     "kind": "estrutura/algoritmo",
+     "text": "f_v(l) é polinômio em l escrito na base binomial C(l,k) com ≤ 18 coeficientes; transições por divisores próprios usam Σ_{j=L}^{l−1} C(j,k) = C(l,k+1) − C(L,k+1).",
+     "cat": "B",
+     "base": "Binomiais mod p",
+     "name": "Base binomial + hockey-stick para somas de prefixo",
+     "property": "Escrevendo uma função de contagem como combinação de C(l,k), uma soma de prefixo em l só desloca o índice: Σ_{j<l} C(j,k) = C(l,k+1). Somas de prefixo iteradas d vezes viram polinômios de grau d, manipulados só pelos coeficientes.",
+     "why": "Identidade do taco de hóquei (Pascal): C(j,k) = C(j+1,k+1) − C(j,k+1), soma telescópica.",
+     "signal": "contagem de sequências não decrescentes / somas de prefixo repetidas com comprimento grande",
+     "contexts": [
+      "número de sequências não decrescentes de tamanho l (C(l+k−1,k))",
+      "aplicar soma de prefixo k vezes a um array em O(n) com binomiais"
+     ],
+     "specific": false
+    },
+    {
+     "kind": "otimização",
+     "text": "Iterar u e seus múltiplos (soma harmônica): O(n + M log² M).",
+     "cat": null
+    }
+   ]
+  },
+  {
+   "id": "apac2026-J",
+   "keep": false,
+   "discard_reason": "manter número de 'voltas' sob trocas em O(1); 40/40 dos top-40 resolveram"
+  },
+  {
+   "id": "apac2026-K",
+   "keep": false,
+   "discard_reason": "verificação de viabilidade gulosa com enumeração; 40/40 dos top-40 resolveram"
+  },
+  {
+   "id": "apac2026-L",
+   "keep": true,
+   "keep_reason": null,
+   "steps": [
+    {
+     "kind": "observação-chave",
+     "text": "Por pombos existe u ≤ ⌈√n⌉ com v ≡ a·u (mod n), |v| < √n: os pontos (x, (ax+b) mod n) se dividem em O(√n) progressões colineares de passo (u,v).",
+     "cat": "C",
+     "name": "Sequência a·x mod n = O(√n) progressões aritméticas",
+     "statement": "Para sequências/pontos da forma (a·x + b) mod n, o pombal garante um passo u ≤ √n com a·u mod n pequeno (|v| ≤ √n): a sequência se decompõe em O(√n) progressões aritméticas, e só extremidades de cada progressão importam para hull/mínimos.",
+     "signal": "pontos ou valores definidos por a·x + b mod n com n até 1e9",
+     "contexts": [
+      "mínimo de (a·x + b) mod n em x ∈ [0, k)",
+      "somas Σ ⌊(a·x+b)/n⌋ e reticulados (floor sum)"
+     ],
+     "known_problems": [],
+     "specific": false
+    },
+    {
+     "kind": "estrutura/algoritmo",
+     "text": "Hull de cada camada sobre O(√n) extremidades candidatas.",
+     "cat": "A",
+     "technique": "Convex hull"
+    }
+   ]
+  },
+  {
+   "id": "apac2026-M",
+   "keep": true,
+   "keep_reason": null,
+   "steps": [
+    {
+     "kind": "reformulação",
+     "text": "Reescrever '(' como '{' ou '}' conforme a paridade de ')' anteriores transforma a gramática em dois contadores de aninhamento (x, y) ≥ 0 terminando em (1, 0).",
+     "cat": "C",
+     "name": "Recodificar gramática estranha em contadores de balanço",
+     "statement": "Para reconhecer uma gramática de parênteses incomum, procure uma recodificação dos símbolos (o significado de um caractere depende de paridade/contexto) que a transforme em sequências de Dyck clássicas com um ou dois contadores; a validade vira 'contadores de prefixo nunca negativos e estado final fixo', e completar nas pontas vira fechar déficits.",
+     "signal": "gramática recursiva com parênteses 'invertidos' ou de vários tipos; validar/completar sequência",
+     "contexts": [
+      "completar sequência de parênteses com mínimo de inserções nas pontas (−min prefixo e saldo final)",
+      "sequências com dois tipos de colchetes misturados"
+     ],
+     "known_problems": [],
+     "specific": false
+    },
+    {
+     "kind": "otimização",
+     "text": "Os prefixos úteis têm só 3 formas (L^f, L^f R L^g, L^f R L^g R); o custo é 4f + constante, varrer f.",
+     "cat": null
+    }
+   ]
+  }
+ ]
+}

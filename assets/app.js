@@ -3,7 +3,7 @@
   "use strict";
   var SG = window.SG, D = SG.D, IX = SG.IX, CONFIG = SG.CONFIG, esc = SG.esc;
   var app = document.getElementById("app");
-  var EXT = '<span class="ext" aria-hidden="true"> ↗</span>';
+  var EXT = '<span class="ext" aria-hidden="true"> ↗</span>';
   var DASH = '<span class="na" title="sem dado">—</span>';
   var MONTHS = ["jan", "fev", "mar", "abr", "mai", "jun", "jul", "ago", "set", "out", "nov", "dez"];
 
@@ -61,6 +61,71 @@
   }
   var TOPK = SG.K ? SG.K + " melhores times" : "melhores times";
   function contestShort(cid) { var c = IX.contestById[cid]; return c ? (c.short || c.id) : cid; }
+  function plural(n, one, many) { return n + " " + (n === 1 ? one : many); }
+
+  // ---- Curriculum references (DATASET.curriculum may be absent) -----------------------
+  var CUR = IX.cur;
+  var HOME = CUR ? "curriculo" : "topicos";
+  var SEC_OF_KIND = { insight: "insights", deepening: "aprofundamentos", technique: "tecnicas" };
+  var CAT_KIND = { A: "technique", B: "deepening", C: "insight" };
+  var CAT_LABEL = { A: "técnica", B: "aprofundamento", C: "insight" };
+  function curItem(kind, id) {
+    if (!CUR || id == null) return null;
+    if (kind === "insight") return CUR.insightById[id] || null;
+    if (kind === "deepening") return CUR.deepeningById[id] || null;
+    if (kind === "technique") return CUR.techniqueByName[id] || null;
+    return null;
+  }
+  function curHref(kind, id) { return link("curriculo/" + SEC_OF_KIND[kind] + "/" + encodeURIComponent(id)); }
+  function curDomId(kind, id) {
+    return "c-" + kind + "-" + String(id).replace(/[^A-Za-z0-9_-]/g, function (c) { return "_" + c.charCodeAt(0).toString(16); });
+  }
+  function stepsOf(p) { return CUR ? CUR.steps[p.id] || null : null; }
+  // "Etapas da solução" block inside the (spoiler) idea area of a problem row.
+  function stepsHTML(p) {
+    var ps = stepsOf(p);
+    if (!ps) return "";
+    if (ps.keep === false) {
+      return '<p class="small muted">Fora do currículo' + (ps.discard_reason ? ": " + codeify(ps.discard_reason) : "") + "</p>";
+    }
+    var steps = ps.steps || [];
+    if (!steps.length) return "";
+    return '<p class="pd-sub"><strong>Etapas da solução.</strong>' +
+      (ps.unverified === true ? ' <span class="small muted">Solução não verificada contra o júri.</span>' : "") +
+      '</p><ol class="steps">' + steps.map(function (x) {
+      var tag = "";
+      var kind = CAT_KIND[x.cat];
+      if (kind) {
+        var it = curItem(kind, x.ref);
+        var label = CAT_LABEL[x.cat] + ": " + (it ? it.name : (x.ref || "?"));
+        tag = it ? ' <a class="ctag" href="' + esc(curHref(kind, it.id)) + '">' + esc(label) + "</a>" : ' <span class="ctag">' + esc(label) + "</span>";
+      }
+      return "<li>" + (x.kind ? '<span class="skind">' + esc(x.kind) + "</span> " : "") + codeify(x.text) + tag + "</li>";
+    }).join("") + "</ol>";
+  }
+  var UNVERIFIED = "Solução não verificada contra o júri (análise própria)";
+  function unverifiedMark(p) {
+    var ps = stepsOf(p);
+    if (!ps || ps.unverified !== true) return "";
+    return '<span class="unv" title="' + UNVERIFIED + '" aria-label="' + UNVERIFIED + '">†</span>';
+  }
+  // Compact count that agrees with the difficulty label: solved among the contest's top-K teams.
+  function topCount(p) {
+    var full = p.solved != null ? (p.total ? p.solved + " de " + p.total + " times" : p.solved + " times") : null;
+    var k = p.k_used || SG.K;
+    if (p.solved_top != null && k) {
+      return '<span title="' + esc(p.solved_top + " dos " + k + " melhores times" + (full ? " · " + full : "")) + '">' + p.solved_top + "/" + k + "</span>";
+    }
+    return full ? '<span title="' + esc(full) + '">' + (p.total ? p.solved + "/" + p.total : p.solved) + "</span>" : DASH;
+  }
+  function stepsSearchText(p) {
+    var ps = stepsOf(p);
+    if (!ps || !ps.steps) return "";
+    return ps.steps.map(function (x) {
+      var it = curItem(CAT_KIND[x.cat], x.ref);
+      return (x.text || "") + " " + (it ? it.name : "");
+    }).join(" | ");
+  }
 
   // ---- Target / countdown --------------------------------------------------------------
   var target = D.target || {};
@@ -374,10 +439,11 @@
     var open = st.showIdeas || st.ideaOpen[p.id];
     var srcName = { editorial: "editorial oficial", community: "comunidade", own: "análise própria" }[p.solution_source] || null;
     var confName = { high: "alta", medium: "média", low: "baixa" }[p.confidence] || null;
+    var steps = stepsHTML(p);
     var idea = (p.key_idea ? "<p><strong>Ideia-chave.</strong> " + codeify(p.key_idea) + "</p>" : "") +
-      (p.solution ? "<p><strong>Solução.</strong> " + codeify(p.solution) + "</p>" : "") +
+      (p.solution ? "<p><strong>Solução.</strong> " + codeify(p.solution) + "</p>" : "") + steps +
       ((srcName || confName) ? '<p class="small muted">' + [srcName ? "Fonte: " + srcName : null, confName ? "confiança da classificação: " + confName : null].filter(Boolean).join(" · ") + "</p>" : "");
-    if (!p.key_idea && !p.solution) idea = '<p class="muted">Sem ideia registrada.</p>';
+    if (!p.key_idea && !p.solution && !steps) idea = '<p class="muted">Sem ideia registrada.</p>';
     return '<tr class="pdetail" id="d-' + esc(p.id) + '"><td colspan="' + n + '"><div class="pd">' +
       '<p class="pd-h">' + esc(contestShort(p.contest)) + " · " + esc(p.letter) + " — " + esc(p.title) + "</p>" +
       "<p><strong>Enunciado.</strong> " + (p.summary ? codeify(p.summary) : '<span class="muted">Sem resumo.</span>') + "</p>" +
@@ -446,6 +512,279 @@
     }
   }
   function cssEsc(s) { return window.CSS && CSS.escape ? CSS.escape(s) : String(s).replace(/["\\]/g, "\\$&"); }
+
+  // ---- View: Currículo -----------------------------------------------------------------
+  var CSECS = [
+    { id: "insights", name: "Insights", kind: "insight", one: "insight", many: "insights",
+      lede: "Observações sem nome de livro que destravam uma família de problemas, da mais útil para a menos útil no filtro." },
+    { id: "aprofundamentos", name: "Aprofundamentos", kind: "deepening", one: "aprofundamento", many: "aprofundamentos",
+      lede: "Propriedades e usos de técnicas conhecidas que costumam passar despercebidos, agrupados pela técnica." },
+    { id: "tecnicas", name: "Técnicas", kind: "technique", one: "técnica", many: "técnicas",
+      lede: "Técnicas com nome, usadas do jeito padrão; o número é quantos problemas do filtro usam cada uma." }
+  ];
+  function viewCurriculum(r) {
+    if (!CUR) {
+      app.innerHTML = '<div class="pagehead"><h1>Currículo</h1></div><p class="prose">O currículo ainda não foi gerado para estes dados. ' +
+        'Enquanto isso, a ordem de estudo por tema está em <a href="' + link("topicos") + '">Tópicos</a>.</p>';
+      return { path: "curriculo" };
+    }
+    var sec = CSECS.filter(function (s) { return s.id === r.parts[1]; })[0] || CSECS[0];
+    var target = r.parts[2] != null ? String(r.parts[2]) : null;
+    var p0 = r.params;
+    var st = { mode: p0.ordem === "ranking" ? "ranking" : "grupo", showIdeas: p0.ideias === "1", ideaOpen: {}, showHidden: false, techOpen: {}, moreOpen: {}, ctxOpen: {} };
+    if (target && sec.kind === "technique") st.techOpen[target] = true;
+    var known = load("sg-known") || {};
+    var path = "curriculo/" + sec.id + (target != null ? "/" + encodeURIComponent(target) : "");
+
+    function local() { return { ordem: st.mode === "ranking" ? "ranking" : "", ideias: st.showIdeas ? "1" : "" }; }
+    var controls = "";
+    if (sec.kind !== "technique") {
+      controls = '<div class="seg" role="group" aria-label="Ordem"><button type="button" data-mode="grupo">Por grupo</button><button type="button" data-mode="ranking">Ranking</button></div>' +
+        '<label class="check"><input type="checkbox" id="c-ideas"> Mostrar ideias</label>';
+    }
+    app.innerHTML = '<div class="pagehead"><h1>Currículo</h1></div>' + filterRowHTML() +
+      '<div class="cbar"><nav class="seg segnav" id="csecs" aria-label="Partes do currículo"></nav>' + controls + "</div>" +
+      '<p class="lede">' + esc(sec.lede) + "</p>" +
+      '<div id="clist" class="clist-' + sec.id + '"></div>';
+    bindFilterRow(app);
+    var listEl = document.getElementById("clist");
+    var ideasEl = document.getElementById("c-ideas");
+    if (ideasEl) ideasEl.checked = st.showIdeas;
+    function syncMode() {
+      Array.prototype.forEach.call(app.querySelectorAll("[data-mode]"), function (b) {
+        b.setAttribute("aria-pressed", String(b.dataset.mode === st.mode));
+      });
+    }
+    syncMode();
+
+    function sortCurProbs(list) {
+      // easiest first (study order), then most recent
+      return list.slice().sort(function (a, b) {
+        var x = a.p._dv, y = b.p._dv;
+        if ((x == null) !== (y == null)) return x == null ? 1 : -1;
+        return (x != null && y - x) || (b.p.year - a.p.year) || a.p.id.localeCompare(b.p.id);
+      });
+    }
+    function probRows(a) {
+      var it = a.item;
+      if (!a.problems.length) return '<p class="small muted">Sem problemas neste filtro.</p>';
+      var all = sortCurProbs(a.problems);
+      var mkey = it.kind + "|" + it.id;
+      var cap = CONFIG.curriculumRows;
+      var more = all.length > cap + 2 && !st.moreOpen[mkey];
+      var rows = more ? all.slice(0, cap) : all;
+      var moreBtn = all.length > cap + 2 ? '<button type="button" class="textbtn morebtn" data-more="' + esc(mkey) + '" aria-expanded="' + !more + '">' +
+        (more ? "Mais " + plural(all.length - cap, "problema", "problemas") : "Mostrar menos") + "</button>" : "";
+      return '<ul class="plist">' + rows.map(function (x) {
+        var p = x.p, key = it.kind + "|" + it.id + "|" + p.id;
+        var open = st.showIdeas || !!st.ideaOpen[key];
+        var href = bestLink(p);
+        var tt = topText(p);
+        return '<li class="pli">' +
+          '<span class="pl-c"><a href="' + link("contests/" + encodeURIComponent(p.contest)) + '">' + esc(contestShort(p.contest)) + '</a> <span class="mono">' + esc(p.letter) + "</span></span>" +
+          '<span class="pl-t">' + (href ? extLink(href, esc(p.title), "plain") : esc(p.title)) + unverifiedMark(p) + "</span>" +
+          '<span class="pl-m">' + diffCell(p._bin, true, tt ? "Resolvido por " + tt : null) + '<span class="pl-s">' + topCount(p) + "</span>" +
+          (x.how ? '<button type="button" class="textbtn howbtn" data-key="' + esc(key) + '" aria-expanded="' + open + '"' + (st.showIdeas ? " hidden" : "") +
+            ' aria-label="' + (open ? "Ocultar" : "Mostrar") + " ideia: " + esc(p.title) + '">' + (open ? "Ocultar ideia" : "Mostrar ideia") + "</button>" : "") + "</span>" +
+          (x.how ? '<p class="pl-how"' + (open ? "" : " hidden") + ">" + codeify(x.how) + "</p>" : "") +
+          "</li>";
+      }).join("") + "</ul>" + moreBtn;
+    }
+    function metaLine(a, extra) {
+      var g = CONFIG.generality[a.generality];
+      var util = "Utilidade " + SG.fmtNum(a.utility, 2) + " = generalidade " + a.generality + " × " + SG.fmtNum(a.freq, 2) +
+        " problemas por contest do filtro (ponderado por família)";
+      var bits = [plural(a.nProblems, "problema", "problemas"), plural(a.nContests, "contest", "contests"),
+        '<span title="' + esc("Generalidade: " + g.help) + '">' + esc(g.name) + "</span>"];
+      if (extra) bits.push(esc(extra));
+      return '<p class="cmeta" title="' + esc(util) + '">' + bits.join('<span class="sep"> · </span>') + "</p>";
+    }
+    function para(label, text) {
+      if (!text) return "";
+      return '<p><span class="lbl">' + label + ":</span> " + codeify(text) + "</p>";
+    }
+    function itemHTML(a, rank, groupName) {
+      var it = a.item;
+      var ctx = (it.contexts || []).filter(Boolean);
+      var kp = (it.known_problems || []).filter(Boolean);
+      var ckey = it.kind + "|" + it.id;
+      var copen = !!st.ctxOpen[ckey] || target === String(it.id);
+      var ctxHtml = ctx.length || kp.length ?
+        '<button type="button" class="textbtn ctxbtn" data-ctx="' + esc(ckey) + '" aria-expanded="' + copen + '">' +
+        '<span class="tri" aria-hidden="true">' + (copen ? "▼" : "▶") + "</span>Onde mais serve</button>" +
+        '<div class="cctx"' + (copen ? "" : " hidden") + ">" +
+        (ctx.length ? '<ul class="ctxl">' + ctx.map(function (c) { return "<li>" + codeify(c) + "</li>"; }).join("") + "</ul>" : "") +
+        (kp.length ? '<p class="muted small">Problemas conhecidos: ' + esc(kp.join("; ")) + ".</p>" : "") + "</div>" : "";
+      var body = it.kind === "insight" ?
+        '<p class="cstmt">' + codeify(it.statement) + "</p>" :
+        '<p class="cstmt">' + codeify(it.property) + "</p>" + para("Por que vale", it.why);
+      return '<article class="citem' + (target === String(it.id) ? " hl" : "") + (a.nProblems ? "" : " nop") + '" id="' + curDomId(it.kind, it.id) + '">' +
+        '<div class="ctext"><h3 class="cname">' + (rank ? '<span class="crank">' + rank + "</span>" : "") + esc(it.name) + "</h3>" +
+        metaLine(a, groupName) + body + para("Sinal no enunciado", it.signal) + ctxHtml + "</div>" +
+        '<div class="cprobs">' + probRows(a) + "</div></article>";
+    }
+    // groups: [{key, name}] in order of their best item (list is already sorted by utility)
+    function grouped(list, keyOf, nameOf) {
+      var out = [], by = {};
+      list.forEach(function (a) {
+        var k = keyOf(a.item);
+        if (!by[k]) { by[k] = { key: k, name: nameOf(k), items: [] }; out.push(by[k]); }
+        by[k].items.push(a);
+      });
+      return out;
+    }
+    function hiddenLine(n) {
+      if (!n) return "";
+      return '<p class="note chid">' + plural(n, "item", "itens") + " sem problemas no filtro. " +
+        '<button type="button" class="textbtn" data-hidden aria-expanded="' + st.showHidden + '">' + (st.showHidden ? "Ocultar" : "Mostrar") + "</button></p>";
+    }
+    function renderItems(shown, hidden) {
+      var html = "";
+      var rankOrder = st.mode === "ranking";
+      if (!shown.length) html += '<p class="muted cempty">Nenhum ' + esc(sec.one) + ' com problemas neste filtro. <button type="button" class="textbtn" data-clear>Limpar filtros</button></p>';
+      else if (rankOrder) {
+        html += '<div class="cgroup">' + shown.map(function (a, i) {
+          var gname = sec.kind === "insight" ? groupNameOf(a.item.group) : a.item.base;
+          return itemHTML(a, i + 1, gname);
+        }).join("") + "</div>";
+      } else {
+        var gs = sec.kind === "insight" ?
+          grouped(shown, function (it) { return CUR.groupById[it.group] ? it.group : ""; }, groupNameOf) :
+          grouped(shown, function (it) { return it.base || ""; }, function (k) { return k || "Outras técnicas"; });
+        html += gs.map(function (g) {
+          return '<section class="cgroup"><h2 class="cgrp">' + esc(g.name) + '<span class="gmeta"> · ' + plural(g.items.length, sec.one, sec.many) + "</span></h2>" +
+            g.items.map(function (a) { return itemHTML(a, null, null); }).join("") + "</section>";
+        }).join("");
+      }
+      html += hiddenLine(hidden.length);
+      if (st.showHidden && hidden.length) {
+        html += '<section class="cgroup chidden"><h2 class="cgrp">Sem problemas no filtro</h2>' +
+          hidden.map(function (a) { return itemHTML(a, null, sec.kind === "insight" ? groupNameOf(a.item.group) : a.item.base); }).join("") + "</section>";
+      }
+      return html;
+    }
+    function groupNameOf(gid) { var g = CUR.groupById[gid]; return g ? g.name : "Outros"; }
+    function techRows(a) {
+      if (!a.problems.length) return '<p class="small muted">Sem problemas neste filtro.</p>';
+      return '<ul class="tprobs">' + sortCurProbs(a.problems).map(function (x) {
+        var p = x.p, href = bestLink(p), tt = topText(p);
+        return '<li><a class="tp-c" href="' + link("contests/" + encodeURIComponent(p.contest)) + '">' + esc(contestShort(p.contest)) + '</a> <span class="mono">' + esc(p.letter) + "</span> " +
+          (href ? extLink(href, esc(p.title), "plain") : esc(p.title)) + unverifiedMark(p) +
+          (p._bin ? ' <span class="dot d-' + p._bin + '" role="img" aria-label="' + esc(SG.DIFF[p._bin].name) + '" title="' + esc(SG.DIFF[p._bin].name + (tt ? " · resolvido por " + tt : "")) + '"></span>' : "") + "</li>";
+      }).join("") + "</ul>";
+    }
+    function techHTML(list) {
+      return '<ol class="techlist">' + list.map(function (a) {
+        var it = a.item, open = !!st.techOpen[it.name];
+        return '<li class="tech' + (target === it.name ? " hl" : "") + (a.nProblems ? "" : " nop") + '" id="' + curDomId("technique", it.name) + '">' +
+          '<div class="trow"><input type="checkbox" class="tknown" data-name="' + esc(it.name) + '" aria-label="' + esc("Já domino " + it.name) + '"' + (known[it.name] ? " checked" : "") + ">" +
+          '<button type="button" class="techbtn" data-name="' + esc(it.name) + '" aria-expanded="' + open + '"><span class="tri" aria-hidden="true">' + (open ? "▼" : "▶") + "</span>" +
+          '<span class="tname2">' + esc(it.name) + "</span></button>" +
+          '<span class="tn" title="' + esc(plural(a.nProblems, "problema", "problemas") + " no filtro · " + plural(a.nContests, "contest", "contests")) + '">' + a.nProblems + "</span></div>" +
+          (open ? techRows(a) : "") + "</li>";
+      }).join("") + "</ol>";
+    }
+    function knownCount(list) { return list.filter(function (a) { return known[a.item.name]; }).length; }
+
+    var S = null;
+    function update() {
+      S = SG.curriculumStats(filter);
+      var lists = { insights: S.insights, aprofundamentos: S.deepenings, tecnicas: S.techniques };
+      setCount(app, plural(S.scope.problems.length, "problema", "problemas") + " · " + plural(S.scope.contests.length, "contest", "contests"));
+      document.getElementById("csecs").innerHTML = CSECS.map(function (s) {
+        var n = lists[s.id].filter(function (a) { return a.nProblems; }).length;
+        return '<a href="' + esc(link("curriculo/" + s.id, local())) + '"' + (s === sec ? ' aria-current="page"' : "") + ">" + esc(s.name) +
+          '<span class="segn"> ' + n + "</span></a>";
+      }).join("");
+      var list = lists[sec.id];
+      var shown = list.filter(function (a) { return a.nProblems; });
+      var hidden = list.filter(function (a) { return !a.nProblems; });
+      if (target != null && hidden.some(function (a) { return String(a.item.id) === target; })) st.showHidden = true;
+      if (sec.kind === "technique") {
+        var kc = knownCount(list);
+        listEl.innerHTML = (shown.length ? techHTML(shown) : '<p class="muted cempty">Nenhuma técnica com problemas neste filtro. <button type="button" class="textbtn" data-clear>Limpar filtros</button></p>') +
+          '<p class="note">' + (kc ? kc + " de " + list.length + " marcadas como dominadas neste navegador. " : "A caixa ao lado de cada técnica marca o que o time já domina; fica salvo neste navegador. ") + "</p>" +
+          hiddenLine(hidden.length) + (st.showHidden && hidden.length ? '<div class="chidden">' + techHTML(hidden) + "</div>" : "");
+      } else {
+        listEl.innerHTML = renderItems(shown, hidden);
+      }
+    }
+    function rerender() { update(); writeHash(path, local()); }
+
+    app.querySelector(".cbar").addEventListener("click", function (e) {
+      var b = e.target.closest("[data-mode]");
+      if (!b || b.dataset.mode === st.mode) return;
+      st.mode = b.dataset.mode;
+      syncMode();
+      rerender();
+    });
+    if (ideasEl) ideasEl.addEventListener("change", function () { st.showIdeas = ideasEl.checked; rerender(); });
+    listEl.addEventListener("click", function (e) {
+      var hb = e.target.closest(".howbtn");
+      if (hb) {
+        var k = hb.dataset.key;
+        st.ideaOpen[k] = !st.ideaOpen[k];
+        var box = hb.closest("li").querySelector(".pl-how");
+        if (box) box.hidden = !st.ideaOpen[k];
+        hb.setAttribute("aria-expanded", String(st.ideaOpen[k]));
+        hb.textContent = st.ideaOpen[k] ? "Ocultar ideia" : "Mostrar ideia";
+        hb.setAttribute("aria-label", (st.ideaOpen[k] ? "Ocultar" : "Mostrar") + " ideia: " + hb.closest("li").querySelector(".pl-t").textContent.replace(/\s*↗$/, ""));
+        return;
+      }
+      var cb = e.target.closest(".ctxbtn");
+      if (cb) {
+        var ck = cb.dataset.ctx;
+        var now = cb.getAttribute("aria-expanded") !== "true";
+        st.ctxOpen[ck] = now;
+        cb.setAttribute("aria-expanded", String(now));
+        cb.querySelector(".tri").textContent = now ? "▼" : "▶";
+        cb.nextElementSibling.hidden = !now;
+        return;
+      }
+      var mb = e.target.closest(".morebtn");
+      if (mb) {
+        var mk = mb.dataset.more;
+        st.moreOpen[mk] = !st.moreOpen[mk];
+        update();
+        var nm = listEl.querySelector('.morebtn[data-more="' + cssEsc(mk) + '"]');
+        if (nm) nm.focus();
+        return;
+      }
+      var tb = e.target.closest(".techbtn");
+      if (tb) {
+        var name = tb.dataset.name;
+        st.techOpen[name] = !st.techOpen[name];
+        update();
+        var nb = listEl.querySelector('.techbtn[data-name="' + cssEsc(name) + '"]');
+        if (nb) nb.focus();
+        return;
+      }
+      if (e.target.closest("[data-hidden]")) {
+        st.showHidden = !st.showHidden;
+        update();
+        var hb2 = listEl.querySelector("[data-hidden]");
+        if (hb2) hb2.focus();
+      }
+    });
+    listEl.addEventListener("change", function (e) {
+      var cb = e.target.closest(".tknown");
+      if (!cb) return;
+      if (cb.checked) known[cb.dataset.name] = 1; else delete known[cb.dataset.name];
+      store("sg-known", known);
+      update();
+      var nb = listEl.querySelector('.tknown[data-name="' + cssEsc(cb.dataset.name) + '"]');
+      if (nb) nb.focus();
+    });
+    update();
+    return {
+      path: path, update: update, local: local,
+      after: function () {
+        if (target == null) return;
+        var el = document.getElementById(curDomId(sec.kind, target));
+        if (el) el.scrollIntoView({ block: "start" });
+      }
+    };
+  }
 
   // ---- View: Tópicos (ranking) ---------------------------------------------------------
   var RCOLS = [
@@ -701,7 +1040,7 @@
 
     var searchText = {};
     D.problems.forEach(function (p) {
-      searchText[p.id] = norm([p.title, contestShort(p.contest), p.letter, p.summary, p.key_idea, p.solution]
+      searchText[p.id] = norm([p.title, contestShort(p.contest), p.letter, p.summary, p.key_idea, p.solution, stepsSearchText(p)]
         .concat(p._topics.map(function (t) { return topicName(t.id); })).join(" | "));
     });
     function update() {
@@ -785,6 +1124,21 @@
   }
 
   // ---- View: Sobre ---------------------------------------------------------------------
+  function curriculumMethod() {
+    var counts = "";
+    if (CUR) {
+      var ids = Object.keys(CUR.steps);
+      var kept = ids.filter(function (id) { return CUR.steps[id].keep !== false; }).length;
+      counts = " Hoje são " + plural(CUR.insights.length, "insight", "insights") + ", " + plural(CUR.deepenings.length, "aprofundamento", "aprofundamentos") + " e " +
+        plural(CUR.techniques.length, "técnica", "técnicas") + "; " + kept + " de " + ids.length + " problemas analisados ficaram no currículo.";
+    }
+    var gens = [3, 2, 1].map(function (g) { return CONFIG.generality[g].name + " (" + CONFIG.generality[g].help + ")"; }).join(", ");
+    return "<h2>Currículo</h2><p>Primeiro saem os problemas que não ensinam nada reutilizável: implementação direta, simulação, guloso óbvio e, por padrão, os que " +
+      "70% ou mais dos " + esc(TOPK) + " resolveram. A solução de cada problema restante foi escrita em etapas, e cada etapa relevante foi classificada como " +
+      "técnica nomeada (usada do jeito padrão), aprofundamento (propriedade pouco conhecida de uma técnica) ou insight (observação reutilizável sem nome). " +
+      "Aprofundamentos e insights só entram se servem em pelo menos dois contextos diferentes do problema de origem, e recebem uma generalidade: " + esc(gens) + ". " +
+      "A ordem é por utilidade: generalidade (3, 2 ou 1) vezes a frequência dos seus problemas no filtro, ponderada por família como em Problemas por contest." + counts + "</p>";
+  }
   function viewAbout() {
     var famRows = D.families.map(function (f) {
       var cs = D.contests.filter(function (c) { return c.family === f.id; });
@@ -810,11 +1164,13 @@
     app.innerHTML = '<div class="pagehead"><h1>Sobre e método</h1></div><div class="prose">' +
       (D.mock ? '<p class="warn">Os dados atuais são fictícios (mock de desenvolvimento). Rode o pipeline real para substituí-los.</p>' : "") +
       '<h2 class="first">Como usar</h2><ul class="howto">' +
-      '<li><a href="' + link("topicos") + '">Tópicos</a> é a ordem de estudo: de cima para baixo, agrupado em níveis (' + esc(CONFIG.tiers.map(function (t) { return t.name; }).join(", ")) + ").</li>" +
+      '<li><a href="' + link("curriculo") + '">Currículo</a> é por onde começar' + (CUR ? "" : " (ainda não gerado para estes dados)") +
+      ": <strong>insights</strong> (observações reutilizáveis sem nome de livro), <strong>aprofundamentos</strong> de técnicas conhecidas e a lista de <strong>técnicas</strong>, cada item com os problemas em que aparece, do mais útil para o menos útil.</li>" +
+      '<li><a href="' + link("topicos") + '">Tópicos</a> é o ranking por tema amplo: de cima para baixo, agrupado em níveis (' + esc(CONFIG.tiers.map(function (t) { return t.name; }).join(", ")) + ").</li>" +
       "<li><strong>Por contest</strong>: quantos problemas do tópico se espera num contest. <strong>Presença</strong>: em quantos contests do filtro ele apareceu.</li>" +
       "<li>O filtro <strong>Só LATAM</strong> / <strong>Geral</strong>, as famílias e os anos mudam todos os números, em todas as abas.</li>" +
       "<li>Clique num tópico para ver seus números, onde apareceu (família × ano) e seus problemas.</li>" +
-      "<li>Clique numa linha de problema (ou na letra) para ver o resumo do enunciado e os links (mirror no Codeforces ou Kattis, enunciado). A solução fica escondida em <strong>Mostrar ideia</strong>, para não dar spoiler.</li>" +
+      "<li>Clique numa linha de problema (ou na letra) para ver o resumo do enunciado e os links (mirror no Codeforces ou Kattis, enunciado). A solução, e as etapas da solução quando o problema está no currículo, ficam escondidas em <strong>Mostrar ideia</strong>, para não dar spoiler.</li>" +
       '<li><a href="' + link("problemas") + '">Problemas</a>: busca e filtros (área, tópico, dificuldade) sobre todos os problemas; a tecla <kbd>/</kbd> vai para a busca.</li>' +
       '<li><a href="' + link("contests") + '">Contests</a>: cada prova com seus problemas ordenados por quantos times resolveram.</li>' +
       "<li>Os filtros ficam no endereço da página: copie o link para compartilhar exatamente a mesma visão.</li></ul>" +
@@ -823,6 +1179,7 @@
       '<div class="tw"><table class="t"><thead><tr><th scope="col">Família</th><th scope="col">Nome</th><th scope="col" class="num">Peso</th><th scope="col">Grupo</th><th scope="col" class="num">Edições</th><th scope="col">Anos</th><th scope="col" class="num">Problemas</th></tr></thead><tbody>' +
       famRows + "</tbody></table></div>" +
       '<div class="prose"><p class="small muted">“Só LATAM” usa as famílias do grupo LATAM; “Geral” usa todas. O peso de cada família multiplica a contribuição dos seus contests.</p>' +
+      curriculumMethod() +
       "<h2>Tópicos</h2><p>Cada problema tem um tópico principal e, às vezes, secundários (" + nSec + " problemas têm algum). A classificação parte da ideia de solução, não do enunciado.</p>" +
       "<h2>Problemas por contest</h2><p>Soma, sobre os problemas do filtro, de " + SG.fmtNum(CONFIG.roleWeight.primary, 0) + " (tópico principal) ou " +
       SG.fmtNum(CONFIG.roleWeight.secondary, 1) + " (secundário) vezes o peso da família, dividida pela soma dos pesos dos contests do filtro. Lê-se como o número esperado de problemas do tópico num contest. É a ordem do ranking dentro de cada nível.</p>" +
@@ -836,8 +1193,8 @@
   }
 
   // ---- Router --------------------------------------------------------------------------
-  var VIEWS = { topicos: viewTopics, topico: viewTopic, problemas: viewProblems, contests: viewContests, sobre: viewAbout };
-  var TAB_OF = { topicos: "topicos", topico: "topicos", problemas: "problemas", contests: "contests", sobre: "sobre" };
+  var VIEWS = { curriculo: viewCurriculum, topicos: viewTopics, topico: viewTopic, problemas: viewProblems, contests: viewContests, sobre: viewAbout };
+  var TAB_OF = { curriculo: "curriculo", topicos: "topicos", topico: "topicos", problemas: "problemas", contests: "contests", sobre: "sobre" };
   var lastPath = null;
   function updateTabLinks() {
     Array.prototype.forEach.call(document.querySelectorAll(".tabs a"), function (a) {
@@ -845,13 +1202,13 @@
       a.setAttribute("href", link(t === "contests" && cur && /^contests\//.test(cur.path) ? cur.path : t));
     });
     var wm = document.querySelector(".wordmark");
-    if (wm) wm.setAttribute("href", link("topicos"));
+    if (wm) wm.setAttribute("href", link(HOME));
   }
   function route() {
     var r = parseHash();
-    var key = r.parts[0] || "topicos";
-    if (!VIEWS[key]) key = "topicos";
-    if (!r.parts.length) { r.parts = ["topicos"]; r.path = "topicos"; }
+    var key = r.parts[0] || HOME;
+    if (!VIEWS[key]) key = HOME;
+    if (!r.parts.length) { r.parts = [HOME]; r.path = HOME; }
     filter = filterFromParams(r.params);
     store("sg-filter", { fams: famList(filter.fams), from: filter.from, to: filter.to });
     SG.charts.hideTip();
@@ -861,14 +1218,15 @@
       if (a.dataset.tab === tab) a.setAttribute("aria-current", "page"); else a.removeAttribute("aria-current");
     });
     updateTabLinks();
-    var titles = { topicos: "Tópicos", topico: (IX.topicById[r.parts[1]] || {}).name || "Tópico", problemas: "Problemas",
+    var titles = { curriculo: "Currículo", topicos: "Tópicos", topico: (IX.topicById[r.parts[1]] || {}).name || "Tópico", problemas: "Problemas",
       contests: (IX.contestById[r.parts[1]] || {}).short || "Contests", sobre: "Sobre" };
     document.title = titles[key] + " · Estudo " + TLABEL;
     if (lastPath !== r.path) { window.scrollTo(0, 0); lastPath = r.path; }
+    if (cur.after) cur.after();
     // make the address bar reflect the effective filter (for sharing)
-    if (key === "topicos" || key === "topico" || key === "problemas") {
-      var extra = key === "problemas" && cur.local ? cur.local() : null;
-      writeHash(r.path || "topicos", extra);
+    if (key === "curriculo" || key === "topicos" || key === "topico" || key === "problemas") {
+      var extra = cur.local ? cur.local() : null;
+      writeHash(cur.path || r.path || HOME, extra);
     }
   }
   window.addEventListener("hashchange", function () {

@@ -24,6 +24,16 @@
       { id: "very_hard", name: "Muito difícil", min: 0 },
       { id: "unsolved", name: "Sem AC", min: null }
     ],
+    // Curriculum (SPEC "Curriculum (v2)"): utility = generality x weighted frequency, where the
+    // weighted frequency is sum of family weights of the item's problems in the filter divided by
+    // the sum of family weights of the contests in the filter (same style as topic per_contest).
+    generality: {
+      3: { name: "geral", help: "serve em muitas áreas" },
+      2: { name: "ampla", help: "serve em vários tipos de problema de uma área" },
+      1: { name: "restrita", help: "estreita, mas reutilizável" }
+    },
+    defaultGenerality: 1,           // when an item has no generality
+    curriculumRows: 6,              // problems shown per curriculum item before "Mais N problemas"
     defaultScope: "geral",          // "latam" | "geral"
     latamGroup: "latam",
     areaSlots: 12                   // categorical colors in style.css (--area-1..12), by DATASET.areas order;
@@ -100,12 +110,44 @@
       });
     });
     var years = D.contests.map(function (c) { return c.year; });
+    var cur = buildCurriculumIndex(D.curriculum, problemById);
     return {
+      cur: cur,
       famById: famById, contestById: contestById, topicById: topicById, areaById: areaById,
       problemById: problemById, areas: areas,
       minYear: Math.min.apply(null, years), maxYear: Math.max.apply(null, years),
       latamFams: D.families.filter(function (f) { return f.group === CONFIG.latamGroup; }).map(function (f) { return f.id; }),
       allFams: D.families.map(function (f) { return f.id; })
+    };
+  }
+  // Curriculum index: items of the three kinds normalized to
+  // { kind, id, name, generality, problems: [{id, how}] , ...source fields }.
+  function buildCurriculumIndex(C, problemById) {
+    if (!C || typeof C !== "object") return null;
+    var groups = (C.insight_groups || []).slice().sort(function (a, b) { return (a.order || 0) - (b.order || 0); });
+    var groupById = {};
+    groups.forEach(function (g, i) { groupById[g.id] = g; g._order = i; });
+    function probs(list) {
+      return (list || []).map(function (x) { return typeof x === "string" ? { id: x, how: null } : { id: x.id, how: x.how || null }; })
+        .filter(function (x) { return problemById[x.id]; });
+    }
+    var insights = (C.insights || []).map(function (it) {
+      return Object.assign({}, it, { kind: "insight", problems: probs(it.problems) });
+    });
+    var deepenings = (C.deepenings || []).map(function (it) {
+      return Object.assign({}, it, { kind: "deepening", problems: probs(it.problems) });
+    });
+    var techniques = (C.techniques || []).map(function (t) {
+      return { kind: "technique", id: t.name, name: t.name, problems: probs(t.problems) };
+    });
+    var insightById = {}, deepeningById = {}, techniqueByName = {};
+    insights.forEach(function (x) { insightById[x.id] = x; });
+    deepenings.forEach(function (x) { deepeningById[x.id] = x; });
+    techniques.forEach(function (x) { techniqueByName[x.name] = x; });
+    return {
+      groups: groups, groupById: groupById, insights: insights, deepenings: deepenings, techniques: techniques,
+      insightById: insightById, deepeningById: deepeningById, techniqueByName: techniqueByName,
+      steps: C.problem_steps || {}
     };
   }
   IX = buildIndex();
@@ -178,10 +220,50 @@
     return { list: out, byId: acc, scope: scope, nContests: scope.contests.length };
   }
 
+  // ---- Curriculum statistics (SPEC "Curriculum (v2)") ----------------------------------
+  function generalityOf(item) {
+    var g = item.generality;
+    return CONFIG.generality[g] ? g : CONFIG.defaultGenerality;
+  }
+  function itemStats(item, scope) {
+    var W = scope.weightSum;
+    var ps = [], cs = {}, ws = 0;
+    item.problems.forEach(function (x) {
+      var p = IX.problemById[x.id];
+      if (!p || !scope.contestSet[p.contest]) return;
+      ps.push({ p: p, how: x.how });
+      ws += IX.famById[p.family].weight;
+      cs[p.contest] = 1;
+    });
+    var g = generalityOf(item);
+    var freq = W ? ws / W : 0;
+    return { item: item, problems: ps, nProblems: ps.length, nContests: Object.keys(cs).length,
+      generality: g, freq: freq, utility: g * freq };
+  }
+  function byUtility(a, b) {
+    return (b.utility - a.utility) || (b.nProblems - a.nProblems) || String(a.item.name).localeCompare(String(b.item.name), "pt-BR");
+  }
+  function byCount(a, b) {
+    return (b.nProblems - a.nProblems) || (b.freq - a.freq) || String(a.item.name).localeCompare(String(b.item.name), "pt-BR");
+  }
+  function curriculumStats(f, scope) {
+    var C = IX && IX.cur;
+    if (!C) return null;
+    scope = scope || scopeOf(f);
+    function run(list, cmp) { return list.map(function (it) { return itemStats(it, scope); }).sort(cmp); }
+    return {
+      scope: scope,
+      insights: run(C.insights, byUtility),
+      deepenings: run(C.deepenings, byUtility),
+      techniques: run(C.techniques, byCount)
+    };
+  }
+
   window.SG = {
     CONFIG: CONFIG, D: D, IX: IX,
     esc: esc, median: median, fmtNum: fmtNum, fmtPct: fmtPct,
     diffOfRel: diffOfRel, diffValue: diffValue, problemBin: problemBin, K: D ? D.difficulty_k || null : null, DIFF: DIFF_BY_ID, tierOf: tierOf,
-    scopeOf: scopeOf, topicStats: topicStats, inScopeContest: inScopeContest
+    scopeOf: scopeOf, topicStats: topicStats, inScopeContest: inScopeContest,
+    curriculumStats: curriculumStats, generalityOf: generalityOf
   };
 })();

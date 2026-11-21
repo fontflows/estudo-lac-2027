@@ -7,3 +7,6 @@ __pycache__/
 .DS_Store
 Thumbs.db
 desktop.ini
+
+# Mock de desenvolvimento (python -I pipeline/mock_dataset.py --curriculum --out data/dataset.mock.js)
+data/dataset.mock.js

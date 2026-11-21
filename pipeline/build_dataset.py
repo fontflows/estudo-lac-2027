@@ -12,6 +12,7 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 RAW = os.path.join(ROOT, "pipeline", "raw")
 TAX = os.path.join(ROOT, "pipeline", "taxonomy.json")
 TOP = os.path.join(ROOT, "pipeline", "extra", "top_solves.json")
+CUR = os.path.join(ROOT, "pipeline", "curriculum", "curriculum.json")
 
 # Difficulty = share of the top-K official teams of the contest that solved the problem
 # (K = 40 ~ size of the Latin America Championship), so contests of 40 and 500 teams compare.
@@ -128,6 +129,20 @@ def main():
         "areas": tax["areas"], "topics": tax["topics"],
         "contests": out_contests, "problems": out_problems,
     }
+    if os.path.exists(CUR):
+        with open(CUR, encoding="utf-8") as fh:
+            cur = json.load(fh)
+        known = {p["id"] for p in out_problems}
+        refs = [x["id"] for k in ("deepenings", "insights") for it in cur.get(k, []) for x in it.get("problems", [])]
+        refs += [x for t in cur.get("techniques", []) for x in t.get("problems", [])]
+        refs += list(cur.get("problem_steps", {}).keys())
+        bad = sorted({r for r in refs if r not in known})
+        if bad:
+            sys.exit(f"curriculum references unknown problems: {bad[:10]}")
+        dataset["curriculum"] = cur
+        print(f"curriculum: {len(cur.get('techniques', []))} techniques, "
+              f"{len(cur.get('deepenings', []))} deepenings, {len(cur.get('insights', []))} insights")
+
     os.makedirs(os.path.dirname(OUT), exist_ok=True)
     with open(OUT, "w", encoding="utf-8") as fh:
         fh.write("window.DATASET = ")

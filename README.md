@@ -2,13 +2,14 @@
 
 **Site: https://fontflows.github.io/estudo-lac-2027/**
 
-Static study guide for the ICPC Latin America Championship: which topics appear most in
-championship-level contests, how hard they are, and links to every problem.
+Static study guide for the ICPC Latin America Championship: a curriculum of reusable insights,
+technique deepenings and named techniques taken from the solutions of championship-level problems,
+plus topic statistics, difficulty and links to every problem.
 Plain HTML/CSS/JS, no build step. Works on GitHub Pages and opened directly from disk (`file://`).
 
 ## Files
 
-- `index.html`, `assets/` — the site (`core.js`: constants and topic statistics; `charts.js`: SVG charts; `app.js`: views and routing)
+- `index.html`, `assets/` — the site (`core.js`: constants, topic and curriculum statistics; `charts.js`: SVG charts; `app.js`: views and routing)
 - `data/dataset.js` — the data, `window.DATASET = {...}` (generated, do not edit by hand)
 - `pipeline/` — data collection and build (`SPEC.md`, `DESIGN.md`)
 
@@ -18,10 +19,19 @@ Plain HTML/CSS/JS, no build step. Works on GitHub Pages and opened directly from
 python -I pipeline/build_dataset.py
 ```
 
-Merges `pipeline/raw/*.json` and `pipeline/taxonomy.json` into `data/dataset.js`.
-`python -I pipeline/mock_dataset.py` writes a fictitious dataset in the same shape, for working on the site without real data.
+Merges `pipeline/raw/*.json`, `pipeline/taxonomy.json` and, when present, `pipeline/curriculum/curriculum.json` into `data/dataset.js`.
+Without the curriculum the Currículo tab shows a short note and the home page is Tópicos.
 
-Tier thresholds, secondary-topic weight and difficulty bins are in `CONFIG` at the top of `assets/core.js`.
+For working on the site without real data, write a fictitious dataset in the same shape to a separate file
+(gitignored) and point a copy of `index.html` at it:
+
+```
+python -I pipeline/mock_dataset.py --curriculum --out data/dataset.mock.js
+```
+
+Without `--out` the mock overwrites `data/dataset.js`.
+
+Tier thresholds, secondary-topic weight, difficulty bins and curriculum generality labels are in `CONFIG` at the top of `assets/core.js`.
 Family weights are in `pipeline/build_dataset.py`.
 
 ## View locally

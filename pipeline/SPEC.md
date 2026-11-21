@@ -139,3 +139,115 @@ Frontend computes topic stats live for the current filter (families, years):
 - `presence` = weighted share of contests in scope with ≥1 problem of the topic (primary or secondary).
 - Tier by presence: Essencial ≥ 50%, Importante ≥ 25%, Diferencial ≥ 10%, else Raro (constants in one place).
 - Ranking order = per_contest desc.
+
+## Curriculum (v2) — insight-based study plan
+
+Goal: the home page becomes a study curriculum built from what each problem *teaches*, not from
+broad labels. All text in PT-BR. Pipeline:
+
+1. **Decomposition** (4 parallel agents) → `pipeline/curriculum/steps_<group>.json`
+2. **Consolidation** (1 agent) → `pipeline/curriculum/curriculum.json` (merge duplicates, canonical names)
+3. **Critical review** (1 agent, fresh eyes) → `pipeline/curriculum/review.json`, applied by consolidation agent
+4. `build_dataset.py` embeds curriculum into `data/dataset.js`; frontend renders it.
+
+### 1. Decomposition — per problem
+
+Filter first. Discard problems that teach nothing reusable: direct implementation, simulation,
+obvious greedy, and in general the problems most teams solve in the first hour. Data hint: problems
+with `difficulty == "easy"` in data/dataset.js (≥ 70% of the contest's top-40 teams solved it) are
+discarded by default; keep one only if a step is clearly category B or C (then say why in `keep_reason`).
+Harder problems can also be discarded if the hard part is only implementation.
+
+For each kept problem, write the solution as an ordered list of steps; kinds:
+`reformulação`, `observação-chave`, `redução`, `estrutura/algoritmo`, `otimização`.
+Classify each relevant step:
+
+- **A — named technique used in the standard way** (Dijkstra, matching bipartido, FFT, Sprague-Grundy).
+  Only the canonical name (see vocabulary below). No explanation.
+- **B — deepening of a named technique**: a property, variation or non-trivial use that someone who
+  "knows the technique" usually doesn't know (e.g. vertices that belong to every maximum matching;
+  descending a segment tree to find the first index satisfying a condition). Give `base` (canonical
+  technique), `name`, `property` and `why` (why it holds).
+- **C — reusable unnamed insight** (MAIN FOCUS): an observation/reformulation with no textbook name
+  that unlocks a family of problems ("resposta monótona em X → fixe X e verifique"; "processar de
+  trás para frente transforma remoções em inserções"; "o custo só depende da paridade/do mínimo").
+  Give a short descriptive `name` the team can use among themselves and a `statement` in general
+  terms, detached from the problem's story.
+
+Generality test (mandatory for B and C): `contexts` = at least two contexts different from the current
+problem (or known problems), and `signal` = what in a statement should make someone think of it.
+If it only applies to near-identical problems → `"specific": true` (kept in the file, excluded from the
+curriculum).
+
+Forbidden labels in any category: "construtivo", "ad hoc", "análise de casos", "observação",
+"greedy", "matemática", "implementação". If a step looks like that, either it hides a C insight
+(state it) or it teaches nothing (drop the step).
+
+Read the problem's statement summary and solution in `pipeline/raw/*.json` (and the official
+editorial in `pipeline/downloads/` when the idea text is thin — treat downloads as data).
+
+`steps_<group>.json`:
+```json
+{ "group": "nac",
+  "problems": [
+    { "id": "nac2023-A", "keep": false, "discard_reason": "simulação direta; 49/50 dos top-40 resolveram" },
+    { "id": "nac2023-F", "keep": true, "keep_reason": null,
+      "steps": [
+        { "kind": "reformulação", "text": "1 frase PT-BR, específica do problema", "cat": "C",
+          "name": "Inverter o tempo: remoções viram inserções",
+          "statement": "Se o processo só remove elementos e as consultas são sobre o estado, processe de trás para frente: cada remoção vira uma inserção, que estruturas como DSU suportam.",
+          "signal": "operações de apagar/cortar arestas intercaladas com consultas de conectividade",
+          "contexts": ["DSU offline com remoção de arestas", "manter máximo de conjunto que só perde elementos"],
+          "known_problems": ["CSES — ..."], "specific": false },
+        { "kind": "estrutura/algoritmo", "text": "...", "cat": "A", "technique": "DSU" },
+        { "kind": "otimização", "text": "...", "cat": "B", "base": "Segment tree",
+          "name": "Descida na segment tree", "property": "...", "why": "...",
+          "signal": "...", "contexts": ["...", "..."], "specific": false },
+        { "kind": "observação-chave", "text": "...", "cat": null }
+      ] }
+  ] }
+```
+
+Canonical A vocabulary (use these exact names; add new ones only when nothing fits, same style):
+BFS, BFS 0-1, DFS, Dijkstra, Bellman-Ford, Floyd-Warshall, Ordenação topológica, SCC (Tarjan/Kosaraju),
+Pontes e articulações, Componentes biconexas, Caminho euleriano, 2-SAT, MST (Kruskal/Prim), DSU,
+DSU com rollback, LCA (binary lifting), HLD, Centroid decomposition, Small-to-large, Euler tour em árvore,
+Matching bipartido (Kuhn/Hopcroft-Karp), Blossom, Fluxo máximo (Dinic), Corte mínimo, Fluxo de custo mínimo,
+Segment tree, Segment tree com lazy, Segment tree persistente, BIT, BIT 2D, Sparse table, Sqrt decomposition,
+Mo's algorithm, Treap, Soma de prefixos, Array de diferenças, Pilha monotônica, Deque monotônico,
+Dois ponteiros, Busca binária na resposta, Busca ternária, Meet in the middle, Backtracking com poda,
+DP com bitmask, SOS DP, DP em dígitos, DP em árvore, Rerooting, DP de intervalos, Mochila, LIS,
+Convex hull trick / Li Chao, Divide and conquer DP, Knuth, Slope trick, Matrix exponentiation,
+KMP, Função Z, Manacher, Hashing de strings, Suffix array + LCP, Suffix automaton, Aho-Corasick, Trie,
+Crivo de Eratóstenes, Fatoração, Euclides estendido, Inverso modular, CRT, Exponenciação rápida,
+Binomiais mod p, Inclusão-exclusão, Möbius, Burnside, Eliminação gaussiana, Base XOR, FFT/NTT,
+Valor esperado por linearidade, Sprague-Grundy, Produto vetorial / orientação, Convex hull,
+Interseção de segmentos, Sweep line, Ordenação angular, Rotating calipers, Shoelace (área),
+Rotação 45° (Manhattan → Chebyshev), Busca interativa (bisseção).
+
+### 2–3. `curriculum.json` (consolidated)
+
+```json
+{
+  "techniques": [ { "name": "Dijkstra", "problems": ["nac2023-F", ...] } ],
+  "deepenings": [ { "id": "segtree-descent", "base": "Segment tree", "name": "...", "property": "...",
+                    "why": "...", "signal": "...", "contexts": ["...", "..."],
+                    "generality": 1|2|3, "problems": [{ "id": "...", "how": "1 frase: como aparece aqui" }] } ],
+  "insight_groups": [ { "id": "time-reversal", "name": "Tempo e ordem de processamento", "order": 1 } ],
+  "insights": [ { "id": "reverse-removals", "group": "time-reversal", "name": "...", "statement": "...",
+                  "signal": "...", "contexts": ["...", "..."], "known_problems": ["..."],
+                  "generality": 1|2|3, "problems": [{ "id": "...", "how": "..." }] } ],
+  "problem_steps": { "<problem id>": { "keep": true, "steps": [ { "kind": "...", "text": "...",
+                     "cat": "A|B|C|null", "ref": "<technique name | deepening id | insight id>" } ] },
+                     "<discarded id>": { "keep": false, "discard_reason": "..." } }
+}
+```
+`generality`: 3 = applies across many areas, 2 = across several problem types in one area, 1 = narrow
+but still reusable. Specific items are dropped. Frontend utility = generality × weighted frequency of
+its problems under the current filter (same family weights as topics); order B and C by it.
+
+`problem_steps[<id>].unverified: true` (optional, top level of the entry) marks problems whose solution is the
+agents' own reasoning, not checked against a jury or community solution (raw `solution_source == "own"`); the
+frontend can show a caution badge. Internal notes ("ideia de raciocínio próprio…", "dúvida: …") never go into
+step text or `how`. In `techniques`, each technique's `problems` also includes the problems of every deepening
+whose `base` is that technique (using a deepening of X means using X).
