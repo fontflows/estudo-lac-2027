@@ -103,12 +103,26 @@
       return "<li>" + (x.kind ? '<span class="skind">' + esc(x.kind) + "</span> " : "") + codeify(x.text) + tag + "</li>";
     }).join("") + "</ol>";
   }
-  var UNVERIFIED = "Solução não verificada contra o júri (análise própria)";
+  var UNVERIFIED_H = "Solução não verificada";
+  var UNVERIFIED = "Não há editorial nem solução da comunidade para esta questão; a ideia descrita é análise própria e pode conter erro.";
   function unverifiedMark(p) {
     var ps = stepsOf(p);
     if (!ps || ps.unverified !== true) return "";
-    return '<span class="unv" title="' + UNVERIFIED + '" aria-label="' + UNVERIFIED + '">†</span>';
+    return '<span class="unv" tabindex="0" role="note" data-tip-h="' + UNVERIFIED_H + '" data-tip="' + UNVERIFIED +
+      '" aria-label="' + UNVERIFIED_H + ": " + UNVERIFIED + '">†</span>';
   }
+  // Instant tooltip for any [data-tip] element (hover, keyboard focus, tap), using the shared chart tooltip.
+  function tipTarget(e) { return e.target && e.target.closest ? e.target.closest("[data-tip]") : null; }
+  function openTip(el) {
+    var r = el.getBoundingClientRect();
+    SG.charts.showTip([el.getAttribute("data-tip-h") || "", el.getAttribute("data-tip")].filter(Boolean),
+      r.left + r.width / 2, r.top);
+  }
+  document.addEventListener("mouseover", function (e) { var el = tipTarget(e); if (el) openTip(el); });
+  document.addEventListener("mouseout", function (e) { if (tipTarget(e)) SG.charts.hideTip(); });
+  document.addEventListener("focusin", function (e) { var el = tipTarget(e); if (el) openTip(el); });
+  document.addEventListener("focusout", function (e) { if (tipTarget(e)) SG.charts.hideTip(); });
+  document.addEventListener("click", function (e) { var el = tipTarget(e); if (el) { e.preventDefault(); openTip(el); } });
   function stepsSearchText(p) {
     var ps = stepsOf(p);
     if (!ps || !ps.steps) return "";
