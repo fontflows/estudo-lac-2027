@@ -109,15 +109,6 @@
     if (!ps || ps.unverified !== true) return "";
     return '<span class="unv" title="' + UNVERIFIED + '" aria-label="' + UNVERIFIED + '">†</span>';
   }
-  // Compact count that agrees with the difficulty label: solved among the contest's top-K teams.
-  function topCount(p) {
-    var full = p.solved != null ? (p.total ? p.solved + " de " + p.total + " times" : p.solved + " times") : null;
-    var k = p.k_used || SG.K;
-    if (p.solved_top != null && k) {
-      return '<span title="' + esc(p.solved_top + " dos " + k + " melhores times" + (full ? " · " + full : "")) + '">' + p.solved_top + "/" + k + "</span>";
-    }
-    return full ? '<span title="' + esc(full) + '">' + (p.total ? p.solved + "/" + p.total : p.solved) + "</span>" : DASH;
-  }
   function stepsSearchText(p) {
     var ps = stepsOf(p);
     if (!ps || !ps.steps) return "";
@@ -352,13 +343,14 @@
   }
 
   // ---- Problem table component ---------------------------------------------------------
+  var SOLVED_LABEL = SG.K ? "Resolvido (top " + SG.K + ")" : "Resolvido";
   var PCOLS = {
     contest: { key: "contest", label: "Contest", sort: true, dir: -1 },
     letter: { key: "letter", label: "Letra", sort: true, dir: 1, cls: "c-letter" },
     title: { key: "title", label: "Título", sort: true, dir: 1 },
     topic: { key: "topic", label: "Tópico", sort: true, dir: 1 },
-    solved: { key: "solved", label: "Resolvido", sort: true, num: true, dir: -1 },
-    solvedbar: { key: "solved", label: "Resolvido", sort: true, num: true, dir: -1 },
+    solved: { key: "solved", label: SOLVED_LABEL, sort: true, num: true, dir: -1 },
+    solvedbar: { key: "solved", label: SOLVED_LABEL, sort: true, num: true, dir: -1 },
     diff: { key: "diff", label: "Dificuldade", sort: true, dir: 1 },
     fs: { key: "fs", label: "1º AC (min)", sort: true, num: true, dir: 1, cls: "hide-m" }
   };
@@ -367,7 +359,7 @@
     letter: function (p) { return p.letter; },
     title: function (p) { return p.title; },
     topic: function (p) { return p.primary ? topicName(p.primary) : null; },
-    solved: function (p) { return p.solve_rate; },
+    solved: function (p) { return solvedShare(p); },
     diff: function (p) { return p._dv == null ? null : 1 - p._dv; },
     fs: function (p) { return p.first_solve_min; }
   };
@@ -383,14 +375,21 @@
     }
     return out;
   }
+  // Solve count shown for a problem: solved among the contest's top-K official teams ("5/40"),
+  // so it agrees with the difficulty label; whole-field numbers go in the tooltip.
+  // Falls back to solved/total when there is no top-K data.
   function solvedText(p) {
-    if (p.solved == null) return DASH;
-    var t = p.total ? p.solved + "/" + p.total : String(p.solved);
+    var k = p.k_used || SG.K;
+    var hasTop = p.solved_top != null && k;
     var tt = [];
-    if (p.solve_rate != null) tt.push(Math.round(p.solve_rate * 100) + "% dos times");
+    if (hasTop) tt.push(p.solved_top + " dos " + k + " melhores times");
+    if (p.solved != null) tt.push(p.total ? p.solved + " de " + p.total + " times" : p.solved + " times");
     if (p.attempted != null) tt.push(p.attempted + " tentaram");
+    var t = hasTop ? p.solved_top + "/" + k : p.solved == null ? null : (p.total ? p.solved + "/" + p.total : String(p.solved));
+    if (t == null) return DASH;
     return '<span title="' + esc(tt.join(" · ")) + '">' + t + "</span>";
   }
+  function solvedShare(p) { return p.top_rate != null ? p.top_rate : p.solve_rate; }
   function problemRow(p, cols, st) {
     var href = bestLink(p);
     var cells = cols.map(function (k) {
@@ -411,7 +410,7 @@
         case "solved":
           return '<td class="num">' + solvedText(p) + "</td>";
         case "solvedbar":
-          var w = p.solve_rate != null ? Math.round(p.solve_rate * 100) : 0;
+          var w = solvedShare(p) != null ? Math.round(solvedShare(p) * 100) : 0;
           return '<td class="num"><span class="barwrap"><span class="bar hide-m" aria-hidden="true"><span style="width:' + w + '%"></span></span>' + solvedText(p) + "</span></td>";
         case "diff":
           return "<td>" + diffCell(p._bin, "desktop", topText(p) ? "Resolvido por " + topText(p) : null) + "</td>";
@@ -583,7 +582,7 @@
         return '<li class="pli">' +
           '<span class="pl-c"><a href="' + link("contests/" + encodeURIComponent(p.contest)) + '">' + esc(contestShort(p.contest)) + '</a> <span class="mono">' + esc(p.letter) + "</span></span>" +
           '<span class="pl-t">' + (href ? extLink(href, esc(p.title), "plain") : esc(p.title)) + unverifiedMark(p) + "</span>" +
-          '<span class="pl-m">' + diffCell(p._bin, true, tt ? "Resolvido por " + tt : null) + '<span class="pl-s">' + topCount(p) + "</span>" +
+          '<span class="pl-m">' + diffCell(p._bin, true, tt ? "Resolvido por " + tt : null) + '<span class="pl-s">' + solvedText(p) + "</span>" +
           (x.how ? '<button type="button" class="textbtn howbtn" data-key="' + esc(key) + '" aria-expanded="' + open + '"' + (st.showIdeas ? " hidden" : "") +
             ' aria-label="' + (open ? "Ocultar" : "Mostrar") + " ideia: " + esc(p.title) + '">' + (open ? "Ocultar ideia" : "Mostrar ideia") + "</button>" : "") + "</span>" +
           (x.how ? '<p class="pl-how"' + (open ? "" : " hidden") + ">" + codeify(x.how) + "</p>" : "") +
@@ -670,6 +669,7 @@
         var p = x.p, href = bestLink(p), tt = topText(p);
         return '<li><a class="tp-c" href="' + link("contests/" + encodeURIComponent(p.contest)) + '">' + esc(contestShort(p.contest)) + '</a> <span class="mono">' + esc(p.letter) + "</span> " +
           (href ? extLink(href, esc(p.title), "plain") : esc(p.title)) + unverifiedMark(p) +
+          ' <span class="tp-s">' + solvedText(p) + "</span>" +
           (p._bin ? ' <span class="dot d-' + p._bin + '" role="img" aria-label="' + esc(SG.DIFF[p._bin].name) + '" title="' + esc(SG.DIFF[p._bin].name + (tt ? " · resolvido por " + tt : "")) + '"></span>' : "") + "</li>";
       }).join("") + "</ul>";
     }
@@ -1123,6 +1123,89 @@
     return { path: "contests/" + (cid || "") };
   }
 
+  // ---- View: Cortes LAC ---------------------------------------------------------------
+  // DATASET.lac_cutoffs: problems needed at each Latin America Championship edition for the
+  // World Finals slot by performance and for each medal. Not affected by the global filter.
+  var CUTS = D.lac_cutoffs && (D.lac_cutoffs.editions || []).length ? D.lac_cutoffs : null;
+  var CUT_COLS = [
+    { id: "wf", name: "World Finals" }, { id: "gold", name: "Ouro" }, { id: "silver", name: "Prata" }, { id: "bronze", name: "Bronze" }
+  ];
+  var TIE = "decidido no tempo: times com o mesmo número de problemas ficaram de fora pela penalidade";
+  function viewCutoffs() {
+    if (!CUTS) {
+      app.innerHTML = '<div class="pagehead"><h1>Cortes do LAC</h1></div><p class="prose">Os cortes ainda não foram calculados para estes dados.</p>';
+      return { path: "cortes" };
+    }
+    var eds = CUTS.editions.slice().sort(function (a, b) { return (b.year || 0) - (a.year || 0); });
+    function cat(e, id) { return (e.categories || []).filter(function (c) { return c.id === id; })[0] || null; }
+    function cell(e, c) {
+      if (!c || c.min_solved == null) return '<td class="num">' + DASH + "</td>";
+      var tip = [c.name || "", c.teams != null ? plural(c.teams, "time", "times") : null,
+        c.max_solved != null && c.max_solved !== c.min_solved ? "resolveram de " + c.min_solved + " a " + c.max_solved : "resolveram " + c.min_solved,
+        c.last_penalty != null ? "último dentro: " + c.last_penalty + " min de penalidade" : null,
+        c.first_out_penalty != null ? "primeiro fora, com o mesmo número de problemas: " + c.first_out_penalty + " min" : null,
+        c.tie_out ? TIE : null].filter(Boolean).join(" · ");
+      return '<td class="num cut" title="' + esc(tip) + '"><span class="cutn">' + c.min_solved + "</span>" +
+        (e.problems != null ? '<span class="cutd"> de ' + e.problems + "</span>" : "") +
+        '<span class="tiem"' + (c.tie_out ? ' aria-label="' + esc(TIE) + '">*' : ">") + "</span></td>";
+    }
+    var anyTie = false;
+    var rows = eds.map(function (e) {
+      var c = IX.contestById[e.contest];
+      return '<tr><th scope="row">' + (c ? '<a href="' + link("contests/" + encodeURIComponent(e.contest)) + '">' + esc(e.year) + "</a>" : esc(e.year)) + "</th>" +
+        '<td class="num hide-m">' + (e.teams != null ? e.teams : DASH) + '</td><td class="num hide-m">' + (e.problems != null ? e.problems : DASH) + "</td>" +
+        CUT_COLS.map(function (k) { var x = cat(e, k.id); if (x && x.tie_out) anyTie = true; return cell(e, x); }).join("") + "</tr>";
+    }).join("");
+    var typ = CUT_COLS.map(function (k) {
+      var v = eds.map(function (e) { var x = cat(e, k.id); return x ? x.min_solved : null; }).filter(function (x) { return x != null; });
+      if (!v.length) return '<td class="num">' + DASH + "</td>";
+      var med = SG.median(v), lo = Math.min.apply(null, v), hi = Math.max.apply(null, v);
+      return '<td class="num cut" title="' + esc("mediana de " + plural(v.length, "edição", "edições")) + '"><span class="cutn">' + SG.fmtNum(med, med % 1 ? 1 : 0) + "</span>" +
+        (lo !== hi ? '<span class="cutd"> ' + lo + "–" + hi + "</span>" : "") + '<span class="tiem"></span></td>';
+    }).join("");
+    var head = '<tr><th scope="col">Edição</th><th scope="col" class="num hide-m">Times</th><th scope="col" class="num hide-m">Problemas</th>' +
+      CUT_COLS.map(function (k) { return '<th scope="col" class="num">' + esc(k.name) + "</th>"; }).join("") + "</tr>";
+    // "[UFMG] team name" -> "UFMG"
+    function inst(team) { var m = /^\s*\[([^\]]+)\]/.exec(team || ""); return m ? m[1].trim() : team; }
+    function teamBits(t, withReason) {
+      return [t.rank != null ? t.rank + "º" : null, t.solved != null ? plural(t.solved, "problema", "problemas") : null,
+        withReason && t.reason ? t.reason : null].filter(Boolean).join(", ");
+    }
+    var anySkip = false, notes = [], rawNotes = [];
+    eds.forEach(function (e) {
+      var bits = [];
+      var sk = e.rank_skipped || [];
+      if (sk.length) {
+        anySkip = true;
+        bits.push("Ficaram fora do World Finals por já haver time melhor da mesma instituição: " +
+          sk.map(function (t) { return '<span title="' + esc(t.team) + '">' + esc(inst(t.team)) + "</span> (" + esc(teamBits(t, false)) + ")"; }).join(", "));
+      }
+      var q = e.excluded_quota || [];
+      if (q.length) {
+        bits.push("Classificados como campeões de sub-região, fora da conta do corte por desempenho: " +
+          q.map(function (t) { return esc(t.team) + " (" + esc(teamBits(t, true)) + ")"; }).join("; "));
+      }
+      if (bits.length) notes.push("<li><strong>" + esc(e.year) + ".</strong> " + bits.join(". ") + ".</li>");
+      if (e.notes) rawNotes.push("<li><strong>" + esc(e.year) + ".</strong> " + esc(e.notes) + "</li>");
+    });
+    var slots = eds.map(function (e) { return e.wf_slots_total; }).filter(function (x) { return x != null; })[0] || 18;
+    var src = (CUTS.sources || []).filter(Boolean).map(function (u) {
+      return /^https?:\/\//.test(u) ? '<a href="' + esc(u) + '" target="_blank" rel="noopener">' + esc(u.replace(/^https?:\/\//, "")) + "</a>" : esc(u);
+    });
+    app.innerHTML = '<div class="pagehead"><h1>Cortes do LAC</h1></div>' +
+      '<p class="lede">Quantos problemas foram precisos em cada edição do Latin America Championship para a vaga no World Finals por desempenho e para cada medalha. Esta aba não usa o filtro das outras.</p>' +
+      '<div class="tw"><table class="t cuts"><thead>' + head + "</thead><tbody>" + rows + '</tbody><tfoot><tr><th scope="row">Típico</th><td class="hide-m"></td><td class="hide-m"></td>' + typ + "</tr></tfoot></table></div>" +
+      '<div class="cutrule"><p>Vagas no World Finals: ' + slots + " = 6 campeões de sub-região + " + (slots - 6) + " por desempenho, no máximo 1 time por instituição.</p>" +
+      (anySkip ? "<p>Por isso o corte do World Finals pode ficar abaixo do bronze: times bem colocados de instituições que já têm vaga são pulados, e a vaga desce na classificação.</p>" : "") +
+      "</div>" +
+      '<div class="cutnotes">' +
+      "<p>Cada célula é o menor número de problemas resolvidos entre os times da categoria" + (anyTie ? "; * = " + esc(TIE) : "") + ". Típico: mediana das edições, com a faixa quando variam.</p>" +
+      (notes.length ? "<ul>" + notes.join("") + "</ul>" : "") +
+      (rawNotes.length ? '<details class="cutdet"><summary>Notas do cálculo por edição</summary><ul>' + rawNotes.join("") + "</ul></details>" : "") +
+      (src.length ? "<p>Fontes: " + src.join(" · ") + "</p>" : "") + "</div>";
+    return { path: "cortes" };
+  }
+
   // ---- View: Sobre ---------------------------------------------------------------------
   function curriculumMethod() {
     var counts = "";
@@ -1173,6 +1256,7 @@
       "<li>Clique numa linha de problema (ou na letra) para ver o resumo do enunciado e os links (mirror no Codeforces ou Kattis, enunciado). A solução, e as etapas da solução quando o problema está no currículo, ficam escondidas em <strong>Mostrar ideia</strong>, para não dar spoiler.</li>" +
       '<li><a href="' + link("problemas") + '">Problemas</a>: busca e filtros (área, tópico, dificuldade) sobre todos os problemas; a tecla <kbd>/</kbd> vai para a busca.</li>' +
       '<li><a href="' + link("contests") + '">Contests</a>: cada prova com seus problemas ordenados por quantos times resolveram.</li>' +
+      (CUTS ? '<li><a href="' + link("cortes") + '">Cortes LAC</a>: quantos problemas foram precisos em cada edição do LAC para a vaga no World Finals e para cada medalha.</li>' : "") +
       "<li>Os filtros ficam no endereço da página: copie o link para compartilhar exatamente a mesma visão.</li></ul>" +
       "<h2>Fontes</h2><p>" + D.contests.length + " contests, " + D.problems.length + " problemas, " + (D.topics || []).length +
       " tópicos. Solves vêm do placar final oficial (só times oficiais, sem convidados nem mirrors). Ideias de solução vêm do editorial oficial quando existe; senão de discussões da comunidade ou de análise própria, indicado em cada problema.</p></div>" +
@@ -1186,15 +1270,15 @@
       "<h2>Presença e níveis</h2><p>Presença é a fração dos contests do filtro (ponderada pelo peso da família) com ao menos um problema do tópico, principal ou secundário. O nível vem da presença:</p><ul>" + tiers + "</ul>" +
       "<h2>Dificuldade</h2><p>Dificuldade é a fração dos " + esc(TOPK) + " oficiais do contest (pela classificação final) que resolveram o problema. " +
       (SG.K ? SG.K + " é perto do tamanho do LAC, então" : "Assim,") + " um regional com 500 times e um campeonato com 40 ficam na mesma escala. Quando falta esse dado, usa-se a fração em relação ao problema mais resolvido do contest.</p><ul>" + difs +
-      "</ul><p>A dificuldade típica de um tópico é a mediana desse valor entre seus problemas. A coluna Resolvido mostra os números absolutos (times que resolveram / todos os times oficiais).</p>" +
+      "</ul><p>A dificuldade típica de um tópico é a mediana desse valor entre seus problemas. A coluna " + esc(SOLVED_LABEL) + " mostra quantos desses melhores times resolveram (por exemplo 5/" + (SG.K || 40) + "), na mesma escala da dificuldade; os números de todos os times oficiais ficam na dica ao passar o mouse. Sem esse dado, mostra times que resolveram / todos os times oficiais.</p>" +
       "<h2>Contagem regressiva</h2><p>" + tName + (tDate ? ", " + esc(tDate) + " (horário de Brasília)" : "") + ".</p>" +
       "<h2>Atualização</h2><p>Dados gerados em " + esc(D.generated || "—") + ". Para regenerar: <code>python -I pipeline/build_dataset.py</code>.</p></div>";
     return { path: "sobre" };
   }
 
   // ---- Router --------------------------------------------------------------------------
-  var VIEWS = { curriculo: viewCurriculum, topicos: viewTopics, topico: viewTopic, problemas: viewProblems, contests: viewContests, sobre: viewAbout };
-  var TAB_OF = { curriculo: "curriculo", topicos: "topicos", topico: "topicos", problemas: "problemas", contests: "contests", sobre: "sobre" };
+  var VIEWS = { cortes: viewCutoffs, curriculo: viewCurriculum, topicos: viewTopics, topico: viewTopic, problemas: viewProblems, contests: viewContests, sobre: viewAbout };
+  var TAB_OF = { cortes: "cortes", curriculo: "curriculo", topicos: "topicos", topico: "topicos", problemas: "problemas", contests: "contests", sobre: "sobre" };
   var lastPath = null;
   function updateTabLinks() {
     Array.prototype.forEach.call(document.querySelectorAll(".tabs a"), function (a) {
@@ -1218,7 +1302,7 @@
       if (a.dataset.tab === tab) a.setAttribute("aria-current", "page"); else a.removeAttribute("aria-current");
     });
     updateTabLinks();
-    var titles = { curriculo: "Currículo", topicos: "Tópicos", topico: (IX.topicById[r.parts[1]] || {}).name || "Tópico", problemas: "Problemas",
+    var titles = { cortes: "Cortes LAC", curriculo: "Currículo", topicos: "Tópicos", topico: (IX.topicById[r.parts[1]] || {}).name || "Tópico", problemas: "Problemas",
       contests: (IX.contestById[r.parts[1]] || {}).short || "Contests", sobre: "Sobre" };
     document.title = titles[key] + " · Estudo " + TLABEL;
     if (lastPath !== r.path) { window.scrollTo(0, 0); lastPath = r.path; }
@@ -1250,6 +1334,8 @@
 
   // ---- Boot ----------------------------------------------------------------------------
   document.querySelector(".wordmark").textContent = "Estudo " + TLABEL;
+  var cutTab = document.querySelector('.tabs a[data-tab="cortes"]');
+  if (cutTab) cutTab.hidden = !CUTS;
   var mockNote = document.getElementById("mocknote");
   if (mockNote && D.mock) { mockNote.innerHTML = '<span aria-hidden="true"> · </span><strong>dados fictícios (mock)</strong>'; mockNote.hidden = false; }
   var skip = document.querySelector(".skip");

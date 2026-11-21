@@ -13,6 +13,7 @@ RAW = os.path.join(ROOT, "pipeline", "raw")
 TAX = os.path.join(ROOT, "pipeline", "taxonomy.json")
 TOP = os.path.join(ROOT, "pipeline", "extra", "top_solves.json")
 CUR = os.path.join(ROOT, "pipeline", "curriculum", "curriculum.json")
+CUTS = os.path.join(ROOT, "pipeline", "extra", "lac_cutoffs.json")
 
 # Difficulty = share of the top-K official teams of the contest that solved the problem
 # (K = 40 ~ size of the Latin America Championship), so contests of 40 and 500 teams compare.
@@ -142,6 +143,15 @@ def main():
         dataset["curriculum"] = cur
         print(f"curriculum: {len(cur.get('techniques', []))} techniques, "
               f"{len(cur.get('deepenings', []))} deepenings, {len(cur.get('insights', []))} insights")
+
+    if os.path.exists(CUTS):
+        with open(CUTS, encoding="utf-8") as fh:
+            cuts = json.load(fh)
+        for e in cuts.get("editions", []):
+            if e["contest"] not in cmap:
+                sys.exit(f"lac_cutoffs references unknown contest {e['contest']}")
+        dataset["lac_cutoffs"] = cuts
+        print(f"lac_cutoffs: {len(cuts.get('editions', []))} editions")
 
     os.makedirs(os.path.dirname(OUT), exist_ok=True)
     with open(OUT, "w", encoding="utf-8") as fh:

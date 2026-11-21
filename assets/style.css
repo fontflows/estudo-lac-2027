@@ -365,6 +365,31 @@ a.ctag:hover { color: var(--accent); border-color: var(--accent); text-decoratio
 .tprobs li { padding: 3px 0; }
 .tprobs .tp-c { color: var(--muted); }
 .tprobs .dot { margin-left: 4px; vertical-align: 1px; }
+.tp-s { color: var(--muted); font-variant-numeric: tabular-nums; margin-left: 4px; }
+
+/* Cortes LAC */
+.tabs a[hidden] { display: none; }
+table.cuts { width: auto; min-width: 560px; }
+table.cuts th, table.cuts td { padding: 10px 16px; }
+table.cuts tbody th { font-weight: 500; }
+table.cuts th a { text-decoration: underline; text-decoration-color: var(--line-strong); text-underline-offset: 3px; }
+.cut { white-space: nowrap; }
+.cutn { font-size: 16px; font-weight: 600; color: var(--ink); }
+.cutd { font-size: 13px; color: var(--muted); }
+.tiem { display: inline-block; width: 1ch; margin-left: 2px; color: var(--muted); font-size: 13px; text-align: left; }
+table.cuts tfoot th, table.cuts tfoot td { border-top: 1px solid var(--line-strong); border-bottom: 0; }
+table.cuts tfoot th { font-weight: 600; }
+.cutrule { max-width: 80ch; margin-top: 16px; font-size: 14px; line-height: 1.5; color: var(--ink-2); }
+.cutrule p { margin: 0 0 4px; }
+.cutnotes { max-width: 90ch; margin-top: 16px; font-size: 12px; line-height: 1.5; color: var(--muted); }
+.cutnotes p { margin: 0 0 6px; }
+.cutnotes ul { margin: 0 0 6px; padding-left: 18px; }
+.cutdet { margin: 0 0 6px; }
+.cutdet summary { cursor: pointer; color: var(--ink-2); width: max-content; max-width: 100%; }
+.cutdet summary:hover { color: var(--ink); }
+.cutdet ul { margin-top: 6px; }
+.cutnotes strong { color: var(--ink-2); font-weight: 500; }
+.cutnotes a { color: var(--ink-2); text-decoration: underline; text-underline-offset: 2px; overflow-wrap: anywhere; }
 
 /* Key-value numbers table */
 table.kv { max-width: 860px; }
@@ -463,6 +488,8 @@ table.matrix thead th { position: static; }
   .pl-how { grid-column: 1 / -1; }
   .segnav a { padding: 0 10px; }
   .techlist { columns: 1; }
+  table.cuts { min-width: 0; width: 100%; }
+  table.cuts th, table.cuts td { padding: 8px 6px; }
   .tprobs { padding-left: 24px; }
   .countdown { font-size: 12px; height: 26px; line-height: 26px; padding: 0 8px; }
   .cd-n { font-size: 14px; }

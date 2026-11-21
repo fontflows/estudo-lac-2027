@@ -1,0 +1,277 @@
+{
+  "generated_by": "pipeline/scripts/lac_cutoffs.py",
+  "editions": [
+    {
+      "contest": "lac2024",
+      "year": 2024,
+      "teams": 40,
+      "problems": 12,
+      "wf_slots_total": 18,
+      "categories": [
+        {
+          "id": "gold",
+          "name": "Ouro",
+          "teams": 4,
+          "min_solved": 8,
+          "max_solved": 8,
+          "tie_out": false,
+          "last_penalty": 992,
+          "first_out_penalty": null
+        },
+        {
+          "id": "silver",
+          "name": "Prata",
+          "teams": 4,
+          "min_solved": 6,
+          "max_solved": 6,
+          "tie_out": false,
+          "last_penalty": 914,
+          "first_out_penalty": null
+        },
+        {
+          "id": "bronze",
+          "name": "Bronze",
+          "teams": 4,
+          "min_solved": 5,
+          "max_solved": 5,
+          "tie_out": true,
+          "last_penalty": 499,
+          "first_out_penalty": 507
+        },
+        {
+          "id": "wf",
+          "name": "World Finals (por desempenho)",
+          "teams": 17,
+          "min_solved": 4,
+          "max_solved": 8,
+          "tie_out": true,
+          "last_penalty": 451,
+          "first_out_penalty": 478
+        }
+      ],
+      "excluded_quota": [
+        {
+          "team": "[ITCR-Alajuela] TEC - Silla",
+          "rank": 35,
+          "solved": 1,
+          "penalty": 14,
+          "reason": "vaga de campeão da região América Central"
+        }
+      ],
+      "rank_skipped": [
+        {
+          "team": "[UFMG] imprima a resposta módulo whatsapp",
+          "rank": 7,
+          "solved": 6,
+          "penalty": 668,
+          "reason": "instituição UFMG já classificada (rank 1)"
+        },
+        {
+          "team": "[UNICAMP] AESTHETIC",
+          "rank": 9,
+          "solved": 5,
+          "penalty": 359,
+          "reason": "instituição UNICAMP já classificada (rank 3)"
+        },
+        {
+          "team": "[UNR] Ñubel Carajo",
+          "rank": 16,
+          "solved": 5,
+          "penalty": 716,
+          "reason": "instituição UNR já classificada (rank 13)"
+        },
+        {
+          "team": "[USP] pato",
+          "rank": 17,
+          "solved": 5,
+          "penalty": 784,
+          "reason": "instituição USP já classificada (rank 4)"
+        },
+        {
+          "team": "[UG-CIMAT] La última y nos vamos",
+          "rank": 20,
+          "solved": 4,
+          "penalty": 324,
+          "reason": "instituição UG-CIMAT já classificada (rank 8)"
+        },
+        {
+          "team": "[UBA - FCEN] Está en el Corman",
+          "rank": 21,
+          "solved": 4,
+          "penalty": 404,
+          "reason": "instituição UBA - FCEN já classificada (rank 2)"
+        }
+      ],
+      "notes": "18 vagas para o Mundial: 6 campeões de região + 12 por desempenho geral, no máximo 1 time por instituição. Corte por desempenho = times classificados do 1º lugar até o primeiro time não classificado (exceto pulos por instituição): 17 times, dos quais 5 também foram campeões de região mas estavam dentro do corte. Primeiro de fora: [ITA] Qualquer coisa menos KFM (rank 24, 4 problemas, 478 min). 6 time(s) acima do corte pulado(s) por já ter outro time da mesma instituição classificado. Medalhas por posição: ouro 1–4, prata 5–8, bronze 9–12. Times oficiais = placar 'PdA' (convidados CCL fora)."
+    },
+    {
+      "contest": "lac2025",
+      "year": 2025,
+      "teams": 40,
+      "problems": 12,
+      "wf_slots_total": 18,
+      "categories": [
+        {
+          "id": "gold",
+          "name": "Ouro",
+          "teams": 4,
+          "min_solved": 7,
+          "max_solved": 9,
+          "tie_out": true,
+          "last_penalty": 807,
+          "first_out_penalty": 974
+        },
+        {
+          "id": "silver",
+          "name": "Prata",
+          "teams": 4,
+          "min_solved": 6,
+          "max_solved": 7,
+          "tie_out": true,
+          "last_penalty": 621,
+          "first_out_penalty": 894
+        },
+        {
+          "id": "bronze",
+          "name": "Bronze",
+          "teams": 4,
+          "min_solved": 5,
+          "max_solved": 6,
+          "tie_out": true,
+          "last_penalty": 952,
+          "first_out_penalty": 962
+        },
+        {
+          "id": "wf",
+          "name": "World Finals (por desempenho)",
+          "teams": 15,
+          "min_solved": 5,
+          "max_solved": 9,
+          "tie_out": false,
+          "last_penalty": 1231,
+          "first_out_penalty": null
+        }
+      ],
+      "excluded_quota": [
+        {
+          "team": "[ITCR-Alajuela] Todo Es mental",
+          "rank": 22,
+          "solved": 4,
+          "penalty": 637,
+          "reason": "vaga de campeão da região América Central"
+        },
+        {
+          "team": "[UH] The Chefs",
+          "rank": 25,
+          "solved": 3,
+          "penalty": 242,
+          "reason": "vaga de campeão da região Caribe"
+        },
+        {
+          "team": "[UNAL Bogotá] UN pasito tUN tUN",
+          "rank": 26,
+          "solved": 3,
+          "penalty": 254,
+          "reason": "vaga de campeão da região América do Sul Norte"
+        }
+      ],
+      "rank_skipped": [],
+      "notes": "18 vagas para o Mundial: 6 campeões de região + 12 por desempenho geral, no máximo 1 time por instituição. Corte por desempenho = times classificados do 1º lugar até o primeiro time não classificado (exceto pulos por instituição): 15 times, dos quais 3 também foram campeões de região mas estavam dentro do corte. Primeiro de fora: [FC-UNAM] Rocky IV (rank 16, 4 problemas, 267 min). 0 time(s) acima do corte pulado(s) por já ter outro time da mesma instituição classificado. Medalhas por posição: ouro 1–4, prata 5–8, bronze 9–12. Times oficiais = placar 'PdA' (convidados CCL fora)."
+    },
+    {
+      "contest": "lac2026",
+      "year": 2026,
+      "teams": 41,
+      "problems": 12,
+      "wf_slots_total": 18,
+      "categories": [
+        {
+          "id": "gold",
+          "name": "Ouro",
+          "teams": 4,
+          "min_solved": 7,
+          "max_solved": 8,
+          "tie_out": false,
+          "last_penalty": 1202,
+          "first_out_penalty": null
+        },
+        {
+          "id": "silver",
+          "name": "Prata",
+          "teams": 4,
+          "min_solved": 6,
+          "max_solved": 6,
+          "tie_out": true,
+          "last_penalty": 774,
+          "first_out_penalty": 909
+        },
+        {
+          "id": "bronze",
+          "name": "Bronze",
+          "teams": 4,
+          "min_solved": 6,
+          "max_solved": 6,
+          "tie_out": true,
+          "last_penalty": 962,
+          "first_out_penalty": 999
+        },
+        {
+          "id": "wf",
+          "name": "World Finals (por desempenho)",
+          "teams": 16,
+          "min_solved": 5,
+          "max_solved": 8,
+          "tie_out": true,
+          "last_penalty": 482,
+          "first_out_penalty": 525
+        }
+      ],
+      "excluded_quota": [
+        {
+          "team": "[UH] UH Pop",
+          "rank": 26,
+          "solved": 4,
+          "penalty": 297,
+          "reason": "vaga de campeão da região Caribe"
+        },
+        {
+          "team": "[ITCR-Alajuela] No name yet",
+          "rank": 35,
+          "solved": 4,
+          "penalty": 590,
+          "reason": "vaga de campeão da região América Central"
+        }
+      ],
+      "rank_skipped": [
+        {
+          "team": "[UnB] Los Tralalelitos dizem FLAMENGOOO",
+          "rank": 6,
+          "solved": 6,
+          "penalty": 631,
+          "reason": "instituição UnB já classificada (rank 5)"
+        },
+        {
+          "team": "[UBA] Corman",
+          "rank": 15,
+          "solved": 5,
+          "penalty": 430,
+          "reason": "instituição UBA já classificada (rank 8)"
+        },
+        {
+          "team": "[UNR] para la pda elegimos wf",
+          "rank": 18,
+          "solved": 5,
+          "penalty": 462,
+          "reason": "instituição UNR já classificada (rank 10)"
+        }
+      ],
+      "notes": "18 vagas para o Mundial: 6 campeões de região + 12 por desempenho geral, no máximo 1 time por instituição. Corte por desempenho = times classificados do 1º lugar até o primeiro time não classificado (exceto pulos por instituição): 16 times, dos quais 4 também foram campeões de região mas estavam dentro do corte. Primeiro de fora: [UFRJ] Meu nome é shadow. Sou aquele que deixou todo o seu passado para trás. Não faço esse contest por ninguém, não estou preso a nada (rank 20, 5 problemas, 525 min). 3 time(s) acima do corte pulado(s) por já ter outro time da mesma instituição classificado. Medalhas por posição: ouro 1–4, prata 5–8, bronze 9–12. Times oficiais = placar 'PdA' (convidados CCL fora)."
+    }
+  ],
+  "sources": [
+    "https://scorelatam.naquadah.com.br/pda24/",
+    "https://scorelatam.naquadah.com.br/pda25/",
+    "https://scorelatam.naquadah.com.br/pda26/",
+    "https://icpc.com.ar/wp-content/uploads/2024/11/icpc-latin-america-regionals-rules-2024-2025.pdf"
+  ]
+}

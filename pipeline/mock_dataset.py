@@ -482,6 +482,41 @@ def build_curriculum(problems, rnd):
     }
 
 
+
+def build_cutoffs(contests, rnd):
+    """Fictitious DATASET.lac_cutoffs for the LAC editions (same shape as pipeline/extra/lac_cutoffs.json)."""
+    eds = []
+    for c in contests:
+        if c["family"] != "lac":
+            continue
+        n = c["problem_count"]
+        top = rnd.randint(n - 3, n - 1)
+        gold = top - rnd.randint(1, 2)
+        silver = gold - rnd.randint(0, 1)
+        bronze = silver - rnd.randint(1, 2)
+        wf = bronze - rnd.randint(0, 2)
+        cats = [
+            {"id": "gold", "name": "Ouro", "teams": 4, "min_solved": gold, "max_solved": top, "tie_out": rnd.random() < .3},
+            {"id": "silver", "name": "Prata", "teams": 4, "min_solved": silver, "max_solved": gold, "tie_out": rnd.random() < .3},
+            {"id": "bronze", "name": "Bronze", "teams": 4, "min_solved": bronze, "max_solved": silver, "tie_out": rnd.random() < .3},
+            {"id": "wf", "name": "World Finals (por desempenho)", "teams": rnd.randint(10, 13), "min_solved": wf,
+             "max_solved": top, "tie_out": rnd.random() < .5},
+        ]
+        for x in cats:
+            x["last_penalty"] = rnd.randint(300, 1000)
+            x["first_out_penalty"] = x["last_penalty"] + rnd.randint(1, 60) if x["tie_out"] else None
+        eds.append({
+            "contest": c["id"], "year": c["year"], "teams": c["total_teams"], "problems": n, "categories": cats,
+            "wf_slots_total": 18,
+            "excluded_quota": [{"team": "[UFIC] Equipe Fictícia do Caribe", "rank": 31, "solved": max(0, wf - 4),
+                                "reason": "vaga de campeão da região Caribe"}] if rnd.random() < .7 else [],
+            "rank_skipped": [{"team": f"[UF{i}] Time fictício {i}", "rank": 6 + 3 * i, "solved": bronze - (i > 1),
+                              "reason": "instituição já classificada"} for i in range(rnd.randint(0, 3))],
+            "notes": "Dados fictícios (mock)." if rnd.random() < .5 else "",
+        })
+    return {"editions": eds, "sources": ["https://example.org/lac/scoreboards", "https://example.org/lac/medals"]}
+
+
 K = 40  # difficulty_k: top-K official teams (same as the real pipeline)
 
 
@@ -501,6 +536,7 @@ def difficulty(rate):
 def main():
     ap = argparse.ArgumentParser(description="Write a fictitious dataset in the final shape.")
     ap.add_argument("--curriculum", action="store_true", help="also emit a mock curriculum")
+    ap.add_argument("--cutoffs", action="store_true", help="also emit a mock lac_cutoffs")
     ap.add_argument("--out", default=OUT, help="output path (default: data/dataset.js)")
     args = ap.parse_args()
     out = os.path.abspath(args.out)
@@ -623,6 +659,8 @@ def main():
         kept = sum(1 for v in cur["problem_steps"].values() if v["keep"])
         print(f"MOCK curriculum: {len(cur['techniques'])} techniques, {len(cur['deepenings'])} deepenings, "
               f"{len(cur['insights'])} insights, {kept} kept problems")
+    if args.cutoffs:
+        dataset["lac_cutoffs"] = build_cutoffs(contests, random.Random(2029))
     os.makedirs(os.path.dirname(out), exist_ok=True)
     with open(out, "w", encoding="utf-8") as fh:
         fh.write("window.DATASET = ")
